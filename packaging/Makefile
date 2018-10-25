@@ -1,0 +1,87 @@
+DATE := $(shell date +%F-%H-%M)
+DAILYVER := $(shell date +%F | sed 's/-//g')
+
+#all: all-rpms 
+	# Create directory
+#	mkdir TestworkInstall_$(DATE)
+	# Copy stack RPMS
+#	cp packages/* TestworkInstall_$(DATE)
+	# Copy Third part RPMS
+#	cp ../oem/rpms/*rpm TestworkInstall_$(DATE)
+	# Copy kernels
+#	cp ../../kernel/*rpm TestworkInstall_$(DATE)/
+	
+	
+all-rpms:clean-rpms \
+	rpm-testworks
+
+daily:
+	rm -f *daily.spec
+	cat testworks-sniffer-gui.spec | sed "s/^Release:.*/Release: $(DAILYVER)/" > testworks-sniffer-guidaily.spec
+	cat testworks-atm.spec | sed "s/^Release:.*/Release: $(DAILYVER)/" > testworks-atmdaily.spec
+	cat testworks-tdm.spec | sed "s/^Release:.*/Release: $(DAILYVER)/" > testworks-tdmdaily.spec
+	cat testworks.spec | sed "s/^Release:.*/Release: $(DAILYVER)/" > testworksdaily.spec
+	make DAILY=daily
+	rm -f *daily.spec		
+			
+clean: clean-rpms
+	rm -f *daily.spec
+
+wireshark:
+	cd ~/TestWorks/wireshark/ &&\
+	./build_rpm.sh &&\
+	cd ~/TestWorks/TestworkR20/packaging/
+
+update:
+	cd ~/TestWorks/ &&\
+	svn up ./
+
+clean-rpms:
+	rm -f  packages/*rpm
+	rm -Rf packages/repodata
+	rm -f  packages/*jar
+
+copy-third-part-rpms:
+	cp ../oem/rpms/*rpm packages/
+	cp ../oem/rpms/*img packages/
+	cp ../oem/rpms/*txt packages/
+	cp ../../wireshark/wireshark-1.6.8-*.x86_64.rpm packages/
+	#cp ../../kernel/*rpm packages/
+
+create-repo:
+	createrepo packages
+
+rpm-testworks-sniffer-gui: 
+	./createpkg.sh testworks-sniffer-gui$(DAILY).spec ../tools/sniffer/gui/testworks-sniffer ../tools/sniffer/gui/testworks-sniffer.desktop ../tools/sniffer/gui/GuiSniffer/dist/GuiSniffer.jar
+	
+rpm-testworks: 
+	./build-gui.sh	$(DAILY) \
+
+rpm-testworks-atm: 
+	./createpkg.sh testworks-atm$(DAILY).spec \
+	../binaries/SbUpSssarAal2.bin \
+	../binaries/SbL2rRlpUpAal2.bin \
+	../binaries/SbMtp3SaalAal5.bin \
+	../binaries/SbH3g324MUpSssarAal2.bin \
+	../binaries/SbH3g324MSssarAal2.bin \
+	../binaries/libccpu.so \
+	../binaries/libadax.so \
+	../binaries/turnledon.bin \
+	../tools/sniffer/atmDaemon/atm.bin \
+	../tools/sniffer/atmDaemon/testworks-atm-sniffer
+
+rpm-testworks-tdm: 
+	./createpkg.sh testworks-tdm$(DAILY).spec \
+	../binaries/SbTdm.bin \
+	../binaries/SbLapdTdm.bin \
+	../binaries/SbMtp2Tdm.bin \
+	../binaries/SbMtp3Mtp2Tdm.bin \
+	../binaries/SbSccpMtp3Mtp2Tdm.bin \
+	../binaries/SbL2rRlpTdm.bin \
+	../binaries/SbTfoTdm.bin \
+	../binaries/SbAterTdm.bin \
+	../binaries/SbT30Tdm.bin \
+	../binaries/AterSuccubus.bin \
+        ../oem/PerformanceTecnologies/testworks-lib-tdm \
+	../tools/sniffer/tdmDaemon/tdm.bin \
+	../tools/sniffer/tdmDaemon/testworks-tdm-sniffer \
