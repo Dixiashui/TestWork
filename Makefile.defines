@@ -1,0 +1,21 @@
+export MAKE=make
+export CPP = g++
+export CC = gcc
+export CPPFLAGS = -g -Wall -I. $(TESTWORKDEBUGFLAG)
+#export TESTWORKDEBUGFLAG = -Wpadded -Wsign-compare -Wconversion -Wpointer-arith
+#export CPPFLAGS_OPTIMIZED = -g -O2 -Wall -I.
+export CPPFLAGS_OPTIMIZED = -g -O0 -Wall -I.
+export CPPUNITLIBS = -l cppunit -l dl
+export TWR20 = ~/DemoPrj
+export INCLUDE_BIN = -L $(TWR20)/binaries
+export INCLUDE_COMMON = -I $(TWR20)/common/
+export LIB_SCTP = $(TWR20)/emuProtocolLayers/Sctp/Sctp.a
+export LIB_SCTP_DIR = $(TWR20)/emuProtocolLayers/Sctp
+export LIB_COMMON = $(TWR20)/common/common.a
+export INCLUDE_PATH += -I $(TWR20)
+export OBJ_LOG = $(TWR20)/common/TwLog.o
+export OBJ_LOGDBUG = $(TWR20)/common/TwLogDebug.o
+ifneq ($(filter-out docs,$(MAKECMDGOALS)),$(MAKECMDGOALS))
+docs:
+	$(TWR20)/generateDocs.sh -d $(TWR20)/DoxySFile.tpl -t $(TWR20) -i "$(EXTRA_INPUT)" -o $(OUTPUT_DIR) 
+endif
