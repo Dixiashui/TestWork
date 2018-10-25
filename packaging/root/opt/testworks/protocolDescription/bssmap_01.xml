@@ -1,0 +1,2987 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<protocolDescription xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../protocolDescription.xsd" type="Bssmap">
+    <className>pegasus.ptp.protocolDescription.bssmap.util.BssmapProtocolDescription</className>
+    <protocolMessages>
+<!--BSSMAP messages start-->
+        <protocolMessage type="01" name="bssmap-assignment request">
+            <header>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="BSS Management" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                        <defaultValue>00</defaultValue>
+                    </hexString>
+                    <hexString name="MessageLength" minLength="2" maxLength="2" messageLength="true"/>
+                </protocolObjectSequence>
+            </header>
+            <messageInformationElements>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="Message Type" minLength = "2" maxLength="2">
+                        <defaultValue>01</defaultValue>
+                    </hexString>
+                    <informationElementRef name="Channel Type" mandatory="true" hideFlag="true">
+                        <ref>Channel Type</ref>
+                    </informationElementRef>
+                    <informationElementRef name="Layer 3 Header Information" hideFlag="true">
+                        <ref>Layer 3 Header Information</ref>
+                    </informationElementRef>
+                    <informationElementRef name="Circuit Identity Code" mandatory="true" hideFlag="true">
+                        <ref>Circuit Identity Code</ref>
+                    </informationElementRef>
+                </protocolObjectSequence>
+            </messageInformationElements>
+        </protocolMessage>
+        <protocolMessage type="02" name="bssmap-assignment complete">
+            <header>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="BSS Management" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                        <defaultValue>00</defaultValue>
+                    </hexString>
+                    <hexString name="MessageLength" minLength="2" maxLength="2" messageLength="true"/>
+                </protocolObjectSequence>
+            </header>
+            <messageInformationElements>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="Message Type" minLength = "2" maxLength="2">
+                        <defaultValue>02</defaultValue>
+                    </hexString>
+                    <informationElementRef name="RR Cause" mandatory="true" hideFlag="true">
+                        <ref>RR Cause</ref>
+                    </informationElementRef>
+                </protocolObjectSequence>
+            </messageInformationElements>
+        </protocolMessage>
+        <protocolMessage type="10" name="bssmap-handover request">
+            <header>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="BSS Management" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                        <defaultValue>00</defaultValue>
+                    </hexString>
+                    <hexString name="MessageLength" minLength="2" maxLength="2" messageLength="true"/>
+                </protocolObjectSequence>
+            </header>
+            <messageInformationElements>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="Message Type" minLength = "2" maxLength="2">
+                        <defaultValue>10</defaultValue>
+                    </hexString>
+                    <informationElementRef name="Channel Type" mandatory="true" hideFlag="true">
+                        <ref>Channel Type</ref>
+                    </informationElementRef>
+                    <informationElementRef name="Encryption Information" mandatory="true" hideFlag="true">
+                        <ref>Encryption Information</ref>
+                    </informationElementRef>
+                    <informationElementRef name="Classmark Information Type 2" mandatory="true" hideFlag="true">
+                        <ref>Classmark Information Type 2</ref>
+                    </informationElementRef>
+                    <informationElementRef name="Cell Identifier(Serving)" mandatory="true" hideFlag="true">
+                        <ref>Cell Identifier</ref>
+                    </informationElementRef>
+                    <informationElementRef name="Circuit Identity Code" mandatory="false" hideFlag="true">
+                        <ref>Circuit Identity Code</ref>
+                    </informationElementRef>
+                    <informationElementRef name="Cell Identifier(Target)" mandatory="true" hideFlag="true">
+                        <ref>Cell Identifier</ref>
+                    </informationElementRef>
+                    <informationElementRef name="Cause" mandatory="false" hideFlag="true">
+                        <ref>Cause</ref>
+                    </informationElementRef>
+                    <informationElementRef name="Classmark Information type 3" mandatory="false" hideFlag="true">
+                        <ref>Classmark Information type 3</ref>
+                    </informationElementRef>
+                    <informationElementRef name="Current Channel Type 1" mandatory="false" hideFlag="true">
+                        <ref>Current Channel Type 1</ref>
+                    </informationElementRef>
+                    <informationElementRef name="Speech Version(Used)" mandatory="false" hideFlag="true">
+                        <ref>Speech Version</ref>
+                    </informationElementRef>
+                </protocolObjectSequence>
+            </messageInformationElements>
+        </protocolMessage>
+        <protocolMessage type="20" name="bssmap-clear command">
+            <header>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="BSS Management" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                        <defaultValue>00</defaultValue>
+                    </hexString>
+                    <hexString name="MessageLength" minLength="2" maxLength="2" messageLength="true"/>
+                </protocolObjectSequence>
+            </header>
+            <messageInformationElements>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="Message Type" minLength = "2" maxLength="2">
+                        <defaultValue>20</defaultValue>
+                    </hexString>
+                    <informationElementRef name="Layer 3 Header Information" hideFlag="true">
+                        <ref>Layer 3 Header Information</ref>
+                    </informationElementRef>
+                    <informationElementRef name="Cause" mandatory="true" hideFlag="true">
+                        <ref>Cause</ref>
+                    </informationElementRef>
+                </protocolObjectSequence>
+            </messageInformationElements>
+        </protocolMessage>
+        <protocolMessage type="21" name="bssmap-clear complete">
+            <header>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="BSS Management" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                        <defaultValue>00</defaultValue>
+                    </hexString>
+                    <hexString name="MessageLength" minLength="2" maxLength="2" messageLength="true"/>
+                </protocolObjectSequence>
+            </header>
+            <messageInformationElements>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="Message Type" minLength = "2" maxLength="2">
+                        <defaultValue>21</defaultValue>
+                    </hexString>
+                </protocolObjectSequence>
+            </messageInformationElements>
+        </protocolMessage>
+        <protocolMessage type="26" name="bssmap-confusion">
+            <header>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="BSS Management" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                        <defaultValue>00</defaultValue>
+                    </hexString>
+                    <hexString name="MessageLength" minLength="2" maxLength="2" messageLength="true"/>
+                </protocolObjectSequence>
+            </header>
+            <messageInformationElements>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="Message Type" minLength = "2" maxLength="2">
+                        <defaultValue>26</defaultValue>
+                    </hexString>
+                    <informationElementRef name="Cause" mandatory="true" hideFlag="true">
+                        <ref>Cause</ref>
+                    </informationElementRef>
+                    <informationElementRef name="Diagnostics" hideFlag="true">
+                        <ref>Diagnostics</ref>
+                    </informationElementRef>
+                </protocolObjectSequence>
+            </messageInformationElements>
+        </protocolMessage>
+        <protocolMessage type="30" name="bssmap-reset">
+            <header>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="BSS Management" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                        <defaultValue>00</defaultValue>
+                    </hexString>
+                    <hexString name="MessageLength" minLength="2" maxLength="2" messageLength="true"/>
+                </protocolObjectSequence>
+            </header>
+            <messageInformationElements>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="Message Type" minLength = "2" maxLength="2">
+                        <defaultValue>30</defaultValue>
+                    </hexString>
+                    <informationElementRef name="Cause" mandatory="true" hideFlag="true">
+                        <ref>Cause</ref>
+                    </informationElementRef>
+                    <informationElementRef name="A-Interface Selector for RESET" mandatory="false" hideFlag="true">
+                        <ref>A-Interface Selector for RESET</ref>
+                    </informationElementRef>					
+                    <informationElementRef name="Forwarded Message" mandatory="false" hideFlag="true">
+                        <ref>Forwarded Message</ref>
+                    </informationElementRef>
+                    <informationElementRef name="CN Address" mandatory="false" hideFlag="true">
+                        <ref>CN Address</ref>
+                    </informationElementRef>
+                </protocolObjectSequence>
+            </messageInformationElements>
+        </protocolMessage>
+        <protocolMessage type="31" name="bssmap-reset acknowledge">
+            <header>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="BSS Management" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                        <defaultValue>00</defaultValue>
+                    </hexString>
+                    <hexString name="MessageLength" minLength="2" maxLength="2" messageLength="true"/>
+                </protocolObjectSequence>
+            </header>
+            <messageInformationElements>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="Message Type" minLength = "2" maxLength="2">
+                        <defaultValue>31</defaultValue>
+                    </hexString>
+                    <informationElementRef name="A-Interface Selector for RESET" mandatory="false" hideFlag="true">
+                        <ref>A-Interface Selector for RESET</ref>
+                    </informationElementRef>						
+                </protocolObjectSequence>
+            </messageInformationElements>
+        </protocolMessage>
+        <protocolMessage type="32" name="bssmap-overload">
+            <header>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="BSS Management" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                        <defaultValue>00</defaultValue>
+                    </hexString>
+                    <hexString name="MessageLength" minLength="2" maxLength="2" messageLength="true"/>
+                </protocolObjectSequence>
+            </header>
+            <messageInformationElements>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="Message Type" minLength = "2" maxLength="2">
+                        <defaultValue>32</defaultValue>
+                    </hexString>
+                    <informationElementRef name="Cause" mandatory="true" hideFlag="true">
+                        <ref>Cause</ref>
+                    </informationElementRef>
+                    <informationElementRef name="Cell Identifier" hideFlag="true" mandatory="false">
+                        <ref>Cell Identifier</ref>
+                    </informationElementRef>
+                </protocolObjectSequence>
+            </messageInformationElements>
+        </protocolMessage>
+        <protocolMessage type="34" name="bssmap-reset circuit">
+            <header>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="BSS Management" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                        <defaultValue>00</defaultValue>
+                    </hexString>
+                    <hexString name="MessageLength" minLength="2" maxLength="2" messageLength="true"/>
+                </protocolObjectSequence>
+            </header>
+            <messageInformationElements>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="Message Type" minLength = "2" maxLength="2">
+                        <defaultValue>34</defaultValue>
+                    </hexString>
+                    <informationElementRef name="Circuit Identity Code" mandatory="true" hideFlag="true">
+                        <ref>Circuit Identity Code</ref>
+                    </informationElementRef>
+                    <informationElementRef name="Cause" mandatory="true" hideFlag="true">
+                        <ref>Cause</ref>
+                    </informationElementRef>
+                    <informationElementRef name="Forwarded Message" mandatory="false" hideFlag="true">
+                        <ref>Forwarded Message</ref>
+                    </informationElementRef>
+                    <informationElementRef name="RAN SPC" mandatory="false" hideFlag="true">
+                        <ref>RAN SPC</ref>
+                    </informationElementRef>
+                    <informationElementRef name="MGW SPC list" mandatory="false" hideFlag="true">
+                        <ref>MGW SPC list</ref>
+                    </informationElementRef>
+                </protocolObjectSequence>
+            </messageInformationElements>
+        </protocolMessage>
+        <protocolMessage type="35" name="bssmap-reset circuit acknowledge">
+            <header>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="BSS Management" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                        <defaultValue>00</defaultValue>
+                    </hexString>
+                    <hexString name="MessageLength" minLength="2" maxLength="2" messageLength="true"/>
+                </protocolObjectSequence>
+            </header>
+            <messageInformationElements>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="Message Type" minLength = "2" maxLength="2">
+                        <defaultValue>35</defaultValue>
+                    </hexString>
+                    <informationElementRef name="Circuit Identity Code" mandatory="true" hideFlag="true">
+                        <ref>Circuit Identity Code</ref>
+                    </informationElementRef>
+                    <informationElementRef name="Forwarded Message" mandatory="false" hideFlag="true">
+                        <ref>Forwarded Message</ref>
+                    </informationElementRef>
+                    <informationElementRef name="RAN SPC" mandatory="false" hideFlag="true">
+                        <ref>RAN SPC</ref>
+                    </informationElementRef>
+                    <informationElementRef name="MGW SPC list" mandatory="false" hideFlag="true">
+                        <ref>MGW SPC list</ref>
+                    </informationElementRef>
+                </protocolObjectSequence>
+            </messageInformationElements>
+        </protocolMessage>
+        <protocolMessage type="3a" name="bssmap-connectionless information">
+            <header>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="BSS Management" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                        <defaultValue>00</defaultValue>
+                    </hexString>
+                    <hexString name="MessageLength" minLength="2" maxLength="2" messageLength="true"/>
+                </protocolObjectSequence>
+            </header>
+            <messageInformationElements>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="Message Type" minLength = "2" maxLength="2">
+                        <defaultValue>3a</defaultValue>
+                    </hexString>
+                    <informationElementRef name="Network Element Identity Source" mandatory="true">
+                        <ref>Network Element Identity</ref>
+                    </informationElementRef>
+                    <informationElementRef name="Network Element Identity Target" mandatory="true">
+                        <ref>Network Element Identity</ref>
+                    </informationElementRef>
+                    <informationElementRef name="APDU" hideFlag="true" mandatory="true">
+                        <ref>APDU</ref>
+                    </informationElementRef>
+                    <informationElementRef name="Segmentation" mandatory="false">
+                        <ref>Segmentation</ref>
+                    </informationElementRef>
+                    <informationElementRef name="Return Error Request" mandatory="false">
+                        <ref>Return Error Request</ref>
+                    </informationElementRef>
+                    <informationElementRef name="Return Error Cause" mandatory="false">
+                        <ref>Return Error Cause</ref>
+                    </informationElementRef>
+                </protocolObjectSequence>
+            </messageInformationElements>
+        </protocolMessage>
+        <protocolMessage type="3d" name="bssmap-reset ip resource">
+            <header>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="BSS Management" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                        <defaultValue>00</defaultValue>
+                    </hexString>
+                    <hexString name="MessageLength" minLength="2" maxLength="2" messageLength="true"/>
+                </protocolObjectSequence>
+            </header>
+            <messageInformationElements>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="Message Type" minLength = "2" maxLength="2">
+                        <defaultValue>3d</defaultValue>
+                    </hexString>
+                    <informationElementRef name="Cause" mandatory="true" hideFlag="true">
+                        <ref>Cause</ref>
+                    </informationElementRef>
+                    <informationElementRef name="Call Identifier List" mandatory="true" hideFlag="true">
+                        <ref>Call Identifier List</ref>
+                    </informationElementRef>
+                </protocolObjectSequence>
+            </messageInformationElements>
+        </protocolMessage>
+        <protocolMessage type="3e" name="bssmap-reset ip resource ack">
+            <header>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="BSS Management" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                        <defaultValue>00</defaultValue>
+                    </hexString>
+                    <hexString name="MessageLength" minLength="2" maxLength="2" messageLength="true"/>
+                </protocolObjectSequence>
+            </header>
+            <messageInformationElements>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="Message Type" minLength = "2" maxLength="2">
+                        <defaultValue>3e</defaultValue>
+                    </hexString>
+                    <informationElementRef name="Call Identifier List" mandatory="true" hideFlag="true">
+                        <ref>Call Identifier List</ref>
+                    </informationElementRef>
+                </protocolObjectSequence>
+            </messageInformationElements>
+        </protocolMessage>
+        <protocolMessage type="40" name="bssmap-block">
+            <header>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="BSS Management" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                        <defaultValue>00</defaultValue>
+                    </hexString>
+                    <hexString name="MessageLength" minLength="2" maxLength="2" messageLength="true"/>
+                </protocolObjectSequence>
+            </header>
+            <messageInformationElements>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="Message Type" minLength = "2" maxLength="2">
+                        <defaultValue>40</defaultValue>
+                    </hexString>
+                    <informationElementRef name="Circuit Identity Code" mandatory="true" hideFlag="true">
+                        <ref>Circuit Identity Code</ref>
+                    </informationElementRef>
+                    <informationElementRef name="Cause" mandatory="true" hideFlag="true">
+                        <ref>Cause</ref>
+                    </informationElementRef>
+                    <informationElementRef name="Connection Release Requested" mandatory="false" hideFlag="true">
+                        <ref>Connection Release Requested</ref>
+                    </informationElementRef>
+                    <informationElementRef name="Forwarded Message" mandatory="false" hideFlag="true">
+                        <ref>Forwarded Message</ref>
+                    </informationElementRef>
+                    <informationElementRef name="RAN SPC" mandatory="false" hideFlag="true">
+                        <ref>RAN SPC</ref>
+                    </informationElementRef>
+                    <informationElementRef name="MGW SPC list" mandatory="false" hideFlag="true">
+                        <ref>MGW SPC list</ref>
+                    </informationElementRef>
+                </protocolObjectSequence>
+            </messageInformationElements>
+        </protocolMessage>
+        <protocolMessage type="41" name="bssmap-blocking acknowledge">
+            <header>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="BSS Management" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                        <defaultValue>00</defaultValue>
+                    </hexString>
+                    <hexString name="MessageLength" minLength="2" maxLength="2" messageLength="true"/>
+                </protocolObjectSequence>
+            </header>
+            <messageInformationElements>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="Message Type" minLength = "2" maxLength="2">
+                        <defaultValue>41</defaultValue>
+                    </hexString>
+                    <informationElementRef name="Circuit Identity Code" mandatory="true" hideFlag="true">
+                        <ref>Circuit Identity Code</ref>
+                    </informationElementRef>
+                </protocolObjectSequence>
+            </messageInformationElements>
+        </protocolMessage>
+        <protocolMessage type="42" name="bssmap-unblock">
+            <header>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="BSS Management" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                        <defaultValue>00</defaultValue>
+                    </hexString>
+                    <hexString name="MessageLength" minLength="2" maxLength="2" messageLength="true"/>
+                </protocolObjectSequence>
+            </header>
+            <messageInformationElements>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="Message Type" minLength = "2" maxLength="2">
+                        <defaultValue>42</defaultValue>
+                    </hexString>
+                    <informationElementRef name="Circuit Identity Code" mandatory="true" hideFlag="true">
+                        <ref>Circuit Identity Code</ref>
+                    </informationElementRef>
+                    <informationElementRef name="Forwarded Message" mandatory="false" hideFlag="true">
+                        <ref>Forwarded Message</ref>
+                    </informationElementRef>
+                    <informationElementRef name="RAN SPC" mandatory="false" hideFlag="true">
+                        <ref>RAN SPC</ref>
+                    </informationElementRef>
+                    <informationElementRef name="MGW SPC list" mandatory="false" hideFlag="true">
+                        <ref>MGW SPC list</ref>
+                    </informationElementRef>
+                </protocolObjectSequence>
+            </messageInformationElements>
+        </protocolMessage>
+        <protocolMessage type="43" name="bssmap-unblock ack">
+            <header>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="BSS Management" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                        <defaultValue>00</defaultValue>
+                    </hexString>
+                    <hexString name="MessageLength" minLength="2" maxLength="2" messageLength="true"/>
+                </protocolObjectSequence>
+            </header>
+            <messageInformationElements>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="Message Type" minLength = "2" maxLength="2">
+                        <defaultValue>43</defaultValue>
+                    </hexString>
+                    <informationElementRef name="Circuit Identity Code" hideFlag="true">
+                        <ref>Circuit Identity Code</ref>
+                    </informationElementRef>
+                </protocolObjectSequence>
+            </messageInformationElements>
+        </protocolMessage>
+        <protocolMessage type="44" name="bssmap-circuit group block">
+            <header>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="BSS Management" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                        <defaultValue>00</defaultValue>
+                    </hexString>
+                    <hexString name="MessageLength" minLength="2" maxLength="2" messageLength="true"/>
+                </protocolObjectSequence>
+            </header>
+            <messageInformationElements>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="Message Type" minLength = "2" maxLength="2">
+                        <defaultValue>44</defaultValue>
+                    </hexString>
+                    <informationElementRef name="Cause" mandatory="true" hideFlag="true">
+                        <ref>Cause</ref>
+                    </informationElementRef>
+                    <informationElementRef name="Circuit Identity Code" hideFlag="true">
+                        <ref>Circuit Identity Code</ref>
+                    </informationElementRef>
+                    <informationElementRef name="Circuit Identity Code List" mandatory="false" hideFlag="true">
+                        <ref>Circuit Identity Code List</ref>
+                    </informationElementRef>
+                    <informationElementRef name="Forwarded Message" mandatory="false" hideFlag="true">
+                        <ref>Forwarded Message</ref>
+                    </informationElementRef>
+                    <informationElementRef name="RAN SPC" mandatory="false" hideFlag="true">
+                        <ref>RAN SPC</ref>
+                    </informationElementRef>
+                    <informationElementRef name="MGW SPC list" mandatory="false" hideFlag="true">
+                        <ref>MGW SPC list</ref>
+                    </informationElementRef>
+                </protocolObjectSequence>
+            </messageInformationElements>
+        </protocolMessage>
+        <protocolMessage type="45" name="bssmap-circuit group block ack">
+            <header>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="BSS Management" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                        <defaultValue>00</defaultValue>
+                    </hexString>
+                    <hexString name="MessageLength" minLength="2" maxLength="2" messageLength="true"/>
+                </protocolObjectSequence>
+            </header>
+            <messageInformationElements>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="Message Type" minLength = "2" maxLength="2">
+                        <defaultValue>45</defaultValue>
+                    </hexString>
+                    <informationElementRef name="Circuit Identity Code" hideFlag="true">
+                        <ref>Circuit Identity Code</ref>
+                    </informationElementRef>
+                    <informationElementRef name="Circuit Identity Code List" mandatory="false" hideFlag="true">
+                        <ref>Circuit Identity Code List</ref>
+                    </informationElementRef>
+                </protocolObjectSequence>
+            </messageInformationElements>
+        </protocolMessage>
+        <protocolMessage type="46" name="bssmap-circuit group unblock">
+            <header>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="BSS Management" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                        <defaultValue>00</defaultValue>
+                    </hexString>
+                    <hexString name="MessageLength" minLength="2" maxLength="2" messageLength="true"/>
+                </protocolObjectSequence>
+            </header>
+            <messageInformationElements>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="Message Type" minLength = "2" maxLength="2">
+                        <defaultValue>46</defaultValue>
+                    </hexString>
+                    <informationElementRef name="Circuit Identity Code" hideFlag="true">
+                        <ref>Circuit Identity Code</ref>
+                    </informationElementRef>
+                    <informationElementRef name="Circuit Identity Code List" mandatory="false" hideFlag="true">
+                        <ref>Circuit Identity Code List</ref>
+                    </informationElementRef>
+                    <informationElementRef name="Forwarded Message" mandatory="false" hideFlag="true">
+                        <ref>Forwarded Message</ref>
+                    </informationElementRef>
+                    <informationElementRef name="RAN SPC" mandatory="false" hideFlag="true">
+                        <ref>RAN SPC</ref>
+                    </informationElementRef>
+                    <informationElementRef name="MGW SPC list" mandatory="false" hideFlag="true">
+                        <ref>MGW SPC list</ref>
+                    </informationElementRef>
+                </protocolObjectSequence>
+            </messageInformationElements>
+        </protocolMessage>
+        <protocolMessage type="47" name="bssmap-circuit group unblock ack">
+            <header>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="BSS Management" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                        <defaultValue>00</defaultValue>
+                    </hexString>
+                    <hexString name="MessageLength" minLength="2" maxLength="2" messageLength="true"/>
+                </protocolObjectSequence>
+            </header>
+            <messageInformationElements>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="Message Type" minLength = "2" maxLength="2">
+                        <defaultValue>47</defaultValue>
+                    </hexString>
+                    <informationElementRef name="Circuit Identity Code" hideFlag="true">
+                        <ref>Circuit Identity Code</ref>
+                    </informationElementRef>
+                    <informationElementRef name="Circuit Identity Code List" mandatory="false" hideFlag="true">
+                        <ref>Circuit Identity Code List</ref>
+                    </informationElementRef>
+                </protocolObjectSequence>
+            </messageInformationElements>
+        </protocolMessage>
+        <protocolMessage type="48" name="bssmap-unequipped circuit">
+            <header>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="BSS Management" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                        <defaultValue>00</defaultValue>
+                    </hexString>
+                    <hexString name="MessageLength" minLength="2" maxLength="2" messageLength="true"/>
+                </protocolObjectSequence>
+            </header>
+            <messageInformationElements>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="Message Type" minLength = "2" maxLength="2">
+                        <defaultValue>48</defaultValue>
+                    </hexString>
+                    <informationElementRef name="Circuit Identity Code" hideFlag="true">
+                        <ref>Circuit Identity Code</ref>
+                    </informationElementRef>
+                    <informationElementRef name="Circuit Identity Code List" mandatory="false" hideFlag="true">
+                        <ref>Circuit Identity Code List</ref>
+                    </informationElementRef>
+                    <informationElementRef name="Forwarded Message" mandatory="false" hideFlag="true">
+                        <ref>Forwarded Message</ref>
+                    </informationElementRef>
+                    <informationElementRef name="RAN SPC" mandatory="false" hideFlag="true">
+                        <ref>RAN SPC</ref>
+                    </informationElementRef>
+                    <informationElementRef name="MGW SPC list" mandatory="false" hideFlag="true">
+                        <ref>MGW SPC list</ref>
+                    </informationElementRef>
+                </protocolObjectSequence>
+            </messageInformationElements>
+        </protocolMessage>
+        <protocolMessage type="52" name="bssmap-paging">
+            <header>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="BSS Management" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                        <defaultValue>00</defaultValue>
+                    </hexString>
+                    <hexString name="MessageLength" minLength="2" maxLength="2" messageLength="true"/>
+                </protocolObjectSequence>
+            </header>
+            <messageInformationElements>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="Message Type" minLength = "2" maxLength="2">
+                        <defaultValue>52</defaultValue>
+                    </hexString>
+                    <informationElementRef name="IMSI" mandatory="true" hideFlag="true">
+                        <ref>IMSI</ref>
+                    </informationElementRef>
+                    <informationElementRef name="TMSI" hideFlag="true" mandatory="false" >
+                        <ref>TMSI</ref>
+                    </informationElementRef>
+                    <informationElementRef name="Cell Identifier List" hideFlag="true" mandatory="true">
+                        <ref>Cell Identifier List</ref>
+                    </informationElementRef>
+                    <informationElementRef name="Channel Needed" hideFlag="true" mandatory="false">
+                        <ref>Channel Needed</ref>
+                    </informationElementRef>
+                    <informationElementRef name="eMLPP Priority" hideFlag="true" mandatory="false">
+                        <ref>eMLPP Priority</ref>
+                    </informationElementRef>
+                    <informationElementRef name="Forwarded Message" mandatory="false" hideFlag="true">
+                        <ref>Forwarded Message</ref>
+                    </informationElementRef>
+                    <informationElementRef name="CN Address" mandatory="false" hideFlag="true">
+                        <ref>CN Address</ref>
+                    </informationElementRef>
+                </protocolObjectSequence>
+            </messageInformationElements>
+        </protocolMessage>
+        <protocolMessage type="57" name="bssmap-complete layer 3 info">
+            <header>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="BSS Management" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                        <defaultValue>00</defaultValue>
+                    </hexString>
+                    <hexString name="MessageLength" minLength="2" maxLength="2" messageLength="true"/>
+                </protocolObjectSequence>
+            </header>
+            <messageInformationElements>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="Message Type" minLength = "2" maxLength="2">
+                        <defaultValue>57</defaultValue>
+                    </hexString>
+                    <informationElementRef name="Cell Identifier" hideFlag="true" mandatory="true">
+                        <ref>Cell Identifier</ref>
+                    </informationElementRef>
+                    <informationElementRef name="Layer 3 Information" hideFlag="true" mandatory="true">
+                        <ref>Layer 3 Information</ref>
+                    </informationElementRef>
+                    <informationElementRef name="Chosen Channel" hideFlag="true" mandatory="false">
+                        <ref>Chosen Channel</ref>
+                    </informationElementRef>
+                    <informationElementRef name="LSA Identifier List" hideFlag="true" mandatory="false">
+                        <ref>LSA Identifier List</ref>
+                    </informationElementRef>
+                    <informationElementRef name="APDU" hideFlag="true" mandatory="false">
+                        <ref>APDU</ref>
+                    </informationElementRef>
+                    <informationElementRef name="Codec List(BSS Supported)" hideFlag="true" mandatory="false">
+                        <ref>Speech Codec List</ref>
+                    </informationElementRef>
+                    <informationElementRef name="Forwarded Message" hideFlag="true" mandatory="false">
+                        <ref>Forwarded Message</ref>
+                    </informationElementRef>
+                    <informationElementRef name="CN Address" hideFlag="true" mandatory="false">
+                        <ref>CN Address</ref>
+                    </informationElementRef>
+                </protocolObjectSequence>
+            </messageInformationElements>
+        </protocolMessage>
+        <protocolMessage type="5a" name="bssmap-load indication">
+            <header>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="BSS Management" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                        <defaultValue>00</defaultValue>
+                    </hexString>
+                    <hexString name="MessageLength" minLength="2" maxLength="2" messageLength="true"/>
+                </protocolObjectSequence>
+            </header>
+            <messageInformationElements>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="Message Type" minLength = "2" maxLength="2">
+                        <defaultValue>5a</defaultValue>
+                    </hexString>
+                    <informationElementRef name="Time Indication" mandatory="true" hideFlag="true">
+                        <ref>Time Indication</ref>
+                    </informationElementRef>
+                    <informationElementRef name="Cell Identifier" hideFlag="true" mandatory="true" >
+                        <ref>Cell Identifier</ref>
+                    </informationElementRef>
+                    <informationElementRef name="Cell Identifier List(Target)" hideFlag="true" mandatory="true">
+                        <ref>Cell Identifier List</ref>
+                    </informationElementRef>
+                    <informationElementRef name="Resource Situation" hideFlag="true" mandatory="false">
+                        <ref>Resource Situation</ref>
+                    </informationElementRef>
+                    <informationElementRef name="Cause" hideFlag="true" mandatory="false">
+                        <ref>Cause</ref>
+                    </informationElementRef>
+                </protocolObjectSequence>
+            </messageInformationElements>
+        </protocolMessage>
+        <protocolMessage type="62" name="bssmap-notification data">
+            <header>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="BSS Management" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                        <defaultValue>00</defaultValue>
+                    </hexString>
+                    <hexString name="MessageLength" minLength="2" maxLength="2" messageLength="true"/>
+                </protocolObjectSequence>
+            </header>
+            <messageInformationElements>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="Message Type" minLength = "2" maxLength="2">
+                        <defaultValue>62</defaultValue>
+                    </hexString>
+                    <informationElementRef name="IMSI" mandatory="true" hideFlag="true">
+                        <ref>IMSI</ref>
+                    </informationElementRef>
+                    <informationElementRef name="TMSI" hideFlag="true" mandatory="false" >
+                        <ref>TMSI</ref>
+                    </informationElementRef>
+                    <informationElementRef name="Cell Identifier List" hideFlag="true" mandatory="true">
+                        <ref>Cell Identifier List</ref>
+                    </informationElementRef>
+                    <informationElementRef name="Channel Needed" hideFlag="true" mandatory="false">
+                        <ref>Channel Needed</ref>
+                    </informationElementRef>
+                    <informationElementRef name="eMLPP Priority" hideFlag="true" mandatory="false">
+                        <ref>eMLPP Priority</ref>
+                    </informationElementRef>
+                    <informationElementRef name="Forwarded Message" mandatory="false" hideFlag="true">
+                        <ref>Forwarded Message</ref>
+                    </informationElementRef>
+                    <informationElementRef name="CN Address" mandatory="false" hideFlag="true">
+                        <ref>CN Address</ref>
+                    </informationElementRef>
+                </protocolObjectSequence>
+            </messageInformationElements>
+        </protocolMessage>
+<!--BSSMAP messages end-->       
+        
+<!--DTAP messages start-->
+        <protocolMessage type="8d" name="DTAP-Call proceeding">
+            <header>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="Direct Transfer" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                        <defaultValue>01</defaultValue>
+                    </hexString>
+                    <bitString hideFlag="true" name="Control Channel" minLength="2" maxLength="2">
+                        <defaultValue>00</defaultValue>
+                    </bitString>
+                    <bitString name="Spare" minLength="3" maxLength="3">
+                        <defaultValue>000</defaultValue>
+                    </bitString>
+                    <bitString name="SAPI" minLength="3" maxLength="3">
+                        <defaultValue>000</defaultValue>
+                    </bitString>
+                    <hexString name="MessageLength" minLength="2" maxLength="2" messageLength="true"/>
+                </protocolObjectSequence>
+            </header>
+            <messageInformationElements>
+                <protocolObjectSequence hideFlag="true">
+                    <bitString hideFlag="true" name="TI flag" minLength="1" maxLength="1">
+                        <defaultValue>1</defaultValue>
+                    </bitString>
+                    <bitString hideFlag="true" name="TIO" minLength="3" maxLength="3">
+                        <defaultValue>000</defaultValue>
+                    </bitString>
+                    <bitString name="Protocol Discriminator" minLength="4" maxLength="4">
+                        <defaultValue>0011</defaultValue>
+                    </bitString>
+                    <bitString hideFlag="true" name="Seguence number" minLength="2" maxLength="2">
+                        <defaultValue>00</defaultValue>
+                    </bitString>
+                    <bitString name="DTAP Call Control Message Type" minLength="6" maxLength="6">
+                        <defaultValue>000010</defaultValue>
+                    </bitString>
+                </protocolObjectSequence>
+            </messageInformationElements>
+        </protocolMessage>
+
+
+        <protocolMessage type="93" name="DTAP-originating-call-Setup">
+            <header>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="Direct Transfer" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                        <defaultValue>01</defaultValue>
+                    </hexString>
+                    <bitString hideFlag="true" name="Control Channel" minLength="2" maxLength="2">
+                        <defaultValue>00</defaultValue>
+                    </bitString>
+                    <bitString name="Spare" minLength="3" maxLength="3">
+                        <defaultValue>000</defaultValue>
+                    </bitString>
+                    <bitString name="SAPI" minLength="3" maxLength="3">
+                        <defaultValue>000</defaultValue>
+                    </bitString>
+                    <hexString name="MessageLength" minLength="2" maxLength="2" messageLength="true"/>
+                </protocolObjectSequence>
+            </header>
+            <messageInformationElements>
+                <protocolObjectSequence hideFlag="true">
+                    <commonElementRef hideFlag="true" mandatory="true" name="Transaction identifier">
+                        <ref>Transaction identifier</ref>
+                    </commonElementRef>
+                    <hexString hideFlag="true" name="Message Type Setup" minLength="2" maxLength="2">
+                        <defaultValue>45</defaultValue>
+                    </hexString>
+                    <informationElementRef hideFlag="false" mandatory="false" name="BC repeat indicator">
+                        <ref>Repeat indicator</ref>
+                    </informationElementRef>
+                    <informationElementRef hideFlag="false" mandatory="true" name="Bearer capability 1">
+                        <ref>Bearer capability</ref>
+                    </informationElementRef>
+                    <informationElementRef hideFlag="false" mandatory="false" name="Bearer capability 2">
+                        <ref>Bearer capability</ref>
+                    </informationElementRef>
+                    <informationElementRef hideFlag="false" mandatory="false" name="Facility">
+                        <ref>Facility</ref>
+                    </informationElementRef>
+                    <informationElementRef hideFlag="false" mandatory="false" name="Calling party subaddr">
+                        <ref>Calling party subaddr</ref>
+                    </informationElementRef>
+                    <informationElementRef hideFlag="false" mandatory="false" name="Called party BCD number">
+                        <ref>Called party BCD number</ref>
+                    </informationElementRef>
+                    <informationElementRef hideFlag="false" mandatory="false" name="Called party subaddr">
+                        <ref>Called party subaddr</ref>
+                    </informationElementRef>
+                    <informationElementRef hideFlag="false" mandatory="false" name="LLC repeat indicator">
+                        <ref>Repeat indicator</ref>
+                    </informationElementRef>
+                    <informationElementRef hideFlag="false" mandatory="false" name="Low layer compatibility I">
+                        <ref>Low layer compatibility</ref>
+                    </informationElementRef>
+                    <informationElementRef hideFlag="false" mandatory="false" name="Low layer compatibility II">
+                        <ref>Low layer compatibility</ref>
+                    </informationElementRef>
+                    <informationElementRef hideFlag="false" mandatory="false" name="HLC repeat indicator">
+                        <ref>Repeat indicator</ref>
+                    </informationElementRef>
+                    <informationElementRef hideFlag="false" mandatory="false" name="High layer compatibility I">
+                        <ref>High layer compatibility</ref>
+                    </informationElementRef>
+                    <informationElementRef hideFlag="false" mandatory="false" name="High layer compatibility II">
+                        <ref>High layer compatibility</ref>
+                    </informationElementRef>
+                    <informationElementRef hideFlag="false" mandatory="false" name="User-user">
+                        <ref>User-user</ref>
+                    </informationElementRef>
+                    <informationElementRef hideFlag="false" mandatory="false" name="SS version">
+                        <ref>SS version</ref>
+                    </informationElementRef>
+                    <informationElementRef hideFlag="false" mandatory="false" name="CLIR suppression">
+                        <ref>CLIR suppression</ref>
+                    </informationElementRef>
+                    <informationElementRef hideFlag="false" mandatory="false" name="CLIR invocation">
+                        <ref>CLIR invocation</ref>
+                    </informationElementRef>
+                    <informationElementRef hideFlag="false" mandatory="false" name="CC capabilities">
+                        <ref>CC capabilities</ref>
+                    </informationElementRef>
+                    <informationElementRef hideFlag="false" mandatory="false" name="Facility-advanced recall alignment">
+                        <ref>Facility</ref>
+                    </informationElementRef>
+                    <informationElementRef hideFlag="false" mandatory="false" name="Facility-recall alignment Not essential">
+                        <ref>Facility</ref>
+                    </informationElementRef>
+                </protocolObjectSequence>
+            </messageInformationElements>
+        </protocolMessage>
+<!--DTAP messages end-->
+    </protocolMessages>
+    <informationElements>
+        <informationElement format="TLV" hideFlag="true" iei="7f" name="SS version">
+            <protocolObjectSequence hideFlag="true">
+                <hexString name="Element Identifier" minLength = "2" maxLength="2">
+                    <defaultValue>7f</defaultValue>
+                </hexString>
+                <hexString name="length" minLength="2" maxLength="2" ieLength="true">
+                    <defaultValue>01</defaultValue>
+                </hexString>
+                <hexString name="ss version information" minLength="2" maxLength="2" ieLength="true">
+                    <defaultValue>00</defaultValue>
+                </hexString>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="T" hideFlag="true" iei="a1" name="CLIR suppression">
+            <className>pegasus.ptp.protocolDescription.bssmap.util.BssmapInformationElement</className>
+            <protocolObjectSequence hideFlag="true">
+                <hexString name="Element Identifier" minLength = "2" maxLength="2">
+                    <defaultValue>a1</defaultValue>
+                </hexString>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="T" hideFlag="true" iei="a2" name="CLIR invocation">
+            <className>pegasus.ptp.protocolDescription.bssmap.util.BssmapInformationElement</className>
+            <protocolObjectSequence hideFlag="true">
+                <hexString name="Element Identifier" minLength = "2" maxLength="2">
+                    <defaultValue>a2</defaultValue>
+                </hexString>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TLV" hideFlag="true" iei="15" name="CC capabilities">
+            <protocolObjectSequence hideFlag="true">
+                <hexString name="Element Identifier" minLength = "2" maxLength="2">
+                    <defaultValue>15</defaultValue>
+                </hexString>
+                <hexString name="length" minLength="2" maxLength="2" ieLength="true">
+                    <defaultValue>02</defaultValue>
+                </hexString>
+                <commonElementRef name="CC capabilities" hideFlag="false">
+                    <ref>CC capabilities</ref>
+                </commonElementRef>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TV" hideFlag="true" iei="01" name="Circuit Identity Code">
+            <protocolObjectSequence hideFlag="true">
+                <hexString name="Element Identifier" minLength = "2" maxLength="2">
+                    <defaultValue>01</defaultValue>
+                </hexString>
+                <commonElementRef name="Circuit Identity Code common" hideFlag="false">
+                    <ref>Circuit Identity Code common</ref>
+                </commonElementRef>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TV" hideFlag="true" iei="2f" name="Time Indication">
+            <className>pegasus.ptp.protocolDescription.bssmap.util.BssmapInformationElement</className>
+            <protocolObjectSequence hideFlag="true">
+                <hexString name="Element Identifier" minLength = "2" maxLength="2">
+                    <defaultValue>2f</defaultValue>
+                </hexString>
+                <hexString name="Time" minLength = "2" maxLength="2">
+                    <defaultValue>00</defaultValue>
+                </hexString>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TV" hideFlag="true" iei="38" name="eMLPP Priority">
+            <className>pegasus.ptp.protocolDescription.bssmap.util.BssmapInformationElement</className>
+            <protocolObjectSequence hideFlag="true">
+                <hexString name="Element Identifier" minLength = "2" maxLength="2">
+                    <defaultValue>38</defaultValue>
+                </hexString>
+                <commonElementRef name="eMLPP Priority common" hideFlag="false">
+                    <ref>eMLPP Priority common</ref>
+                </commonElementRef>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TV" hideFlag="true" iei="40" name="Speech Version">
+            <className>pegasus.ptp.protocolDescription.bssmap.util.BssmapInformationElement</className>
+            <protocolObjectSequence hideFlag="true">
+                <hexString name="Element Identifier" minLength = "2" maxLength="2">
+                    <defaultValue>40</defaultValue>
+                </hexString>
+                <commonElementRef name="Speech Version common" hideFlag="false">
+                    <ref>Speech Version common</ref>
+                </commonElementRef>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TV" hideFlag="true" iei="24" name="Channel Needed">
+            <className>pegasus.ptp.protocolDescription.bssmap.util.BssmapInformationElement</className>
+            <protocolObjectSequence hideFlag="true">
+                <hexString name="Element Identifier" minLength = "2" maxLength="2">
+                    <defaultValue>24</defaultValue>
+                </hexString>
+                <commonElementRef name="Channel Needed common" hideFlag="false">
+                    <ref>Channel Needed common</ref>
+                </commonElementRef>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TV" hideFlag="true" iei="21" name="Chosen Channel">
+            <className>pegasus.ptp.protocolDescription.bssmap.util.BssmapInformationElement</className>
+            <protocolObjectSequence hideFlag="true">
+                <hexString name="Element Identifier" minLength = "2" maxLength="2">
+                    <defaultValue>21</defaultValue>
+                </hexString>
+                <commonElementRef name="Channel Needed common" hideFlag="false">
+                    <ref>Chosen Channel common</ref>
+                </commonElementRef>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TV" hideFlag="true" iei="81" name="A-Interface Selector for RESET">
+            <className>pegasus.ptp.protocolDescription.bssmap.util.BssmapInformationElement</className>
+            <protocolObjectSequence hideFlag="true">
+                <hexString name="Element Identifier" minLength = "2" maxLength="2">
+                    <defaultValue>81</defaultValue>
+                </hexString>
+                <commonElementRef name="A-Interface Selector for RESET common" hideFlag="false">
+                    <ref>A-Interface Selector for RESET common</ref>
+                </commonElementRef>
+            </protocolObjectSequence>
+        </informationElement>		
+        <informationElement format="T" hideFlag="true" iei="36" name="Connection Release Requested">
+            <className>pegasus.ptp.protocolDescription.bssmap.util.BssmapInformationElement</className>
+            <protocolObjectSequence hideFlag="true">
+                <hexString name="Element Identifier" minLength = "2" maxLength="2">
+                    <defaultValue>36</defaultValue>
+                </hexString>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TLV" hideFlag="true" iei="04" name="Cause">
+            <className>pegasus.ptp.protocolDescription.bssmap.util.BssmapInformationElement</className>
+            <protocolObjectSequence hideFlag="true">
+                <hexString name="Element Identifier" minLength = "2" maxLength="2">
+                    <defaultValue>04</defaultValue>
+                </hexString>
+                <hexString name="length" minLength = "2" maxLength="2" ieLength="true">
+                </hexString>
+                <commonElementRef name="Cause Common" hideFlag="true">
+                    <ref>Cause Common</ref>
+                </commonElementRef>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TLV" hideFlag="true" iei="05" name="Cell Identifier">
+            <className>pegasus.ptp.protocolDescription.bssmap.util.BssmapInformationElement</className>
+            <protocolObjectSequence hideFlag="true">
+                <hexString name="Element Identifier" minLength="2" maxLength="2" constFlag="true">
+                    <defaultValue>05</defaultValue>
+                </hexString>
+                <hexString name="length" minLength="2" maxLength="2" ieLength="true" />
+                <commonElementRef name="Cell Identifier Common" hideFlag="false">  <!--this MUST be false -->
+                    <ref>Cell Identifier Common</ref>
+                </commonElementRef>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TLV" hideFlag="false" iei="07" name="Layer 3 Header Information">
+            <className>pegasus.ptp.protocolDescription.bssmap.util.BssmapInformationElement</className>
+            <protocolObjectSequence hideFlag="false" mandatory="true">
+                <hexString name="Element Identifier" minLength="2" maxLength="2" constFlag="true">
+                    <defaultValue>07</defaultValue>
+                </hexString>
+                <hexString name="length" minLength="2" maxLength="2" ieLength="true" />
+                <commonElementRef name="Layer 3 Header Information" hideFlag="true">
+                    <ref>Layer 3 Header Information</ref>
+                </commonElementRef>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TLV" hideFlag="false" iei="08" name="IMSI">
+            <className>pegasus.ptp.protocolDescription.bssmap.util.BssmapInformationElement</className>
+            <protocolObjectSequence hideFlag="false" mandatory="true">
+                <hexString name="Element Identifier" minLength="2" maxLength="2" constFlag="true">
+                    <defaultValue>08</defaultValue>
+                </hexString>
+                <hexString name="length" minLength="2" maxLength="2" ieLength="true" />
+                <hexString name="value" minLength="2" maxLength="unbounded" constFlag="false">
+                    <defaultValue>00</defaultValue>
+                </hexString>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TLV" hideFlag="false" iei="09" name="TMSI">
+            <className>pegasus.ptp.protocolDescription.bssmap.util.BssmapInformationElement</className>
+            <protocolObjectSequence hideFlag="false" mandatory="true">
+                <hexString name="Element Identifier" minLength="2" maxLength="2" constFlag="true">
+                    <defaultValue>09</defaultValue>
+                </hexString>
+                <hexString name="length" minLength="2" maxLength="2" ieLength="true" />
+                <hexString name="value" minLength="2" maxLength="unbounded" constFlag="false">
+                </hexString>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TLV" hideFlag="false" iei="0a" name="Encryption Information">
+            <className>pegasus.ptp.protocolDescription.bssmap.util.BssmapInformationElement</className>
+            <protocolObjectSequence hideFlag="false" mandatory="true">
+                <hexString name="Element Identifier" minLength="2" maxLength="2" constFlag="true">
+                    <defaultValue>0a</defaultValue>
+                </hexString>
+                <hexString name="length" minLength="2" maxLength="2" ieLength="true" />
+                <commonElementRef name="Permitted Algorithms" hideFlag="true">
+                    <ref>Permitted Algorithms</ref>
+                </commonElementRef>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TLV" hideFlag="false" iei="0b" name="Channel Type">
+            <className>pegasus.ptp.protocolDescription.bssmap.util.BssmapInformationElement</className>
+            <protocolObjectSequence hideFlag="false" mandatory="true">
+                <hexString name="Element Identifier" minLength="2" maxLength="2" constFlag="true">
+                    <defaultValue>0b</defaultValue>
+                </hexString>
+                <hexString name="length" minLength="2" maxLength="2" ieLength="true" />
+                <commonElementRef name="Channel Type Content" hideFlag="true">
+                    <ref>Channel Type Content</ref>
+                </commonElementRef>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TLV" hideFlag="true" iei="12" name="Classmark Information Type 2">
+            <className>pegasus.ptp.protocolDescription.bssmap.util.BssmapInformationElement</className>
+            <protocolObjectSequence hideFlag="true">
+                <hexString name="Element Identifier" minLength = "2" maxLength="2">
+                    <defaultValue>12</defaultValue>
+                </hexString>
+                <hexString name="Length" minLength = "2" maxLength="2" ieLength="true">
+                </hexString>
+                <commonElementRef name="Mobile Station Classmark 2 Common" hideFlag="true">
+                    <ref>Mobile Station Classmark 2 Common</ref>
+                </commonElementRef>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TLV" hideFlag="true" iei="13" name="Classmark Information type 3">
+            <className>pegasus.ptp.protocolDescription.bssmap.util.BssmapInformationElement</className>
+            <protocolObjectSequence hideFlag="true">
+                <hexString name="Element Identifier" minLength = "2" maxLength="2">
+                    <defaultValue>13</defaultValue>
+                </hexString>
+                <hexString name="Length" minLength = "2" maxLength="2" ieLength="true">
+                </hexString>
+                <commonElementRef name="Mobile Station Classmark 3 Common" hideFlag="true">
+                    <ref>Mobile Station Classmark 3 Common</ref>
+                </commonElementRef>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TV" hideFlag="true" iei="15" name="RR Cause">
+            <className>pegasus.ptp.protocolDescription.bssmap.util.BssmapInformationElement</className>
+            <protocolObjectSequence hideFlag="true">
+                <hexString name="Element Identifier" minLength = "2" maxLength="2">
+                    <defaultValue>15</defaultValue>
+                </hexString>
+                <hexString name="RR Cause" minLength = "2" maxLength="2">
+                    <defaultValue>0</defaultValue>
+                </hexString>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TV" hideFlag="true" iei="31" name="Current Channel Type 1">
+            <className>pegasus.ptp.protocolDescription.bssmap.util.BssmapInformationElement</className>
+            <protocolObjectSequence hideFlag="true">
+                <hexString name="Element Identifier" minLength = "2" maxLength="2">
+                    <defaultValue>31</defaultValue>
+                </hexString>
+                <commonElementRef name="Channel Mode" hideFlag="true">
+                    <ref>Channel Mode</ref>
+                </commonElementRef>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TLV" hideFlag="true" iei="17" name="Layer 3 Information">
+            <className>pegasus.ptp.protocolDescription.bssmap.util.BssmapInformationElement</className>
+            <protocolObjectSequence hideFlag="true">
+                <hexString name="Element Identifier" minLength = "2" maxLength="2">
+                    <defaultValue>17</defaultValue>
+                </hexString>
+                <hexString name="Length" minLength = "2" maxLength="2" ieLength="true">
+                </hexString>
+                <commonElementRef name="Layer 3 Information Value" hideFlag="true">
+                    <ref>Layer 3 Information Value</ref>
+                </commonElementRef>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TLV" hideFlag="true" iei="1A" name="Cell Identifier List">
+            <className>pegasus.ptp.protocolDescription.bssmap.util.BssmapInformationElement</className>
+            <protocolObjectSequence hideFlag="true" mandatory="true">
+                <hexString name="Element Identifier" minLength="2" maxLength="2" constFlag="true">
+                    <defaultValue>1A</defaultValue>
+                </hexString>
+                <hexString name="length" minLength="2" maxLength="2" ieLength="true" />
+                <hexString name="value" minLength="2" maxLength="unbounded" constFlag="false">
+                </hexString>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TLV" hideFlag="true" iei="1e" name="Circuit Identity Code List">
+            <className>pegasus.ptp.protocolDescription.bssmap.util.BssmapInformationElement</className>
+            <protocolObjectSequence hideFlag="true">
+                <hexString name="Element Identifier" minLength = "2" maxLength="2">
+                    <defaultValue>1e</defaultValue>
+                </hexString>
+                <hexString name="Length" minLength = "2" maxLength="2" ieLength="true">
+                </hexString>
+                <commonElementRef name="Circuit Identity Code List Common" hideFlag="true">
+                    <ref>Circuit Identity Code List Common</ref>
+                </commonElementRef>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TLV" hideFlag="true" iei="1f" name="Diagnostics">
+            <className>pegasus.ptp.protocolDescription.bssmap.util.BssmapInformationElement</className>
+            <protocolObjectSequence hideFlag="true">
+                <hexString name="Element Identifier" minLength = "2" maxLength="2">
+                    <defaultValue>1f</defaultValue>
+                </hexString>
+                <hexString name="Length" minLength = "2" maxLength="2" ieLength="true">
+                </hexString>
+                <commonElementRef name="Diagnostics Common" hideFlag="true">
+                    <ref>Diagnostics Common</ref>
+                </commonElementRef>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TLV" hideFlag="true" iei="30" name="Resource Situation">
+            <className>pegasus.ptp.protocolDescription.bssmap.util.BssmapInformationElement</className>
+            <protocolObjectSequence hideFlag="true">
+                <hexString name="Element Identifier" minLength = "2" maxLength="2">
+                    <defaultValue>30</defaultValue>
+                </hexString>
+                <hexString name="Length" minLength = "2" maxLength="2" ieLength="true">
+                </hexString>
+                <hexString name="Resource Types" minLength = "4" maxLength="unbounded">
+                    <defaultValue>0000</defaultValue>
+                </hexString>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TLV" hideFlag="true" iei="3c" name="LSA Identifier List">
+            <className>pegasus.ptp.protocolDescription.bssmap.util.BssmapInformationElement</className>
+            <protocolObjectSequence hideFlag="true">
+                <hexString name="Element Identifier" minLength = "2" maxLength="2">
+                    <defaultValue>3c</defaultValue>
+                </hexString>
+                <hexString name="Length" minLength = "2" maxLength="2" ieLength="true">
+                </hexString>
+                <commonElementRef name="LSA Identifier List Common" hideFlag="true">
+                    <ref>LSA Identifier List Common</ref>
+                </commonElementRef>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TLV" hideFlag="true" iei="46" name="APDU">
+            <className>pegasus.ptp.protocolDescription.bssmap.util.BssmapInformationElement</className>
+            <protocolObjectSequence hideFlag="true">
+                <hexString name="Element Identifier" minLength = "2" maxLength="2">
+                    <defaultValue>46</defaultValue>
+                </hexString>
+                <hexString name="Length" minLength = "4" maxLength="4" ieLength="true">
+                </hexString>
+                <hexString name="APDU Content" minLength = "2" maxLength="unbounded">
+                    <defaultValue>00</defaultValue>
+                </hexString>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TLV" hideFlag="true" iei="4a" name="Network Element Identity">
+            <className>pegasus.ptp.protocolDescription.bssmap.util.BssmapInformationElement</className>
+            <protocolObjectSequence hideFlag="true">
+                <hexString name="Element Identifier" minLength = "2" maxLength="2">
+                    <defaultValue>4a</defaultValue>
+                </hexString>
+                <hexString name="Length" minLength = "2" maxLength="2" ieLength="true">
+                </hexString>
+                <hexString name="Network Element Identity Content" minLength = "2" maxLength="unbounded">
+                    <defaultValue>00</defaultValue>
+                </hexString>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TLV" hideFlag="true" iei="4d" name="Return Error Request">
+            <className>pegasus.ptp.protocolDescription.bssmap.util.BssmapInformationElement</className>
+            <protocolObjectSequence hideFlag="true">
+                <hexString name="Element Identifier" minLength = "2" maxLength="2">
+                    <defaultValue>4d</defaultValue>
+                </hexString>
+                <hexString name="Length" minLength = "2" maxLength="2" ieLength="true">
+                </hexString>
+                <hexString name="Return Error Type" minLength = "2" maxLength="unbounded">
+                    <defaultValue>00</defaultValue>
+                </hexString>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TLV" hideFlag="true" iei="4e" name="Return Error Cause">
+            <className>pegasus.ptp.protocolDescription.bssmap.util.BssmapInformationElement</className>
+            <protocolObjectSequence hideFlag="true">
+                <hexString name="Element Identifier" minLength = "2" maxLength="2">
+                    <defaultValue>4e</defaultValue>
+                </hexString>
+                <hexString name="Length" minLength = "2" maxLength="2" ieLength="true">
+                </hexString>
+                <hexString name="Cause Value" minLength = "2" maxLength="unbounded">
+                    <defaultValue>00</defaultValue>
+                </hexString>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TLV" hideFlag="true" iei="4f" name="Segmentation">
+            <className>pegasus.ptp.protocolDescription.bssmap.util.BssmapInformationElement</className>
+            <protocolObjectSequence hideFlag="true">
+                <hexString name="Element Identifier" minLength = "2" maxLength="2">
+                    <defaultValue>4f</defaultValue>
+                </hexString>
+                <hexString name="Length" minLength = "2" maxLength="2" ieLength="true">
+                </hexString>
+                <hexString name="Segmentation and Message Information" minLength = "2" maxLength="unbounded">
+                    <defaultValue>00</defaultValue>
+                </hexString>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TLV" hideFlag="true" iei="6e" name="Speech Codec List">
+            <className>pegasus.ptp.protocolDescription.bssmap.util.BssmapInformationElement</className>
+            <protocolObjectSequence hideFlag="true">
+                <hexString name="Element Identifier" minLength = "2" maxLength="2">
+                    <defaultValue>6e</defaultValue>
+                </hexString>
+                <hexString name="Length" minLength = "2" maxLength="2" ieLength="true">
+                </hexString>
+                <hexString name="Speech Codec List Value" minLength = "2" maxLength="unbounded">
+                    <defaultValue>00</defaultValue>
+                </hexString>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TLV" hideFlag="true" iei="80" name="Call Identifier List">
+            <className>pegasus.ptp.protocolDescription.bssmap.util.BssmapInformationElement</className>
+            <protocolObjectSequence hideFlag="true">
+                <hexString name="Element Identifier" minLength = "2" maxLength="2">
+                    <defaultValue>80</defaultValue>
+                </hexString>
+                <hexString name="Length" minLength = "2" maxLength="2" ieLength="true">
+                </hexString>
+                <hexString name="Call Identifier List Value" minLength = "8" maxLength="unbounded">
+                    <defaultValue>00000000</defaultValue>
+                </hexString>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="T" hideFlag="true" iei="fa" name="Forwarded Message">
+            <className>pegasus.ptp.protocolDescription.bssmap.util.BssmapInformationElement</className>
+            <protocolObjectSequence hideFlag="true">
+                <hexString name="Element Identifier" minLength = "2" maxLength="2">
+                    <defaultValue>fa</defaultValue>
+                </hexString>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TLV" hideFlag="true" iei="fb" name="CN Address">
+            <className>pegasus.ptp.protocolDescription.bssmap.util.BssmapInformationElement</className>
+            <protocolObjectSequence hideFlag="true" mandatory="true">
+                <hexString name="Element Identifier" minLength = "2" maxLength="2" constFlag="true">
+                    <defaultValue>fb</defaultValue>
+                </hexString>
+                <hexString name="Length in digits" minLength = "2" maxLength="2" ieLength="true">
+                </hexString>
+                <hexString name="Value" minLength = "2" maxLength="24">
+					<defaultValue>00</defaultValue>
+                </hexString>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TV" hideFlag="true" iei="fc" name="RAN SPC">
+            <className>pegasus.ptp.protocolDescription.bssmap.util.BssmapInformationElement</className>
+            <protocolObjectSequence hideFlag="true">
+                <hexString name="Element Identifier" minLength = "2" maxLength="2">
+                    <defaultValue>fc</defaultValue>
+                </hexString>
+                <commonElementRef name="RAN SPC common" hideFlag="true">
+                    <ref>RAN SPC common</ref>
+                </commonElementRef>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TLV" hideFlag="true" iei="fd" name="MGW SPC list">
+            <className>pegasus.ptp.protocolDescription.bssmap.util.BssmapInformationElement</className>
+            <protocolObjectSequence hideFlag="true">
+                <hexString name="Element Identifier" minLength = "2" maxLength="2">
+                    <defaultValue>fd</defaultValue>
+                </hexString>
+                <hexString name="Number of point codes" minLength = "2" maxLength="2" ieLength="true">
+                </hexString>
+                <hexString name="Signalling point codes" minLength = "8" maxLength="16">
+                    <defaultValue>00000000</defaultValue>
+                </hexString>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TV" name="MediaAnnouncement" iei="m" mandatory="true" hideFlag="true">
+            <protocolObjectSequence name="MediaAnnouncement" hideFlag="true">
+                <characterString constFlag="true" name="m" txSuffix="=" rxSuffixPattern="=">
+                    <defaultValue>m</defaultValue>
+                </characterString>
+                <protocolObjectSequence name="v">
+                    <characterString constFlag="false" name="media" minLength="1" maxLength="unbounded" txEOF=" " rxEOFPattern=" +"/>
+                    <characterString constFlag="false" name="port" minLength="1" maxLength="unbounded" txEOF=" " rxEOFPattern=" +"/>
+                    <characterString constFlag="false" name="transport" minLength="1" maxLength="unbounded" txEOF=" " rxEOFPattern=" +"/>
+                    <characterString constFlag="false" name="fmt_list" minLength="1" maxLength="unbounded" txEOF="&#13;&#10;" rxEOFPattern="&#13;&#10;"/>
+                </protocolObjectSequence>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TV" name="MediaAttributeDTMF" iei="fmtp" mandatory="true" hideFlag="true">
+            <protocolObjectSequence name="MediaAttributeDTMF" hideFlag="true">
+                <characterString constFlag="true" name="fmtp" txPrefix="a=" rxPrefixPattern="a=" txSuffix=":" rxSuffixPattern=":">
+                    <defaultValue>fmtp</defaultValue>
+                </characterString>
+                <protocolObjectSequence name="v">
+                    <characterString constFlag="false" name="format" minLength="1" maxLength="unbounded" txEOF=" " rxEOFPattern=" +"/>
+                    <characterString constFlag="false" name="fmt_specific_params" minLength="1" maxLength="unbounded" txEOF="&#13;&#10;" rxEOFPattern="&#13;&#10;"/>
+                </protocolObjectSequence>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TV" name="MediaAttributeRTP" iei="rtpmap" mandatory="true" hideFlag="true">
+            <protocolObjectSequence name="MediaAttributeRTP" hideFlag="true">
+                <characterString constFlag="true" name="rtpmap" txPrefix="a=" rxPrefixPattern="a=" txSuffix=":" rxSuffixPattern=":">
+                    <defaultValue>rtpmap</defaultValue>
+                </characterString>
+                <protocolObjectSequence name="v">
+                    <characterString constFlag="false" name="payload" minLength="1" maxLength="unbounded" txEOF=" " rxEOFPattern=" +"/>
+                    <characterString constFlag="false" name="encoding_name" minLength="1" maxLength="unbounded" txEOF="/" rxEOFPattern="/"/>
+                    <characterString constFlag="false" name="clock_rate" minLength="1" maxLength="unbounded" txEOF="&#13;&#10;" rxEOFPattern="&#13;&#10;"/>
+                </protocolObjectSequence>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TV" name="MediaAttributePT" iei="ptime" mandatory="true" hideFlag="true">
+            <protocolObjectSequence name="MediaAttributePT" hideFlag="true">
+                <characterString constFlag="true" name="ptime" txPrefix="a=" rxPrefixPattern="a=" txSuffix=":" rxSuffixPattern=":">
+                    <defaultValue>ptime</defaultValue>
+                </characterString>
+                <protocolObjectSequence name="v">
+                    <characterString constFlag="false" name="packet_time" minLength="1" maxLength="unbounded" txEOF="&#13;&#10;" rxEOFPattern="&#13;&#10;"/>
+                </protocolObjectSequence>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TLV" hideFlag="true" iei="04" name="Bearer capability">
+            <className>pegasus.ptp.protocolDescription.bssmap.util.BssmapInformationElement</className>
+            <protocolObjectSequence hideFlag="true">
+                <hexString name="Bearer capability IEI" minLength = "2" maxLength="2">
+                    <defaultValue>04</defaultValue>
+                </hexString>
+                <hexString name="length" minLength = "2" maxLength="2" ieLength="true">
+                </hexString>
+                <commonElementRef hideFlag="false" mandatory="true" name="Bearer capability Common">
+                    <ref>Bearer capability Common</ref>
+                </commonElementRef>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TV" hideFlag="true" iei="d" name="Repeat indicator">
+            <protocolObjectSequence hideFlag="true">
+                <bitString hideFlag="true" name="Repeat indicator IEI" minLength="4" maxLength="4">
+                    <defaultValue>1101</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Repeat indication" minLength="4" maxLength="4">
+                    <defaultValue>0001</defaultValue>
+                </bitString>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TLV" hideFlag="true" iei="1c" name="Facility">
+            <className>pegasus.ptp.protocolDescription.bssmap.util.BssmapInformationElement</className>
+            <protocolObjectSequence hideFlag="true">
+                <hexString hideFlag="true" name="Facility IEI" minLength="2" maxLength="2">
+                    <defaultValue>1c</defaultValue>
+                </hexString>
+                <hexString hideFlag="true" name="length" minLength="2" maxLength="2" ieLength="true">
+                </hexString>
+                <hexString hideFlag="true" name="Facility information (see GSM04.80)" minLength="2" maxLength="40">
+                    <defaultValue>00</defaultValue>
+                </hexString>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TLV" iei="5d" hideFlag="true" name="Calling party subaddr">
+            <className>pegasus.ptp.protocolDescription.bssmap.util.BssmapInformationElement</className>
+            <protocolObjectSequence hideFlag="true">
+                <hexString name="Calling party Subaddress IEI" minLength="2" maxLength="2">
+                    <defaultValue>5d</defaultValue>
+                </hexString>
+                <hexString name="length" minLength="2" maxLength="2" ieLength="true"/>
+                <commonElementRef name="Calling party common" mandatory="true">
+                    <ref>Calling party common</ref>
+                </commonElementRef>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TLV" iei="5e" hideFlag="true" name="Called party BCD number">
+            <className>pegasus.ptp.protocolDescription.bssmap.util.BssmapInformationElement</className>
+            <protocolObjectSequence hideFlag="true">
+                <hexString hideFlag="true" name="Called party BCD number IEI" minLength="2" maxLength="2">
+                    <defaultValue>5e</defaultValue>
+                </hexString>
+                <hexString hideFlag="true" name="length" minLength="2" maxLength="2" ieLength="true">
+                   
+                </hexString>
+                <commonElementRef hideFlag="true" mandatory="true" name="Called party BCD number common">
+                    <ref>Called party BCD number common</ref>
+                </commonElementRef>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TLV" iei="6d" hideFlag="true" name="Called party subaddr">
+            <className>pegasus.ptp.protocolDescription.bssmap.util.BssmapInformationElement</className>
+            <protocolObjectSequence hideFlag="true">
+                <hexString hideFlag="true" name="Called party Subaddress IEI" minLength="2" maxLength="2">
+                    <defaultValue>6d</defaultValue>
+                </hexString>
+                <hexString hideFlag="true" name="length" minLength="2" maxLength="2" ieLength="true"/>
+                <commonElementRef hideFlag="true" mandatory="false" name="Called party subaddr common">
+                    <ref>Called party subaddr common</ref>
+                </commonElementRef>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TLV" iei="7c" hideFlag="true" name="Low layer compatibility">
+            <className>pegasus.ptp.protocolDescription.bssmap.util.BssmapInformationElement</className>
+            <protocolObjectSequence hideFlag="true">
+                <hexString hideFlag="true" name="Low layer compatibility IEI" minLength="2" maxLength="2">
+                    <defaultValue>7c</defaultValue>
+                </hexString>
+                <hexString hideFlag="true" name="length" minLength="2" maxLength="2" ieLength="true"/>
+                <hexString hideFlag="true" mandatory="true" name="Compatibility information" minLength="0" maxLength="26">
+                    <defaultValue>0</defaultValue>
+                </hexString>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TLV" iei="7d" hideFlag="true" name="High layer compatibility">
+            <className>pegasus.ptp.protocolDescription.bssmap.util.BssmapInformationElement</className>
+            <protocolObjectSequence hideFlag="true">
+                <hexString hideFlag="true" name="High layer compatibility IEI" minLength="2" maxLength="2">
+                    <defaultValue>7d</defaultValue>
+                </hexString>
+                <hexString hideFlag="true" name="length" minLength="2" maxLength="2" ieLength="true"/>
+                <commonElementRef hideFlag="true" mandatory="false" name="High layer compatibility common">
+                    <ref>High layer compatibility common</ref>
+                </commonElementRef>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TLV" iei="7e" hideFlag="true" name="User-user">
+            <className>pegasus.ptp.protocolDescription.bssmap.util.BssmapInformationElement</className>
+            <protocolObjectSequence hideFlag="true">
+                <hexString hideFlag="true" name="User-user IEI" minLength="2" maxLength="2">
+                    <defaultValue>7e</defaultValue>
+                </hexString>
+                <hexString hideFlag="true" name="length" minLength="2" maxLength="2" ieLength="true"/>
+                <commonElementRef hideFlag="true" mandatory="false" name="User-user common">
+                    <ref>User-user common</ref>
+                </commonElementRef>
+            </protocolObjectSequence>
+        </informationElement>
+    </informationElements>
+
+    <commonElements>
+        <commonElement name="Bearer capability Common" hideFlag="true" constFlag="true">
+            <protocolObjectSequence>
+                <commonElementRef hideFlag="false" mandatory="true" name="Bearer capability3">
+                    <ref>Bearer capability3</ref>
+                </commonElementRef>
+                <protocolObjectSequenceOf name="Bearer capability3a" mandatory="false" minLength="0" maxLength="unbounded">
+                    <commonElementRef name="Bearer capability3a">
+                        <ref>Bearer capability3a</ref>
+                    </commonElementRef>
+                </protocolObjectSequenceOf>
+                <commonElementRef hideFlag="true" mandatory="false" name="Bearer capability4">
+                    <ref>Bearer capability4</ref>
+                </commonElementRef>
+                <commonElementRef hideFlag="true" mandatory="false" name="Bearer capability5">
+                    <ref>Bearer capability5</ref>
+                </commonElementRef>
+                <commonElementRef hideFlag="true" mandatory="false" name="Bearer capability5a">
+                    <ref>Bearer capability5a</ref>
+                </commonElementRef>
+                <commonElementRef hideFlag="true" mandatory="false" name="Bearer capability5b">
+                    <ref>Bearer capability5b</ref>
+                </commonElementRef>
+                <commonElementRef hideFlag="true" mandatory="false" name="Bearer capability6">
+                    <ref>Bearer capability6</ref>
+                </commonElementRef>
+                <commonElementRef hideFlag="true" mandatory="false" name="Bearer capability6a">
+                    <ref>Bearer capability6a</ref>
+                </commonElementRef>
+                <commonElementRef hideFlag="true" mandatory="false" name="Bearer capability6b">
+                    <ref>Bearer capability6b</ref>
+                </commonElementRef>
+                <commonElementRef hideFlag="true" mandatory="false" name="Bearer capability6c">
+                    <ref>Bearer capability6c</ref>
+                </commonElementRef>
+                <commonElementRef hideFlag="true" mandatory="false" name="Bearer capability6d">
+                    <ref>Bearer capability6d</ref>
+                </commonElementRef>
+                <commonElementRef hideFlag="true" mandatory="false" name="Bearer capability6e">
+                    <ref>Bearer capability6e</ref>
+                </commonElementRef>
+                <commonElementRef hideFlag="true" mandatory="false" name="Bearer capability6f">
+                    <ref>Bearer capability6f</ref>
+                </commonElementRef>
+                <commonElementRef hideFlag="true" mandatory="false" name="Bearer capability7">
+                    <ref>Bearer capability7</ref>
+                </commonElementRef>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement hideFlag="true" name="Called party BCD number common">
+            <protocolObjectSequence hideFlag="true">
+                <bitString hideFlag="true" name="Extension" minLength="1" maxLength="1">
+                    <defaultValue>1</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Type of number" minLength="3" maxLength="3">
+                    <defaultValue>000</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Numbering plan identification" minLength="4" maxLength="4">
+                    <defaultValue>0000</defaultValue>
+                </bitString>
+                <hexString hideFlag="true" mandatory="false" name="Number digit" minLength="0" maxLength="80">
+                </hexString>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement name="RAN SPC common" hideFlag="true">
+            <protocolObjectSequence hideFlag="true">
+                <hexString name="Network indicator" minLength = "2" maxLength="2">
+                    <defaultValue>01</defaultValue>
+                </hexString>
+                <hexString name="Signalling point code" minLength = "8" maxLength="8">
+                    <defaultValue>00000000</defaultValue>
+                </hexString>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement name="Circuit Identity Code common" hideFlag="true">
+            <protocolObjectSequence hideFlag="true">
+                <bitString name="PCM multiplex" minLength = "11" maxLength="11">
+                    <defaultValue>00000000001</defaultValue>
+                </bitString>
+                <bitString name="timeslot" minLength = "5" maxLength="5">
+                    <defaultValue>00000</defaultValue>
+                </bitString>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement name="Cell Identifier Common" hideFlag="true">
+            <protocolObjectSequence hideFlag="true">
+                <bitString name="Spare" minLength = "4" maxLength="4">
+                    <defaultValue>0000</defaultValue>
+                </bitString>
+                <bitString name="Cell identification discriminator" minLength = "4" maxLength="4">
+                    <defaultValue>0000</defaultValue>
+                </bitString>
+                <hexString name="Cell identification" minLength = "2" maxLength="unbounded">
+                    <defaultValue>00</defaultValue>
+                </hexString>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement name="Layer 3 Header Information" hideFlag="true">
+            <protocolObjectSequence hideFlag="true">
+                <bitString name="Spare bit1(s)" minLength = "4" maxLength="4">
+                    <defaultValue>0000</defaultValue>
+                </bitString>
+                <bitString name="Protocol discriminator" minLength = "4" maxLength="4">
+                    <defaultValue>0110</defaultValue>
+                </bitString>
+                <bitString name="Spare bit2(s)" minLength = "4" maxLength="4">
+                    <defaultValue>0000</defaultValue>
+                </bitString>
+                <bitString name="TI flag" minLength = "1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString name="TIO" minLength = "3" maxLength="3">
+                    <defaultValue>000</defaultValue>
+                </bitString>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement name="Channel Type Content" hideFlag="true">
+            <protocolObjectSequence hideFlag="true">
+                <bitString name="Spare bit(s)" minLength = "4" maxLength="4">
+                    <defaultValue>0000</defaultValue>
+                </bitString>
+                <bitString name="Speech/Data Indicator" minLength = "4" maxLength="4">
+                    <defaultValue>0001</defaultValue>
+                </bitString>
+                <hexString name="Channel Rate and Type" minLength = "2" maxLength="2">
+                    <defaultValue>08</defaultValue>
+                </hexString>
+                <commonElementRef name="Permitted Speech Version Indication Common" hideFlag="true">
+                    <ref>Permitted Speech Version Indication Common</ref>
+                </commonElementRef>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement name="Permitted Algorithms" hideFlag="true">
+            <protocolObjectSequence hideFlag="true">
+                <bitString hideFlag="true" name="GSM A5/7" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="GSM A5/6" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="GSM A5/5" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="GSM A5/4" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="GSM A5/3" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="GSM A5/2" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="GSM A5/1" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="No encryption" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <hexString name="Key" minLength="2" maxLength="unbounded" mandatory="false" constFlag="false">
+                </hexString>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement name="Cell Identifier List Common" hideFlag="false">
+            <protocolObjectSequence hideFlag="true">
+                <bitString name="Spare" minLength = "4" maxLength="4">
+                    <defaultValue>0000</defaultValue>
+                </bitString>
+                <bitString name="Cell identification discriminator" minLength = "4" maxLength="4">
+                    <defaultValue>0000</defaultValue>
+                </bitString>
+                <protocolObjectSequenceOf  name="Cell identifiers" minLength = "0" maxLength="unbounded">
+                    <informationElementRef name="Cell Identifier">
+                        <ref>Cell Identifier</ref>
+                    </informationElementRef>
+                </protocolObjectSequenceOf>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement name="Channel Needed common" hideFlag="false">
+            <protocolObjectSequence hideFlag="true">
+                <bitString name="Spare" minLength = "6" maxLength="6">
+                    <defaultValue>000000</defaultValue>
+                </bitString>
+                <bitString name="Channel" minLength = "2" maxLength="2">
+                    <defaultValue>00</defaultValue>
+                </bitString>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement name="Chosen Channel common" hideFlag="false">
+            <protocolObjectSequence hideFlag="true">
+                <bitString name="Channel mode" minLength = "4" maxLength="4">
+                    <defaultValue>0000</defaultValue>
+                </bitString>
+                <bitString name="Channel" minLength = "4" maxLength="4">
+                    <defaultValue>0000</defaultValue>
+                </bitString>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement name="A-Interface Selector for RESET common" hideFlag="false">
+            <protocolObjectSequence hideFlag="true">
+                <bitString name="Spare" minLength = "6" maxLength="6">
+                    <defaultValue>000000</defaultValue>
+                </bitString>
+                <bitString name="RIP" minLength = "1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString name="RTD" minLength = "1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>				
+            </protocolObjectSequence>
+        </commonElement>		
+        <commonElement name="eMLPP Priority common" hideFlag="false">
+            <protocolObjectSequence hideFlag="true">
+                <bitString name="Spare" minLength = "5" maxLength="5">
+                    <defaultValue>00000</defaultValue>
+                </bitString>
+                <bitString name="call priority" minLength = "3" maxLength="3">
+                    <defaultValue>000</defaultValue>
+                </bitString>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement name="Speech Version common" hideFlag="false">
+            <protocolObjectSequence hideFlag="true">
+                <bitString name="Spare" minLength = "1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString name="Speech Version identifier" minLength = "7" maxLength="7">
+                    <defaultValue>0000001</defaultValue>
+                </bitString>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement name="Cause Common" hideFlag="true" constFlag="true">
+            <protocolObjectSequence hideFlag="true">
+                <bitString name="extension_bit" minLength = "1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString name="Cause_value" minLength = "7" maxLength="7">
+                    <defaultValue>0000000</defaultValue>
+                </bitString>
+                <hexString name="optional" minLength = "2" maxLength="2" mandatory="false" hideFlag="true">
+                    <conditions>
+                        <condition>
+                            <restriction base="ce__Cause Common.sequence.extension_bit">
+                                <pattern value="1"/>
+                            </restriction>
+                        </condition>
+                    </conditions>
+                </hexString>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement name="Permitted Speech Version Indication Common" hideFlag="true" constFlag="true">
+            <protocolObjectSequence hideFlag="true">
+                <bitString name="extension_bit" minLength = "1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString name="Permitted Speech Version" minLength = "7" maxLength="7">
+                    <defaultValue>0000000</defaultValue>
+                </bitString>
+                <hexString name="optional" minLength = "2" maxLength="unbounded" mandatory="false" hideFlag="true">
+                </hexString>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement name="Circuit Identity Code List Common" hideFlag="true" constFlag="true">
+            <protocolObjectSequence hideFlag="true">
+                <hexString name="Range" minLength = "2" maxLength="2">
+                    <defaultValue>00</defaultValue>
+                </hexString>
+                <hexString name="Status" minLength = "2" maxLength="64">
+                    <defaultValue>00</defaultValue>
+                </hexString>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement name="Layer 3 Information Value" hideFlag="true" constFlag="true">
+            <protocolObjectChoice name="Layer 3 Information Value">
+                <protocolObjectAsn1>
+                    <commonElementRef mandatory="false" name="Paging response">
+                        <ref>Paging response</ref>
+                    </commonElementRef>
+                </protocolObjectAsn1>
+                <protocolObjectAsn1>
+                    <commonElementRef mandatory="false" name="Location Updating Request">
+                        <ref>Location Updating Request</ref>
+                    </commonElementRef>
+                </protocolObjectAsn1>
+                <protocolObjectAsn1>
+                    <commonElementRef mandatory="false" name="CM Service Request">
+                        <ref>CM Service Request</ref>
+                    </commonElementRef>
+                </protocolObjectAsn1>
+                <protocolObjectAsn1>
+                    <commonElementRef mandatory="false" name="IMSI detach indication">
+                        <ref>IMSI detach indication</ref>
+                    </commonElementRef>
+                </protocolObjectAsn1>
+            </protocolObjectChoice>
+        </commonElement>
+        <commonElement name="IMSI detach indication" hideFlag="true" constFlag="true">
+            <protocolObjectSequence hideFlag="true">
+                <bitString hideFlag="true" name="Skip Indicator" minLength="4" maxLength="4">
+                    <defaultValue>0000</defaultValue>
+                </bitString>
+                <bitString name="Protocol Discriminator" minLength="4" maxLength="4">
+                    <defaultValue>0101</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Seguence number" minLength="2" maxLength="2">
+                    <defaultValue>00</defaultValue>
+                </bitString>
+                <bitString name="DTAP Call Control Message Type" minLength="6" maxLength="6">
+                    <defaultValue>000001</defaultValue>
+                </bitString>
+                <commonElementRef hideFlag="true" mandatory="true" name="Mobile Station Classmark 1">
+                    <ref>Mobile Station Classmark 1</ref>
+                </commonElementRef>
+                <commonElementRef hideFlag="true" mandatory="true" name="Mobile Identity">
+                    <ref>Mobile Identity(LV)</ref>
+                </commonElementRef>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement name="CM Service Request" hideFlag="true" constFlag="true">
+            <protocolObjectSequence hideFlag="true">
+                <bitString hideFlag="true" name="Skip Indicator" minLength="4" maxLength="4">
+                    <defaultValue>0000</defaultValue>
+                </bitString>
+                <bitString name="Protocol Discriminator" minLength="4" maxLength="4">
+                    <defaultValue>0101</defaultValue>
+                </bitString>
+                <hexString hideFlag="true" name="CM service request Message Type" minLength="2" maxLength="2">
+                    <defaultValue>24</defaultValue>
+                </hexString>
+                <commonElementRef hideFlag="true" mandatory="true" name="Ciphering Key Sequence Nubmer">
+                    <ref>Ciphering Key Sequence Nubmer</ref>
+                </commonElementRef>
+                <bitString name="CM Service Type" minLength="4" maxLength="4">
+                    <defaultValue>0001</defaultValue>
+                </bitString>
+                <commonElementRef hideFlag="true" mandatory="true" name="Mobile Station Classmark 2">
+                    <ref>Mobile Station Classmark 2</ref>
+                </commonElementRef>
+                <commonElementRef hideFlag="true" mandatory="true" name="Mobile Identity">
+                    <ref>Mobile Identity(LV)</ref>
+                </commonElementRef>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement name="Location Updating Request" hideFlag="true" constFlag="true">
+            <protocolObjectSequence hideFlag="true">
+                <bitString name="Protocol Discriminator" minLength="4" maxLength="4">
+                    <defaultValue>0101</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Skip Indicator" minLength="4" maxLength="4">
+                    <defaultValue>0000</defaultValue>
+                </bitString>
+                <hexString hideFlag="true" name="Location updating request Message Type" minLength="2" maxLength="2">
+                    <defaultValue>08</defaultValue>
+                </hexString>
+                <commonElementRef hideFlag="true" mandatory="true" name="Location updating type">
+                    <ref>Location updating type</ref>
+                </commonElementRef>
+                <commonElementRef hideFlag="true" mandatory="true" name="Ciphering Key Sequence Nubmer">
+                    <ref>Ciphering Key Sequence Nubmer</ref>
+                </commonElementRef>
+                <commonElementRef hideFlag="true" mandatory="true" name="Location area identification">
+                    <ref>Location area identification</ref>
+                </commonElementRef>
+                <commonElementRef hideFlag="true" mandatory="true" name="Mobile Station Classmark 1">
+                    <ref>Mobile Station Classmark 1</ref>
+                </commonElementRef>
+                <commonElementRef hideFlag="true" mandatory="true" name="Mobile Identity">
+                    <ref>Mobile Identity(LV)</ref>
+                </commonElementRef>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement name="Paging response" hideFlag="true" constFlag="true">
+            <protocolObjectSequence hideFlag="true">
+                <bitString hideFlag="true" name="Skip Indicator" minLength="4" maxLength="4">
+                    <defaultValue>0000</defaultValue>
+                </bitString>
+                <bitString name="Protocol Discriminator" minLength="4" maxLength="4">
+                    <defaultValue>0110</defaultValue>
+                </bitString>
+                <hexString hideFlag="true" name="Paging Response Message Type" minLength="2" maxLength="2">
+                    <defaultValue>27</defaultValue>
+                </hexString>
+                <bitString name="Spare" minLength="4" maxLength="4">
+                    <defaultValue>0000</defaultValue>
+                </bitString>
+                <commonElementRef hideFlag="true" mandatory="true" name="Ciphering Key Sequence Nubmer">
+                    <ref>Ciphering Key Sequence Nubmer</ref>
+                </commonElementRef>
+                <commonElementRef hideFlag="true" mandatory="true" name="Mobile Station Classmark 2">
+                    <ref>Mobile Station Classmark 2</ref>
+                </commonElementRef>
+                <commonElementRef hideFlag="true" mandatory="true" name="Mobile Identity">
+                    <ref>Mobile Identity(LV)</ref>
+                </commonElementRef>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement name="Channel Mode" hideFlag="true" >
+            <protocolObjectSequence hideFlag="true">
+                <bitString name="Channel mode" minLength = "4" maxLength="4">
+                    <defaultValue>0001</defaultValue>
+                </bitString>
+                <bitString name="Channel" minLength = "4" maxLength="4">
+                    <defaultValue>1000</defaultValue>
+                </bitString>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement name="Diagnostics Common" hideFlag="true">
+            <protocolObjectSequence hideFlag="true">
+                <hexString name="Error pointer" minLength = "2" maxLength="4">
+                    <defaultValue>0000</defaultValue>
+                </hexString>
+                <hexString name="Message received" minLength = "2" maxLength="unbounded">
+                    <defaultValue>00</defaultValue>
+                </hexString>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement name="LSA Identifier List Common" hideFlag="true">
+            <protocolObjectSequence hideFlag="true">
+                <bitString hideFlag="true" name="Spare" minLength="7" maxLength="7">
+                    <defaultValue>0000000</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="EP" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <hexString name="LSA Identifier List Value" minLength = "6" maxLength="unbounded">
+                    <defaultValue>00</defaultValue>
+                </hexString>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement hideFlag="true" name="Reject cause">
+            <protocolObjectSequence hideFlag="true">
+                <hexString hideFlag="true" name="reject cause value" minLength="2" maxLength="2">
+                    <defaultValue>00</defaultValue>
+                </hexString>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement hideFlag="true" name="CTS permission">
+            <protocolObjectSequence hideFlag="true">
+                <hexString hideFlag="true" name="CTS permission IEI" minLength="2" maxLength="2">
+                    <defaultValue>A2</defaultValue>
+                </hexString>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement hideFlag="true" name="Follow on proceed">
+            <protocolObjectSequence hideFlag="true">
+                <hexString hideFlag="true" name="Follow on proceed IEI" minLength="2" maxLength="2">
+                    <defaultValue>A1</defaultValue>
+                </hexString>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement hideFlag="true" name="Location area identification">
+            <protocolObjectSequence hideFlag="true">
+                <hexString hideFlag="true" name="MCC digit12" minLength="2" maxLength="2">
+                    <defaultValue>0</defaultValue>
+                </hexString>
+                <bitString hideFlag="true" name="MNC digit3" minLength="4" maxLength="4">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="MCC digit3" minLength="4" maxLength="4">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <hexString hideFlag="true" name="MNC digit12" minLength="2" maxLength="2">
+                    <defaultValue>0</defaultValue>
+                </hexString>
+                <hexString hideFlag="true" name="LAC" minLength="4" maxLength="4">
+                    <defaultValue>0</defaultValue>
+                </hexString>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement hideFlag="true" name="Location updating type">
+            <protocolObjectSequence hideFlag="true">
+                <bitString hideFlag="true" name="for" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Spare" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="LUT" minLength="2" maxLength="2">
+                    <defaultValue>00</defaultValue>
+                </bitString>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement hideFlag="true" mandatory="true" name="Origin">
+            <protocolObjectSequence hideFlag="true">
+                <characterString name="version" minLength="1" maxLength="unbounded" txPrefix="v=0&#13;&#10;o=- 0 " rxPrefixPattern="v=0&#13;&#10;o=- 0 +" txEOF=" IN" rxEOFPattern=" +IN"/>
+                <characterString name="address_type" minLength="3" maxLength="3" txPrefix=" " rxPrefixPattern=" +" txEOF=" " rxEOFPattern=" +">
+                    <constraints restrictive="true">
+                        <enumeration value="IP4"/>
+                        <enumeration value="IP6"/>
+                    </constraints>
+                </characterString>
+                <characterString name="IPv4_address" minLength="7" maxLength="15" mandatory="false" txEOF="&#13;&#10;" rxEOFPattern="&#13;&#10;">
+                    <conditions>
+                        <condition>
+                            <restriction base="ce__Origin.sequence.address_type">
+                                <pattern value="IP4"/>
+                            </restriction>
+                        </condition>
+                    </conditions>
+                    <annotation>address_type is used as condition</annotation>
+                </characterString>
+                <characterString name="IPv6_address" minLength="11" maxLength="29" mandatory="false" txEOF="&#13;&#10;" rxEOFPattern="&#13;&#10;">
+                    <conditions>
+                        <condition>
+                            <restriction base="ce__Origin.sequence.address_type">
+                                <pattern value="IP6"/>
+                            </restriction>
+                        </condition>
+                    </conditions>
+                    <annotation>address_type is used as condition</annotation>
+                </characterString>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement hideFlag="true" mandatory="true" name="SessionName">
+            <protocolObjectSequence hideFlag="true">
+                <characterString constFlag="false" name="session_name" minLength="1" maxLength="unbounded" txPrefix="s=" rxPrefixPattern="s=" txEOF="&#13;&#10;" rxEOFPattern="&#13;&#10;"/>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement hideFlag="true" mandatory="true" name="ConnectionData">
+            <protocolObjectSequence hideFlag="true">
+                <characterString name="address_type" minLength="3" maxLength="3" txPrefix="c=IN " rxPrefixPattern="c=IN +" txEOF=" " rxEOFPattern=" +">
+                    <constraints restrictive="true">
+                        <enumeration value="IP4"/>
+                        <enumeration value="IP6"/>
+                    </constraints>
+                </characterString>
+                <characterString name="IPv4_address" minLength="7" maxLength="15" mandatory="false" txEOF="&#13;&#10;" rxEOFPattern="&#13;&#10;">
+                    <conditions>
+                        <condition>
+                            <restriction base="ce__ConnectionData.sequence.address_type">
+                                <pattern value="IP4"/>
+                            </restriction>
+                        </condition>
+                    </conditions>
+                    <annotation>address_type is used as condition</annotation>
+                </characterString>
+                <characterString name="IPv6_address" minLength="11" maxLength="29" mandatory="false" txEOF="&#13;&#10;" rxEOFPattern="&#13;&#10;">
+                    <conditions>
+                        <condition>
+                            <restriction base="ce__ConnectionData.sequence.address_type">
+                                <pattern value="IP6"/>
+                            </restriction>
+                        </condition>
+                    </conditions>
+                    <annotation>address_type is used as condition</annotation>
+                </characterString>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement hideFlag="true" mandatory="true" name="Time">
+            <protocolObjectSequence hideFlag="true">
+                <characterString constFlag="false" name="start_time" minLength="1" maxLength="unbounded" txPrefix="t=" rxPrefixPattern="t=" txEOF=" " rxEOFPattern=" +"/>
+                <characterString constFlag="false" name="stop_time" minLength="1" maxLength="unbounded" txEOF="&#13;&#10;" rxEOFPattern="&#13;&#10;"/>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement hideFlag="true" name="Ciphering Key Sequence Nubmer">
+            <protocolObjectSequence hideFlag="true">
+                <bitString hideFlag="true" name="Spare" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Ciphering Key Sequence Nubmer" minLength="3" maxLength="3">
+                    <defaultValue>000</defaultValue>
+                </bitString>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement hideFlag="true" name="Transaction identifier">
+            <protocolObjectSequence hideFlag="true">
+                <bitString hideFlag="true" name="TI flag" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="TIO" minLength="3" maxLength="3">
+                    <defaultValue>111</defaultValue>
+                </bitString>
+                <bitString name="Protocol Discriminator" minLength="4" maxLength="4">
+                    <defaultValue>0011</defaultValue>
+                </bitString>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement hideFlag="true" name="Mobile Identity(LV)">
+            <protocolObjectSequence hideFlag="true">
+                <hexString hideFlag="true" name="Length of mobile identity contents" minLength="2" maxLength="2">
+                    <defaultValue>5</defaultValue>
+                </hexString>
+                <bitString hideFlag="true" name="Identity Digit 1(1111 means unused)" minLength="4" maxLength="4">
+                    <defaultValue>0000</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Odd/even indication" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Mobile Identity Type" minLength="3" maxLength="3">
+                    <defaultValue>100</defaultValue>
+                </bitString>
+                <hexString hideFlag="true" name="Identity Value" minLength="0" maxLength="14">
+                    <defaultValue>000936</defaultValue>
+                </hexString>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement hideFlag="true" name="Mobile Identity(TLV)">
+            <protocolObjectSequence hideFlag="true">
+                <hexString hideFlag="true" name="Mobile Identity IEI" minLength="2" maxLength="2">
+                    <defaultValue>17</defaultValue>
+                </hexString>
+                <commonElementRef hideFlag="true" mandatory="true" name="Mobile Identity">
+                    <ref>Mobile Identity(LV)</ref>
+                </commonElementRef>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement hideFlag="true" name="Mobile Station Classmark 1">
+            <protocolObjectSequence hideFlag="true">
+                <bitString hideFlag="true" name="Spare" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Revision Level" minLength="2" maxLength="2">
+                    <defaultValue>10</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="ES IND" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="A5/1 algorithm supported" minLength="1" maxLength="1">
+                    <defaultValue>1</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="RF Power Capability" minLength="3" maxLength="3">
+                    <defaultValue>111</defaultValue>
+                </bitString>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement hideFlag="true" name="Mobile Station Classmark 2 Common">
+            <protocolObjectSequence hideFlag="true">
+                <bitString hideFlag="true" name="Spare" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Revision Level" minLength="2" maxLength="2">
+                    <defaultValue>10</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="ES IND" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="A5/1 algorithm supported" minLength="1" maxLength="1">
+                    <defaultValue>1</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="RF Power Capability" minLength="3" maxLength="3">
+                    <defaultValue>111</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Spare2" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="PS Capability" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="SS Screening Indicator" minLength="2" maxLength="2">
+                    <defaultValue>01</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="SM Capability" minLength="1" maxLength="1">
+                    <defaultValue>1</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="VBS notification reception" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="VGCS notification reception" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="FC Frequency Capability" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="CM3" minLength="1" maxLength="1">
+                    <defaultValue>1</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Spare3" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="LCS VA Capability" minLength="1" maxLength="1">
+                    <defaultValue>1</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="UCS2 treatment" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="SOLSA" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="CMSP" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="A5/3 algorithm supported" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="A5/2 algorithm supported" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+            </protocolObjectSequence>
+        </commonElement>
+
+        <commonElement hideFlag="true" name="Mobile Station Classmark 3 Common">
+            <protocolObjectSequence hideFlag="true">
+                <bitString hideFlag="true" name="Spare" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Multiband Supported Filed" minLength="3" maxLength="3">
+                    <defaultValue>110</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="GSM 1800 Supported" minLength="1" maxLength="1">
+                    <defaultValue>1</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="E-GSM or R-GSM Supported" minLength="1" maxLength="1">
+                    <defaultValue>1</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="P-GSM Supported" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="A5 bits" minLength="4" maxLength="4">
+                    <defaultValue>0000</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="A5/7 algorithm suppported" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="A5/6 algorithm suppported" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="A5/5 algorithm suppported" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="A5/4 algorithm suppported" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Associated Radio Capability 2" minLength="4" maxLength="4">
+                    <defaultValue>0001</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Associated Radio Capability 1" minLength="4" maxLength="4">
+                    <defaultValue>0100</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="R Support" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="HSCSD Multi Slot Capability" minLength="1" maxLength="1">
+                    <defaultValue>1</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="HSCSD Multi Slot Class" minLength="5" maxLength="5">
+                    <defaultValue>00110</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="UCS2 treatment" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Extended Measurement Capability" minLength="1" maxLength="1">
+                    <defaultValue>1</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="MS Measurement Capability" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="MS Positioning Method Capability Present" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="ECSD Multi Slot Capability Present" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="8-PSK Struct Present" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="GSM 400 Band Information Present" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="GSM 850 Associated Radio Capability Present" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="GSM 1900 Associated Radio Capability Present" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="UMTS FDD Radio Access Technology Capability" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="UMTS 3.84 Mcps TDD Radio Access Technology Capability" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="CDMA 2000 Radio Access Technology Capability" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="DTM E/GPRS Multi Slot Information Present" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Single Band Support" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="GSM 750 Associated Radio Capability Present" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="UMTS 1.28 Mcps TDD Radio Access Technology Capability" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="GERAN Feature Package 1" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement hideFlag="true" name="Mobile Station Classmark 2">
+            <protocolObjectSequence hideFlag="true">
+                <hexString hideFlag="true" name="Mobile Station Classmark 2 Length" minLength="2" maxLength="2">
+                    <defaultValue>03</defaultValue>
+                </hexString>
+                <commonElementRef hideFlag="true" mandatory="true" name="Mobile Station Classmark 2 Common">
+                    <ref>Mobile Station Classmark 2 Common</ref>
+                </commonElementRef>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement hideFlag="true" name="Mobile Station Classmark 3">
+            <protocolObjectSequence hideFlag="true">
+                <hexString hideFlag="true" name="Mobile Station Classmark 3 Length" minLength="2" maxLength="2">
+                    <defaultValue>03</defaultValue>
+                </hexString>
+                <commonElementRef hideFlag="true" mandatory="true" name="Mobile Station Classmark 3 Common">
+                    <ref>Mobile Station Classmark 3 Common</ref>
+                </commonElementRef>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement hideFlag="true" name="Bearer capability3">
+            <protocolObjectSequence hideFlag="true">
+                <bitString hideFlag="true" name="Extension" minLength="1" maxLength="1">
+                    <defaultValue>1</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Radio channel requirement" minLength="2" maxLength="2">
+                    <defaultValue>01</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Coding standard" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Transfer mode" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Information transfer capability" minLength="3" maxLength="3">
+                    <defaultValue>000</defaultValue>
+                </bitString>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement hideFlag="true" name="Bearer capability3a">
+            <protocolObjectSequence hideFlag="true">
+                <bitString hideFlag="true" name="Extension" minLength="1" maxLength="1">
+                    <defaultValue>1</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Coding" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="CTM text telephony indication" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="spare" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Speech version indication" minLength="4" maxLength="4">
+                    <defaultValue>0010</defaultValue>
+                </bitString>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement hideFlag="true" name="Bearer capability3aetc">
+            <protocolObjectSequence hideFlag="true">
+                <bitString hideFlag="true" name="Extension" minLength="1" maxLength="1">
+                    <defaultValue>1</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Coding" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="spare" minLength="2" maxLength="2">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Speech version indication" minLength="4" maxLength="4">
+                    <defaultValue>0010</defaultValue>
+                </bitString>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement hideFlag="true" name="Bearer capability4">
+            <protocolObjectSequence hideFlag="true">
+                <bitString hideFlag="true" name="Extension" minLength="1" maxLength="1">
+                    <defaultValue>1</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Compression" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Structure" minLength="2" maxLength="2">
+                    <defaultValue>00</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Duplex mode" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Configuration" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="NIRR" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Establishment" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement hideFlag="true" name="Bearer capability5">
+            <protocolObjectSequence hideFlag="true">
+                <bitString hideFlag="true" name="Extension" minLength="1" maxLength="1">
+                    <defaultValue>1</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Access identity" minLength="2" maxLength="2">
+                    <defaultValue>00</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Rate adaption" minLength="2" maxLength="2">
+                    <defaultValue>00</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Signalling access protocol" minLength="3" maxLength="3">
+                    <defaultValue>000</defaultValue>
+                </bitString>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement hideFlag="true" name="Bearer capability5a">
+            <protocolObjectSequence hideFlag="true">
+                <bitString hideFlag="true" name="Extension" minLength="1" maxLength="1">
+                    <defaultValue>1</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Other ITC" minLength="2" maxLength="2">
+                    <defaultValue>00</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Other rate adaption" minLength="2" maxLength="2">
+                    <defaultValue>00</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Spare" minLength="3" maxLength="3">
+                    <defaultValue>000</defaultValue>
+                </bitString>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement hideFlag="true" name="Bearer capability5b">
+            <protocolObjectSequence hideFlag="true">
+                <bitString hideFlag="true" name="Extension" minLength="1" maxLength="1">
+                    <defaultValue>1</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Rate adaption header/no header" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Multiple frame establishment support in data link" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Mode of operation" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Logical link identifier negotiation" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Assignor/Assignee" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="In band/Out of band negotiation" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Spare" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement hideFlag="true" name="Bearer capability6">
+            <protocolObjectSequence hideFlag="true">
+                <bitString hideFlag="true" name="Extension" minLength="1" maxLength="1">
+                    <defaultValue>1</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Layer 1 identity" minLength="2" maxLength="2">
+                    <defaultValue>00</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="User information layer 1 protocol" minLength="4" maxLength="4">
+                    <defaultValue>0000</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Synchronous/asynchronous" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement hideFlag="true" name="Bearer capability6a">
+            <protocolObjectSequence hideFlag="true">
+                <bitString hideFlag="true" name="Extension" minLength="1" maxLength="1">
+                    <defaultValue>1</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Number of Stop Bits" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Negotiation" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Number of data bits excluding parity bit if present" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="User rate" minLength="4" maxLength="4">
+                    <defaultValue>0000</defaultValue>
+                </bitString>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement hideFlag="true" name="Bearer capability6b">
+            <protocolObjectSequence hideFlag="true">
+                <bitString hideFlag="true" name="Extension" minLength="1" maxLength="1">
+                    <defaultValue>1</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Octet 6b for V.110/X.30 rate adaptation Intermediate rate" minLength="2" maxLength="2">
+                    <defaultValue>00</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Network independent clock (NIC) on transmission (Tx)" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Network independent clock (NIC) on reception (Rx)" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Parity information" minLength="3" maxLength="3">
+                    <defaultValue>000</defaultValue>
+                </bitString>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement hideFlag="true" name="Bearer capability6c">
+            <protocolObjectSequence hideFlag="true">
+                <bitString hideFlag="true" name="Extension" minLength="1" maxLength="1">
+                    <defaultValue>1</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Connection element" minLength="2" maxLength="2">
+                    <defaultValue>00</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Modem type" minLength="5" maxLength="5">
+                    <defaultValue>00000</defaultValue>
+                </bitString>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement hideFlag="true" name="Bearer capability6d">
+            <protocolObjectSequence hideFlag="true">
+                <bitString hideFlag="true" name="Extension" minLength="1" maxLength="1">
+                    <defaultValue>1</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Other modem type" minLength="2" maxLength="2">
+                    <defaultValue>00</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Fixed network user rate" minLength="5" maxLength="5">
+                    <defaultValue>00000</defaultValue>
+                </bitString>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement hideFlag="true" name="Bearer capability6e">
+            <protocolObjectSequence hideFlag="true">
+                <bitString hideFlag="true" name="Extension" minLength="1" maxLength="1">
+                    <defaultValue>1</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Acceptable channel codings" minLength="4" maxLength="4">
+                    <defaultValue>0000</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Maximum number of traffic channels" minLength="3" maxLength="3">
+                    <defaultValue>000</defaultValue>
+                </bitString>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement hideFlag="true" name="Bearer capability6f">
+            <protocolObjectSequence hideFlag="true">
+                <bitString hideFlag="true" name="Extension" minLength="1" maxLength="1">
+                    <defaultValue>1</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="UIMI, User initiated modification indication" minLength="3" maxLength="3">
+                    <defaultValue>000</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Wanted air interface user rate" minLength="4" maxLength="4">
+                    <defaultValue>0000</defaultValue>
+                </bitString>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement hideFlag="true" name="Bearer capability7">
+            <protocolObjectSequence hideFlag="true">
+                <bitString hideFlag="true" name="Extension" minLength="1" maxLength="1">
+                    <defaultValue>1</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Layer 2 identity" minLength="2" maxLength="2">
+                    <defaultValue>00</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="User information layer 2 protocol" minLength="5" maxLength="5">
+                    <defaultValue>00000</defaultValue>
+                </bitString>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement hideFlag="true" name="Progress indicator">
+            <protocolObjectSequence hideFlag="true">
+                <hexString hideFlag="true" name="Progress indicator IEI" minLength="2" maxLength="2">
+                    <defaultValue>1E</defaultValue>
+                </hexString>
+                <hexString hideFlag="true" name="Length of facility contents" minLength="2" maxLength="2">
+                    <defaultValue>00</defaultValue>
+                </hexString>
+                <bitString hideFlag="true" name="Extension" minLength="1" maxLength="1">
+                    <defaultValue>1</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Coding standard" minLength="2" maxLength="2">
+                    <defaultValue>00</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Spare" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Location" minLength="4" maxLength="4">
+                    <defaultValue>0000</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Extension1" minLength="1" maxLength="1">
+                    <defaultValue>1</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Progress description" minLength="7" maxLength="7">
+                    <defaultValue>0000000</defaultValue>
+                </bitString>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement hideFlag="true" name="Signal">
+            <protocolObjectSequence hideFlag="true">
+                <hexString hideFlag="true" name="Signal IEI" minLength="2" maxLength="2">
+                    <defaultValue>34</defaultValue>
+                </hexString>
+                <hexString hideFlag="true" name="Signal value" minLength="2" maxLength="2">
+                    <defaultValue>00</defaultValue>
+                </hexString>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement hideFlag="true" name="Calling party BCD num.3a">
+            <protocolObjectSequence hideFlag="true">
+                <bitString hideFlag="true" name="Extension" minLength="1" maxLength="1">
+                    <defaultValue>1</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Presentation indicator" minLength="2" maxLength="2">
+                    <defaultValue>00</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Spare" minLength="3" maxLength="3">
+                    <defaultValue>000</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Screening indicator" minLength="2" maxLength="2">
+                    <defaultValue>00</defaultValue>
+                </bitString>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement hideFlag="true" name="Calling party BCD number">
+            <protocolObjectSequence hideFlag="true">
+                <hexString hideFlag="true" name="Calling party BCD number IEI" minLength="2" maxLength="2">
+                    <defaultValue>5C</defaultValue>
+                </hexString>
+                <hexString hideFlag="true" name="Length of calling party BCD number contents" minLength="2" maxLength="2">
+                    <defaultValue>00</defaultValue>
+                </hexString>
+                <bitString hideFlag="true" name="Extension" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Type of number" minLength="3" maxLength="3">
+                    <defaultValue>000</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Numbering plan identification" minLength="4" maxLength="4">
+                    <defaultValue>0000</defaultValue>
+                </bitString>
+                <commonElementRef hideFlag="true" mandatory="false" name="Calling party BCD num.3a">
+                    <ref>Calling party BCD num.3a</ref>
+                </commonElementRef>
+                <hexString hideFlag="true" mandatory="false" name="Number digit" minLength="0" maxLength="20">
+                    <defaultValue>0</defaultValue>
+                </hexString>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement hideFlag="true" name="Calling party common">
+            <protocolObjectSequence hideFlag="true">
+                <bitString name="Extension" minLength="1" maxLength="1">
+                    <defaultValue>1</defaultValue>
+                </bitString>
+                <bitString name="Type of subaddress" minLength="3" maxLength="3">
+                    <defaultValue>000</defaultValue>
+                </bitString>
+                <bitString name="Odd/even indicator" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString name="Spare" minLength="3" maxLength="3">
+                    <defaultValue>000</defaultValue>
+                </bitString>
+                <hexString hideFlag="true" mandatory="false" name="Subaddress information" minLength="0" maxLength="20">
+                    
+                </hexString>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement hideFlag="true" name="Called party subaddr common">
+            <protocolObjectSequence hideFlag="true">
+                <bitString hideFlag="true" name="Extension" minLength="1" maxLength="1">
+                    <defaultValue>1</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Type of subaddress" minLength="3" maxLength="3">
+                    <defaultValue>000</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Odd/even indicator" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Spare" minLength="3" maxLength="3">
+                    <defaultValue>000</defaultValue>
+                </bitString>
+                <hexString hideFlag="true" mandatory="false" name="Subaddress information" minLength="0" maxLength="20">
+                    <defaultValue>0</defaultValue>
+                </hexString>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement hideFlag="true" name="GSM A-I/F DTAP(CC)">
+            <protocolObjectSequence hideFlag="true">
+                <bitString hideFlag="true" name="TI flag" minLength="1" maxLength="1">
+                    <defaultValue>1</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="TIO" minLength="3" maxLength="3">
+                    <defaultValue>000</defaultValue>
+                </bitString>
+                <bitString name="Protocol Discriminator" minLength="4" maxLength="4">
+                    <defaultValue>0011</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Seguence number" minLength="2" maxLength="2">
+                    <defaultValue>01</defaultValue>
+                </bitString>
+                <bitString name="DTAP Call Control Message Type" minLength="6" maxLength="6">
+                    <defaultValue>000001</defaultValue>
+                </bitString>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement hideFlag="true" name="GSM A-I/F DTAP(MM)">
+            <protocolObjectSequence hideFlag="true">
+                <bitString hideFlag="true" name="Skip Indicator" minLength="4" maxLength="4">
+                    <defaultValue>0000</defaultValue>
+                </bitString>
+                <bitString name="Protocol Discriminator" minLength="4" maxLength="4">
+                    <defaultValue>0101</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Sequence number" minLength="2" maxLength="2">
+                    <defaultValue>00</defaultValue>
+                </bitString>
+                <bitString name="DTAP Mobility Management Message Type" minLength="6" maxLength="6">
+                    <defaultValue>100001</defaultValue>
+                </bitString>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement hideFlag="true" name="Data Link Connection Identifier">
+            <protocolObjectSequence hideFlag="true">
+                <bitString hideFlag="true" name="Control Channel" minLength="2" maxLength="2">
+                    <defaultValue>00</defaultValue>
+                </bitString>
+                <bitString name="Spare" minLength="3" maxLength="3">
+                    <defaultValue>000</defaultValue>
+                </bitString>
+                <bitString name="SAPI" minLength="3" maxLength="3">
+                    <defaultValue>000</defaultValue>
+                </bitString>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement hideFlag="true" name="BSSAP Header">
+            <protocolObjectSequence hideFlag="true">
+                <hexString hideFlag="true" name="Message Type" minLength="2" maxLength="2">
+                    <defaultValue>00</defaultValue>
+                </hexString>
+                <commonElementRef hideFlag="true" mandatory="false" name="Data Link Connection Identifier">
+                    <ref>Data Link Connection Identifier</ref>
+                </commonElementRef>
+                <hexString hideFlag="true" name="Length" minLength="2" maxLength="2">
+                    <defaultValue>00</defaultValue>
+                </hexString>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement hideFlag="true" name="Called party subaddr">
+            <protocolObjectSequence hideFlag="true">
+                <hexString hideFlag="true" name="Called party Subaddress IEI" minLength="2" maxLength="2">
+                    <defaultValue>6D</defaultValue>
+                </hexString>
+                <hexString hideFlag="true" name="Length of called party subaddress contents" minLength="2" maxLength="2">
+                    <defaultValue>00</defaultValue>
+                </hexString>
+                <commonElementRef hideFlag="true" mandatory="false" name="Called party subaddr3">
+                    <ref>Called party subaddr3</ref>
+                </commonElementRef>
+                <hexString hideFlag="true" mandatory="false" name="Subaddress information" minLength="0" maxLength="20">
+                    <defaultValue>0</defaultValue>
+                </hexString>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement hideFlag="true" name="Redirecting party BCD number">
+            <protocolObjectSequence hideFlag="true">
+                <hexString hideFlag="true" name="Redirecting party BCD number IEI" minLength="2" maxLength="2">
+                    <defaultValue>74</defaultValue>
+                </hexString>
+                <hexString hideFlag="true" name="Length of redirecting party BCD number contents" minLength="2" maxLength="2">
+                    <defaultValue>00</defaultValue>
+                </hexString>
+                <bitString hideFlag="true" name="Extension" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Type of number" minLength="3" maxLength="3">
+                    <defaultValue>000</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Numbering plan identification" minLength="4" maxLength="4">
+                    <defaultValue>0000</defaultValue>
+                </bitString>
+                <commonElementRef hideFlag="true" mandatory="false" name="Calling party BCD num.3a">
+                    <ref>Calling party BCD num.3a</ref>
+                </commonElementRef>
+                <hexString hideFlag="true" mandatory="false" name="Number digit" minLength="0" maxLength="20">
+                    <defaultValue>0</defaultValue>
+                </hexString>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement hideFlag="true" name="Redirecting party subaddress">
+            <protocolObjectSequence hideFlag="true">
+                <hexString hideFlag="true" name="Redirecting party subaddress IEI" minLength="2" maxLength="2">
+                    <defaultValue>75</defaultValue>
+                </hexString>
+                <hexString hideFlag="true" name="Length of redirecting party subaddress contents" minLength="2" maxLength="2">
+                    <defaultValue>00</defaultValue>
+                </hexString>
+                <commonElementRef hideFlag="true" mandatory="false" name="Calling party common">
+                    <ref>Calling party common</ref>
+                </commonElementRef>
+                <hexString hideFlag="true" mandatory="false" name="Subaddress information" minLength="0" maxLength="20">
+                    <defaultValue>0</defaultValue>
+                </hexString>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement hideFlag="true" name="High layer compatibility common">
+            <protocolObjectSequence hideFlag="true">
+                <bitString hideFlag="true" name="Extension 1" minLength="1" maxLength="1">
+                    <defaultValue>1</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Coding standard" minLength="2" maxLength="2">
+                    <defaultValue>00</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Interpretation " minLength="3" maxLength="3">
+                    <defaultValue>000</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Presentation method of protocol profile" minLength="2" maxLength="2">
+                    <defaultValue>00</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Extension 2" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="High layer characteristics identification" minLength="7" maxLength="7">
+                    <defaultValue>0000000</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Extension 3" minLength="1" maxLength="1">
+                    <defaultValue>1</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Extended high layer characteristics identification" minLength="7" maxLength="7">
+                    <defaultValue>0000000</defaultValue>
+                </bitString>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement hideFlag="true" name="User-user common">
+            <protocolObjectSequence hideFlag="true">
+                <hexString hideFlag="true" mandatory="true" name="User-user protocol discriminator" minLength="2" maxLength="2">
+                    <defaultValue>00</defaultValue>
+                </hexString>
+                <hexString hideFlag="true" mandatory="false" name="User-user information" minLength="0" maxLength="256">
+                    <defaultValue>00</defaultValue>
+                </hexString>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement hideFlag="true" name="Priority Level">
+            <protocolObjectSequence hideFlag="true">
+                <bitString hideFlag="true" name="Priority Level IEI" minLength="4" maxLength="4">
+                    <defaultValue>1000</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Spare" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Call priority" minLength="3" maxLength="3">
+                    <defaultValue>000</defaultValue>
+                </bitString>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement hideFlag="true" name="Alerting Pattern">
+            <protocolObjectSequence hideFlag="true">
+                <hexString hideFlag="true" name="Alerting Pattern IEI" minLength="2" maxLength="2">
+                    <defaultValue>19</defaultValue>
+                </hexString>
+                <hexString hideFlag="true" name="Length of alerting pattern content" minLength="2" maxLength="2">
+                    <defaultValue>00</defaultValue>
+                </hexString>
+                <bitString hideFlag="true" name="Spare" minLength="4" maxLength="4">
+                    <defaultValue>0000</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="Alerting Pattern value" minLength="4" maxLength="4">
+                    <defaultValue>0000</defaultValue>
+                </bitString>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement hideFlag="true" name="L2 Pseudo Length">
+            <protocolObjectSequence hideFlag="true">
+                <hexString hideFlag="true" name="L2 Pseudo Length IEI" minLength="2" maxLength="2">
+                    <defaultValue>00</defaultValue>
+                </hexString>
+                <bitString hideFlag="true" name="L2 Pseudo Length value" minLength="6" maxLength="6">
+                    <defaultValue>000000</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="fixed0" minLength="0" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="fixed1" minLength="0" maxLength="1">
+                    <defaultValue>1</defaultValue>
+                </bitString>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement hideFlag="true" name="BCTPHeader">
+            <protocolObjectSequence hideFlag="true">
+                <bitString hideFlag="true" name="8thBit" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString name="BVEI" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="6thBit" minLength="1" maxLength="1">
+                    <defaultValue>1</defaultValue>
+                </bitString>
+                <bitString name="BCTPVI" minLength="5" maxLength="5">
+                    <defaultValue>00000</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="8thBit2ndOctet" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString name="TPEI" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString name="TPIndicator" minLength="6" maxLength="6">
+                    <defaultValue>100000</defaultValue>
+                </bitString>
+            </protocolObjectSequence>
+        </commonElement>
+        
+        <commonElement hideFlag="true" name="CC capabilities">
+            <protocolObjectSequence hideFlag="true">
+                <bitString hideFlag="true" name="spare" minLength="6" maxLength="6">
+                    <defaultValue>000000</defaultValue>
+                </bitString>
+                <bitString name="PCP" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="DTMF" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="spare 1" minLength="4" maxLength="4">
+                    <defaultValue>0000</defaultValue>
+                </bitString>
+                <bitString name="max number of speech bearers" minLength="4" maxLength="4">
+                    <defaultValue>0001</defaultValue>
+                </bitString>
+            </protocolObjectSequence>
+        </commonElement>
+
+
+    </commonElements>
+    <decoderInfo>
+        <msgDecoderInfo>
+            <className>pegasus.ptp.protocolDescription.bssmap.decoderInfo.MsgDecoderInfoBssmap</className>
+        </msgDecoderInfo>
+        <ieDecoderInfo>
+            <className>pegasus.ptp.protocolDescription.bssmap.decoderInfo.IeDecoderInfoBssmap</className>
+        </ieDecoderInfo>
+    </decoderInfo>
+    <encoderInfo>
+        <msgEncoderInfo>
+            <className>pegasus.ptp.protocolDescription.bssmap.encoderInfo.MsgEncoderInfoBssmap</className>
+            <lengthOfLengthField>4</lengthOfLengthField>
+            <protocolObjectType>HexString</protocolObjectType>
+        </msgEncoderInfo>
+        <ieEncoderInfo>
+            <className>pegasus.ptp.protocolDescription.bssmap.encoderInfo.IeEncoderInfoBssmap</className>
+            <lengthOfLengthField>2</lengthOfLengthField>
+            <protocolObjectType>HexString</protocolObjectType>
+        </ieEncoderInfo>
+    </encoderInfo>
+</protocolDescription>

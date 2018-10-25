@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# set environment variables
+export TESTWORK_BIN_PATH=/opt/testworks/bin
+export TESTWORK_LIB_PATH=/opt/testworks/lib
+
+
+
+# check for Java 1.6
+if [[ ! -x /usr/java/latest/bin/java ]]
+then
+	zenity --error --title "Testworks" --text "Testworks is unable to find Java Virtual Machine 1.6 at /usr/java/latest/bin/java. Please check installation."
+fi
+
+# Gather jar lis
+JARFILELIST=$(ls -1 $TESTWORK_LIB_PATH/*jar)
+JARLIST="."
+for i in $JARFILELIST
+do
+	JARLIST="$JARLIST:$i"
+done
+
+# Launch it
+/usr/java/latest/bin/java -cp $JARLIST  pegasus.utilities.logviewer.SelectFileFrame
+

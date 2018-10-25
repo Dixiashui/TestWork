@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<protocolDescription xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../protocolDescription.xsd" type="IPBCP">
+	<protocolMessages>
+		<protocolMessage type="01" name="Request">
+			<header>
+				<protocolObjectSequence hideFlag="true">
+					<commonElementRef hideFlag="true" mandatory="true" name="BCTPHeader">
+						<ref>BCTPHeader</ref>
+					</commonElementRef>
+					<commonElementRef hideFlag="true" mandatory="true" name="Origin">
+						<ref>Origin</ref>
+					</commonElementRef>
+					<commonElementRef hideFlag="true" mandatory="true" name="SessionName">
+						<ref>SessionName</ref>
+					</commonElementRef>
+					<commonElementRef hideFlag="true" mandatory="true" name="ConnectionData">
+						<ref>ConnectionData</ref>
+					</commonElementRef>
+					<commonElementRef hideFlag="true" mandatory="true" name="Time">
+						<ref>Time</ref>
+					</commonElementRef>
+					<protocolObjectSequence mandatory="true" name="SessionAttribute">
+						<characterString constFlag="true" name="type" txPrefix="a=ipbcp:1 " rxPrefixPattern="a=ipbcp:1 +" txEOF="&#13;&#10;" rxEOFPattern="&#13;&#10;">
+							<defaultValue>Request</defaultValue>
+						</characterString>
+					</protocolObjectSequence>
+				</protocolObjectSequence>
+			</header>
+			<messageInformationElements>
+				<protocolObjectSet hideFlag="true">
+					<informationElementRef hideFlag="true" mandatory="false" name="MediaAnnouncement">
+						<ref>MediaAnnouncement</ref>
+					</informationElementRef>
+					<informationElementRef hideFlag="true" mandatory="false" name="MediaAttributeDTMF">
+						<ref>MediaAttributeDTMF</ref>
+					</informationElementRef>
+					<informationElementRef hideFlag="true" mandatory="false" name="MediaAttributeRTP">
+						<ref>MediaAttributeRTP</ref>
+					</informationElementRef>
+					<informationElementRef hideFlag="true" mandatory="false" name="MediaAttributePT">
+						<ref>MediaAttributePT</ref>
+					</informationElementRef>
+				</protocolObjectSet>
+			</messageInformationElements>
+		</protocolMessage>
+		<protocolMessage type="02" name="Accepted">
+			<header>	
+				<protocolObjectSequence hideFlag="true">
+					<commonElementRef hideFlag="true" mandatory="true" name="BCTPHeader">
+						<ref>BCTPHeader</ref>
+					</commonElementRef>
+					<commonElementRef hideFlag="true" mandatory="true" name="Origin">
+						<ref>Origin</ref>
+					</commonElementRef>
+					<commonElementRef hideFlag="true" mandatory="true" name="SessionName">
+						<ref>SessionName</ref>
+					</commonElementRef>
+					<commonElementRef hideFlag="true" mandatory="true" name="ConnectionData">
+						<ref>ConnectionData</ref>
+					</commonElementRef>
+					<commonElementRef hideFlag="true" mandatory="true" name="Time">
+						<ref>Time</ref>
+					</commonElementRef>
+					<protocolObjectSequence mandatory="true" name="SessionAttribute">
+						<characterString constFlag="true" name="type" txPrefix="a=ipbcp:1 " rxPrefixPattern="a=ipbcp:1 +" txEOF="&#13;&#10;" rxEOFPattern="&#13;&#10;">
+							<defaultValue>Accepted</defaultValue>
+						</characterString>
+					</protocolObjectSequence>
+				</protocolObjectSequence>
+			</header>
+			<messageInformationElements>
+				<protocolObjectSet hideFlag="true">
+					<informationElementRef hideFlag="true" mandatory="false" name="MediaAnnouncement">
+						<ref>MediaAnnouncement</ref>
+					</informationElementRef>
+					<informationElementRef hideFlag="true" mandatory="false" name="MediaAttributeDTMF">
+						<ref>MediaAttributeDTMF</ref>
+					</informationElementRef>
+					<informationElementRef hideFlag="true" mandatory="false" name="MediaAttributeRTP">
+						<ref>MediaAttributeRTP</ref>
+					</informationElementRef>
+					<informationElementRef hideFlag="true" mandatory="false" name="MediaAttributePT">
+						<ref>MediaAttributePT</ref>
+					</informationElementRef>
+				</protocolObjectSet>
+			</messageInformationElements>
+		</protocolMessage>
+		<protocolMessage type="03" name="Confused">
+			<header>
+				<protocolObjectSequence hideFlag="true">
+					<commonElementRef hideFlag="true" mandatory="true" name="BCTPHeader">
+						<ref>BCTPHeader</ref>
+					</commonElementRef>
+					<commonElementRef hideFlag="true" mandatory="true" name="Origin">
+						<ref>Origin</ref>
+					</commonElementRef>
+					<commonElementRef hideFlag="true" mandatory="true" name="SessionName">
+						<ref>SessionName</ref>
+					</commonElementRef>
+					<commonElementRef hideFlag="true" mandatory="true" name="ConnectionData">
+						<ref>ConnectionData</ref>
+					</commonElementRef>
+					<commonElementRef hideFlag="true" mandatory="true" name="Time">
+						<ref>Time</ref>
+					</commonElementRef>
+					<protocolObjectSequence mandatory="true" name="SessionAttribute">
+						<characterString constFlag="true" name="type" txPrefix="a=ipbcp:1 " rxPrefixPattern="a=ipbcp:1 +" txEOF="&#13;&#10;" rxEOFPattern="&#13;&#10;">
+							<defaultValue>Confused</defaultValue>
+						</characterString>
+					</protocolObjectSequence>
+				</protocolObjectSequence>
+			</header>
+			<messageInformationElements>
+				<protocolObjectSet hideFlag="true">
+					<informationElementRef hideFlag="true" mandatory="false" name="MediaAnnouncement">
+						<ref>MediaAnnouncement</ref>
+					</informationElementRef>
+					<informationElementRef hideFlag="true" mandatory="false" name="MediaAttributeDTMF">
+						<ref>MediaAttributeDTMF</ref>
+					</informationElementRef>
+					<informationElementRef hideFlag="true" mandatory="false" name="MediaAttributeRTP">
+						<ref>MediaAttributeRTP</ref>
+					</informationElementRef>
+					<informationElementRef hideFlag="true" mandatory="false" name="MediaAttributePT">
+						<ref>MediaAttributePT</ref>
+					</informationElementRef>
+				</protocolObjectSet>
+			</messageInformationElements>
+		</protocolMessage>
+		<protocolMessage type="04" name="Rejected">
+			<header>
+				<protocolObjectSequence hideFlag="true">
+					<commonElementRef hideFlag="true" mandatory="true" name="BCTPHeader">
+						<ref>BCTPHeader</ref>
+					</commonElementRef>
+					<commonElementRef hideFlag="true" mandatory="true" name="Origin">
+						<ref>Origin</ref>
+					</commonElementRef>
+					<commonElementRef hideFlag="true" mandatory="true" name="SessionName">
+						<ref>SessionName</ref>
+					</commonElementRef>
+					<commonElementRef hideFlag="true" mandatory="true" name="ConnectionData">
+						<ref>ConnectionData</ref>
+					</commonElementRef>
+					<commonElementRef hideFlag="true" mandatory="true" name="Time">
+						<ref>Time</ref>
+					</commonElementRef>
+					<protocolObjectSequence mandatory="true" name="SessionAttribute">
+						<characterString constFlag="true" name="type" txPrefix="a=ipbcp:1 " rxPrefixPattern="a=ipbcp:1 +" txEOF="&#13;&#10;" rxEOFPattern="&#13;&#10;">
+							<defaultValue>Rejected</defaultValue>
+						</characterString>
+					</protocolObjectSequence>
+				</protocolObjectSequence>
+			</header>
+			<messageInformationElements>
+				<protocolObjectSet hideFlag="true">
+					<informationElementRef hideFlag="true" mandatory="false" name="MediaAnnouncement">
+						<ref>MediaAnnouncement</ref>
+					</informationElementRef>
+					<informationElementRef hideFlag="true" mandatory="false" name="MediaAttributeDTMF">
+						<ref>MediaAttributeDTMF</ref>
+					</informationElementRef>
+					<informationElementRef hideFlag="true" mandatory="false" name="MediaAttributeRTP">
+						<ref>MediaAttributeRTP</ref>
+					</informationElementRef>
+					<informationElementRef hideFlag="true" mandatory="false" name="MediaAttributePT">
+						<ref>MediaAttributePT</ref>
+					</informationElementRef>
+				</protocolObjectSet>
+			</messageInformationElements>
+		</protocolMessage>
+	</protocolMessages>
+	<informationElements>
+		<informationElement format="TV" name="MediaAnnouncement" iei="m" mandatory="true" hideFlag="true">
+			<protocolObjectSequence name="MediaAnnouncement" hideFlag="true">
+				<characterString constFlag="true" name="m" txSuffix="=" rxSuffixPattern="=">
+					<defaultValue>m</defaultValue>
+				</characterString>
+				<protocolObjectSequence name="v">
+					<characterString constFlag="false" name="media" minLength="1" maxLength="unbounded" txEOF=" " rxEOFPattern=" +" />
+					<characterString constFlag="false" name="port" minLength="1" maxLength="unbounded" txEOF=" " rxEOFPattern=" +" />
+					<characterString constFlag="false" name="transport" minLength="1" maxLength="unbounded" txEOF=" " rxEOFPattern=" +" />
+					<characterString constFlag="false" name="fmt_list" minLength="1" maxLength="unbounded" txEOF="&#13;&#10;" rxEOFPattern="&#13;&#10;" />
+				</protocolObjectSequence>
+			</protocolObjectSequence>
+		</informationElement>
+		<informationElement format="TV" name="MediaAttributeDTMF" iei="fmtp" mandatory="true" hideFlag="true">
+			<protocolObjectSequence name="MediaAttributeDTMF" hideFlag="true">
+				<characterString constFlag="true" name="fmtp" txPrefix="a=" rxPrefixPattern="a=" txSuffix=":" rxSuffixPattern=":">
+					<defaultValue>fmtp</defaultValue>
+				</characterString>
+				<protocolObjectSequence name="v">
+					<characterString constFlag="false" name="format" minLength="1" maxLength="unbounded" txEOF=" " rxEOFPattern=" +" />
+					<characterString constFlag="false" name="fmt_specific_params" minLength="1" maxLength="unbounded" txEOF="&#13;&#10;" rxEOFPattern="&#13;&#10;" />
+				</protocolObjectSequence>
+			</protocolObjectSequence>
+		</informationElement>
+		<informationElement format="TV" name="MediaAttributeRTP" iei="rtpmap" mandatory="true" hideFlag="true">
+			<protocolObjectSequence name="MediaAttributeRTP" hideFlag="true">
+				<characterString constFlag="true" name="rtpmap" txPrefix="a=" rxPrefixPattern="a=" txSuffix=":" rxSuffixPattern=":">
+					<defaultValue>rtpmap</defaultValue>
+				</characterString>
+				<protocolObjectSequence name="v">
+					<characterString constFlag="false" name="payload" minLength="1" maxLength="unbounded" txEOF=" " rxEOFPattern=" +" />
+					<characterString constFlag="false" name="encoding_name" minLength="1" maxLength="unbounded" txEOF="/" rxEOFPattern="/" />
+					<characterString constFlag="false" name="clock_rate" minLength="1" maxLength="unbounded" txEOF="&#13;&#10;" rxEOFPattern="&#13;&#10;" />
+				</protocolObjectSequence>
+			</protocolObjectSequence>
+		</informationElement>
+		<informationElement format="TV" name="MediaAttributePT" iei="ptime" mandatory="true" hideFlag="true">
+			<protocolObjectSequence name="MediaAttributePT" hideFlag="true">
+				<characterString constFlag="true" name="ptime" txPrefix="a=" rxPrefixPattern="a=" txSuffix=":" rxSuffixPattern=":">
+					<defaultValue>ptime</defaultValue>
+				</characterString>
+				<protocolObjectSequence name="v">
+					<characterString constFlag="false" name="packet_time" minLength="1" maxLength="unbounded" txEOF="&#13;&#10;" rxEOFPattern="&#13;&#10;" />
+				</protocolObjectSequence>
+			</protocolObjectSequence>
+		</informationElement>
+	</informationElements>
+	<commonElements>
+		<commonElement hideFlag="true" mandatory="true" name="Origin">
+			<protocolObjectSequence hideFlag="true">
+				<characterString name="version" minLength="1" maxLength="unbounded" txPrefix="v=0&#13;&#10;o=- 0 " rxPrefixPattern="v=0&#13;&#10;o=- 0 +" txEOF=" IN" rxEOFPattern=" +IN" />
+				<characterString name="address_type" minLength="3" maxLength="3" txPrefix=" " rxPrefixPattern=" +" txEOF=" " rxEOFPattern=" +">
+					<constraints restrictive="true">
+						<enumeration value="IP4" />
+						<enumeration value="IP6" />
+					</constraints>
+				</characterString>
+				<characterString name="IPv4_address" minLength="7" maxLength="15" mandatory="false" txEOF="&#13;&#10;" rxEOFPattern="&#13;&#10;">
+					<conditions>
+						<condition>
+							<restriction base="ce__Origin.sequence.address_type">
+								<pattern value="IP4"/>
+							</restriction>
+						</condition>
+					</conditions>
+					<annotation>address_type is used as condition</annotation>
+				</characterString>
+				<characterString name="IPv6_address" minLength="11" maxLength="29" mandatory="false" txEOF="&#13;&#10;" rxEOFPattern="&#13;&#10;">
+					<conditions>
+						<condition>
+							<restriction base="ce__Origin.sequence.address_type">
+								<pattern value="IP6"/>
+							</restriction>
+						</condition>
+					</conditions>
+					<annotation>address_type is used as condition</annotation>
+				</characterString>
+			</protocolObjectSequence>			
+		</commonElement>
+		<commonElement hideFlag="true" mandatory="true" name="SessionName">
+			<protocolObjectSequence hideFlag="true">
+				<characterString constFlag="false" name="session_name" minLength="1" maxLength="unbounded"  txPrefix="s=" rxPrefixPattern="s=" txEOF="&#13;&#10;" rxEOFPattern="&#13;&#10;"/>
+			</protocolObjectSequence>			
+		</commonElement>
+		<commonElement hideFlag="true" mandatory="true" name="ConnectionData">
+			<protocolObjectSequence hideFlag="true">
+				<characterString name="address_type" minLength="3" maxLength="3" txPrefix="c=IN " rxPrefixPattern="c=IN +" txEOF=" " rxEOFPattern=" +">
+					<constraints restrictive="true">
+						<enumeration value="IP4" />
+						<enumeration value="IP6" />
+					</constraints>
+				</characterString>
+				<characterString name="IPv4_address" minLength="7" maxLength="15" mandatory="false" txEOF="&#13;&#10;" rxEOFPattern="&#13;&#10;">
+					<conditions>
+						<condition>
+							<restriction base="ce__ConnectionData.sequence.address_type">
+								<pattern value="IP4"/>
+							</restriction>
+						</condition>
+					</conditions>
+					<annotation>address_type is used as condition</annotation>
+				</characterString>
+				<characterString name="IPv6_address" minLength="11" maxLength="29" mandatory="false" txEOF="&#13;&#10;" rxEOFPattern="&#13;&#10;">
+					<conditions>
+						<condition>
+							<restriction base="ce__ConnectionData.sequence.address_type">
+								<pattern value="IP6"/>
+							</restriction>
+						</condition>
+					</conditions>
+					<annotation>address_type is used as condition</annotation>
+				</characterString>
+			</protocolObjectSequence>			
+		</commonElement>
+		<commonElement hideFlag="true" mandatory="true" name="Time">
+			<protocolObjectSequence hideFlag="true">
+				<characterString constFlag="false" name="start_time" minLength="1" maxLength="unbounded" txPrefix="t=" rxPrefixPattern="t=" txEOF=" " rxEOFPattern=" +" />
+				<characterString constFlag="false" name="stop_time" minLength="1" maxLength="unbounded" txEOF="&#13;&#10;" rxEOFPattern="&#13;&#10;" />
+			</protocolObjectSequence>			
+		</commonElement>
+		<commonElement hideFlag="true" name="BCTPHeader">
+			<protocolObjectSequence hideFlag="true">
+				<bitString hideFlag="true" name="8thBit" minLength="1" maxLength="1">
+					<defaultValue>0</defaultValue>
+				</bitString>			
+				<bitString name="BVEI" minLength="1" maxLength="1">
+					<defaultValue>0</defaultValue>
+				</bitString>
+				<bitString hideFlag="true" name="6thBit" minLength="1" maxLength="1">
+					<defaultValue>1</defaultValue>
+				</bitString>
+				<bitString name="BCTPVI" minLength="5" maxLength="5">
+					<defaultValue>00000</defaultValue>
+				</bitString>
+				<bitString hideFlag="true" name="8thBit2ndOctet" minLength="1" maxLength="1">
+					<defaultValue>0</defaultValue>
+				</bitString>
+				<bitString name="TPEI" minLength="1" maxLength="1">
+					<defaultValue>0</defaultValue>
+				</bitString>			
+				<bitString name="TPIndicator" minLength="6" maxLength="6">
+					<defaultValue>100000</defaultValue>
+				</bitString>
+			</protocolObjectSequence>
+		</commonElement>
+	</commonElements>
+	<decoderInfo>
+		<msgDecoderInfo>
+			<className>pegasus.ptp.protocolDescription.ipbcp.decoderInfo.MsgDecoderInfoIPBCP</className>
+		</msgDecoderInfo>
+		<ieDecoderInfo />
+	</decoderInfo>
+</protocolDescription>

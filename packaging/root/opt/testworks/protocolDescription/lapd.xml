@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<protocolDescription xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../protocolDescription.xsd" type="LAPD">
+    <protocolMessages>
+        <protocolMessage type="7f" name="SABME">
+            <messageInformationElements hideFlag="true">
+                <protocolObjectSequence hideFlag="true">
+                    <commonElementRef name="Address Field" mandatory="true">
+                        <ref>AddressField</ref>
+                    </commonElementRef>
+                    <hexString name="Control Field" minLength="2" maxLength="2" mandatory="true" constFlag="false">
+                        <defaultValue>7f</defaultValue>
+                    </hexString>
+                </protocolObjectSequence>
+            </messageInformationElements>
+        </protocolMessage>
+        <protocolMessage type="18" name="UA">
+            <messageInformationElements hideFlag="true">
+                <protocolObjectSequence hideFlag="true">
+                    <commonElementRef name="Address Field" mandatory="true">
+                        <ref>AddressField</ref>
+                    </commonElementRef>
+                    <hexString name="Control Field" minLength="2" maxLength="2" mandatory="true" constFlag="false">
+                        <defaultValue>18</defaultValue>
+                    </hexString>
+                </protocolObjectSequence>
+            </messageInformationElements>
+        </protocolMessage>
+        <protocolMessage type="0101" name="RR">
+            <messageInformationElements hideFlag="true">
+                <protocolObjectSequence hideFlag="true">
+                    <commonElementRef name="Address Field" mandatory="true">
+                        <ref>AddressField</ref>
+                    </commonElementRef>
+                    <hexString name="Control Field" minLength="4" maxLength="4" mandatory="true" constFlag="false">
+                        <defaultValue>0101</defaultValue>
+                    </hexString>
+                </protocolObjectSequence>
+            </messageInformationElements>
+        </protocolMessage>
+    </protocolMessages>
+    <informationElements/>
+    <commonElements>
+        <commonElement hideFlag="true" name="AddressField">
+            <protocolObjectSequence hideFlag="true">
+                <bitString hideFlag="true" name="SAPI" minLength="6" maxLength="6">
+                    <defaultValue>000000</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="C/R" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="EA1" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="TEI" minLength="7" maxLength="7">
+                    <defaultValue>0000000</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="EAI" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+            </protocolObjectSequence>
+        </commonElement>
+    </commonElements>
+    <decoderInfo>
+        <msgDecoderInfo>
+            <className>pegasus.ptp.protocolDescription.lapd.decoderInfo.MsgDecoderInfoLapd</className>
+        </msgDecoderInfo>
+        <ieDecoderInfo/>
+    </decoderInfo>
+</protocolDescription>	

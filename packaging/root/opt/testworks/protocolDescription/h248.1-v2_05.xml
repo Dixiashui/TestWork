@@ -1,0 +1,1995 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<protocolDescription xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="/view/op1745_pegcom/pegcore/pegasus/common/ptp/protocolDescription/xmlSchema/protocolDescription.xsd" type="H.248.1-V2-200205">
+	<className>pegasus.common.ptp.protocolDescription.model.asn1Implementation.ProtocolDescriptionAsn1</className>
+	<protocolMessages>
+		<protocolMessage name="MegacoMessage" type="01">
+			<messageInformationElements>
+				<protocolObjectSequence hideFlag="true">
+					<commonElementRef name="authHeader" mandatory="false">
+						<ref>AuthenticationHeader</ref>
+					</commonElementRef>
+					<commonElementRef name="mess">
+						<ref>Message</ref>
+					</commonElementRef>
+				</protocolObjectSequence>
+			</messageInformationElements>
+		</protocolMessage>
+	</protocolMessages>
+	<informationElements/>
+	<commonElements>
+		<commonElement hideFlag="true" name="AuthenticationHeader">
+			<protocolObjectSequence hideFlag="true">
+				<commonElementRef name="secParmIndex">
+					<ref>SecurityParmIndex</ref>
+				</commonElementRef>
+				<commonElementRef name="seqNum">
+					<ref>SequenceNum</ref>
+				</commonElementRef>
+				<commonElementRef name="ad">
+					<ref>AuthData</ref>
+				</commonElementRef>
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement name="IP4Address" hideFlag="true">
+			<protocolObjectSequence hideFlag="true">
+				<hexString name="address" minLength="8" maxLength="8">
+					<internalFormatter name="IPv4Address"/>
+				</hexString>
+				<protocolObjectInteger mandatory="false" name="portNumber">
+					<_lowLimit>0</_lowLimit>
+					<_highLimit>65535</_highLimit>
+				</protocolObjectInteger>
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement hideFlag="true" name="IP6Address">
+			<protocolObjectSequence hideFlag="true">
+				<hexString name="address" minLength="32" maxLength="32"/>
+				<protocolObjectInteger mandatory="false" name="portNumber">
+					<_lowLimit>0</_lowLimit>
+					<_highLimit>65535</_highLimit>
+				</protocolObjectInteger>
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement hideFlag="true" name="DomainName">
+			<protocolObjectSequence hideFlag="true">
+				<hexString minLength="0" maxLength="unbounded" name="name">
+					<className>pegasus.common.ptp.protocolDescription.model.asn1Implementation.asn1BasicTypes.PegasusIA5String</className>
+				</hexString>
+				<protocolObjectInteger mandatory="false" name="portNumber">
+					<_lowLimit>0</_lowLimit>
+					<_highLimit>65535</_highLimit>
+				</protocolObjectInteger>
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement hideFlag="true" name="MId">
+			<protocolObjectChoice hideFlag="true">
+				<className>pegasus.ptp.protocolDescription.h248.MidAutofillBinary</className>
+				<protocolObjectAsn1>
+					<commonElementRef mandatory="false" name="ip4Address">
+						<ref>IP4Address</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+				<protocolObjectAsn1>
+					<commonElementRef mandatory="false" name="ip6Address">
+						<ref>IP6Address</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+				<protocolObjectAsn1>
+					<commonElementRef mandatory="false" name="domainName">
+						<ref>DomainName</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+				<protocolObjectAsn1>
+					<commonElementRef mandatory="false" name="deviceName">
+						<ref>PathName</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+				<protocolObjectAsn1>
+					<hexString name="mtpAddress" minLength="4" maxLength="8" mandatory="false"/>
+				</protocolObjectAsn1>
+				<protocolObjectAsn1>
+					<hexString name="getFromSystemConfig" minLength="0" maxLength="unbounded" mandatory="false">
+					<className>pegasus.ptp.protocolDescription.h248.GetFromSysConfigField</className>
+					</hexString>
+				</protocolObjectAsn1>
+				<!--protocolObjectAsn1>
+					<hexString name="other" mandatory="false"/>
+				</protocolObjectAsn1-->
+			</protocolObjectChoice>
+		</commonElement>
+		<commonElement name="ErrorDescriptor" hideFlag="true">
+			<protocolObjectSequence hideFlag="true">
+				<commonElementRef name="errorCode" hideFlag="true">
+					<ref>ErrorCode</ref>
+				</commonElementRef>
+				<commonElementRef mandatory="false" name="errorText" hideFlag="true">
+					<ref>ErrorText</ref>
+				</commonElementRef>
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement hideFlag="true" name="TerminationID">
+			<protocolObjectSequence hideFlag="true">
+				<protocolObjectSequenceOf minLength="0" maxLength="unbounded" name="wildcard">
+					<commonElementRef name="WildcardField">
+						<ref>WildcardField</ref>
+					</commonElementRef>
+				</protocolObjectSequenceOf>
+				<hexString name="id" minLength="2" maxLength="16"/>
+				<!--hexString name="other" minLength="0" maxLength="unbounded" mandatory="false"/-->
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement hideFlag="true" name="TopologyRequest">
+			<protocolObjectSequence hideFlag="true">
+				<commonElementRef name="terminationFrom">
+					<ref>TerminationID</ref>
+				</commonElementRef>
+				<commonElementRef name="terminationTo">
+					<ref>TerminationID</ref>
+				</commonElementRef>
+				<protocolObjectEnumeration numberOfBits="3" name="topologyDirection">
+					<enumerationEntry>
+						<numericValue>0</numericValue>
+						<stringRepresentation>bothway</stringRepresentation>
+					</enumerationEntry>
+					<enumerationEntry>
+						<numericValue>1</numericValue>
+						<stringRepresentation>isolate</stringRepresentation>
+					</enumerationEntry>
+					<enumerationEntry>
+						<numericValue>2</numericValue>
+						<stringRepresentation>oneway</stringRepresentation>
+					</enumerationEntry>
+				</protocolObjectEnumeration>
+				<commonElementRef mandatory="false" name="streamID" hideFlag="true">
+					<ref>StreamID</ref>
+				</commonElementRef>
+				<!--hexString name="other" minLength="0" maxLength="unbounded" mandatory="false"/-->
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement hideFlag="true" name="ContextRequest">
+			<protocolObjectSequence hideFlag="true">
+				<protocolObjectInteger mandatory="false" name="priority">
+					<_lowLimit>0</_lowLimit>
+					<_highLimit>15</_highLimit>
+				</protocolObjectInteger>
+				<protocolObjectBoolean inverseLogic="false" mandatory="false" name="emergency"/>
+				<protocolObjectSequenceOf name="topologyReq" minLength="0" maxLength="unbounded">
+					<commonElementRef name="TopologyRequest">
+						<ref>TopologyRequest</ref>
+					</commonElementRef>
+				</protocolObjectSequenceOf>
+				<!--hexString name="other" minLength="0" maxLength="unbounded" mandatory="false"/-->
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement hideFlag="true" name="ContextAttrAuditRequest">
+			<protocolObjectSequence hideFlag="true">
+				<hexString maxLength="0" minLength="0" mandatory="false" name="topology">
+					<className>pegasus.common.ptp.protocolDescription.model.asn1Implementation.asn1BasicTypes.PegasusAsn1NULL</className>
+				</hexString>
+				<hexString maxLength="0" minLength="0" mandatory="false" name="emergency">
+					<className>pegasus.common.ptp.protocolDescription.model.asn1Implementation.asn1BasicTypes.PegasusAsn1NULL</className>
+				</hexString>
+				<hexString maxLength="0" minLength="0" mandatory="false" name="priority">
+					<className>pegasus.common.ptp.protocolDescription.model.asn1Implementation.asn1BasicTypes.PegasusAsn1NULL</className>
+				</hexString>
+				<!--hexString name="other" minLength="0" maxLength="unbounded" mandatory="false"/-->
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement name="TerminationIDList" hideFlag="true">
+			<protocolObjectSequenceOf minLength="0" maxLength="unbounded" name="TerminationIDList">
+				<commonElementRef name="TerminationID">
+					<ref>TerminationID</ref>
+				</commonElementRef>
+			</protocolObjectSequenceOf>
+		</commonElement>
+		<commonElement hideFlag="true" name="PropertyParm">
+			<protocolObjectSequence hideFlag="true">
+				<commonElementRef name="name" hideFlag="true">
+					<ref>PkgdName</ref>
+				</commonElementRef>
+<!-- Old Implementation, before DoubleWrapping...
+				<protocolObjectSequenceOf minLength="1" maxLength="unbounded" name="value">
+					<hexString minLength="2" maxLength="unbounded" name="value"/>
+				</protocolObjectSequenceOf>
+-->
+
+				<protocolObjectSequenceOf minLength="1" maxLength="unbounded" name="value" mandatory="false" hideFlag="false">
+					<protocolObjectChoice name="value" mandatory="false" hideFlag="false">
+					<className>pegasus.common.ptp.protocolDescription.model.asn1Implementation.ProtocolObjectChoiceAsn1DW</className>
+						<protocolObjectAsn1>
+							<hexString minLength="2" maxLength="unbounded" name="Value" mandatory="false"/>
+						</protocolObjectAsn1>
+						<protocolObjectAsn1>
+							<hexString minLength="2" maxLength="unbounded" name="ValueDW_Enumerated" mandatory="false"/>
+						</protocolObjectAsn1>
+						<protocolObjectAsn1>
+							<hexString minLength="2" maxLength="unbounded" name="ValueDW_IA5String" mandatory="false">
+							<className>pegasus.common.ptp.protocolDescription.model.asn1Implementation.asn1BasicTypes.PegasusIA5String</className>
+							</hexString>
+						</protocolObjectAsn1>
+						<protocolObjectAsn1>
+							<protocolObjectInteger name="ValueDW_Interger" mandatory="false">
+								<_lowLimit>0</_lowLimit>
+								<_highLimit>4294967295</_highLimit>
+							</protocolObjectInteger>
+						</protocolObjectAsn1>
+						<protocolObjectAsn1>
+							<protocolObjectBoolean inverseLogic="false" name="ValueDW_Boolean" mandatory="false" />
+						</protocolObjectAsn1>
+						<protocolObjectAsn1>
+							<hexString minLength="2" maxLength="unbounded" name="ValueDW_OctetString" mandatory="false"/>
+						</protocolObjectAsn1>
+					</protocolObjectChoice>
+				</protocolObjectSequenceOf>
+				
+				<protocolObjectChoice name="extraInfo" mandatory="false">
+					<protocolObjectAsn1>
+						<commonElementRef mandatory="false" name="relation">
+							<ref>Relation</ref>
+						</commonElementRef>
+					</protocolObjectAsn1>
+					<protocolObjectAsn1>
+						<protocolObjectBoolean inverseLogic="false" mandatory="false" name="range"/>
+					</protocolObjectAsn1>
+					<protocolObjectAsn1>
+						<protocolObjectBoolean inverseLogic="false" mandatory="false" name="sublist"/>
+					</protocolObjectAsn1>
+				</protocolObjectChoice>
+				<!--hexString name="other" minLength="0" maxLength="unbounded" mandatory="false"/-->
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement hideFlag="true" name="TerminationStateDescriptor">
+			<protocolObjectSequence hideFlag="true">
+				<protocolObjectSequenceOf name="propertyParms" minLength="0" maxLength="unbounded">
+					<commonElementRef name="PropertyParm">
+						<ref>PropertyParm</ref>
+					</commonElementRef>
+				</protocolObjectSequenceOf>
+				<commonElementRef mandatory="false" name="eventBufferControl" hideFlag="true">
+					<ref>EventBufferControl</ref>
+				</commonElementRef>
+				<commonElementRef mandatory="false" name="serviceState" hideFlag="true">
+					<ref>ServiceState</ref>
+				</commonElementRef>
+				<!--hexString name="other" minLength="0" maxLength="unbounded" mandatory="false"/-->
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement hideFlag="true" name="LocalControlDescriptor">
+			<protocolObjectSequence hideFlag="true">
+				<commonElementRef mandatory="false" name="streamMode" hideFlag="true">
+					<ref>StreamMode</ref>
+				</commonElementRef>
+				<protocolObjectBoolean inverseLogic="false" mandatory="false" name="reserveValue"/>
+				<protocolObjectBoolean inverseLogic="false" mandatory="false" name="reserveGroup"/>
+				<protocolObjectSequenceOf name="propertyParms" minLength="0" maxLength="unbounded">
+					<commonElementRef name="PropertyParm">
+						<ref>PropertyParm</ref>
+					</commonElementRef>
+				</protocolObjectSequenceOf>
+				<!--hexString name="other" minLength="0" maxLength="unbounded" mandatory="false"/-->
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement hideFlag="true" name="PropertyGroup">
+			<protocolObjectSequenceOf name="propertyParms" minLength="0" maxLength="unbounded">
+				<commonElementRef name="PropertyParm">
+					<ref>PropertyParm</ref>
+				</commonElementRef>
+			</protocolObjectSequenceOf>
+		</commonElement>
+		<commonElement hideFlag="true" name="LocalRemoteDescriptor">
+			<protocolObjectSequence hideFlag="true">
+				<protocolObjectSequenceOf name="propGrps" minLength="0" maxLength="unbounded">
+					<commonElementRef name="PropertyGroup">
+						<ref>PropertyGroup</ref>
+					</commonElementRef>
+				</protocolObjectSequenceOf>
+				<!--hexString name="other" minLength="0" maxLength="unbounded" mandatory="false"/-->
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement hideFlag="true" name="StreamParms">
+			<protocolObjectSequence hideFlag="true">
+				<commonElementRef mandatory="false" name="localControlDescriptor">
+					<ref>LocalControlDescriptor</ref>
+				</commonElementRef>
+				<commonElementRef mandatory="false" name="localDescriptor">
+					<ref>LocalRemoteDescriptor</ref>
+				</commonElementRef>
+				<commonElementRef mandatory="false" name="remoteDescriptor">
+					<ref>LocalRemoteDescriptor</ref>
+				</commonElementRef>
+				<!--hexString name="other" minLength="0" maxLength="unbounded" mandatory="false"/-->
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement hideFlag="true" name="StreamDescriptor">
+			<protocolObjectSequence hideFlag="true">
+				<commonElementRef name="streamID">
+					<ref>StreamID</ref>
+				</commonElementRef>
+				<commonElementRef name="streamParms">
+					<ref>StreamParms</ref>
+				</commonElementRef>
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement hideFlag="true" name="MediaDescriptor">
+			<protocolObjectSequence hideFlag="true">
+				<commonElementRef mandatory="false" name="termStateDescr">
+					<ref>TerminationStateDescriptor</ref>
+				</commonElementRef>
+				<protocolObjectChoice name="streams" mandatory="false">
+					<protocolObjectAsn1>
+						<commonElementRef mandatory="false" name="oneStream">
+							<ref>StreamParms</ref>
+						</commonElementRef>
+					</protocolObjectAsn1>
+					<protocolObjectAsn1>
+						<protocolObjectSequenceOf name="multiStream" minLength="0" maxLength="unbounded" mandatory="false">
+							<commonElementRef name="StreamDescriptor">
+								<ref>StreamDescriptor</ref>
+							</commonElementRef>
+						</protocolObjectSequenceOf>
+					</protocolObjectAsn1>
+				</protocolObjectChoice>
+				<!--hexString name="other" minLength="0" maxLength="unbounded" mandatory="false"/-->
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement hideFlag="true" name="H221NonStandard">
+			<protocolObjectSequence hideFlag="true">
+				<protocolObjectInteger name="t35CountryCode1">
+					<_lowLimit>0</_lowLimit>
+					<_highLimit>255</_highLimit>
+				</protocolObjectInteger>
+				<protocolObjectInteger name="t35CountryCode2">
+					<_lowLimit>0</_lowLimit>
+					<_highLimit>255</_highLimit>
+				</protocolObjectInteger>
+				<protocolObjectInteger name="t35Extension">
+					<_lowLimit>0</_lowLimit>
+					<_highLimit>255</_highLimit>
+				</protocolObjectInteger>
+				<protocolObjectInteger name="manufacturerCode">
+					<_lowLimit>0</_lowLimit>
+					<_highLimit>65535</_highLimit>
+				</protocolObjectInteger>
+				<!--hexString name="other" minLength="0" maxLength="unbounded" mandatory="false"/-->
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement hideFlag="true" name="NonStandardIdentifier">
+				<protocolObjectChoice name="NonStandardIdentifier">
+					<protocolObjectAsn1>
+						<hexString maxLength="unbounded" minLength="0" mandatory="false" name="object"/>
+					</protocolObjectAsn1>
+					<protocolObjectAsn1>
+						<commonElementRef mandatory="false" name="h221NonStandard">
+							<ref>H221NonStandard</ref>
+						</commonElementRef>
+					</protocolObjectAsn1>
+					<protocolObjectAsn1>
+						<hexString name="experimental" minLength="16" maxLength="16" mandatory="false">
+							<className>pegasus.common.ptp.protocolDescription.model.asn1Implementation.asn1BasicTypes.PegasusIA5String</className>
+						</hexString>
+					</protocolObjectAsn1>
+					<!--protocolObjectAsn1>
+						<hexString name="other" mandatory="false"/>
+					</protocolObjectAsn1-->
+				</protocolObjectChoice>
+		</commonElement>
+		<commonElement hideFlag="true" name="NonStandardData">
+			<protocolObjectSequence hideFlag="true">
+				<commonElementRef name="nonStandardIdentifier" hideFlag="true">
+					<ref>NonStandardIdentifier</ref>
+				</commonElementRef>
+				<hexString minLength="2" maxLength="unbounded" name="data"/>
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement hideFlag="true" name="ModemDescriptor">
+			<protocolObjectSequence hideFlag="true">
+				<protocolObjectSequenceOf minLength="1" maxLength="unbounded" name="mtl" hideFlag="true">
+					<commonElementRef name="ModemType">
+						<ref>ModemType</ref>
+					</commonElementRef>
+				</protocolObjectSequenceOf>
+				<protocolObjectSequenceOf name="mpl" minLength="0" maxLength="unbounded">
+					<commonElementRef name="PropertyParm">
+						<ref>PropertyParm</ref>
+					</commonElementRef>
+				</protocolObjectSequenceOf>
+				<commonElementRef mandatory="false" name="nonStandardData">
+					<ref>NonStandardData</ref>
+				</commonElementRef>
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement hideFlag="true" name="MuxDescriptor">
+			<protocolObjectSequence hideFlag="true">
+				<commonElementRef name="muxType">
+					<ref>MuxType</ref>
+				</commonElementRef>
+				<protocolObjectSequenceOf name="termList" minLength="0" maxLength="unbounded">
+					<commonElementRef name="TerminationID">
+						<ref>TerminationID</ref>
+					</commonElementRef>
+				</protocolObjectSequenceOf>
+				<commonElementRef mandatory="false" name="nonStandardData">
+					<ref>NonStandardData</ref>
+				</commonElementRef>
+				<!--hexString name="other" minLength="0" maxLength="unbounded" mandatory="false"/-->
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement hideFlag="true" name="DigitMapValue">
+			<protocolObjectSequence hideFlag="true">
+				<protocolObjectInteger mandatory="false" name="startTimer">
+					<_lowLimit>0</_lowLimit>
+					<_highLimit>99</_highLimit>
+				</protocolObjectInteger>
+				<protocolObjectInteger mandatory="false" name="shortTimer">
+					<_lowLimit>0</_lowLimit>
+					<_highLimit>99</_highLimit>
+				</protocolObjectInteger>
+				<protocolObjectInteger mandatory="false" name="longTimer">
+					<_lowLimit>0</_lowLimit>
+					<_highLimit>99</_highLimit>
+				</protocolObjectInteger>
+				<hexString minLength="0" maxLength="unbounded" name="digitMapBody">
+					<className>pegasus.common.ptp.protocolDescription.model.asn1Implementation.asn1BasicTypes.PegasusIA5String</className>
+				</hexString>
+				<protocolObjectInteger mandatory="false" name="durationTimer">
+					<_lowLimit>0</_lowLimit>
+					<_highLimit>99</_highLimit>
+				</protocolObjectInteger>
+				<!--hexString name="other" minLength="0" maxLength="unbounded" mandatory="false"/-->
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement hideFlag="true" name="EventDM">
+			<protocolObjectChoice name="EventDM">
+				<protocolObjectAsn1>
+					<commonElementRef mandatory="false" name="digitMapName">
+						<ref>DigitMapName</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+				<protocolObjectAsn1>
+					<commonElementRef mandatory="false" name="digitMapValue">
+						<ref>DigitMapValue</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+			</protocolObjectChoice>
+		</commonElement>
+		<commonElement hideFlag="true" name="SigParameter">
+			<protocolObjectSequence hideFlag="true">
+				<commonElementRef name="sigParameterName">
+					<ref>Name</ref>
+				</commonElementRef>
+				<commonElementRef name="value">
+					<ref>Value</ref>
+				</commonElementRef>
+				<protocolObjectChoice name="extraInfo" mandatory="false">
+					<protocolObjectAsn1>
+						<commonElementRef mandatory="false" name="relation">
+							<ref>Relation</ref>
+						</commonElementRef>
+					</protocolObjectAsn1>
+					<protocolObjectAsn1>
+						<protocolObjectBoolean inverseLogic="false" mandatory="false" name="range"/>
+					</protocolObjectAsn1>
+					<protocolObjectAsn1>
+						<protocolObjectBoolean inverseLogic="false" mandatory="false" name="sublist"/>
+					</protocolObjectAsn1>
+				</protocolObjectChoice>
+				<!--hexString name="other" minLength="0" maxLength="unbounded" mandatory="false"/-->
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement hideFlag="true" name="Signal">
+			<protocolObjectSequence hideFlag="true">
+				<commonElementRef name="signalName">
+					<ref>SignalName</ref>
+				</commonElementRef>
+				<commonElementRef mandatory="false" name="streamID">
+					<ref>StreamID</ref>
+				</commonElementRef>
+				<commonElementRef mandatory="false" name="sigType">
+					<ref>SignalType</ref>
+				</commonElementRef>
+				<protocolObjectInteger mandatory="false" name="duration">
+					<_lowLimit>0</_lowLimit>
+					<_highLimit>65535</_highLimit>
+				</protocolObjectInteger>
+				<commonElementRef mandatory="false" name="notifyCompletion">
+					<ref>NotifyCompletion</ref>
+				</commonElementRef>
+				<protocolObjectBoolean inverseLogic="false" mandatory="false" name="keepActive"/>
+				<protocolObjectSequenceOf name="sigParList" minLength="0" maxLength="unbounded">
+					<commonElementRef name="SigParameter">
+						<ref>SigParameter</ref>
+					</commonElementRef>
+				</protocolObjectSequenceOf>
+				<!--hexString name="other" minLength="0" maxLength="unbounded" mandatory="false"/-->
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement hideFlag="true" name="SeqSigList">
+			<protocolObjectSequence hideFlag="true">
+				<protocolObjectInteger name="id">
+					<_lowLimit>0</_lowLimit>
+					<_highLimit>65535</_highLimit>
+				</protocolObjectInteger>
+				<protocolObjectSequenceOf name="Signals" minLength="0" maxLength="unbounded">
+					<commonElementRef name="Signal">
+						<ref>Signal</ref>
+					</commonElementRef>
+				</protocolObjectSequenceOf>
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement hideFlag="true" name="SignalRequest">
+				<protocolObjectChoice name="SignalRequest">
+					<protocolObjectAsn1>
+						<commonElementRef mandatory="false" name="signal">
+							<ref>Signal</ref>
+						</commonElementRef>
+					</protocolObjectAsn1>
+					<protocolObjectAsn1>
+						<commonElementRef mandatory="false" name="seqSigList">
+							<ref>SeqSigList</ref>
+						</commonElementRef>
+					</protocolObjectAsn1>
+					<!--protocolObjectAsn1>
+						<hexString name="other" mandatory="false"/>
+					</protocolObjectAsn1-->
+				</protocolObjectChoice>
+		</commonElement>
+		<commonElement hideFlag="true" name="SignalsDescriptor">
+			<protocolObjectSequenceOf name="Signals" minLength="0" maxLength="unbounded">
+				<commonElementRef name="SignalRequest">
+					<ref>SignalRequest</ref>
+				</commonElementRef>
+			</protocolObjectSequenceOf>
+		</commonElement>
+		<commonElement hideFlag="true" name="SecondRequestedActions">
+			<protocolObjectSequence hideFlag="true">
+				<protocolObjectBoolean inverseLogic="false" mandatory="false" name="keepActive"/>
+				<commonElementRef mandatory="false" name="eventDM" hideFlag="true">
+					<ref>EventDM</ref>
+				</commonElementRef>
+				<commonElementRef mandatory="false" name="signalsDescriptor">
+					<ref>SignalsDescriptor</ref>
+				</commonElementRef>
+				<!--hexString name="other" minLength="0" maxLength="unbounded" mandatory="false"/-->
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement hideFlag="true" name="EventParameter">
+			<protocolObjectSequence hideFlag="true">
+				<commonElementRef name="eventParameterName">
+					<ref>Name</ref>
+				</commonElementRef>
+				<commonElementRef name="value">
+					<ref>Value</ref>
+				</commonElementRef>
+				<protocolObjectChoice name="extraInfo" mandatory="false">
+					<protocolObjectAsn1>
+						<commonElementRef mandatory="false" name="relation">
+							<ref>Relation</ref>
+						</commonElementRef>
+					</protocolObjectAsn1>
+					<protocolObjectAsn1>
+						<protocolObjectBoolean inverseLogic="false" mandatory="false" name="range"/>
+					</protocolObjectAsn1>
+					<protocolObjectAsn1>
+						<protocolObjectBoolean inverseLogic="false" mandatory="false" name="sublist"/>
+					</protocolObjectAsn1>
+				</protocolObjectChoice>
+				<!--hexString name="other" minLength="0" maxLength="unbounded" mandatory="false"/-->
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement hideFlag="true" name="SecondRequestedEvent">
+			<protocolObjectSequence hideFlag="true">
+				<commonElementRef name="pkgdName">
+					<ref>PkgdName</ref>
+				</commonElementRef>
+				<commonElementRef mandatory="false" name="streamID">
+					<ref>StreamID</ref>
+				</commonElementRef>
+				<commonElementRef mandatory="false" name="eventAction">
+					<ref>SecondRequestedActions</ref>
+				</commonElementRef>
+				<protocolObjectSequenceOf name="evParList" minLength="0" maxLength="unbounded">
+					<commonElementRef name="EventParameter">
+						<ref>EventParameter</ref>
+					</commonElementRef>
+				</protocolObjectSequenceOf>
+				<!--hexString name="other" minLength="0" maxLength="unbounded" mandatory="false"/-->
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement hideFlag="true" name="SecondEventsDescriptor">
+			<protocolObjectSequence hideFlag="true">
+				<commonElementRef mandatory="false" name="requestID">
+					<ref>RequestID</ref>
+				</commonElementRef>
+				<protocolObjectSequenceOf name="SecondRequestedEvents" minLength="0" maxLength="unbounded">
+					<commonElementRef name="SecondRequestedEvent">
+						<ref>SecondRequestedEvent</ref>
+					</commonElementRef>
+				</protocolObjectSequenceOf>
+				<!--hexString name="other" minLength="0" maxLength="unbounded" mandatory="false"/-->
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement hideFlag="true" name="RequestedActions">
+			<protocolObjectSequence hideFlag="true">
+				<protocolObjectBoolean inverseLogic="false" mandatory="false" name="keepActive"/>
+				<commonElementRef mandatory="false" name="eventDM">
+					<ref>EventDM</ref>
+				</commonElementRef>
+				<commonElementRef mandatory="false" name="secondEvent">
+					<ref>SecondEventsDescriptor</ref>
+				</commonElementRef>
+				<commonElementRef mandatory="false" name="signalsDescriptor">
+					<ref>SignalsDescriptor</ref>
+				</commonElementRef>
+				<!--hexString name="other" minLength="0" maxLength="unbounded" mandatory="false"/-->
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement hideFlag="true" name="RequestedEvent">
+			<protocolObjectSequence hideFlag="true">
+				<commonElementRef name="pkgdName">
+					<ref>PkgdName</ref>
+				</commonElementRef>
+				<commonElementRef mandatory="false" name="streamID">
+					<ref>StreamID</ref>
+				</commonElementRef>
+				<commonElementRef mandatory="false" name="eventAction">
+					<ref>RequestedActions</ref>
+				</commonElementRef>
+				<protocolObjectSequenceOf name="evParList" minLength="0" maxLength="unbounded">
+					<commonElementRef name="EventParameter">
+						<ref>EventParameter</ref>
+					</commonElementRef>
+				</protocolObjectSequenceOf>
+				<!--hexString name="other" minLength="0" maxLength="unbounded" mandatory="false"/-->
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement hideFlag="true" name="EventsDescriptor">
+			<protocolObjectSequence hideFlag="true">
+				<commonElementRef mandatory="false" name="requestID">
+					<ref>RequestID</ref>
+				</commonElementRef>
+				<protocolObjectSequenceOf name="eventList" minLength="0" maxLength="unbounded">
+					<commonElementRef name="RequestedEvent">
+						<ref>RequestedEvent</ref>
+					</commonElementRef>
+				</protocolObjectSequenceOf>
+				<!--hexString name="other" minLength="0" maxLength="unbounded" mandatory="false"/-->
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement hideFlag="true" name="EventSpec">
+			<protocolObjectSequence hideFlag="true">
+				<commonElementRef name="eventName">
+					<ref>EventName</ref>
+				</commonElementRef>
+				<commonElementRef mandatory="false" name="streamID">
+					<ref>StreamID</ref>
+				</commonElementRef>
+				<protocolObjectSequenceOf name="eventParList" minLength="0" maxLength="unbounded">
+					<commonElementRef name="EventParameter">
+						<ref>EventParameter</ref>
+					</commonElementRef>
+				</protocolObjectSequenceOf>
+				<!--hexString name="other" minLength="0" maxLength="unbounded" mandatory="false"/-->
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement hideFlag="true" name="EventBufferDescriptor">
+			<protocolObjectSequenceOf name="Events" minLength="0" maxLength="unbounded">
+				<commonElementRef name="EventSpec">
+					<ref>EventSpec</ref>
+				</commonElementRef>
+			</protocolObjectSequenceOf>
+		</commonElement>
+		<commonElement hideFlag="true" name="DigitMapDescriptor">
+			<protocolObjectSequence hideFlag="true">
+				<commonElementRef mandatory="false" name="digitMapName">
+					<ref>DigitMapName</ref>
+				</commonElementRef>
+				<commonElementRef mandatory="false" name="digitMapValue">
+					<ref>DigitMapValue</ref>
+				</commonElementRef>
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement hideFlag="true" name="IndAudPropertyParm">
+			<protocolObjectSequence hideFlag="true">
+				<commonElementRef name="name" hideFlag="true">
+					<ref>PkgdName</ref>
+				</commonElementRef>
+				<!--hexString name="other" minLength="0" maxLength="unbounded" mandatory="false"/-->
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement hideFlag="true" name="IndAudTerminationStateDescriptor">
+			<protocolObjectSequence hideFlag="true">
+				<protocolObjectSequenceOf name="propertyParms" minLength="0" maxLength="unbounded">
+					<commonElementRef name="IndAudPropertyParm">
+						<ref>IndAudPropertyParm</ref>
+					</commonElementRef>
+				</protocolObjectSequenceOf>
+				<hexString maxLength="0" minLength="0" mandatory="false" name="eventBufferControl">
+					<className>pegasus.common.ptp.protocolDescription.model.asn1Implementation.asn1BasicTypes.PegasusAsn1NULL</className>
+				</hexString>
+				<hexString maxLength="0" minLength="0" mandatory="false" name="serviceState">
+					<className>pegasus.common.ptp.protocolDescription.model.asn1Implementation.asn1BasicTypes.PegasusAsn1NULL</className>
+				</hexString>
+				<!--hexString name="other" minLength="0" maxLength="unbounded" mandatory="false"/-->
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement hideFlag="true" name="IndAudLocalControlDescriptor">
+			<protocolObjectSequence hideFlag="true">
+				<hexString maxLength="0" minLength="0" mandatory="false" name="streamMode">
+					<className>pegasus.common.ptp.protocolDescription.model.asn1Implementation.asn1BasicTypes.PegasusAsn1NULL</className>
+				</hexString>
+				<hexString maxLength="0" minLength="0" mandatory="false" name="reserveValue">
+					<className>pegasus.common.ptp.protocolDescription.model.asn1Implementation.asn1BasicTypes.PegasusAsn1NULL</className>
+				</hexString>
+				<hexString maxLength="0" minLength="0" mandatory="false" name="reserveGroup">
+					<className>pegasus.common.ptp.protocolDescription.model.asn1Implementation.asn1BasicTypes.PegasusAsn1NULL</className>
+				</hexString>
+				<protocolObjectSequenceOf name="propertyParms" minLength="0" maxLength="unbounded" mandatory="false">
+					<commonElementRef name="IndAudPropertyParm">
+						<ref>IndAudPropertyParm</ref>
+					</commonElementRef>
+				</protocolObjectSequenceOf>
+				<!--hexString name="other" minLength="0" maxLength="unbounded" mandatory="false"/-->
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement hideFlag="true" name="IndAudPropertyGroup">
+			<protocolObjectSequenceOf name="Properties" minLength="0" maxLength="unbounded">
+				<commonElementRef name="IndAudPropertyParm">
+					<ref>IndAudPropertyParm</ref>
+				</commonElementRef>
+			</protocolObjectSequenceOf>
+		</commonElement>
+		<commonElement hideFlag="true" name="IndAudLocalRemoteDescriptor">
+			<protocolObjectSequence hideFlag="true">
+				<protocolObjectInteger mandatory="false" name="propGroupID">
+					<_lowLimit>0</_lowLimit>
+					<_highLimit>65535</_highLimit>
+				</protocolObjectInteger>
+				<commonElementRef name="propGrps">
+					<ref>IndAudPropertyGroup</ref>
+				</commonElementRef>
+				<!--hexString name="other" minLength="0" maxLength="unbounded" mandatory="false"/-->
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement hideFlag="true" name="IndAudStreamParms">
+			<protocolObjectSequence hideFlag="true">
+				<commonElementRef mandatory="false" name="localControlDescriptor">
+					<ref>IndAudLocalControlDescriptor</ref>
+				</commonElementRef>
+				<commonElementRef mandatory="false" name="localDescriptor">
+					<ref>IndAudLocalRemoteDescriptor</ref>
+				</commonElementRef>
+				<commonElementRef mandatory="false" name="remoteDescriptor">
+					<ref>IndAudLocalRemoteDescriptor</ref>
+				</commonElementRef>
+				<!--hexString name="other" minLength="0" maxLength="unbounded" mandatory="false"/-->
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement hideFlag="true" name="IndAudStreamDescriptor">
+			<protocolObjectSequence hideFlag="true">
+				<commonElementRef name="streamID">
+					<ref>StreamID</ref>
+				</commonElementRef>
+				<commonElementRef name="streamParms">
+					<ref>IndAudStreamParms</ref>
+				</commonElementRef>
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement hideFlag="true" name="IndAudMediaDescriptor">
+			<protocolObjectSequence hideFlag="true">
+				<commonElementRef mandatory="false" name="termStateDescr">
+					<ref>IndAudTerminationStateDescriptor</ref>
+				</commonElementRef>
+				<protocolObjectChoice name="streams" mandatory="false">
+					<protocolObjectAsn1>
+						<commonElementRef mandatory="false" name="oneStream">
+							<ref>IndAudStreamParms</ref>
+						</commonElementRef>
+					</protocolObjectAsn1>
+					<protocolObjectAsn1>
+						<protocolObjectSequenceOf name="Streams" minLength="0" maxLength="unbounded" mandatory="false">
+							<commonElementRef name="IndAudStreamDescriptor" mandatory="false">
+								<ref>IndAudStreamDescriptor</ref>
+							</commonElementRef>
+						</protocolObjectSequenceOf>
+					</protocolObjectAsn1>
+				</protocolObjectChoice>
+				<!--hexString name="other" minLength="0" maxLength="unbounded" mandatory="false"/-->
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement hideFlag="true" name="IndAudEventsDescriptor">
+			<protocolObjectSequence hideFlag="true">
+				<commonElementRef mandatory="false" name="requestID">
+					<ref>RequestID</ref>
+				</commonElementRef>
+				<commonElementRef name="pkgdName">
+					<ref>PkgdName</ref>
+				</commonElementRef>
+				<commonElementRef mandatory="false" name="streamID">
+					<ref>StreamID</ref>
+				</commonElementRef>
+				<!--hexString name="other" minLength="0" maxLength="unbounded" mandatory="false"/-->
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement hideFlag="true" name="IndAudEventBufferDescriptor">
+			<protocolObjectSequence hideFlag="true">
+				<commonElementRef name="eventName">
+					<ref>PkgdName</ref>
+				</commonElementRef>
+				<commonElementRef mandatory="false" name="streamID">
+					<ref>StreamID</ref>
+				</commonElementRef>
+				<!--hexString name="other" minLength="0" maxLength="unbounded" mandatory="false"/-->
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement hideFlag="true" name="IndAudSignal">
+			<protocolObjectSequence hideFlag="true">
+				<commonElementRef name="signalName">
+					<ref>PkgdName</ref>
+				</commonElementRef>
+				<commonElementRef mandatory="false" name="streamID">
+					<ref>StreamID</ref>
+				</commonElementRef>
+				<!--hexString name="other" minLength="0" maxLength="unbounded" mandatory="false"/-->
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement hideFlag="true" name="IndAudSeqSigList">
+			<protocolObjectSequence hideFlag="true">
+				<protocolObjectInteger name="id">
+					<_lowLimit>0</_lowLimit>
+					<_highLimit>65535</_highLimit>
+				</protocolObjectInteger>
+				<commonElementRef mandatory="false" name="signalList">
+					<ref>IndAudSignal</ref>
+				</commonElementRef>
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement hideFlag="true" name="IndAudSignalsDescriptor">
+				<protocolObjectChoice name="IndAudSignalsDescriptor">
+					<protocolObjectAsn1>
+						<commonElementRef mandatory="false" name="signal">
+							<ref>IndAudSignal</ref>
+						</commonElementRef>
+					</protocolObjectAsn1>
+					<protocolObjectAsn1>
+						<commonElementRef mandatory="false" name="seqSigList">
+							<ref>IndAudSeqSigList</ref>
+						</commonElementRef>
+					</protocolObjectAsn1>
+					<!--protocolObjectAsn1>
+						<hexString name="other" mandatory="false"/>
+					</protocolObjectAsn1-->
+				</protocolObjectChoice>
+		</commonElement>
+		<commonElement hideFlag="true" name="IndAudDigitMapDescriptor">
+			<protocolObjectSequence hideFlag="true">
+				<commonElementRef mandatory="false" name="digitMapName">
+					<ref>DigitMapName</ref>
+				</commonElementRef>
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement hideFlag="true" name="IndAudStatisticsDescriptor">
+			<protocolObjectSequence hideFlag="true">
+				<commonElementRef name="statName">
+					<ref>PkgdName</ref>
+				</commonElementRef>
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement hideFlag="true" name="IndAudPackagesDescriptor">
+			<protocolObjectSequence hideFlag="true">
+				<commonElementRef name="packageName">
+					<ref>Name</ref>
+				</commonElementRef>
+				<protocolObjectInteger name="packageVersion">
+					<_lowLimit>0</_lowLimit>
+					<_highLimit>99</_highLimit>
+				</protocolObjectInteger>
+				<!--hexString name="other" minLength="0" maxLength="unbounded" mandatory="false"/-->
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement hideFlag="true" name="IndAuditParameter">
+			<protocolObjectChoice name="IndAuditParameter">
+				<protocolObjectAsn1>
+					<commonElementRef mandatory="false" name="indaudmediaDescriptor">
+						<ref>IndAudMediaDescriptor</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+				<protocolObjectAsn1>
+					<commonElementRef mandatory="false" name="indaudeventsDescriptor">
+						<ref>IndAudEventsDescriptor</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+				<protocolObjectAsn1>
+					<commonElementRef mandatory="false" name="indaudeventBufferDescriptor">
+						<ref>IndAudEventBufferDescriptor</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+				<protocolObjectAsn1>
+					<commonElementRef mandatory="false" name="indaudsignalsDescriptor">
+						<ref>IndAudSignalsDescriptor</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+				<protocolObjectAsn1>
+					<commonElementRef mandatory="false" name="indauddigitMapDescriptor">
+						<ref>IndAudDigitMapDescriptor</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+				<protocolObjectAsn1>
+					<commonElementRef mandatory="false" name="indaudstatisticsDescriptor">
+						<ref>IndAudStatisticsDescriptor</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+				<protocolObjectAsn1>
+					<commonElementRef mandatory="false" name="indaudpackagesDescriptor">
+						<ref>IndAudPackagesDescriptor</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+				<!--protocolObjectAsn1>
+						<hexString name="other" mandatory="false"/>
+					</protocolObjectAsn1-->
+			</protocolObjectChoice>
+		</commonElement>
+		<commonElement hideFlag="true" name="AuditDescriptor">
+			<protocolObjectSequence hideFlag="true">
+				<bitString name="auditToken" mandatory="true" minLength="10" maxLength="10">
+					<className>pegasus.ptp.protocolDescription.h248.AuditTokenNamedBitString</className>
+					<asn1NamedBits>
+						<namedBit bitPosition="0" name="muxToken"/>	
+						<namedBit bitPosition="1" name="modemToken"/>	
+						<namedBit bitPosition="2" name="mediaToken"/>	
+						<namedBit bitPosition="3" name="eventsToken"/>	
+						<namedBit bitPosition="4" name="signalsToken"/>	
+						<namedBit bitPosition="5" name="digitMapToken"/>	
+						<namedBit bitPosition="6" name="statsToken"/>	
+						<namedBit bitPosition="7" name="observedEventsToken"/>	
+						<namedBit bitPosition="8" name="packagesToken"/>
+						<namedBit bitPosition="9" name="eventBufferToken"/>
+					</asn1NamedBits>
+				</bitString>
+				<protocolObjectSequenceOf name="auditPropertyToken" minLength="0" maxLength="unbounded" mandatory="false">
+					<commonElementRef name="IndAuditParameter">
+						<ref>IndAuditParameter</ref>
+					</commonElementRef>
+				</protocolObjectSequenceOf>
+				<!--hexString name="other" minLength="0" maxLength="unbounded" mandatory="false"/-->
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement hideFlag="true" name="AmmDescriptor">
+			<protocolObjectChoice name="AmmDescriptor" hideFlag="true">
+				<protocolObjectAsn1>
+					<commonElementRef mandatory="false" name="mediaDescriptor">
+						<ref>MediaDescriptor</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+				<protocolObjectAsn1>
+					<commonElementRef mandatory="false" name="modemDescriptor">
+						<ref>ModemDescriptor</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+				<protocolObjectAsn1>
+					<commonElementRef mandatory="false" name="muxDescriptor">
+						<ref>MuxDescriptor</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+				<protocolObjectAsn1>
+					<commonElementRef mandatory="false" name="eventsDescriptor">
+						<ref>EventsDescriptor</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+				<protocolObjectAsn1>
+					<commonElementRef mandatory="false" name="eventBufferDescriptor">
+						<ref>EventBufferDescriptor</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+				<protocolObjectAsn1>
+					<commonElementRef mandatory="false" name="signalsDescriptor">
+						<ref>SignalsDescriptor</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+				<protocolObjectAsn1>
+					<commonElementRef mandatory="false" name="digitMapDescriptor">
+						<ref>DigitMapDescriptor</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+				<protocolObjectAsn1>
+					<commonElementRef mandatory="false" name="auditDescriptor">
+						<ref>AuditDescriptor</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+				<!--protocolObjectAsn1>
+					<hexString name="other"/>
+				</protocolObjectAsn1-->
+			</protocolObjectChoice>
+		</commonElement>
+		<commonElement hideFlag="true" name="AmmRequest">
+			<protocolObjectSequence hideFlag="true">
+				<commonElementRef name="terminationID">
+					<ref>TerminationIDList</ref>
+				</commonElementRef>
+				<protocolObjectSequenceOf name="descriptors" minLength="0" maxLength="unbounded">
+					<commonElementRef name="AmmDescriptor">
+						<ref>AmmDescriptor</ref>
+					</commonElementRef>
+				</protocolObjectSequenceOf>
+				<!--hexString name="other" minLength="0" maxLength="unbounded" mandatory="false"/-->
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement hideFlag="true" name="SubtractRequest">
+			<protocolObjectSequence hideFlag="true">
+				<commonElementRef name="terminationID">
+					<ref>TerminationIDList</ref>
+				</commonElementRef>
+				<commonElementRef mandatory="false" name="auditDescriptor">
+					<ref>AuditDescriptor</ref>
+				</commonElementRef>
+				<!--hexString name="other" minLength="0" maxLength="unbounded" mandatory="false"/-->
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement hideFlag="true" name="AuditRequest">
+			<protocolObjectSequence hideFlag="true">
+				<commonElementRef name="terminationID">
+					<ref>TerminationID</ref>
+				</commonElementRef>
+				<commonElementRef name="auditDescriptor">
+					<ref>AuditDescriptor</ref>
+				</commonElementRef>
+				<!--hexString name="other" minLength="0" maxLength="unbounded" mandatory="false"/-->
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement hideFlag="true" name="TimeNotation">
+			<protocolObjectSequence hideFlag="true">
+				<hexString name="date" minLength="8" maxLength="8">
+					<className>pegasus.common.ptp.protocolDescription.model.asn1Implementation.asn1BasicTypes.PegasusIA5String</className>
+				</hexString>
+				<hexString name="time_" minLength="8" maxLength="8">
+					<className>pegasus.common.ptp.protocolDescription.model.asn1Implementation.asn1BasicTypes.PegasusIA5String</className>
+				</hexString>
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement hideFlag="true" name="ObservedEvent">
+			<protocolObjectSequence hideFlag="true">
+				<commonElementRef name="eventName">
+					<ref>EventName</ref>
+				</commonElementRef>
+				<commonElementRef mandatory="false" name="streamID">
+					<ref>StreamID</ref>
+				</commonElementRef>
+				<protocolObjectSequenceOf name="eventParList" minLength="0" maxLength="unbounded">
+					<commonElementRef name="EventParameter">
+						<ref>EventParameter</ref>
+					</commonElementRef>
+				</protocolObjectSequenceOf>
+				<commonElementRef mandatory="false" name="timeNotation">
+					<ref>TimeNotation</ref>
+				</commonElementRef>
+				<!--hexString name="other" minLength="0" maxLength="unbounded" mandatory="false"/-->
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement hideFlag="true" name="ObservedEventsDescriptor">
+			<protocolObjectSequence hideFlag="true">
+				<commonElementRef name="requestId">
+					<ref>RequestID</ref>
+				</commonElementRef>
+				<protocolObjectSequenceOf name="observedEventLst" minLength="0" maxLength="unbounded">
+					<commonElementRef name="ObservedEvent">
+						<ref>ObservedEvent</ref>
+					</commonElementRef>
+				</protocolObjectSequenceOf>
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement hideFlag="true" name="NotifyRequest">
+			<protocolObjectSequence hideFlag="true">
+				<commonElementRef name="terminationID">
+					<ref>TerminationIDList</ref>
+				</commonElementRef>
+				<commonElementRef name="observedEventsDescriptor">
+					<ref>ObservedEventsDescriptor</ref>
+				</commonElementRef>
+				<commonElementRef mandatory="false" name="errorDescriptor">
+					<ref>ErrorDescriptor</ref>
+				</commonElementRef>
+				<!--hexString name="other" minLength="0" maxLength="unbounded" mandatory="false"/-->
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement hideFlag="true" name="ServiceChangeAddress">
+			<protocolObjectChoice name="ServiceChangeAddress">
+				<protocolObjectAsn1>
+					<protocolObjectInteger name="portNumber" mandatory="false">
+						<_lowLimit>0</_lowLimit>
+						<_highLimit>65535</_highLimit>
+					</protocolObjectInteger>
+				</protocolObjectAsn1>
+				<protocolObjectAsn1>
+					<commonElementRef mandatory="false" name="ip4Address">
+						<ref>IP4Address</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+				<protocolObjectAsn1>
+					<commonElementRef mandatory="false" name="ip6Address">
+						<ref>IP6Address</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+				<protocolObjectAsn1>
+					<commonElementRef mandatory="false" name="domainName">
+						<ref>DomainName</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+				<protocolObjectAsn1>
+					<commonElementRef mandatory="false" name="deviceName">
+						<ref>PathName</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+				<protocolObjectAsn1>
+					<hexString name="mtpAddress" minLength="4" maxLength="8" mandatory="false"/>
+				</protocolObjectAsn1>
+				<!--protocolObjectAsn1>
+						<hexString name="other" mandatory="false"/>
+					</protocolObjectAsn1-->
+			</protocolObjectChoice>
+		</commonElement>
+		<commonElement hideFlag="true" name="ServiceChangeProfile">
+			<protocolObjectSequence hideFlag="true">
+				<hexString name="profileName" minLength="2" maxLength="134">
+					<className>pegasus.common.ptp.protocolDescription.model.asn1Implementation.asn1BasicTypes.PegasusIA5String</className>
+				</hexString>
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement hideFlag="true" name="ServiceChangeParm">
+			<protocolObjectSequence hideFlag="true">
+				<commonElementRef name="serviceChangeMethod">
+					<ref>ServiceChangeMethod</ref>
+				</commonElementRef>
+				<commonElementRef mandatory="false" name="serviceChangeAddress">
+					<ref>ServiceChangeAddress</ref>
+				</commonElementRef>
+				<protocolObjectInteger mandatory="false" name="serviceChangeVersion">
+					<_lowLimit>0</_lowLimit>
+					<_highLimit>99</_highLimit>
+				</protocolObjectInteger>
+				<commonElementRef mandatory="false" name="serviceChangeProfile">
+					<ref>ServiceChangeProfile</ref>
+				</commonElementRef>
+				<commonElementRef name="serviceChangeReason">
+					<ref>Value</ref>
+				</commonElementRef>
+				<protocolObjectInteger mandatory="false" name="serviceChangeDelay">
+					<_lowLimit>0</_lowLimit>
+					<_highLimit>4294967295</_highLimit>
+				</protocolObjectInteger>
+				<commonElementRef mandatory="false" name="serviceChangeMgcId">
+					<ref>MId</ref>
+				</commonElementRef>
+				<commonElementRef mandatory="false" name="timeStamp">
+					<ref>TimeNotation</ref>
+				</commonElementRef>
+				<commonElementRef mandatory="false" name="nonStandardData">
+					<ref>NonStandardData</ref>
+				</commonElementRef>
+				<commonElementRef mandatory="false" name="serviceChangeInfo">
+					<ref>AuditDescriptor</ref>
+				</commonElementRef>
+				<!--hexString name="other" minLength="0" maxLength="unbounded" mandatory="false"/-->
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement hideFlag="true" name="ServiceChangeRequest">
+			<protocolObjectSequence hideFlag="true">
+				<commonElementRef name="terminationID">
+					<ref>TerminationIDList</ref>
+				</commonElementRef>
+				<commonElementRef name="serviceChangeParms">
+					<ref>ServiceChangeParm</ref>
+				</commonElementRef>
+				<!--hexString name="other" minLength="0" maxLength="unbounded" mandatory="false"/-->
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement hideFlag="true" name="Command">
+			<protocolObjectChoice hideFlag="true">
+				<protocolObjectAsn1>
+					<commonElementRef mandatory="false" name="addReq">
+						<ref>AmmRequest</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+				<protocolObjectAsn1>
+					<commonElementRef mandatory="false" name="moveReq">
+						<ref>AmmRequest</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+				<protocolObjectAsn1>
+					<commonElementRef mandatory="false" name="modReq">
+						<ref>AmmRequest</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+				<protocolObjectAsn1>
+					<commonElementRef mandatory="false" name="subtractReq">
+						<ref>SubtractRequest</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+				<protocolObjectAsn1>
+					<commonElementRef mandatory="false" name="auditCapRequest">
+						<ref>AuditRequest</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+				<protocolObjectAsn1>
+					<commonElementRef mandatory="false" name="auditValueRequest">
+						<ref>AuditRequest</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+				<protocolObjectAsn1>
+					<commonElementRef mandatory="false" name="notifyReq">
+						<ref>NotifyRequest</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+				<protocolObjectAsn1>
+					<commonElementRef mandatory="false" name="serviceChangeReq">
+						<ref>ServiceChangeRequest</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+				<!--protocolObjectAsn1>
+					<hexString name="other" mandatory="false"/>
+				</protocolObjectAsn1-->
+			</protocolObjectChoice>
+		</commonElement>
+		<commonElement hideFlag="true" name="CommandRequest">
+			<protocolObjectSequence hideFlag="true">
+				<commonElementRef name="command" hideFlag="true">
+					<ref>Command</ref>
+				</commonElementRef>
+				<hexString maxLength="0" minLength="0" mandatory="false" name="optional">
+					<className>pegasus.common.ptp.protocolDescription.model.asn1Implementation.asn1BasicTypes.PegasusAsn1NULL</className>
+				</hexString>
+				<hexString maxLength="0" minLength="0" mandatory="false" name="wildcardReturn">
+					<className>pegasus.common.ptp.protocolDescription.model.asn1Implementation.asn1BasicTypes.PegasusAsn1NULL</className>
+				</hexString>
+				<!--hexString name="other" minLength="0" maxLength="unbounded" mandatory="false"/-->
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement hideFlag="true" name="ActionRequest">
+			<protocolObjectSequence hideFlag="true">
+				<commonElementRef name="contextId" hideFlag="true">
+					<ref>ContextID</ref>
+				</commonElementRef>
+				<commonElementRef mandatory="false" name="contextRequest">
+					<ref>ContextRequest</ref>
+				</commonElementRef>
+				<commonElementRef mandatory="false" name="contextAttrAuditReq">
+					<ref>ContextAttrAuditRequest</ref>
+				</commonElementRef>
+				<protocolObjectSequenceOf name="commandRequests" minLength="0" maxLength="unbounded">
+					<commonElementRef name="CommandRequest">
+						<ref>CommandRequest</ref>
+					</commonElementRef>
+				</protocolObjectSequenceOf>
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement hideFlag="true" name="TransactionRequest">
+			<protocolObjectSequence hideFlag="true">
+				<commonElementRef name="transactionId" hideFlag="true">
+					<ref>TransactionId</ref>
+				</commonElementRef>
+				<protocolObjectSequenceOf name="actions" minLength="0" maxLength="unbounded">
+					<commonElementRef name="ActionRequest">
+						<ref>ActionRequest</ref>
+					</commonElementRef>
+				</protocolObjectSequenceOf>
+				<!--hexString name="other" minLength="0" maxLength="unbounded" mandatory="false"/-->
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement hideFlag="true" name="TransactionPending">
+			<protocolObjectSequence hideFlag="true">
+				<commonElementRef name="transactionId">
+					<ref>TransactionId</ref>
+				</commonElementRef>
+				<!--hexString name="other" minLength="0" maxLength="unbounded" mandatory="false"/-->
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement hideFlag="true" name="StatisticsParameter">
+			<protocolObjectSequence hideFlag="true">
+				<commonElementRef name="statName">
+					<ref>PkgdName</ref>
+				</commonElementRef>
+				<commonElementRef mandatory="false" name="statValue">
+					<ref>Value</ref>
+				</commonElementRef>
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement hideFlag="true" name="StatisticsDescriptor">
+			<protocolObjectSequenceOf name="StatisticsParameters" minLength="0" maxLength="unbounded">
+				<commonElementRef name="StatisticsParameter">
+					<ref>StatisticsParameter</ref>
+				</commonElementRef>
+			</protocolObjectSequenceOf>
+		</commonElement>
+		<commonElement hideFlag="true" name="PackagesItem">
+			<protocolObjectSequence hideFlag="true">
+				<commonElementRef name="packageName">
+					<ref>Name</ref>
+				</commonElementRef>
+				<protocolObjectInteger name="packageVersion">
+					<_lowLimit>0</_lowLimit>
+					<_highLimit>99</_highLimit>
+				</protocolObjectInteger>
+				<!--hexString name="other" minLength="0" maxLength="unbounded" mandatory="false"/-->
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement hideFlag="true" name="PackagesDescriptor">
+			<protocolObjectSequenceOf name="PackagesItems" minLength="0" maxLength="unbounded">
+				<commonElementRef name="PackagesItem">
+					<ref>PackagesItem</ref>
+				</commonElementRef>
+			</protocolObjectSequenceOf>
+		</commonElement>
+		<commonElement hideFlag="true" name="AuditReturnParameter">
+			<protocolObjectChoice name="AuditReturnParameter" hideFlag="true">
+				<protocolObjectAsn1>
+					<commonElementRef mandatory="false" name="errorDescriptor">
+						<ref>ErrorDescriptor</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+				<protocolObjectAsn1>
+					<commonElementRef mandatory="false" name="mediaDescriptor">
+						<ref>MediaDescriptor</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+				<protocolObjectAsn1>
+					<commonElementRef mandatory="false" name="modemDescriptor">
+						<ref>ModemDescriptor</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+				<protocolObjectAsn1>
+					<commonElementRef mandatory="false" name="muxDescriptor">
+						<ref>MuxDescriptor</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+				<protocolObjectAsn1>
+					<commonElementRef mandatory="false" name="eventsDescriptor">
+						<ref>EventsDescriptor</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+				<protocolObjectAsn1>
+					<commonElementRef mandatory="false" name="eventBufferDescriptor">
+						<ref>EventBufferDescriptor</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+				<protocolObjectAsn1>
+					<commonElementRef mandatory="false" name="signalsDescriptor">
+						<ref>SignalsDescriptor</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+				<protocolObjectAsn1>
+					<commonElementRef mandatory="false" name="digitMapDescriptor">
+						<ref>DigitMapDescriptor</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+				<protocolObjectAsn1>
+					<commonElementRef mandatory="false" name="observedEventsDescriptor">
+						<ref>ObservedEventsDescriptor</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+				<protocolObjectAsn1>
+					<commonElementRef mandatory="false" name="statisticsDescriptor">
+						<ref>StatisticsDescriptor</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+				<protocolObjectAsn1>
+					<commonElementRef mandatory="false" name="packagesDescriptor">
+						<ref>PackagesDescriptor</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+				<protocolObjectAsn1>
+					<commonElementRef mandatory="false" name="emptyDescriptors">
+						<ref>AuditDescriptor</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+				<!--protocolObjectAsn1>
+					<hexString name="other" mandatory="false"/>
+				</protocolObjectAsn1-->
+			</protocolObjectChoice>
+		</commonElement>
+		<commonElement hideFlag="true" name="TerminationAudit">
+			<protocolObjectSequenceOf minLength="0" maxLength="unbounded" name="TerminationAudit">
+				<commonElementRef name="AuditReturnParameter">
+					<ref>AuditReturnParameter</ref>
+				</commonElementRef>
+			</protocolObjectSequenceOf>
+		</commonElement>
+		<commonElement hideFlag="true" name="AmmsReply">
+			<protocolObjectSequence hideFlag="true">
+				<commonElementRef name="terminationID">
+					<ref>TerminationIDList</ref>
+				</commonElementRef>
+				<commonElementRef mandatory="false" name="terminationAudit">
+					<ref>TerminationAudit</ref>
+				</commonElementRef>
+				<!--hexString name="other" minLength="0" maxLength="unbounded" mandatory="false"/-->
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement hideFlag="true" name="AuditResult">
+			<protocolObjectSequence hideFlag="true">
+				<commonElementRef name="terminationID">
+					<ref>TerminationID</ref>
+				</commonElementRef>
+				<commonElementRef name="terminationAuditResult">
+					<ref>TerminationAudit</ref>
+				</commonElementRef>
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement hideFlag="true" name="AuditReply">
+			<protocolObjectChoice name="AuditReply" hideFlag="true">
+				<protocolObjectAsn1>
+					<commonElementRef mandatory="false" name="contextAuditResult">
+						<ref>TerminationIDList</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+				<protocolObjectAsn1>
+					<commonElementRef mandatory="false" name="error">
+						<ref>ErrorDescriptor</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+				<protocolObjectAsn1>
+					<commonElementRef mandatory="false" name="auditResult">
+						<ref>AuditResult</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+				<!--protocolObjectAsn1>
+					<hexString name="other" mandatory="false"/>
+				</protocolObjectAsn1-->
+			</protocolObjectChoice>
+		</commonElement>
+		<commonElement hideFlag="true" name="NotifyReply">
+			<protocolObjectSequence hideFlag="true">
+				<commonElementRef name="terminationID">
+					<ref>TerminationIDList</ref>
+				</commonElementRef>
+				<commonElementRef mandatory="false" name="errorDescriptor">
+					<ref>ErrorDescriptor</ref>
+				</commonElementRef>
+				<!--hexString name="other" minLength="0" maxLength="unbounded" mandatory="false"/-->
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement hideFlag="true" name="ServiceChangeResParm">
+			<protocolObjectSequence hideFlag="true">
+				<commonElementRef mandatory="false" name="serviceChangeMgcId">
+					<ref>MId</ref>
+				</commonElementRef>
+				<commonElementRef mandatory="false" name="serviceChangeAddress">
+					<ref>ServiceChangeAddress</ref>
+				</commonElementRef>
+				<protocolObjectInteger mandatory="false" name="serviceChangeVersion">
+					<_lowLimit>0</_lowLimit>
+					<_highLimit>99</_highLimit>
+				</protocolObjectInteger>
+				<commonElementRef mandatory="false" name="serviceChangeProfile">
+					<ref>ServiceChangeProfile</ref>
+				</commonElementRef>
+				<commonElementRef mandatory="false" name="timestamp">
+					<ref>TimeNotation</ref>
+				</commonElementRef>
+				<!--hexString name="other" minLength="0" maxLength="unbounded" mandatory="false"/-->
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement hideFlag="true" name="ServiceChangeResult">
+			<protocolObjectChoice name="ServiceChangeResult">
+				<protocolObjectAsn1>
+					<commonElementRef mandatory="false" name="errorDescriptor">
+						<ref>ErrorDescriptor</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+				<protocolObjectAsn1>
+					<commonElementRef mandatory="false" name="serviceChangeResParms">
+						<ref>ServiceChangeResParm</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+			</protocolObjectChoice>
+		</commonElement>
+		<commonElement hideFlag="true" name="ServiceChangeReply">
+			<protocolObjectSequence hideFlag="true">
+				<commonElementRef name="terminationID">
+					<ref>TerminationIDList</ref>
+				</commonElementRef>
+				<commonElementRef name="serviceChangeResult">
+					<ref>ServiceChangeResult</ref>
+				</commonElementRef>
+				<!--hexString name="other" minLength="0" maxLength="unbounded" mandatory="false"/-->
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement name="CommandReply" hideFlag="true">
+			<protocolObjectChoice hideFlag="true">
+				<protocolObjectAsn1>
+					<commonElementRef mandatory="false" name="addReply">
+						<ref>AmmsReply</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+				<protocolObjectAsn1>
+					<commonElementRef mandatory="false" name="moveReply">
+						<ref>AmmsReply</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+				<protocolObjectAsn1>
+					<commonElementRef mandatory="false" name="modReply">
+						<ref>AmmsReply</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+				<protocolObjectAsn1>
+					<commonElementRef mandatory="false" name="subtractReply">
+						<ref>AmmsReply</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+				<protocolObjectAsn1>
+					<commonElementRef mandatory="false" name="auditCapReply">
+						<ref>AuditReply</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+				<protocolObjectAsn1>
+					<commonElementRef mandatory="false" name="auditValueReply">
+						<ref>AuditReply</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+				<protocolObjectAsn1>
+					<commonElementRef mandatory="false" name="notifyReply">
+						<ref>NotifyReply</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+				<protocolObjectAsn1>
+					<commonElementRef mandatory="false" name="serviceChangeReply">
+						<ref>ServiceChangeReply</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+				<!--protocolObjectAsn1>
+					<hexString name="other" mandatory="false"/>
+				</protocolObjectAsn1-->
+			</protocolObjectChoice>
+		</commonElement>
+		<commonElement name="ActionReply" hideFlag="true">
+			<protocolObjectSequence hideFlag="true">
+				<commonElementRef name="contextId">
+					<ref>ContextID</ref>
+				</commonElementRef>
+				<commonElementRef name="errorDescriptor" mandatory="false">
+					<ref>ErrorDescriptor</ref>
+				</commonElementRef>
+				<commonElementRef name="contextReply" mandatory="false">
+					<ref>ContextRequest</ref>
+				</commonElementRef>
+				<protocolObjectSequenceOf name="commandReply" minLength="0" maxLength="unbounded">
+					<commonElementRef name="CommandReply">
+						<ref>CommandReply</ref>
+					</commonElementRef>
+				</protocolObjectSequenceOf>
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement hideFlag="true" name="TransactionReply">
+			<protocolObjectSequence hideFlag="true">
+				<commonElementRef name="transactionId">
+					<ref>TransactionId</ref>
+				</commonElementRef>
+				<hexString maxLength="0" minLength="0" mandatory="false" name="immAckRequired">
+					<className>pegasus.common.ptp.protocolDescription.model.asn1Implementation.asn1BasicTypes.PegasusAsn1NULL</className>
+				</hexString>
+				<protocolObjectChoice name="transactionResult">
+					<protocolObjectAsn1>
+						<commonElementRef mandatory="false" name="transactionError">
+							<ref>ErrorDescriptor</ref>
+						</commonElementRef>
+					</protocolObjectAsn1>
+					<protocolObjectAsn1>
+						<protocolObjectSequenceOf name="actionReplies" minLength="0" maxLength="unbounded" mandatory="false">
+							<commonElementRef name="ActionReply">
+								<ref>ActionReply</ref>
+							</commonElementRef>
+						</protocolObjectSequenceOf>
+					</protocolObjectAsn1>
+				</protocolObjectChoice>
+				<!--hexString name="other" minLength="0" maxLength="unbounded" mandatory="false"/-->
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement hideFlag="true" name="TransactionAck">
+			<protocolObjectSequence hideFlag="true">
+				<commonElementRef name="firstAck">
+					<ref>TransactionId</ref>
+				</commonElementRef>
+				<commonElementRef mandatory="false" name="lastAck">
+					<ref>TransactionId</ref>
+				</commonElementRef>
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement hideFlag="true" name="TransactionResponseAck">
+			<protocolObjectSequenceOf name="TransactionAcks" minLength="0" maxLength="unbounded">
+				<commonElementRef name="Transaction">
+					<ref>TransactionAck</ref>
+				</commonElementRef>
+			</protocolObjectSequenceOf>
+		</commonElement>
+		<commonElement name="Transaction" hideFlag="true">
+			<protocolObjectChoice name="TransactionChoice" hideFlag="true">
+				<protocolObjectAsn1>
+					<commonElementRef mandatory="false" name="transactionRequest">
+						<ref>TransactionRequest</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+				<protocolObjectAsn1>
+					<commonElementRef mandatory="false" name="transactionPending">
+						<ref>TransactionPending</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+				<protocolObjectAsn1>
+					<commonElementRef mandatory="false" name="transactionReply">
+						<ref>TransactionReply</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+				<protocolObjectAsn1>
+					<commonElementRef mandatory="false" name="transactionResponseAck">
+						<ref>TransactionResponseAck</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+				<!--protocolObjectAsn1>
+					<hexString name="other" mandatory="false"/>
+				</protocolObjectAsn1-->
+			</protocolObjectChoice>
+		</commonElement>
+		<commonElement hideFlag="true" name="Message">
+			<protocolObjectSequence hideFlag="true">
+				<protocolObjectInteger name="version">
+					<_lowLimit>0</_lowLimit>
+					<_highLimit>99</_highLimit>
+				</protocolObjectInteger>
+				<commonElementRef name="mId">
+					<ref>MId</ref>
+				</commonElementRef>
+				<protocolObjectChoice name="messageBody">
+					<protocolObjectAsn1>
+						<commonElementRef mandatory="false" name="messageError">
+							<ref>ErrorDescriptor</ref>
+						</commonElementRef>
+					</protocolObjectAsn1>
+					<protocolObjectAsn1>
+						<protocolObjectSequenceOf name="transactions" minLength="0" maxLength="unbounded" mandatory="false">
+							<commonElementRef name="Transaction">
+								<ref>Transaction</ref>
+							</commonElementRef>
+						</protocolObjectSequenceOf>
+					</protocolObjectAsn1>
+				</protocolObjectChoice>
+				<!--hexString name="other" minLength="0" maxLength="unbounded" mandatory="false"/-->
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement hideFlag="true" name="SecurityParmIndex">
+			<hexString name="SecurityParmIndex" minLength="8" maxLength="8"/>
+		</commonElement>
+		<commonElement hideFlag="true" name="SequenceNum">
+			<hexString name="SequenceNum" minLength="8" maxLength="8"/>
+		</commonElement>
+		<commonElement hideFlag="true" name="AuthData">
+			<hexString name="AuthData" minLength="24" maxLength="64"/>
+		</commonElement>
+		<commonElement hideFlag="true" name="PathName">
+			<hexString name="PathName" minLength="2" maxLength="128">
+				<className>pegasus.common.ptp.protocolDescription.model.asn1Implementation.asn1BasicTypes.PegasusIA5String</className>
+			</hexString>
+		</commonElement>
+		<commonElement name="TransactionId" hideFlag="true">
+			<protocolObjectInteger name="TransactionId">
+				<_lowLimit>0</_lowLimit>
+				<_highLimit>4294967295</_highLimit>
+			</protocolObjectInteger>
+		</commonElement>
+		<commonElement hideFlag="true" name="ErrorCode">
+			<protocolObjectInteger name="ErrorCode">
+				<_lowLimit>0</_lowLimit>
+				<_highLimit>65535</_highLimit>
+			</protocolObjectInteger>
+		</commonElement>
+		<commonElement hideFlag="true" name="ErrorText">
+			<hexString name="ErrorText" minLength="2" maxLength="unbounded">
+				<className>pegasus.common.ptp.protocolDescription.model.asn1Implementation.asn1BasicTypes.PegasusIA5String</className>
+			</hexString>
+		</commonElement>
+		<commonElement hideFlag="true" name="ContextID">
+			<protocolObjectInteger name="ContextID">
+				<_lowLimit>0</_lowLimit>
+				<_highLimit>4294967295</_highLimit>
+			</protocolObjectInteger>
+		</commonElement>
+		<commonElement hideFlag="true" name="PkgdName">
+			<hexString name="PkgdName" minLength="8" maxLength="8"/>
+		</commonElement>
+		<commonElement hideFlag="true" name="EventName">
+			<hexString name="PkgdName" minLength="8" maxLength="8"/>
+<!--
+			<commonElementRef name="pkgdName" hideFlag="true">
+				<ref>PkgdName</ref>
+			</commonElementRef>
+-->
+		</commonElement>
+		<commonElement hideFlag="true" name="WildcardField">
+			<hexString name="WildcardField" minLength="2" maxLength="2"/>
+		</commonElement>
+		<commonElement hideFlag="true" name="StreamMode">
+			<protocolObjectEnumeration numberOfBits="3" name="StreamMode">
+				<enumerationEntry>
+					<numericValue>0</numericValue>
+					<stringRepresentation>sendOnly</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>1</numericValue>
+					<stringRepresentation>recvOnly</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>2</numericValue>
+					<stringRepresentation>sendRecv</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>3</numericValue>
+					<stringRepresentation>inactive</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>4</numericValue>
+					<stringRepresentation>loopBack</stringRepresentation>
+				</enumerationEntry>
+			</protocolObjectEnumeration>
+		</commonElement>
+		<commonElement hideFlag="true" name="Name">
+			<hexString name="Name" minLength="4" maxLength="4"/>
+		</commonElement>
+		<commonElement hideFlag="true" name="Relation">
+			<protocolObjectEnumeration numberOfBits="3" name="Relation">
+				<enumerationEntry>
+					<numericValue>0</numericValue>
+					<stringRepresentation>greaterThan</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>1</numericValue>
+					<stringRepresentation>smallerThan</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>2</numericValue>
+					<stringRepresentation>unequalTo</stringRepresentation>
+				</enumerationEntry>
+			</protocolObjectEnumeration>
+		</commonElement>
+		<commonElement hideFlag="true" name="EventBufferControl">
+			<protocolObjectEnumeration numberOfBits="3" name="EventBufferControl">
+				<enumerationEntry>
+					<numericValue>0</numericValue>
+					<stringRepresentation>off</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>1</numericValue>
+					<stringRepresentation>lockStep</stringRepresentation>
+				</enumerationEntry>
+			</protocolObjectEnumeration>
+		</commonElement>
+		<commonElement hideFlag="true" name="ServiceState">
+			<protocolObjectEnumeration numberOfBits="3" name="ServiceState">
+				<enumerationEntry>
+					<numericValue>0</numericValue>
+					<stringRepresentation>test</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>1</numericValue>
+					<stringRepresentation>outOfSvc</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>2</numericValue>
+					<stringRepresentation>inSvc</stringRepresentation>
+				</enumerationEntry>
+			</protocolObjectEnumeration>
+		</commonElement>
+		<commonElement hideFlag="true" name="MuxType">
+			<protocolObjectEnumeration numberOfBits="3" name="MuxType">
+				<enumerationEntry>
+					<numericValue>0</numericValue>
+					<stringRepresentation>h221</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>1</numericValue>
+					<stringRepresentation>h223</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>2</numericValue>
+					<stringRepresentation>h226</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>3</numericValue>
+					<stringRepresentation>v76</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>4</numericValue>
+					<stringRepresentation>nx64k</stringRepresentation>
+				</enumerationEntry>
+			</protocolObjectEnumeration>
+		</commonElement>
+		<commonElement hideFlag="true" name="StreamID">
+			<protocolObjectInteger name="StreamID">
+				<_lowLimit>0</_lowLimit>
+				<_highLimit>65535</_highLimit>
+			</protocolObjectInteger>
+		</commonElement>
+		<commonElement hideFlag="true" name="SignalType">
+			<protocolObjectEnumeration numberOfBits="3" name="SignalType">
+				<enumerationEntry>
+					<numericValue>0</numericValue>
+					<stringRepresentation>brief</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>1</numericValue>
+					<stringRepresentation>onOff</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>2</numericValue>
+					<stringRepresentation>timeOut</stringRepresentation>
+				</enumerationEntry>
+			</protocolObjectEnumeration>
+		</commonElement>
+		<commonElement hideFlag="true" name="SignalName">
+			<hexString name="PkgdName" minLength="8" maxLength="8"/>
+<!--			<commonElementRef name="pkgdName" hideFlag="true">
+				<ref>PkgdName</ref>
+			</commonElementRef>
+			-->
+		</commonElement>
+		<commonElement hideFlag="true" name="NotifyCompletion">
+				<bitString name="NotifyCompletion" minLength="4" maxLength="4">
+					<asn1NamedBits>
+						<namedBit bitPosition="0" name="onTimeOut"/>	
+						<namedBit bitPosition="1" name="onInterruptByEvent"/>	
+						<namedBit bitPosition="2" name="onInterruptByNewSignalDescr"/>	
+						<namedBit bitPosition="3" name="otherReason"/>	
+					</asn1NamedBits>	
+				</bitString>
+		</commonElement>
+
+		<commonElement hideFlag="true" name="RequestID">
+			<protocolObjectInteger name="RequestID">
+				<_lowLimit>0</_lowLimit>
+				<_highLimit>4294967295</_highLimit>
+			</protocolObjectInteger>
+		</commonElement>
+		<commonElement hideFlag="true" name="ModemType">
+			<protocolObjectEnumeration numberOfBits="3" name="ModemType">
+				<enumerationEntry>
+					<numericValue>0</numericValue>
+					<stringRepresentation>v18</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>1</numericValue>
+					<stringRepresentation>v22</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>2</numericValue>
+					<stringRepresentation>v22bis</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>3</numericValue>
+					<stringRepresentation>v32</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>4</numericValue>
+					<stringRepresentation>v32bis</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>5</numericValue>
+					<stringRepresentation>v34</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>6</numericValue>
+					<stringRepresentation>v90</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>7</numericValue>
+					<stringRepresentation>v91</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>8</numericValue>
+					<stringRepresentation>synchISDN</stringRepresentation>
+				</enumerationEntry>
+			</protocolObjectEnumeration>
+		</commonElement>
+		<commonElement hideFlag="true" name="DigitMapName">
+			<hexString name="Name" minLength="4" maxLength="4"/>
+<!--
+			<commonElementRef name="DigitMapName" hideFlag="true">
+				<ref>Name</ref>
+			</commonElementRef>
+			-->
+		</commonElement>
+		<commonElement hideFlag="true" name="ServiceChangeMethod">
+			<protocolObjectEnumeration numberOfBits="3" name="ServiceChangeMethod">
+				<enumerationEntry>
+					<numericValue>0</numericValue>
+					<stringRepresentation>failover</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>1</numericValue>
+					<stringRepresentation>forced</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>2</numericValue>
+					<stringRepresentation>graceful</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>3</numericValue>
+					<stringRepresentation>restart</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>4</numericValue>
+					<stringRepresentation>disconnected</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>5</numericValue>
+					<stringRepresentation>handOff</stringRepresentation>
+				</enumerationEntry>
+			</protocolObjectEnumeration>
+		</commonElement>
+<!-- old Value definition -->
+<!--
+		<commonElement hideFlag="true" name="Value">
+			<protocolObjectSequenceOf minLength="1" maxLength="unbounded" name="seqValue">
+				<className>pegasus.common.ptp.protocolDescription.model.asn1Implementation.ProtocolObjectSequenceOfAsn1DW</className>
+				<hexString minLength="2" maxLength="unbounded" name="Value"/>
+			</protocolObjectSequenceOf>
+		</commonElement>
+-->
+<!-- old Value definition with Encapsulaiton -->
+<!--
+		<commonElement hideFlag="true" name="Value">
+			<protocolObjectSequenceOf minLength="1" maxLength="unbounded" name="seqValue" mandatory="false">
+				<hexString name="Value">
+					<className>pegasus.common.ptp.protocolDescription.model.asn1Implementation.HexStringContainingEmbeddedDataAsn1</className>
+					<contains>
+						<encapsulatedMessage name="ipbcp">
+							<protocolType>IPBCP</protocolType>
+						</encapsulatedMessage>
+					</contains>
+				</hexString>				
+			</protocolObjectSequenceOf>
+		</commonElement>
+-->
+<!--New Value definition with Encapsulation and Double Wrapping -->
+		<commonElement hideFlag="true" name="Value">
+			<protocolObjectSequenceOf minLength="1" maxLength="unbounded" name="seqValue" mandatory="false" hideFlag="false">
+				<protocolObjectChoice name="choiceValue" mandatory="false" hideFlag="false">
+				<className>pegasus.common.ptp.protocolDescription.model.asn1Implementation.ProtocolObjectChoiceAsn1DW</className>
+					<protocolObjectAsn1>
+						<hexString minLength="2" maxLength="unbounded" name="Value" mandatory="false"/>
+					</protocolObjectAsn1>
+					<protocolObjectAsn1>
+						<hexString minLength="2" maxLength="unbounded" name="ValueDW_Enumerated" mandatory="false"/>
+					</protocolObjectAsn1>
+					<protocolObjectAsn1>
+						<hexString minLength="2" maxLength="unbounded" name="ValueDW_IA5String" mandatory="false">
+						<className>pegasus.common.ptp.protocolDescription.model.asn1Implementation.asn1BasicTypes.PegasusIA5String</className>
+						</hexString>
+					</protocolObjectAsn1>
+					<protocolObjectAsn1>
+						<protocolObjectInteger name="ValueDW_Interger" mandatory="false">
+							<_lowLimit>0</_lowLimit>
+							<_highLimit>4294967295</_highLimit>
+						</protocolObjectInteger>
+					</protocolObjectAsn1>
+					<protocolObjectAsn1>
+						<protocolObjectBoolean inverseLogic="false" name="ValueDW_Boolean" mandatory="false" />
+					</protocolObjectAsn1>
+					<protocolObjectAsn1>
+						<hexString minLength="2" maxLength="unbounded" name="ValueDW_OctetString" mandatory="false"/>
+					</protocolObjectAsn1>
+					<protocolObjectAsn1>
+						<hexString name="ipbcp_encap" mandatory="false">
+							<className>pegasus.common.ptp.protocolDescription.model.asn1Implementation.HexStringContainingEmbeddedDataAsn1</className>
+								<contains>
+									<encapsulatedMessage name="ipbcp">
+									<protocolType>IPBCP</protocolType>
+									</encapsulatedMessage>
+								</contains>
+						</hexString>				
+					</protocolObjectAsn1>
+				</protocolObjectChoice>
+			</protocolObjectSequenceOf>
+		</commonElement>
+
+
+	</commonElements>
+	<decoderInfo>
+		<asn1DecoderInfo>
+			<asn1PackageName>BER.MEDIA_GATEWAY_CONTROL.</asn1PackageName>
+		</asn1DecoderInfo>
+	</decoderInfo>
+</protocolDescription>

@@ -1,0 +1,1366 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<protocolDescription xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="/view/op1745_pegcom/pegcore/pegasus/common/ptp/protocolDescription/xmlSchema/protocolDescription.xsd" type="X2AP">
+   <className>pegasus.common.ptp.protocolDescription.model.asn1Implementation.ProtocolDescriptionAsn1</className>
+	<protocolMessages>
+		<protocolMessage name="InitiatingMessage" type="00">
+			<messageInformationElements hideFlag="true">
+				<protocolObjectSequence hideFlag="true">
+					<commonElementRef name="ProcedureCode" mandatory="true">
+						<ref>ProcedureCode</ref>
+					</commonElementRef>
+					<commonElementRef name="Criticality" mandatory="true">
+						<ref>Criticality</ref>
+					</commonElementRef>
+					<commonElementRef name="value" mandatory="true">
+						<ref>X2apMessageInit</ref>
+					</commonElementRef>
+				</protocolObjectSequence>
+			</messageInformationElements>
+		</protocolMessage>
+		<protocolMessage name="SuccessfulOutcome" type="20">
+			<messageInformationElements hideFlag="true">
+				<protocolObjectSequence hideFlag="true">
+					<commonElementRef name="ProcedureCode" mandatory="true">
+						<ref>ProcedureCode</ref>
+					</commonElementRef>
+					<commonElementRef name="Criticality" mandatory="true">
+						<ref>Criticality</ref>
+					</commonElementRef>
+					<commonElementRef name="value" mandatory="true">
+						<ref>X2apSuccessOutcome</ref>
+					</commonElementRef>
+				</protocolObjectSequence>
+			</messageInformationElements>
+		</protocolMessage>
+	</protocolMessages>
+	
+	<informationElements>
+	</informationElements>
+	
+	<commonElements>
+		<!-- framwork -->
+		<commonElement name="X2apMessageInit" hideFlag="true">
+			<protocolObjectChoice hideFlag="true">
+				<protocolObjectAsn1>
+					<commonElementRef name="X2SetupRequest" mandatory="false">
+						<ref>X2SetupRequest</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+				<protocolObjectAsn1>
+					<commonElementRef name="ENDCX2SetupRequest" mandatory="false">
+						<ref>ENDCX2SetupRequest</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+			</protocolObjectChoice>
+		</commonElement>
+		<commonElement name="X2apSuccessOutcome" hideFlag="true">
+			<protocolObjectChoice hideFlag="true">
+				<protocolObjectAsn1>
+					<commonElementRef name="ENDCX2SetupResponse" mandatory="false">
+						<ref>ENDCX2SetupResponse</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+			</protocolObjectChoice>
+		</commonElement>
+		<commonElement name="element" hideFlag="true">
+			<protocolObjectSequence hideFlag="true">
+				<commonElementRef name="id" mandatory="true">
+					<ref>ProtocolIE_ID</ref>
+				</commonElementRef>
+				<commonElementRef name="Criticality" mandatory="true">
+					<ref>Criticality</ref>
+				</commonElementRef>
+				<commonElementRef name="value" mandatory="true">
+					<ref>IEvalue</ref>
+				</commonElementRef>
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement name="IEvalue" hideFlag="true">
+			<protocolObjectChoice hideFlag="true">
+				<protocolObjectAsn1>
+					<commonElementRef name="GlobalENB_ID" mandatory="false">
+						<ref>GlobalENB_ID</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+				<protocolObjectAsn1>
+					<commonElementRef name="InitiatingNodeType_EndcX2Setup" mandatory="false">
+						<ref>InitiatingNodeType_EndcX2Setup</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+				<protocolObjectAsn1>
+					<commonElementRef name="RespondingNodeType_EndcX2Setup" mandatory="false">
+						<ref>RespondingNodeType_EndcX2Setup</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+			</protocolObjectChoice>
+		</commonElement>
+		<!-- for loop IEs -->
+		<commonElement name="ExValue" hideFlag="true">
+			<protocolObjectChoice hideFlag="true">
+				<protocolObjectAsn1> 
+					 <commonElementRef name="GlobalGNB_ID" mandatory="false">
+					 	<ref>GlobalGNB_ID</ref>
+					 </commonElementRef>
+				</protocolObjectAsn1>            
+				<protocolObjectAsn1>
+					<commonElementRef name="ServedNRcellsENDCX2ManagementList" mandatory="false">
+						<ref>ServedNRcellsENDCX2ManagementList</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+				<protocolObjectAsn1>
+					<commonElementRef name="ServedEUTRAcellsENDCX2ManagementList" mandatory="false">
+						<ref>ServedEUTRAcellsENDCX2ManagementList</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+			</protocolObjectChoice>
+		</commonElement>
+		<commonElement name="Asn1TypeValueEx" hideFlag="true" mandatory="true">
+			<protocolObjectChoice hideFlag="true">
+				<protocolObjectAsn1>
+					<commonElementRef name="Number_of_Antennaports" mandatory="false">
+						<ref>Number_of_Antennaports</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+				<protocolObjectAsn1>
+					<commonElementRef name="PRACH_Configuration" mandatory="false">
+						<ref>PRACH_Configuration</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+				<protocolObjectAsn1>
+					<commonElementRef name="FreqBandIndicatorPriority" mandatory="false">
+						<ref>FreqBandIndicatorPriority</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+			</protocolObjectChoice>
+		</commonElement>
+		<commonElement name="Asn1TypeValueExLoop" hideFlag="true" mandatory="true">
+			<protocolObjectChoice hideFlag="true">
+			</protocolObjectChoice>
+		</commonElement>
+		<commonElement name="Asn1TypeValueNor" hideFlag="true" mandatory="true">
+			<protocolObjectChoice hideFlag="true">
+				<protocolObjectAsn1> 
+					 <commonElementRef name="GlobalGNB_ID" mandatory="false">
+					 	<ref>GlobalGNB_ID</ref>
+					 </commonElementRef>
+				</protocolObjectAsn1>  
+				<protocolObjectAsn1>
+					<commonElementRef name="GlobalENB_ID" mandatory="false">
+						<ref>GlobalENB_ID</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+				<protocolObjectAsn1>
+					<commonElementRef name="ServedNRcellsENDCX2ManagementList" mandatory="false">
+						<ref>ServedNRcellsENDCX2ManagementList</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+				<protocolObjectAsn1>
+					<commonElementRef name="ServedEUTRAcellsENDCX2ManagementList" mandatory="false">
+						<ref>ServedEUTRAcellsENDCX2ManagementList</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+			</protocolObjectChoice>
+		</commonElement>
+		
+		<!-- for loop IEs in Loop IEs -->
+		<commonElement name="exten_element" hideFlag="true">
+			<protocolObjectSequence hideFlag="true">
+				<commonElementRef name="id" mandatory="false">
+					<ref>ProtocolIE_ID</ref>
+				</commonElementRef>
+				<commonElementRef name="criticality" mandatory="false">
+					<ref>Criticality</ref>
+				</commonElementRef>
+				<commonElementRef name="extensionValue" mandatory="false">
+					<ref>Asn1TypeValueEx</ref>
+				</commonElementRef>
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement name="loop_exten_element" hideFlag="true">
+			<protocolObjectSequence hideFlag="true">
+				<commonElementRef name="id" mandatory="false">
+					<ref>ProtocolIE_ID</ref>
+				</commonElementRef>
+				<commonElementRef name="criticality" mandatory="false">
+					<ref>Criticality</ref>
+				</commonElementRef>
+				<commonElementRef name="extensionValue" mandatory="false">
+					<ref>Asn1TypeValueExLoop</ref>
+				</commonElementRef>
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement name="normal_element" hideFlag="true">
+			<protocolObjectSequence hideFlag="true">
+				<commonElementRef name="id" mandatory="false">
+					<ref>ProtocolIE_ID</ref>
+				</commonElementRef>
+				<commonElementRef name="criticality" mandatory="false">
+					<ref>Criticality</ref>
+				</commonElementRef>
+				<commonElementRef name="value" mandatory="false">
+					<ref>Asn1TypeValueNor</ref>
+				</commonElementRef>
+			</protocolObjectSequence>
+		</commonElement>
+		
+		<!-- integer -->
+		<commonElement name="ProcedureCode" hideFlag="true">
+			<protocolObjectInteger name="ProcedureCode" mandator="false">
+				<_lowLimit>0</_lowLimit>
+				<_highLimit>65535</_highLimit>
+			</protocolObjectInteger>
+		</commonElement>
+		<commonElement name="ProtocolIE_ID" hideFlag="true">
+			<protocolObjectInteger name="ProtocolIE_ID" mandator="false">
+				<_lowLimit>0</_lowLimit>
+				<_highLimit>65535</_highLimit>
+			</protocolObjectInteger>
+		</commonElement>
+		<commonElement name="NRPCI" hideFlag="true">
+			<protocolObjectInteger name="NRPCI" mandator="false">
+				<_lowLimit>0</_lowLimit>
+				<_highLimit>1007</_highLimit>
+			</protocolObjectInteger>
+		</commonElement>
+		<commonElement name="NRARFCN" hideFlag="true">
+			<protocolObjectInteger name="NRARFCN" mandator="false">
+				<_lowLimit>0</_lowLimit>
+				<_highLimit>3279165</_highLimit>
+			</protocolObjectInteger>
+		</commonElement>
+		<commonElement name="NRARFCN_SUL" hideFlag="true">
+			<protocolObjectInteger name="NRARFCN_SUL" mandator="false">
+				<_lowLimit>0</_lowLimit>
+				<_highLimit>3279165</_highLimit>
+			</protocolObjectInteger>
+		</commonElement>
+		<commonElement name="SUL_ARFCN" hideFlag="true">
+			<protocolObjectInteger name="SUL_ARFCN" mandator="false">
+				<_lowLimit>0</_lowLimit>
+				<_highLimit>3279165</_highLimit>
+			</protocolObjectInteger>
+		</commonElement>
+		<commonElement name="FreqBandIndicatorNr" hideFlag="true">
+			<protocolObjectInteger name="FreqBandIndicatorNr" mandator="false">
+				<_lowLimit>0</_lowLimit>
+				<_highLimit>1024</_highLimit>
+			</protocolObjectInteger>
+		</commonElement>
+		<commonElement name="PCI" hideFlag="true">
+			<protocolObjectInteger name="PCI" mandator="false">
+				<_lowLimit>0</_lowLimit>
+				<_highLimit>503</_highLimit>
+			</protocolObjectInteger>
+		</commonElement>
+		<commonElement name="EARFCN" hideFlag="true">
+			<protocolObjectInteger name="EARFCN" mandator="false">
+				<_lowLimit>0</_lowLimit>
+				<_highLimit>65536</_highLimit>
+			</protocolObjectInteger>
+		</commonElement>
+		
+		<!-- boolean -->
+		
+		
+		<!-- enum -->
+		<commonElement name="Criticality" hideFlag="true">
+			<protocolObjectEnumeration name="Criticality">
+				<enumerationEntry>
+					<numericValue>0</numericValue>
+					<stringRepresentation>reject</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>1</numericValue>
+					<stringRepresentation>ignore</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>2</numericValue>
+					<stringRepresentation>notify</stringRepresentation>
+				</enumerationEntry>
+			</protocolObjectEnumeration>
+		</commonElement>
+		<commonElement name="NRSCS" hideFlag="true">
+			<protocolObjectEnumeration name="NRSCS">
+				<enumerationEntry>
+					<numericValue>0</numericValue>
+					<stringRepresentation>scs15</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>1</numericValue>
+					<stringRepresentation>scs30</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>2</numericValue>
+					<stringRepresentation>scs60</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>3</numericValue>
+					<stringRepresentation>scs120</stringRepresentation>
+				</enumerationEntry>
+			</protocolObjectEnumeration>
+		</commonElement>
+		<commonElement name="CyclicPrefixDL" hideFlag="true">
+			<protocolObjectEnumeration name="CyclicPrefixDL">
+				<enumerationEntry>
+					<numericValue>0</numericValue>
+					<stringRepresentation>normal</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>1</numericValue>
+					<stringRepresentation>extended</stringRepresentation>
+				</enumerationEntry>
+			</protocolObjectEnumeration>
+		</commonElement>
+		<commonElement name="CyclicPrefixUL" hideFlag="true">
+			<protocolObjectEnumeration name="CyclicPrefixUL">
+				<enumerationEntry>
+					<numericValue>0</numericValue>
+					<stringRepresentation>normal</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>1</numericValue>
+					<stringRepresentation>extended</stringRepresentation>
+				</enumerationEntry>
+			</protocolObjectEnumeration>
+		</commonElement>
+		<commonElement name="FreqBandIndicatorPriority" hideFlag="true">
+			<protocolObjectEnumeration name="FreqBandIndicatorPriority">
+				<enumerationEntry>
+					<numericValue>0</numericValue>
+					<stringRepresentation>not-broadcasted</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>1</numericValue>
+					<stringRepresentation>broadcasted</stringRepresentation>
+				</enumerationEntry>
+			</protocolObjectEnumeration>
+		</commonElement>
+		<commonElement name="Number_of_Antennaports" hideFlag="true">
+			<protocolObjectEnumeration name="Number_of_Antennaports">
+				<enumerationEntry>
+					<numericValue>0</numericValue>
+					<stringRepresentation>an1</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>1</numericValue>
+					<stringRepresentation>an2</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>2</numericValue>
+					<stringRepresentation>an4</stringRepresentation>
+				</enumerationEntry>
+			</protocolObjectEnumeration>
+		</commonElement>
+		<commonElement name="SubframeAssignment" hideFlag="true">
+			<protocolObjectEnumeration name="SubframeAssignment">
+				<enumerationEntry>
+					<numericValue>0</numericValue>
+					<stringRepresentation>sa0</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>1</numericValue>
+					<stringRepresentation>sa1</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>2</numericValue>
+					<stringRepresentation>sa2</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>3</numericValue>
+					<stringRepresentation>sa3</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>4</numericValue>
+					<stringRepresentation>sa4</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>5</numericValue>
+					<stringRepresentation>sa5</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>6</numericValue>
+					<stringRepresentation>sa6</stringRepresentation>
+				</enumerationEntry>
+			</protocolObjectEnumeration>
+		</commonElement>
+		<commonElement name="Transmission_Bandwidth" hideFlag="true">
+			<protocolObjectEnumeration name="Transmission_Bandwidth">
+				<enumerationEntry>
+					<numericValue>0</numericValue>
+					<stringRepresentation>bw6</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>1</numericValue>
+					<stringRepresentation>bw15</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>2</numericValue>
+					<stringRepresentation>bw25</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>3</numericValue>
+					<stringRepresentation>bw50</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>4</numericValue>
+					<stringRepresentation>bw75</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>5</numericValue>
+					<stringRepresentation>bw100</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>6</numericValue>
+					<stringRepresentation>bw1</stringRepresentation>
+				</enumerationEntry>
+			</protocolObjectEnumeration>
+		</commonElement>
+		<commonElement name="Transmission_Bandwidth" hideFlag="true">
+			<protocolObjectEnumeration name="Transmission_Bandwidth">
+				<enumerationEntry>
+					<numericValue>0</numericValue>
+					<stringRepresentation>bw6</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>1</numericValue>
+					<stringRepresentation>bw15</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>2</numericValue>
+					<stringRepresentation>bw25</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>3</numericValue>
+					<stringRepresentation>bw50</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>4</numericValue>
+					<stringRepresentation>bw75</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>5</numericValue>
+					<stringRepresentation>bw100</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>6</numericValue>
+					<stringRepresentation>bw1</stringRepresentation>
+				</enumerationEntry>
+			</protocolObjectEnumeration>
+		</commonElement>
+		<commonElement name="SpecialSubframePatterns" hideFlag="true">
+			<protocolObjectEnumeration name="SpecialSubframePatterns">
+				<enumerationEntry>
+					<numericValue>0</numericValue>
+					<stringRepresentation>ssp0</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>1</numericValue>
+					<stringRepresentation>ssp1</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>2</numericValue>
+					<stringRepresentation>ssp2</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>3</numericValue>
+					<stringRepresentation>ssp3</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>4</numericValue>
+					<stringRepresentation>ssp4</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>5</numericValue>
+					<stringRepresentation>ssp5</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>6</numericValue>
+					<stringRepresentation>ssp6</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>7</numericValue>
+					<stringRepresentation>ssp7</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>8</numericValue>
+					<stringRepresentation>ssp8</stringRepresentation>
+				</enumerationEntry>
+			</protocolObjectEnumeration>
+		</commonElement>
+		<commonElement name="NRNRB" hideFlag="true">
+			<protocolObjectEnumeration name="NRNRB">
+				<enumerationEntry>
+					<numericValue>0</numericValue>
+					<stringRepresentation>nrb11</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>1</numericValue>
+					<stringRepresentation>nrb18</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>2</numericValue>
+					<stringRepresentation>nrb24</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>3</numericValue>
+					<stringRepresentation>scs120</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>4</numericValue>
+					<stringRepresentation>nrb25</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>5</numericValue>
+					<stringRepresentation>nrb31</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>6</numericValue>
+					<stringRepresentation>nrb32</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>7</numericValue>
+					<stringRepresentation>nrb38</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>8</numericValue>
+					<stringRepresentation>nrb51</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>9</numericValue>
+					<stringRepresentation>nrb52</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>10</numericValue>
+					<stringRepresentation>nrb65</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>11</numericValue>
+					<stringRepresentation>nrb66</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>12</numericValue>
+					<stringRepresentation>nrb78</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>13</numericValue>
+					<stringRepresentation>nrb79</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>14</numericValue>
+					<stringRepresentation>nrb93</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>15</numericValue>
+					<stringRepresentation>nrb106</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>16</numericValue>
+					<stringRepresentation>nrb107</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>17</numericValue>
+					<stringRepresentation>nrb121</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>18</numericValue>
+					<stringRepresentation>nrb132</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>19</numericValue>
+					<stringRepresentation>nrb133</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>20</numericValue>
+					<stringRepresentation>nrb135</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>21</numericValue>
+					<stringRepresentation>nrb160</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>22</numericValue>
+					<stringRepresentation>nrb162</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>23</numericValue>
+					<stringRepresentation>scs120</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>24</numericValue>
+					<stringRepresentation>nrb189</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>25</numericValue>
+					<stringRepresentation>nrb216</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>26</numericValue>
+					<stringRepresentation>nrb217</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>27</numericValue>
+					<stringRepresentation>nrb245</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>28</numericValue>
+					<stringRepresentation>nrb264</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>29</numericValue>
+					<stringRepresentation>nrb270</stringRepresentation>
+				</enumerationEntry>
+				<enumerationEntry>
+					<numericValue>30</numericValue>
+					<stringRepresentation>nrb273</stringRepresentation>
+				</enumerationEntry>
+			</protocolObjectEnumeration>
+		</commonElement>
+		
+		<!-- Sequence-->		
+		<commonElement name="NRCGI" hideFlag="true">
+			<protocolObjectSequence hideFlag="true">
+				<commonElementRef name="pLMN_Identity" mandatory="false">
+					<ref>PLMN_Identity</ref>
+				</commonElementRef>
+				<commonElementRef name="nRcellIdentifier" mandatory="false">
+					<ref>NRCellIdentifier</ref>
+				</commonElementRef>
+				<commonElementRef name="iE_Extensions" mandatory="false">
+					<ref>NRCGI_iE_Extensions</ref>
+				</commonElementRef>
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement name="GlobalENB_ID" hideFlag="true">
+			<protocolObjectSequence hideFlag="true">
+				<commonElementRef name="PLMN_Identity" mandatory="false">
+					<ref>PLMN_Identity</ref>
+				</commonElementRef>
+				<commonElementRef name="ENB_ID" mandatory="false">
+					<ref>ENB_ID</ref>
+				</commonElementRef>
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement name="InitiatingNodeType_EndcX2Setup_element_1" hideFlag="true">
+			<protocolObjectSequence hideFlag="true">
+				<commonElementRef name="id" mandatory="false">
+					<ref>ProtocolIE_ID</ref>
+				</commonElementRef>
+				<commonElementRef name="criticality" mandatory="false">
+					<ref>Criticality</ref>
+				</commonElementRef>
+				<commonElementRef name="value" mandatory="false">
+					<ref>ExValue</ref>
+				</commonElementRef>
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement name="GlobalGNB_ID" hideFlag="true">
+			<protocolObjectSequence hideFlag="true">
+				<commonElementRef name="pLMN_Identity" mandatory="false">
+					<ref>PLMN_Identity</ref>
+				</commonElementRef>
+				<commonElementRef name="gNB_ID" mandatory="false">
+					<ref>GNB_ID</ref>
+				</commonElementRef>
+				<commonElementRef name="iE_Extensions" mandatory="false">
+					<ref>GlobalGNB_ID_iE_Extensions</ref>
+				</commonElementRef>
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement name="ServedNRcellsENDCX2ManagementList_element_1" hideFlag="true">
+			<protocolObjectSequence hideFlag="true">
+				<commonElementRef name="servedNRCellInfo" mandatory="false">
+					<ref>ServedNRCell_Information</ref>
+				</commonElementRef>
+				<commonElementRef name="nRNeighbourInfo" mandatory="false">
+					<ref>NRNeighbour_Information</ref>
+				</commonElementRef>
+				<commonElementRef name="iE_Extensions" mandatory="false">
+					<ref>ServedNRcellsENDCX2ManagementList_iE_Extensions</ref>
+				</commonElementRef>
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement name="PRACH_Configuration" hideFlag="true">
+			<protocolObjectSequence hideFlag="true">
+				<protocolObjectInteger name="rootSequenceIndex" mandator="false">
+					<_lowLimit>0</_lowLimit>
+					<_highLimit>837</_highLimit>
+				</protocolObjectInteger>
+				<protocolObjectInteger name="zeroCorrelationIndex" mandator="false">
+					<_lowLimit>0</_lowLimit>
+					<_highLimit>15</_highLimit>
+				</protocolObjectInteger>
+				<protocolObjectBoolean name="highSpeedFlag" mandatory="false" inverseLogic="false"/>
+				<protocolObjectInteger name="prach_FreqOffset" mandator="false">
+					<_lowLimit>0</_lowLimit>
+					<_highLimit>94</_highLimit>
+				</protocolObjectInteger>
+				<protocolObjectInteger name="prach_ConfigIndex" mandator="false">
+					<_lowLimit>0</_lowLimit>
+					<_highLimit>63</_highLimit>
+				</protocolObjectInteger>
+				<commonElementRef name="iE_Extensions" mandatory="false">
+					<ref>PRACH_Configuration_iE_Extensions</ref>
+				</commonElementRef>
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement name="ServedNRCell_Information" hideFlag="true">
+			<protocolObjectSequence hideFlag="true">
+				<commonElementRef name="nrpCI" mandatory="false">
+					<ref>NRPCI</ref>
+				</commonElementRef>
+				<commonElementRef name="nrCellID" mandatory="false">
+					<ref>NRCGI</ref>
+				</commonElementRef>
+				<commonElementRef name="fiveGS_TAC" mandatory="false">
+					<ref>FiveGS_TAC</ref>
+				</commonElementRef>
+				<commonElementRef name="configured_TAC" mandatory="false">
+					<ref>TAC</ref>
+				</commonElementRef>
+				<commonElementRef name="broadcastPLMNs" mandatory="false">
+					<ref>BroadcastPLMNs_Item</ref>
+				</commonElementRef>
+				<commonElementRef name="nrModeInfo" mandatory="false">
+					<ref>ServedNRCell_Information_nrModeInfo</ref>
+				</commonElementRef>
+				<commonElementRef name="measurementTimingConfiguration" mandatory="false">
+					<ref>MeasurementTimingConfiguration</ref>
+				</commonElementRef>
+				<commonElementRef name="iE_Extensions" mandatory="false">
+					<ref>ServedNRCell_Information_iE_Extensions</ref>
+				</commonElementRef>
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement name="FDD_InfoServedNRCell_Information" hideFlag="true">
+			<protocolObjectSequence hideFlag="true">
+				<commonElementRef name="ul_NRFreqInfo" mandatory="false">
+					<ref>NRFreqInfo</ref>
+				</commonElementRef>
+				<commonElementRef name="dl_NRFreqInfo" mandatory="false">
+					<ref>NRFreqInfo</ref>
+				</commonElementRef>
+				<commonElementRef name="ul_NR_TxBW" mandatory="false">
+					<ref>NR_TxBW</ref>
+				</commonElementRef>
+				<commonElementRef name="dl_NR_TxBW" mandatory="false">
+					<ref>NR_TxBW</ref>
+				</commonElementRef>
+				<commonElementRef name="iE_Extensions" mandatory="false">
+					<ref>FDD_InfoServedNRCell_Information_iE_Extensions</ref>
+				</commonElementRef>
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement name="FDD_InfoNeighbourServedNRCell_Information" hideFlag="true">
+			<protocolObjectSequence hideFlag="true">
+				<commonElementRef name="ul_NRFreqInfo" mandatory="false">
+					<ref>NRFreqInfo</ref>
+				</commonElementRef>
+				<commonElementRef name="dl_NRFreqInfo" mandatory="false">
+					<ref>NRFreqInfo</ref>
+				</commonElementRef>
+				<commonElementRef name="iE_Extensions" mandatory="false">
+					<ref>FDD_InfoNeighbourServedNRCell_Information_iE_Extensions</ref>
+				</commonElementRef>
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement name="TDD_InfoNeighbourServedNRCell_Information" hideFlag="true">
+			<protocolObjectSequence hideFlag="true">
+				<commonElementRef name="nRFreqInfo" mandatory="false">
+					<ref>NRFreqInfo</ref>
+				</commonElementRef>
+				<commonElementRef name="iE_Extensions" mandatory="false">
+					<ref>TDD_InfoNeighbourServedNRCell_Information_iE_Extensions</ref>
+				</commonElementRef>
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement name="NRFreqInfo" hideFlag="true">
+			<protocolObjectSequence hideFlag="true">
+				<commonElementRef name="nRARFCN" mandatory="false">
+					<ref>NRARFCN</ref>
+				</commonElementRef>
+				<commonElementRef name="nRARFCN_SUL" mandatory="false">
+					<ref>NRARFCN_SUL</ref>
+				</commonElementRef>
+				<commonElementRef name="freqBandListNr" mandatory="false">
+					<ref>NRFreqInfo_freqBandListNr</ref>
+				</commonElementRef>
+				<commonElementRef name="sULInformation" mandatory="false">
+					<ref>SULInformation</ref>
+				</commonElementRef>
+				<commonElementRef name="iE_Extensions" mandatory="false">
+					<ref>NRFreqInfo_iE_Extensions</ref>
+				</commonElementRef>
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement name="SULInformation" hideFlag="true">
+			<protocolObjectSequence hideFlag="true">
+				<commonElementRef name="sUL_ARFCN" mandatory="false">
+					<ref>SUL_ARFCN</ref>
+				</commonElementRef>
+				<commonElementRef name="sUL_TxBW" mandatory="false">
+					<ref>NR_TxBW</ref>
+				</commonElementRef>
+				<commonElementRef name="iE_Extensions" mandatory="false">
+					<ref>SULInformation_iE_Extensions</ref>
+				</commonElementRef>
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement name="NR_TxBW" hideFlag="true">
+			<protocolObjectSequence hideFlag="true">
+				<commonElementRef name="nRSCS" mandatory="false">
+					<ref>NRSCS</ref>
+				</commonElementRef>
+				<commonElementRef name="nRNRB" mandatory="false">
+					<ref>NRNRB</ref>
+				</commonElementRef>
+				<commonElementRef name="iE_Extensions" mandatory="false">
+					<ref>NR_TxBW_iE_Extensions</ref>
+				</commonElementRef>
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement name="FreqBandNrItem" hideFlag="true">
+			<protocolObjectSequence hideFlag="true">
+				<commonElementRef name="freqBandIndicatorNr" mandatory="false">
+					<ref>FreqBandIndicatorNr</ref>
+				</commonElementRef>
+				<commonElementRef name="supportedSULBandList" mandatory="false">
+					<ref>FreqBandNrItem_supportedSULBandList</ref>
+				</commonElementRef>
+				<commonElementRef name="iE_Extensions" mandatory="false">
+					<ref>FreqBandNrItem_iE_Extensions</ref>
+				</commonElementRef>
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement name="SupportedSULFreqBandItem" hideFlag="true">
+			<protocolObjectSequence hideFlag="true">
+				<commonElementRef name="freqBandIndicatorNr" mandatory="false">
+					<ref>FreqBandIndicatorNr</ref>
+				</commonElementRef>
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement name="TDD_InfoServedNRCell_Information" hideFlag="true">
+			<protocolObjectSequence hideFlag="true">
+				<commonElementRef name="nRFreqInfo" mandatory="false">
+					<ref>NRFreqInfo</ref>
+				</commonElementRef>
+				<commonElementRef name="nR_TxBW" mandatory="false">
+					<ref>NR_TxBW</ref>
+				</commonElementRef>
+				<commonElementRef name="iE_Extensions" mandatory="false">
+					<ref>TDD_InfoServedNRCell_Information_iE_Extensions</ref>
+				</commonElementRef>
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement name="NRNeighbour_Information_element_1" hideFlag="true">
+			<protocolObjectSequence hideFlag="true">
+				<commonElementRef name="nrpCI" mandatory="false">
+					<ref>NRPCI</ref>
+				</commonElementRef>
+				<commonElementRef name="nrCellID" mandatory="false">
+					<ref>NRCGI</ref>
+				</commonElementRef>
+				<commonElementRef name="nrFreqInfo" mandatory="false">
+					<ref>NRFreqInfo</ref>
+				</commonElementRef>
+				<commonElementRef name="fiveGS_TAC" mandatory="false">
+					<ref>FiveGS_TAC</ref>
+				</commonElementRef>
+				<commonElementRef name="configured_TAC" mandatory="false">
+					<ref>TAC</ref>
+				</commonElementRef>
+				<commonElementRef name="measurementTimingConfiguration" mandatory="false">
+					<ref>MeasurementTimingConfiguration</ref>
+				</commonElementRef>
+				<commonElementRef name="nRNeighbourModeInfo" mandatory="false">
+					<ref>NRNeighbour_Information_nRNeighbourModeInfo</ref>
+				</commonElementRef>
+				<commonElementRef name="iE_Extensions" mandatory="false">
+					<ref>NRNeighbour_Information_iE_Extensions</ref>
+				</commonElementRef>
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement name="ServedEUTRAcellsENDCX2ManagementList_element_1" hideFlag="true">
+			<protocolObjectSequence hideFlag="true">
+				<commonElementRef name="servedEUTRACellInfo" mandatory="false">
+					<ref>ServedCell_Information</ref>
+				</commonElementRef>
+				<commonElementRef name="nrNeighbourInfo" mandatory="false">
+					<ref>NRNeighbour_Information</ref>
+				</commonElementRef>
+				<commonElementRef name="iE_Extensions" mandatory="false">
+					<ref>ServedEUTRAcellsENDCX2ManagementList_iE_Extensions</ref>
+				</commonElementRef>
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement name="ServedCell_Information" hideFlag="true">
+			<protocolObjectSequence hideFlag="true">
+				<commonElementRef name="pCI" mandatory="false">
+					<ref>PCI</ref>
+				</commonElementRef>
+				<commonElementRef name="cellId" mandatory="false">
+					<ref>ECGI</ref>
+				</commonElementRef>
+				<commonElementRef name="tAC" mandatory="false">
+					<ref>TAC</ref>
+				</commonElementRef>
+				<commonElementRef name="broadcastPLMNs" mandatory="false">
+					<ref>BroadcastPLMNs_Item</ref>
+				</commonElementRef>
+				<commonElementRef name="eUTRA_Mode_Info" mandatory="false">
+					<ref>EUTRA_Mode_Info</ref>
+				</commonElementRef>
+				<commonElementRef name="iE_Extensions" mandatory="false">
+					<ref>ServedCell_Information_iE_Extensions</ref>
+				</commonElementRef>
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement name="ECGI" hideFlag="true">
+			<protocolObjectSequence hideFlag="true">
+				<commonElementRef name="pLMN_Identity" mandatory="false">
+					<ref>PLMN_Identity</ref>
+				</commonElementRef>
+				<commonElementRef name="eUTRANcellIdentifier" mandatory="false">
+					<ref>EUTRANCellIdentifier</ref>
+				</commonElementRef>
+				<commonElementRef name="iE_Extensions" mandatory="false">
+					<ref>ECGI_iE_Extensions</ref>
+				</commonElementRef>
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement name="FDD_Info" hideFlag="true">
+			<protocolObjectSequence hideFlag="true">
+				<commonElementRef name="uL_EARFCN" mandatory="false">
+					<ref>EARFCN</ref>
+				</commonElementRef>
+				<commonElementRef name="dL_EARFCN" mandatory="false">
+					<ref>EARFCN</ref>
+				</commonElementRef>
+				<commonElementRef name="uL_Transmission_Bandwidth" mandatory="false">
+					<ref>Transmission_Bandwidth</ref>
+				</commonElementRef>
+				<commonElementRef name="dL_Transmission_Bandwidth" mandatory="false">
+					<ref>Transmission_Bandwidth</ref>
+				</commonElementRef>
+				<commonElementRef name="iE_Extensions" mandatory="false">
+					<ref>FDD_Info_iE_Extensions</ref>
+				</commonElementRef>
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement name="TDD_Info" hideFlag="true">
+			<protocolObjectSequence hideFlag="true">
+				<commonElementRef name="eARFCN" mandatory="false">
+					<ref>EARFCN</ref>
+				</commonElementRef>
+				<commonElementRef name="transmission_Bandwidth" mandatory="false">
+					<ref>Transmission_Bandwidth</ref>
+				</commonElementRef>
+				<commonElementRef name="subframeAssignment" mandatory="false">
+					<ref>SubframeAssignment</ref>
+				</commonElementRef>
+				<commonElementRef name="specialSubframe_Info" mandatory="false">
+					<ref>SpecialSubframe_Info</ref>
+				</commonElementRef>
+				<commonElementRef name="iE_Extensions" mandatory="false">
+					<ref>TDD_Info_iE_Extensions</ref>
+				</commonElementRef>
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement name="SpecialSubframe_Info" hideFlag="true">
+			<protocolObjectSequence hideFlag="true">
+				<commonElementRef name="specialSubframePatterns" mandatory="false">
+					<ref>SpecialSubframePatterns</ref>
+				</commonElementRef>
+				<commonElementRef name="cyclicPrefixDL" mandatory="false">
+					<ref>CyclicPrefixDL</ref>
+				</commonElementRef>
+				<commonElementRef name="cyclicPrefixUL" mandatory="false">
+					<ref>CyclicPrefixUL</ref>
+				</commonElementRef>
+				<commonElementRef name="iE_Extensions" mandatory="false">
+					<ref>SpecialSubframe_Info_iE_Extensions</ref>
+				</commonElementRef>
+			</protocolObjectSequence>
+		</commonElement>
+		
+		<!-- SequenceOf -->
+		<commonElement name="X2SetupRequest" hideFlag="true">
+			<protocolObjectSequence hideFlag="true">
+				<protocolObjectSequenceOf name="protocolIEs" hideFlag="false" maxLength="unbounded" minLength="1">
+					<commonElementRef name="element" mandatory="false">
+						<ref>element</ref>
+					</commonElementRef>
+				</protocolObjectSequenceOf>
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement name="ENDCX2SetupRequest" hideFlag="true">
+			<protocolObjectSequence hideFlag="true">
+				<protocolObjectSequenceOf name="protocolIEs" hideFlag="false" maxLength="unbounded" minLength="1">
+					<commonElementRef name="element" mandatory="false">
+						<ref>element</ref>
+					</commonElementRef>
+				</protocolObjectSequenceOf>
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement name="ENDCX2SetupResponse" hideFlag="true">
+			<protocolObjectSequence hideFlag="true">
+				<protocolObjectSequenceOf name="protocolIEs" hideFlag="false" maxLength="unbounded" minLength="1">
+					<commonElementRef name="element" mandatory="false">
+						<ref>element</ref>
+					</commonElementRef>
+				</protocolObjectSequenceOf>
+			</protocolObjectSequence>
+		</commonElement>
+		
+		<commonElement name="ServedEUTRAcellsENDCX2ManagementList" hideFlag="true">
+			<protocolObjectSequenceOf name="ServedEUTRAcellsENDCX2ManagementList" hideFlag="false" maxLength="unbounded" minLength="1">
+				<commonElementRef name="elements" mandatory="false">
+					<ref>ServedEUTRAcellsENDCX2ManagementList_element_1</ref>
+				</commonElementRef>
+			</protocolObjectSequenceOf>
+		</commonElement>
+		<commonElement name="NRNeighbour_Information" hideFlag="true">
+			<protocolObjectSequenceOf name="NRNeighbour_Information" hideFlag="false" maxLength="unbounded" minLength="1">
+				<commonElementRef name="elements" mandatory="false">
+					<ref>NRNeighbour_Information_element_1</ref>
+				</commonElementRef>
+			</protocolObjectSequenceOf>
+		</commonElement>
+		<commonElement name="ECGI_iE_Extensions" hideFlag="true">
+			<protocolObjectSequenceOf name="ECGI_iE_Extensions" hideFlag="false" maxLength="unbounded" minLength="1">
+				<commonElementRef name="elements" mandatory="false">
+					<ref>exten_element</ref>
+				</commonElementRef>
+			</protocolObjectSequenceOf>
+		</commonElement>
+		<commonElement name="PRACH_Configuration_iE_Extensions" hideFlag="true">
+			<protocolObjectSequenceOf name="PRACH_Configuration_iE_Extensions" hideFlag="false" maxLength="unbounded" minLength="1">
+				<commonElementRef name="elements" mandatory="false">
+					<ref>loop_exten_element</ref>
+				</commonElementRef>
+			</protocolObjectSequenceOf>
+		</commonElement>
+		<commonElement name="TDD_Info_iE_Extensions" hideFlag="true">
+			<protocolObjectSequenceOf name="TDD_Info_iE_Extensions" hideFlag="false" maxLength="unbounded" minLength="1">
+				<commonElementRef name="elements" mandatory="false">
+					<ref>exten_element</ref>
+				</commonElementRef>
+			</protocolObjectSequenceOf>
+		</commonElement>
+		<commonElement name="ServedCell_Information_iE_Extensions" hideFlag="true">
+			<protocolObjectSequenceOf name="ServedCell_Information_iE_Extensions" hideFlag="false" maxLength="unbounded" minLength="1">
+				<commonElementRef name="elements" mandatory="false">
+					<ref>exten_element</ref>
+				</commonElementRef>
+			</protocolObjectSequenceOf>
+		</commonElement>
+		<commonElement name="SpecialSubframe_Info_iE_Extensions" hideFlag="true">
+			<protocolObjectSequenceOf name="SpecialSubframe_Info_iE_Extensions" hideFlag="false" maxLength="unbounded" minLength="1">
+				<commonElementRef name="elements" mandatory="false">
+					<ref>exten_element</ref>
+				</commonElementRef>
+			</protocolObjectSequenceOf>
+		</commonElement>
+		<commonElement name="FDD_Info_iE_Extensions" hideFlag="true">
+			<protocolObjectSequenceOf name="FDD_Info_iE_Extensions" hideFlag="false" maxLength="unbounded" minLength="1">
+				<commonElementRef name="elements" mandatory="false">
+					<ref>exten_element</ref>
+				</commonElementRef>
+			</protocolObjectSequenceOf>
+		</commonElement>
+		<commonElement name="NRNeighbour_Information_iE_Extensions" hideFlag="true">
+			<protocolObjectSequenceOf name="NRNeighbour_Information_iE_Extensions" hideFlag="false" maxLength="unbounded" minLength="1">
+				<commonElementRef name="elements" mandatory="false">
+					<ref>exten_element</ref>
+				</commonElementRef>
+			</protocolObjectSequenceOf>
+		</commonElement>
+		<commonElement name="ServedEUTRAcellsENDCX2ManagementList_iE_Extensions" hideFlag="true">
+			<protocolObjectSequenceOf name="ServedEUTRAcellsENDCX2ManagementList_iE_Extensions" hideFlag="false" maxLength="unbounded" minLength="1">
+				<commonElementRef name="elements" mandatory="false">
+					<ref>exten_element</ref>
+				</commonElementRef>
+			</protocolObjectSequenceOf>
+		</commonElement>
+		<commonElement name="FreqBandNrItem_supportedSULBandList" hideFlag="true">
+			<protocolObjectSequenceOf name="FreqBandNrItem_supportedSULBandList" hideFlag="false" maxLength="unbounded" minLength="1">
+				<commonElementRef name="elements" mandatory="false">
+					<ref>SupportedSULFreqBandItem</ref>
+				</commonElementRef>
+			</protocolObjectSequenceOf>
+		</commonElement>
+		<commonElement name="NRFreqInfo_freqBandListNr" hideFlag="true">
+			<protocolObjectSequenceOf name="NRFreqInfo_freqBandListNr" hideFlag="false" maxLength="unbounded" minLength="1">
+				<commonElementRef name="elements" mandatory="false">
+					<ref>FreqBandNrItem</ref>
+				</commonElementRef>
+			</protocolObjectSequenceOf>
+		</commonElement>
+		<commonElement name="BroadcastPLMNs_Item" hideFlag="true">
+			<protocolObjectSequenceOf name="BroadcastPLMNs_Item" hideFlag="false" maxLength="unbounded" minLength="1">
+				<commonElementRef name="elements" mandatory="false">
+					<ref>PLMN_Identity</ref>
+				</commonElementRef>
+			</protocolObjectSequenceOf>
+		</commonElement>
+		<commonElement name="FDD_InfoNeighbourServedNRCell_Information_iE_Extensions" hideFlag="true">
+			<protocolObjectSequenceOf name="FDD_InfoNeighbourServedNRCell_Information_iE_Extensions" hideFlag="false" maxLength="unbounded" minLength="1">
+				<commonElementRef name="elements" mandatory="false">
+					<ref>exten_element</ref>
+				</commonElementRef>
+			</protocolObjectSequenceOf>
+		</commonElement>
+		<commonElement name="TDD_InfoNeighbourServedNRCell_Information_iE_Extensions" hideFlag="true">
+			<protocolObjectSequenceOf name="TDD_InfoNeighbourServedNRCell_Information_iE_Extensions" hideFlag="false" maxLength="unbounded" minLength="1">
+				<commonElementRef name="elements" mandatory="false">
+					<ref>exten_element</ref>
+				</commonElementRef>
+			</protocolObjectSequenceOf>
+		</commonElement>
+		<commonElement name="ServedNRCell_Information_iE_Extensions" hideFlag="true">
+			<protocolObjectSequenceOf name="ServedNRCell_Information_iE_Extensions" hideFlag="false" maxLength="unbounded" minLength="1">
+				<commonElementRef name="elements" mandatory="false">
+					<ref>exten_element</ref>
+				</commonElementRef>
+			</protocolObjectSequenceOf>
+		</commonElement>
+		<commonElement name="SULInformation_iE_Extensions" hideFlag="true">
+			<protocolObjectSequenceOf name="SULInformation_iE_Extensions" hideFlag="false" maxLength="unbounded" minLength="1">
+				<commonElementRef name="elements" mandatory="false">
+					<ref>exten_element</ref>
+				</commonElementRef>
+			</protocolObjectSequenceOf>
+		</commonElement>
+		<commonElement name="ServedNRcellsENDCX2ManagementList" hideFlag="true">
+			<protocolObjectSequenceOf name="ServedNRcellsENDCX2ManagementList" hideFlag="false" maxLength="unbounded" minLength="1">
+				<commonElementRef name="elements" mandatory="false">
+					<ref>ServedNRcellsENDCX2ManagementList_element_1</ref>
+				</commonElementRef>
+			</protocolObjectSequenceOf>
+		</commonElement>
+		<commonElement name="FDD_InfoServedNRCell_Information_iE_Extensions" hideFlag="true">
+			<protocolObjectSequenceOf name="FDD_InfoServedNRCell_Information_iE_Extensions" hideFlag="false" maxLength="unbounded" minLength="1">
+				<commonElementRef name="elements" mandatory="false">
+					<ref>exten_element</ref>
+				</commonElementRef>
+			</protocolObjectSequenceOf>
+		</commonElement>
+		<commonElement name="TDD_InfoServedNRCell_Information_iE_Extensions" hideFlag="true">
+			<protocolObjectSequenceOf name="TDD_InfoServedNRCell_Information_iE_Extensions" hideFlag="false" maxLength="unbounded" minLength="1">
+				<commonElementRef name="elements" mandatory="false">
+					<ref>exten_element</ref>
+				</commonElementRef>
+			</protocolObjectSequenceOf>
+		</commonElement>
+		<commonElement name="ServedNRcellsENDCX2ManagementList_iE_Extensions" hideFlag="true">
+			<protocolObjectSequenceOf name="ServedNRcellsENDCX2ManagementList_iE_Extensions" hideFlag="false" maxLength="unbounded" minLength="1">
+				<commonElementRef name="elements" mandatory="false">
+					<ref>exten_element</ref>
+				</commonElementRef>
+			</protocolObjectSequenceOf>
+		</commonElement>
+		<commonElement name="NRFreqInfo_iE_Extensions" hideFlag="true">
+			<protocolObjectSequenceOf name="NRFreqInfo_iE_Extensions" hideFlag="false" maxLength="unbounded" minLength="1">
+				<commonElementRef name="elements" mandatory="false">
+					<ref>exten_element</ref>
+				</commonElementRef>
+			</protocolObjectSequenceOf>
+		</commonElement>
+		<commonElement name="FreqBandNrItem_iE_Extensions" hideFlag="true">
+			<protocolObjectSequenceOf name="FreqBandNrItem_iE_Extensions" hideFlag="false" maxLength="unbounded" minLength="1">
+				<commonElementRef name="elements" mandatory="false">
+					<ref>exten_element</ref>
+				</commonElementRef>
+			</protocolObjectSequenceOf>
+		</commonElement>
+		<commonElement name="NR_TxBW_iE_Extensions" hideFlag="true">
+			<protocolObjectSequenceOf name="NR_TxBW_iE_Extensions" hideFlag="false" maxLength="unbounded" minLength="1">
+				<commonElementRef name="elements" mandatory="false">
+					<ref>exten_element</ref>
+				</commonElementRef>
+			</protocolObjectSequenceOf>
+		</commonElement>
+		<commonElement name="GlobalGNB_ID_iE_Extensions" hideFlag="true">
+			<protocolObjectSequenceOf name="GlobalGNB_ID_iE_Extensions" hideFlag="false" maxLength="unbounded" minLength="1">
+				<commonElementRef name="elements" mandatory="false">
+					<ref>exten_element</ref>
+				</commonElementRef>
+			</protocolObjectSequenceOf>
+		</commonElement>
+		<commonElement name="NRCGI_iE_Extensions" hideFlag="true">
+			<protocolObjectSequenceOf name="NRCGI_iE_Extensions" hideFlag="false" maxLength="unbounded" minLength="1">
+				<commonElementRef name="elements" mandatory="false">
+					<ref>exten_element</ref>
+				</commonElementRef>
+			</protocolObjectSequenceOf>
+		</commonElement>
+		<commonElement name="InitiatingNodeType_EndcX2Setup_init_eNB" hideFlag="true">
+			<protocolObjectSequenceOf name="InitiatingNodeType_EndcX2Setup_init_eNB" hideFlag="false" maxLength="unbounded" minLength="1">
+				<commonElementRef name="elements" mandatory="false">
+					<ref>normal_element</ref>
+				</commonElementRef>
+			</protocolObjectSequenceOf>
+		</commonElement>
+		<commonElement name="InitiatingNodeType_EndcX2Setup_init_en_gNB" hideFlag="true">
+			<protocolObjectSequenceOf name="InitiatingNodeType_EndcX2Setup_init_en_gNB" hideFlag="false" maxLength="unbounded" minLength="1">
+				<commonElementRef name="elements" mandatory="false">
+					<ref>exten_element</ref>
+				</commonElementRef>
+			</protocolObjectSequenceOf>
+		</commonElement>
+		<commonElement name="RespondingNodeType_EndcX2Setup_respond_eNB" hideFlag="true">
+			<protocolObjectSequenceOf name="RespondingNodeType_EndcX2Setup_respond_eNB" hideFlag="false" maxLength="unbounded" minLength="1">
+				<commonElementRef name="elements" mandatory="false">
+					<ref>normal_element</ref>
+				</commonElementRef>
+			</protocolObjectSequenceOf>
+		</commonElement>
+		<commonElement name="RespondingNodeType_EndcX2Setup_respond_en_gNB" hideFlag="true">
+		 	<protocolObjectSequenceOf name="RespondingNodeType_EndcX2Setup_respond_en_gNB" hideFlag="false" maxLength="unbounded" minLength="1">
+				<commonElementRef name="elements" mandatory="false">
+					<ref>normal_element</ref>
+				</commonElementRef>
+			</protocolObjectSequenceOf>
+		</commonElement>
+		
+		<!-- hexString -->
+		<commonElement name="PLMN_Identity" hideFlag="true">
+			<hexString name="PLMN_Identity" maxLength="6" minLength="6" />
+		</commonElement>
+		<commonElement name="FiveGS_TAC" hideFlag="true">
+			<hexString name="FiveGS_TAC" maxLength="6" minLength="6" />
+		</commonElement>
+		<commonElement name="TAC" hideFlag="true">
+			<hexString name="TAC" maxLength="4" minLength="4" />
+		</commonElement>
+		<commonElement name="MeasurementTimingConfiguration" hideFlag="true">
+			<hexString name="MeasurementTimingConfiguration" minLength="2" />
+		</commonElement>
+		
+		<!-- bitString -->
+		<commonElement name="NRCellIdentifier" hideFlag="true">
+			<bitString name="NRCellIdentifier" maxLength="36" minLength="36" />
+		</commonElement>
+		<commonElement name="EUTRANCellIdentifier" hideFlag="true">
+			<bitString name="EUTRANCellIdentifier" maxLength="28" minLength="28" />
+		</commonElement>
+		
+		<!--Choice-->
+		<commonElement name="RespondingNodeType_EndcX2Setup" hideFlag="true" mandatory="true">
+			<protocolObjectChoice hideFlag="true">
+				<protocolObjectAsn1>
+					<commonElementRef name="respond_eNB" mandatory="false">
+						<ref>RespondingNodeType_EndcX2Setup_respond_eNB</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+				<protocolObjectAsn1>
+					<commonElementRef name="respond_en_gNB" mandatory="false">
+						<ref>RespondingNodeType_EndcX2Setup_respond_en_gNB</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+			</protocolObjectChoice>
+		</commonElement>
+		<commonElement name="EUTRA_Mode_Info" hideFlag="true" mandatory="true">
+			<protocolObjectChoice hideFlag="true">
+				<protocolObjectAsn1>
+					<commonElementRef name="fDD" mandatory="false">
+						<ref>FDD_Info</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+				<protocolObjectAsn1>
+					<commonElementRef name="tDD" mandatory="false">
+						<ref>TDD_Info</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+			</protocolObjectChoice>
+		</commonElement>
+		<commonElement name="ServedNRCell_Information_nrModeInfo" hideFlag="true" mandatory="false">
+			<protocolObjectChoice hideFlag="true">
+				<protocolObjectAsn1>
+					<commonElementRef name="fdd" mandatory="false">
+						<ref>FDD_InfoServedNRCell_Information</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+				<protocolObjectAsn1>
+					<commonElementRef name="tdd" mandatory="false">
+						<ref>TDD_InfoServedNRCell_Information</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+			</protocolObjectChoice>
+		</commonElement>
+		<commonElement name="GNB_ID" hideFlag="true">
+			<protocolObjectChoice hideFlag="true" mandatory="false">
+				<protocolObjectAsn1>
+					<bitString name="gNB_ID" maxLength="32" minLength="22" mandatory="false" />
+				</protocolObjectAsn1>
+			</protocolObjectChoice>
+		</commonElement>
+		<commonElement name="InitiatingNodeType_EndcX2Setup" hideFlag="true">
+			<protocolObjectChoice hideFlag="true">
+				<protocolObjectAsn1>
+					<commonElementRef name="init_eNB" mandatory="false">
+						<ref>InitiatingNodeType_EndcX2Setup_init_eNB</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+				<protocolObjectAsn1>
+					<commonElementRef name="init_en_gNB" mandatory="false">
+						<ref>InitiatingNodeType_EndcX2Setup_init_en_gNB</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+			</protocolObjectChoice>
+		</commonElement>
+		<commonElement name="NRNeighbour_Information_nRNeighbourModeInfo" hideFlag="true">
+			<protocolObjectChoice hideFlag="true">
+				<protocolObjectAsn1>
+					<commonElementRef name="fdd" mandatory="false">
+						<ref>FDD_InfoNeighbourServedNRCell_Information</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+				<protocolObjectAsn1>
+					<commonElementRef name="tdd" mandatory="false">
+						<ref>TDD_InfoNeighbourServedNRCell_Information</ref>
+					</commonElementRef>
+				</protocolObjectAsn1>
+			</protocolObjectChoice>
+		</commonElement>
+		<commonElement name="ENB_ID" hideFlag="true">
+			<protocolObjectChoice hideFlag="true">
+				<protocolObjectAsn1>
+					<bitString name="macro_ENB_ID" maxLength="20" minLength="0" mandatory="false">
+						<asn1NamedBits>
+							<namedBit name="macro_ENB_ID" bitPosition="0" />
+						</asn1NamedBits>
+					</bitString>
+				</protocolObjectAsn1>
+				<protocolObjectAsn1>
+					<bitString name="short_macro_ENB_ID" maxLength="18" minLength="0" mandatory="false">
+						<asn1NamedBits>
+							<namedBit name="short_macro_ENB_ID" bitPosition="0" />
+						</asn1NamedBits>
+					</bitString>
+				</protocolObjectAsn1>
+				<protocolObjectAsn1>
+					<bitString name="home_ENB_ID" maxLength="28" minLength="0" mandatory="false">
+						<asn1NamedBits>
+							<namedBit name="home_ENB_ID" bitPosition="0" />
+						</asn1NamedBits>
+					</bitString>
+				</protocolObjectAsn1>
+				<protocolObjectAsn1>
+					<bitString name="long_macro_ENB_ID" maxLength="21" minLength="0" mandatory="false">
+						<asn1NamedBits>
+							<namedBit name="long_macro_ENB_ID" bitPosition="0" />
+						</asn1NamedBits>
+					</bitString>
+				</protocolObjectAsn1>
+			</protocolObjectChoice>
+		</commonElement>
+	</commonElements>
+	<decoderInfo>
+		<asn1DecoderInfo>
+			<asn1PackageName>PER.X2AP.</asn1PackageName>
+		</asn1DecoderInfo>
+	</decoderInfo>
+	<encoderInfo>
+	</encoderInfo>
+</protocolDescription>
+

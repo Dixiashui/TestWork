@@ -1,0 +1,41 @@
+#!/bin/bash
+
+# set environment variables
+export TESTWORK_BIN_PATH=/opt/testworks/bin
+export TESTWORK_LIB_PATH=/opt/testworks/lib
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$TESTWORK_LIB_PATH
+export TW_TrID=100
+export TW_LOCAL_ADDR=$(/sbin/ifconfig eth0 | awk -F: '/inet addr/{ print $2 }'  | awk '{ print $1 }')
+
+
+# Check SCTP module
+/sbin/lsmod | grep sctp > /dev/null
+if [[ "$?" != "0" ]]
+then
+        /sbin/modprobe sctp
+fi
+		
+
+# check for Java 1.6
+if [[ ! -x /usr/java/latest/bin/java ]]
+then
+	zenity --error --title "Testworks" --text "Testworks is unable to find Java Virtual Machine 1.6 at /usr/java/latest/bin/java. Please check installation."
+fi
+
+# Gather jar lis
+JARFILELIST=$(ls -1 $TESTWORK_LIB_PATH/*jar)
+JARLIST="."
+for i in $JARFILELIST
+do
+	JARLIST="$JARLIST:$i"
+done
+
+PORT=12345
+if [[ "$1" != "" ]]
+then
+	PORT=$1
+fi
+
+# Launch it
+/usr/java/latest/bin/java -Xmx512M -Dsun.java2d.pmoffscreen=false -splash:/opt/testworks/images/testworks-logo.png -cp $JARLIST  pegasus.PegasusMain -net $PORT
+

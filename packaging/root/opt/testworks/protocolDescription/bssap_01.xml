@@ -1,0 +1,1948 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<protocolDescription xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../protocolDescription.xsd" type="BSSAP_V1">
+    <className>pegasus.ptp.protocolDescription.sccp.util.SCCPProtocolDescription</className>
+    <protocolMessages>
+        <protocolMessage type="f0" name="M3ua Control Message">
+            <header>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="MessageID" minLength="2" maxLength="2" mandatory="true" constFlag="true">
+                        <defaultValue>f0</defaultValue>
+                    </hexString>
+					<hexString name="linkID" minLength="2" maxLength="2" mandatory="true" constFlag="false">
+                                                <defaultValue>00</defaultValue>
+                                        </hexString>
+
+                </protocolObjectSequence>
+            </header>
+            <messageInformationElements>
+                <protocolObjectSequence hideFlag="true">
+                    <protocolObjectEnumeration name="ControlMethod" numberOfBits="8" mandatory="true">
+                        <defaultValue>1</defaultValue>
+                        <enumerationEntry>
+                            <numericValue>1</numericValue>
+                            <stringRepresentation>DUNA</stringRepresentation>
+                        </enumerationEntry>
+                        <enumerationEntry>
+                            <numericValue>2</numericValue>
+                            <stringRepresentation>DAVA</stringRepresentation>
+                        </enumerationEntry>
+                        <enumerationEntry>
+                            <numericValue>3</numericValue>
+                            <stringRepresentation>DAUD</stringRepresentation>
+                        </enumerationEntry>
+                        <enumerationEntry>
+                            <numericValue>4</numericValue>
+                            <stringRepresentation>SCON</stringRepresentation>
+                        </enumerationEntry>
+                        <enumerationEntry>
+                            <numericValue>5</numericValue>
+                            <stringRepresentation>DUPU</stringRepresentation>
+                        </enumerationEntry>
+                        <enumerationEntry>
+                            <numericValue>6</numericValue>
+                            <stringRepresentation>DRST</stringRepresentation>
+                        </enumerationEntry>
+                        <enumerationEntry>
+                            <numericValue>16</numericValue>
+                            <stringRepresentation>ASPAC</stringRepresentation>
+                        </enumerationEntry>
+                        <enumerationEntry>
+                            <numericValue>17</numericValue>
+                            <stringRepresentation>ASPIA</stringRepresentation>
+                        </enumerationEntry>
+                        <enumerationEntry>
+                            <numericValue>18</numericValue>
+                            <stringRepresentation>ASPDN</stringRepresentation>
+                        </enumerationEntry>
+                        <enumerationEntry>
+                            <numericValue>19</numericValue>
+                            <stringRepresentation>ASPUP</stringRepresentation>
+                        </enumerationEntry>
+                    </protocolObjectEnumeration>
+                                        <hexString name="AffectedPC" minLength="4" maxLength="4" mandatory="false">
+                                                <defaultValue>FFFF</defaultValue>
+                                        </hexString>
+                                        <hexString name="ConcernedPC" minLength="4" maxLength="4" mandatory="true">
+                                            <defaultValue>FFFF</defaultValue>
+                                        </hexString>
+                </protocolObjectSequence>
+            </messageInformationElements>
+        </protocolMessage>
+        <protocolMessage type="f4" name="MTP3 Control Message">
+            <header>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="MessageID" minLength="2" maxLength="2" mandatory="true" constFlag="true">
+                        <defaultValue>f4</defaultValue>
+                    </hexString>
+                </protocolObjectSequence>
+            </header>
+            <messageInformationElements>
+                <protocolObjectSequence hideFlag="true">
+                    <protocolObjectEnumeration name="ControlMethod" numberOfBits="8" mandatory="true">
+                        <defaultValue>1</defaultValue>
+                        <enumerationEntry>
+                            <numericValue>1</numericValue>
+                            <stringRepresentation>TFC</stringRepresentation>
+                        </enumerationEntry>
+                        <enumerationEntry>
+                            <numericValue>2</numericValue>
+                            <stringRepresentation>TFP</stringRepresentation>
+                        </enumerationEntry>
+                        <enumerationEntry>
+                            <numericValue>3</numericValue>
+                            <stringRepresentation>TFA</stringRepresentation>
+                        </enumerationEntry>
+                        <enumerationEntry>
+                            <numericValue>4</numericValue>
+                            <stringRepresentation>RCT</stringRepresentation>
+                        </enumerationEntry>
+                        <enumerationEntry>
+                            <numericValue>5</numericValue>
+                            <stringRepresentation>TFR</stringRepresentation>
+                        </enumerationEntry>
+                        <enumerationEntry>
+                            <numericValue>6</numericValue>
+                            <stringRepresentation>RST</stringRepresentation>
+                        </enumerationEntry>
+                        <enumerationEntry>
+                            <numericValue>7</numericValue>
+                            <stringRepresentation>RSR</stringRepresentation>
+                        </enumerationEntry>
+                        <enumerationEntry>
+                            <numericValue>8</numericValue>
+                            <stringRepresentation>UPU</stringRepresentation>
+                        </enumerationEntry>
+                        <enumerationEntry>
+                            <numericValue>9</numericValue>
+                            <stringRepresentation>LIN</stringRepresentation>
+                        </enumerationEntry>
+                        <enumerationEntry>
+                        	<numericValue>10</numericValue>
+                                <stringRepresentation>Disable immediately(COO)</stringRepresentation>
+                         </enumerationEntry>
+                         <enumerationEntry>
+                        	 <numericValue>11</numericValue>
+                        	<stringRepresentation>Active Link</stringRepresentation>
+                         </enumerationEntry>
+                         <enumerationEntry>
+                                <numericValue>12</numericValue>
+                                <stringRepresentation>COA</stringRepresentation>
+                         </enumerationEntry>
+                         <enumerationEntry>
+                                <numericValue>14</numericValue>
+                                <stringRepresentation>CBD(receive check)</stringRepresentation>
+                         </enumerationEntry>
+                        <enumerationEntry>
+                                <numericValue>15</numericValue>
+                                <stringRepresentation>CBA(receive check)</stringRepresentation>
+                        </enumerationEntry>
+                        <enumerationEntry>
+                            	<numericValue>16</numericValue>
+                            	<stringRepresentation>LIN(manual)</stringRepresentation>
+                        </enumerationEntry>
+                        <enumerationEntry>
+                                <numericValue>17</numericValue>
+                                <stringRepresentation>LIA(receive check)</stringRepresentation>
+                        </enumerationEntry>
+                        <enumerationEntry>
+                                <numericValue>18</numericValue>
+                                <stringRepresentation>LUN(manual)</stringRepresentation>
+                        </enumerationEntry>
+                        <enumerationEntry>
+                                <numericValue>19</numericValue>
+                                <stringRepresentation>LUA(receive check)</stringRepresentation>
+                        </enumerationEntry>
+                        <enumerationEntry>
+                                <numericValue>20</numericValue>
+                                <stringRepresentation>LFU(manual)</stringRepresentation>
+                        </enumerationEntry>
+                        <enumerationEntry>
+                                <numericValue>21</numericValue>
+                                <stringRepresentation>LID(manual)</stringRepresentation>
+                        </enumerationEntry>
+                 	</protocolObjectEnumeration>
+                        <hexString name="LinkNumber" minLength="2" maxLength="2" mandatory="true">
+                                <defaultValue>0</defaultValue>
+                        </hexString>
+			<hexString name="AffectedPC/SLC(for manual commands only)" minLength="4" maxLength="4" mandatory="false">
+                                <defaultValue>FFFF</defaultValue>
+                        </hexString>
+                </protocolObjectSequence>
+            </messageInformationElements>
+        </protocolMessage>
+        <protocolMessage type="f1" name="SCCP SCMG Message">
+            <header>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="MessageID" minLength="2" maxLength="2" mandatory="true" constFlag="true">
+                        <defaultValue>f1</defaultValue>
+                    </hexString>
+					<hexString name="linkID" minLength="2" maxLength="2" mandatory="true" constFlag="false">
+                                                <defaultValue>00</defaultValue>
+                                        </hexString>
+                </protocolObjectSequence>
+            </header>
+            <messageInformationElements>
+                <protocolObjectSequence hideFlag="true">
+                    <protocolObjectEnumeration name="SCMG TYPE" numberOfBits="8" mandatory="true">
+                        <defaultValue>1</defaultValue>
+                        <enumerationEntry>
+                            <numericValue>1</numericValue>
+                            <stringRepresentation>SSA</stringRepresentation>
+                        </enumerationEntry>
+                        <enumerationEntry>
+                            <numericValue>2</numericValue>
+                            <stringRepresentation>SSP</stringRepresentation>
+                        </enumerationEntry>
+                        <enumerationEntry>
+                            <numericValue>3</numericValue>
+                            <stringRepresentation>SST</stringRepresentation>
+                        </enumerationEntry>
+                        <enumerationEntry>
+                            <numericValue>4</numericValue>
+                            <stringRepresentation>SOR</stringRepresentation>
+                        </enumerationEntry>
+                        <enumerationEntry>
+                            <numericValue>5</numericValue>
+                            <stringRepresentation>SOG</stringRepresentation>
+                        </enumerationEntry>
+                        <enumerationEntry>
+                            <numericValue>6</numericValue>
+                            <stringRepresentation>SSC</stringRepresentation>
+                        </enumerationEntry>
+                    </protocolObjectEnumeration>
+                </protocolObjectSequence>
+            </messageInformationElements>
+        </protocolMessage>
+        <protocolMessage type="f2" name="SCCP_SCMG_Message(CG)">
+            <header>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="MessageID" minLength="2" maxLength="2" mandatory="true" constFlag="true">
+                        <defaultValue>f2</defaultValue>
+                    </hexString>
+					<hexString name="linkID" minLength="2" maxLength="2" mandatory="true" constFlag="false">
+                                                <defaultValue>00</defaultValue>
+                                        </hexString>
+
+                </protocolObjectSequence>
+            </header>
+            <messageInformationElements>
+                <protocolObjectSequence hideFlag="true">
+                    <protocolObjectEnumeration name="SCMG TYPE" numberOfBits="8" mandatory="true">
+                        <defaultValue>1</defaultValue>
+                        <enumerationEntry>
+                            <numericValue>1</numericValue>
+                            <stringRepresentation>SSA</stringRepresentation>
+                        </enumerationEntry>
+                        <enumerationEntry>
+                            <numericValue>2</numericValue>
+                            <stringRepresentation>SSP</stringRepresentation>
+                        </enumerationEntry>
+                        <enumerationEntry>
+                            <numericValue>3</numericValue>
+                            <stringRepresentation>SST</stringRepresentation>
+                        </enumerationEntry>
+                        <enumerationEntry>
+                            <numericValue>4</numericValue>
+                            <stringRepresentation>SOR</stringRepresentation>
+                        </enumerationEntry>
+                        <enumerationEntry>
+                            <numericValue>5</numericValue>
+                            <stringRepresentation>SOG</stringRepresentation>
+                        </enumerationEntry>
+                        <enumerationEntry>
+                            <numericValue>6</numericValue>
+                            <stringRepresentation>SSC</stringRepresentation>
+                        </enumerationEntry>
+                    </protocolObjectEnumeration>
+                </protocolObjectSequence>
+            </messageInformationElements>
+        </protocolMessage>
+		<protocolMessage type="f5" name="(EXTEND)UNITDATA_SERVICE_MSG">
+			<header>
+				<protocolObjectSequence hideFlag="true">
+					<hexString name="MessageID" minLength="2" maxLength="2" mandatory="true" constFlag="true">
+						<defaultValue>f5</defaultValue>
+					</hexString>
+                                      <protocolObjectEnumeration name="SERVICE TYPE" numberOfBits="8" mandatory="true">
+                                                <defaultValue>0</defaultValue>
+						<enumerationEntry>
+                                                        <numericValue>0</numericValue>
+                                                        <stringRepresentation>UDTS</stringRepresentation>
+                                                </enumerationEntry>    
+                                                <enumerationEntry>
+                                                        <numericValue>1</numericValue>
+                                                        <stringRepresentation>XUDTS</stringRepresentation>
+                                                </enumerationEntry>                                  
+                                       </protocolObjectEnumeration>
+				       <protocolObjectEnumeration name="RELEASE CAUSE" numberOfBits="8" mandatory="true">
+                                                <defaultValue>0</defaultValue>
+                                                <enumerationEntry>
+                                                        <numericValue>0</numericValue>
+                                                        <stringRepresentation>END_USER_ORIGINATED</stringRepresentation>
+                                                </enumerationEntry>
+                                                <enumerationEntry>
+                                                        <numericValue>1</numericValue>
+                                                        <stringRepresentation>END_USER_CONGESTED</stringRepresentation>
+                                                </enumerationEntry>
+                                                <enumerationEntry>
+                                                        <numericValue>2</numericValue>
+                                                        <stringRepresentation>END_USER_FAILURE</stringRepresentation>
+                                                </enumerationEntry>
+                                                <enumerationEntry>
+                                                        <numericValue>3</numericValue>
+                                                        <stringRepresentation>SCCP_USER_ORIGINATED</stringRepresentation>
+                                                </enumerationEntry>
+                                                <enumerationEntry>
+                                                        <numericValue>4</numericValue>
+                                                        <stringRepresentation>REMOTE_PROC_ERROR</stringRepresentation>
+                                                </enumerationEntry>
+                                                <enumerationEntry>
+                                                        <numericValue>5</numericValue>
+                                                        <stringRepresentation>INCONSISTNT_CONN_DATA</stringRepresentation>
+                                                </enumerationEntry>
+                                                <enumerationEntry>
+                                                        <numericValue>6</numericValue>
+                                                        <stringRepresentation>ACCESS_FAILURE</stringRepresentation>
+                                                </enumerationEntry>
+                                                <enumerationEntry>
+                                                        <numericValue>7</numericValue>
+                                                        <stringRepresentation>ACCESS_CONGESTION</stringRepresentation>
+                                                </enumerationEntry>
+                                                <enumerationEntry>
+                                                        <numericValue>8</numericValue>
+                                                        <stringRepresentation>SUBSYSTEM_FAILURE</stringRepresentation>
+                                                </enumerationEntry>
+                                                <enumerationEntry>
+                                                        <numericValue>9</numericValue>
+                                                        <stringRepresentation>SUBSYSTEM_CONGESTION</stringRepresentation>
+                                                </enumerationEntry>
+                                                <enumerationEntry>
+                                                        <numericValue>10</numericValue>
+                                                        <stringRepresentation>MTP_FAILURE</stringRepresentation>
+                                                </enumerationEntry>
+                                                <enumerationEntry>
+                                                        <numericValue>11</numericValue>
+                                                        <stringRepresentation>NETWORK_CONGESTION</stringRepresentation>
+                                                </enumerationEntry>
+                                                <enumerationEntry>
+                                                        <numericValue>12</numericValue>
+                                                        <stringRepresentation>RESET_TIMER_EXPIRED</stringRepresentation>
+                                                </enumerationEntry>
+                                                <enumerationEntry>
+                                                        <numericValue>13</numericValue>
+                                                        <stringRepresentation>IT_TIMER_EXPIRED</stringRepresentation>
+                                                </enumerationEntry>
+                                                <enumerationEntry>
+                                                        <numericValue>15</numericValue>
+                                                        <stringRepresentation>UNQUALIFIED</stringRepresentation>
+                                                </enumerationEntry>
+                                                <enumerationEntry>
+                                                        <numericValue>16</numericValue>
+                                                        <stringRepresentation>SCCP_FAILURE</stringRepresentation>
+                                                </enumerationEntry>                                                                                                 
+                                       </protocolObjectEnumeration>
+				       <protocolObjectEnumeration name="RETURN CAUSE" numberOfBits="8" mandatory="true">
+                                                <defaultValue>0</defaultValue>
+                                                <enumerationEntry>
+                                                        <numericValue>0</numericValue>
+                                                        <stringRepresentation>NO_SUCH_TRANSLATION_ADDR</stringRepresentation>
+                                                </enumerationEntry>
+                                                <enumerationEntry>
+                                                        <numericValue>1</numericValue>
+                                                        <stringRepresentation>NO_TRANSLTN_FOR_ADDR</stringRepresentation>
+                                                </enumerationEntry>
+                                                <enumerationEntry>
+                                                        <numericValue>2</numericValue>
+                                                        <stringRepresentation>SUBSYSTEM_CONGESTION</stringRepresentation>
+                                                </enumerationEntry>
+                                                <enumerationEntry>
+                                                        <numericValue>3</numericValue>
+                                                        <stringRepresentation>SUBSYSTEM_FAILURE</stringRepresentation>
+                                                </enumerationEntry>
+                                                <enumerationEntry>
+                                                        <numericValue>4</numericValue>
+                                                        <stringRepresentation>UNEQUIPPED_USER</stringRepresentation>
+                                                </enumerationEntry>
+                                                <enumerationEntry>
+                                                        <numericValue>5</numericValue>
+                                                        <stringRepresentation>MTP_FAILURE</stringRepresentation>
+                                                </enumerationEntry>
+                                                <enumerationEntry>
+                                                        <numericValue>6</numericValue>
+                                                        <stringRepresentation>NETWORK_CONGESTION</stringRepresentation>
+                                                </enumerationEntry>
+                                                <enumerationEntry>
+                                                        <numericValue>7</numericValue>
+                                                        <stringRepresentation>NETWORK_CONGESTION</stringRepresentation>
+                                                </enumerationEntry>
+                                                <enumerationEntry>
+                                                        <numericValue>8</numericValue>
+                                                        <stringRepresentation>ERR_IN_MESSAGE_TRANSPORT</stringRepresentation>
+                                                </enumerationEntry>
+                                                <enumerationEntry>
+                                                        <numericValue>9</numericValue>
+                                                        <stringRepresentation>ERR_IN_LOCAL_PROCESSING</stringRepresentation>
+                                                </enumerationEntry>
+                                                <enumerationEntry>
+                                                        <numericValue>10</numericValue>
+                                                        <stringRepresentation>DEST_CANT_PERFORM_REAS</stringRepresentation>
+                                                </enumerationEntry>
+                                                <enumerationEntry>
+                                                        <numericValue>11</numericValue>
+                                                        <stringRepresentation>SCCP_FAILURE</stringRepresentation>
+                                                </enumerationEntry>
+                                                <enumerationEntry>
+                                                        <numericValue>12</numericValue>
+                                                        <stringRepresentation>HOP_COUNTER_VIOLATION</stringRepresentation>
+                                                </enumerationEntry>
+                                                <enumerationEntry>
+                                                        <numericValue>13</numericValue>
+                                                        <stringRepresentation>SEGMENTATION_NOT_SUPPORTED</stringRepresentation>
+                                                </enumerationEntry> 
+                                       </protocolObjectEnumeration> 
+                                        <hexString name="linkID" minLength="2" maxLength="2" mandatory="true" constFlag="false">
+                                                <defaultValue>00</defaultValue>
+                                        </hexString>
+				</protocolObjectSequence>
+			</header>
+			<messageInformationElements>
+				<protocolObjectSequence hideFlag="true">
+                                       <hexString name="Value" minLength="0" maxLength="unbounded" mandatory="false" constFlag="false">
+                                           <className>pegasus.ptp.protocolDescription.sccp.util.SCCPHexString</className>
+                                        </hexString>   
+				</protocolObjectSequence>
+			</messageInformationElements>
+	</protocolMessage>                
+        <protocolMessage type="01" name="UNITDATA_REQUEST">
+            <header>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="MessageID" minLength="2" maxLength="2" mandatory="true" constFlag="true">
+                        <defaultValue>01</defaultValue>
+                    </hexString>
+                    <protocolObjectEnumeration name="CLASS TYPE" numberOfBits="8" mandatory="true">
+                        <defaultValue>1</defaultValue>
+                        <enumerationEntry>
+                            <numericValue>0</numericValue>
+                            <stringRepresentation>CLASS_0</stringRepresentation>
+                        </enumerationEntry>
+                        <enumerationEntry>
+                            <numericValue>1</numericValue>
+                            <stringRepresentation>CLASS_1</stringRepresentation>
+                        </enumerationEntry>
+                    </protocolObjectEnumeration>
+                    <protocolObjectEnumeration name="RETURN_OPTION" numberOfBits="8" mandatory="true">
+                        <defaultValue>0</defaultValue>
+                        <enumerationEntry>
+                   	     <numericValue>0</numericValue>
+                             <stringRepresentation>DISCARD_MSG</stringRepresentation>
+                        </enumerationEntry>
+                        <enumerationEntry>
+                             <numericValue>1</numericValue>
+                             <stringRepresentation>RETURN_MSG</stringRepresentation>
+                        </enumerationEntry>
+                     </protocolObjectEnumeration>
+                                        <hexString name="linkID" minLength="2" maxLength="2" mandatory="true" constFlag="false">
+                        <defaultValue>00</defaultValue>
+                     </hexString>
+                </protocolObjectSequence>
+            </header>
+            <messageInformationElements>
+                <protocolObjectSequence hideFlag="false">
+                    <!--<hexString name="Value" minLength="0" maxLength="unbounded" mandatory="false" constFlag="false">
+                        <className>pegasus.ptp.protocolDescription.sccp.util.SCCPHexString</className>
+                    </hexString>-->
+                     <hexString name="BSSAP value" mandatory="true">
+                        <className>pegasus.common.ptp.protocolDescription.model.HexStringContainingEmbeddedData</className>
+                        <contains>
+                            <encapsulatedMessage name="BSSAP value">
+                                <protocolType>Bssmap</protocolType>
+                            </encapsulatedMessage>
+                        </contains>
+                    </hexString>
+                </protocolObjectSequence>
+            </messageInformationElements>
+        </protocolMessage>
+        <protocolMessage type="02" name="STATE_REQUEST">
+            <header>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="MessageID" minLength="2" maxLength="2" mandatory="true" constFlag="true">
+                        <defaultValue>02</defaultValue>
+                    </hexString>
+                                        <hexString name="linkID" minLength="2" maxLength="2" mandatory="true" constFlag="false">
+                        <defaultValue>00</defaultValue>
+                    </hexString>
+		</protocolObjectSequence>
+            </header>
+            <messageInformationElements>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="BSSAP value" mandatory="true">
+                        <className>pegasus.common.ptp.protocolDescription.model.asn1Implementation.HexStringContainingEmbeddedDataAsn1</className>
+                        <contains>
+                            <encapsulatedMessage name="BSSAP value">
+                                <protocolType>Bssmap</protocolType>
+                            </encapsulatedMessage>
+                        </contains>
+                    </hexString>
+                </protocolObjectSequence>
+            </messageInformationElements>
+        </protocolMessage>
+        <protocolMessage type="03" name="CONNECT_REQUEST">
+            <header>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="MessageID" minLength="2" maxLength="2" mandatory="true" constFlag="true">
+                        <defaultValue>03</defaultValue>
+                    </hexString>
+                                        <hexString name="linkID" minLength="2" maxLength="2" mandatory="true" constFlag="false">
+                        <defaultValue>00</defaultValue>
+                    </hexString>
+                                        <hexString name="ConnReqID" minLength="2" maxLength="2" mandatory="true" constFlag="false">
+                                                <defaultValue>01</defaultValue>
+                                        </hexString>
+                </protocolObjectSequence>
+            </header>
+            <messageInformationElements>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="BSSAP value" mandatory="true">
+                        <className>pegasus.common.ptp.protocolDescription.model.asn1Implementation.HexStringContainingEmbeddedDataAsn1</className>
+                        <contains>
+                            <encapsulatedMessage name="BSSAP value">
+                                <protocolType>Bssmap</protocolType>
+                            </encapsulatedMessage>
+                        </contains>
+                    </hexString>
+                </protocolObjectSequence>
+            </messageInformationElements>
+        </protocolMessage>
+        <protocolMessage type="04" name="CONNECT_RESPONSE">
+            <header>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="MessageID" minLength="2" maxLength="2" mandatory="true" constFlag="true">
+                        <defaultValue>04</defaultValue>
+                    </hexString>
+                                        <hexString name="linkID" minLength="2" maxLength="2" mandatory="true" constFlag="false">
+                        <defaultValue>00</defaultValue>
+                    </hexString>
+                                        <hexString name="ConnID" minLength="2" maxLength="2" mandatory="true" constFlag="false">
+                                                <defaultValue>00</defaultValue>
+                                        </hexString>                                        
+                </protocolObjectSequence>
+            </header>
+            <messageInformationElements>
+                <protocolObjectSequence hideFlag="true">
+                      <hexString name="BSSAP value" mandatory="true">
+                        <className>pegasus.common.ptp.protocolDescription.model.asn1Implementation.HexStringContainingEmbeddedDataAsn1</className>
+                        <contains>
+                            <encapsulatedMessage name="BSSAP value">
+                                <protocolType>Bssmap</protocolType>
+                            </encapsulatedMessage>
+                        </contains>
+                    </hexString>
+                </protocolObjectSequence>
+            </messageInformationElements>
+        </protocolMessage>
+        <protocolMessage type="05" name="CONNECT_REQUEST_TYPE1">
+            <header>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="MessageID" minLength="2" maxLength="2" mandatory="true" constFlag="true">
+                        <defaultValue>05</defaultValue>
+                    </hexString>
+                                        <hexString name="linkID" minLength="2" maxLength="2" mandatory="true" constFlag="false">
+                        <defaultValue>00</defaultValue>
+                                        </hexString>
+                                        <hexString name="ConnReqID" minLength="2" maxLength="2" mandatory="true" constFlag="false">
+                                                <defaultValue>01</defaultValue>
+                    </hexString>
+                </protocolObjectSequence>
+            </header>
+            <messageInformationElements>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="Value" minLength="0" maxLength="unbounded" mandatory="false" constFlag="false">
+                        <className>pegasus.ptp.protocolDescription.sccp.util.SCCPHexString</className>
+                    </hexString>
+                </protocolObjectSequence>
+            </messageInformationElements>
+        </protocolMessage>
+        <protocolMessage type="06" name="CONNECT_REQUEST_TYPE2">
+            <header>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="MessageID" minLength="2" maxLength="2" mandatory="true" constFlag="true">
+                        <defaultValue>06</defaultValue>
+                    </hexString>
+                                        <hexString name="linkID" minLength="2" maxLength="2" mandatory="true" constFlag="false">
+                        <defaultValue>00</defaultValue>
+                    </hexString>
+                                        <hexString name="ConnReqID" minLength="2" maxLength="2" mandatory="true" constFlag="false">
+                                                <defaultValue>01</defaultValue>
+                                        </hexString>                                        
+                </protocolObjectSequence>
+            </header>
+            <messageInformationElements>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="Value" minLength="0" maxLength="unbounded" mandatory="false" constFlag="false">
+                        <className>pegasus.ptp.protocolDescription.sccp.util.SCCPHexString</className>
+                    </hexString>
+                </protocolObjectSequence>
+            </messageInformationElements>
+        </protocolMessage>
+        <protocolMessage type="07" name="DATA_REQUEST">
+            <header>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="MessageID" minLength="2" maxLength="2" mandatory="true" constFlag="true">
+                        <defaultValue>07</defaultValue>
+                    </hexString>
+                                        <hexString name="linkID" minLength="2" maxLength="2" mandatory="true" constFlag="false">
+                        <defaultValue>00</defaultValue>
+                    </hexString>
+                                        <hexString name="ConnID" minLength="2" maxLength="2" mandatory="true" constFlag="false">
+                                                <defaultValue>00</defaultValue>
+                                        </hexString>                                        
+                </protocolObjectSequence>
+            </header>
+            <messageInformationElements>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="BSSAP value" mandatory="true">
+                        <className>pegasus.common.ptp.protocolDescription.model.asn1Implementation.HexStringContainingEmbeddedDataAsn1</className>
+                        <contains>
+                            <encapsulatedMessage name="BSSAP value">
+                                <protocolType>Bssmap</protocolType>
+                            </encapsulatedMessage>
+                        </contains>
+                    </hexString>
+                </protocolObjectSequence>
+            </messageInformationElements>
+        </protocolMessage>
+        <protocolMessage type="08" name="DISCONNECT_REQUEST">
+            <header>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="MessageID" minLength="2" maxLength="2" mandatory="true" constFlag="true">
+                        <defaultValue>08</defaultValue>
+                    </hexString>
+                                        <hexString name="linkID" minLength="2" maxLength="2" mandatory="true" constFlag="false">
+                        <defaultValue>00</defaultValue>
+                    </hexString>
+                                        <hexString name="ConnReqID" minLength="2" maxLength="2" mandatory="true" constFlag="false">
+                                                <defaultValue>ff</defaultValue>
+                                        </hexString>
+                                        <hexString name="ConnID" minLength="2" maxLength="2" mandatory="true" constFlag="false">
+                                                <defaultValue>00</defaultValue>
+                                        </hexString>                                                                                
+                </protocolObjectSequence>
+            </header>
+            <messageInformationElements>
+                <protocolObjectSequence hideFlag="true">
+                     <hexString name="BSSAP value" mandatory="true">
+                        <className>pegasus.common.ptp.protocolDescription.model.asn1Implementation.HexStringContainingEmbeddedDataAsn1</className>
+                        <contains>
+                            <encapsulatedMessage name="BSSAP value">
+                                <protocolType>Bssmap</protocolType>
+                            </encapsulatedMessage>
+                        </contains>
+                    </hexString>               
+                </protocolObjectSequence>
+            </messageInformationElements>
+        </protocolMessage>
+        <protocolMessage type="09" name="INFORM_REQUEST">
+            <header>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="MessageID" minLength="2" maxLength="2" mandatory="true" constFlag="true">
+                        <defaultValue>09</defaultValue>
+                    </hexString>
+                                        <hexString name="linkID" minLength="2" maxLength="2" mandatory="true" constFlag="false">
+                        <defaultValue>00</defaultValue>
+                    </hexString>
+                </protocolObjectSequence>
+            </header>
+            <messageInformationElements>
+                <protocolObjectSequence hideFlag="true">
+                     <hexString name="BSSAP value" mandatory="true">
+                        <className>pegasus.common.ptp.protocolDescription.model.asn1Implementation.HexStringContainingEmbeddedDataAsn1</className>
+                        <contains>
+                            <encapsulatedMessage name="BSSAP value">
+                                <protocolType>Bssmap</protocolType>
+                            </encapsulatedMessage>
+                        </contains>
+                    </hexString>
+                </protocolObjectSequence>
+            </messageInformationElements>
+        </protocolMessage>
+        <protocolMessage type="0a" name="EXPEDIATE_DATA_REQUEST">
+            <header>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="MessageID" minLength="2" maxLength="2" mandatory="true" constFlag="true">
+                        <defaultValue>0a</defaultValue>
+                    </hexString>
+                                        <hexString name="linkID" minLength="2" maxLength="2" mandatory="true" constFlag="false">
+                        <defaultValue>00</defaultValue>
+                    </hexString>
+                                        <hexString name="ConnID" minLength="2" maxLength="2" mandatory="true" constFlag="false">
+                                                <defaultValue>00</defaultValue>
+                                        </hexString>                                        
+                </protocolObjectSequence>
+            </header>
+            <messageInformationElements>
+                <protocolObjectSequence hideFlag="true">
+                     <hexString name="BSSAP value" mandatory="true">
+                        <className>pegasus.common.ptp.protocolDescription.model.asn1Implementation.HexStringContainingEmbeddedDataAsn1</className>
+                        <contains>
+                            <encapsulatedMessage name="BSSAP value">
+                                <protocolType>Bssmap</protocolType>
+                            </encapsulatedMessage>
+                        </contains>
+                    </hexString>
+                </protocolObjectSequence>
+            </messageInformationElements>
+        </protocolMessage>
+        <protocolMessage type="0b" name="RESET_REQUEST">
+            <header>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="MessageID" minLength="2" maxLength="2" mandatory="true" constFlag="true">
+                        <defaultValue>0b</defaultValue>
+                    </hexString>
+                                        <hexString name="linkID" minLength="2" maxLength="2" mandatory="true" constFlag="false">
+                        <defaultValue>00</defaultValue>
+                    </hexString>
+                                        <hexString name="ConnID" minLength="2" maxLength="2" mandatory="true" constFlag="false">
+                                                <defaultValue>00</defaultValue>
+                                        </hexString>                                        
+                </protocolObjectSequence>
+            </header>
+            <messageInformationElements>
+                <protocolObjectSequence hideFlag="true">
+                   <hexString name="BSSAP value" mandatory="true">
+                        <className>pegasus.common.ptp.protocolDescription.model.asn1Implementation.HexStringContainingEmbeddedDataAsn1</className>
+                        <contains>
+                            <encapsulatedMessage name="BSSAP value">
+                                <protocolType>Bssmap</protocolType>
+                            </encapsulatedMessage>
+                        </contains>
+                    </hexString>
+                </protocolObjectSequence>
+            </messageInformationElements>
+        </protocolMessage>
+        <protocolMessage type="0c" name="RESET_RESPONSE">
+            <header>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="MessageID" minLength="2" maxLength="2" mandatory="true" constFlag="true">
+                        <defaultValue>0c</defaultValue>
+                    </hexString>
+                                        <hexString name="linkID" minLength="2" maxLength="2" mandatory="true" constFlag="false">
+                        <defaultValue>00</defaultValue>
+                    </hexString>
+                                        <hexString name="ConnID" minLength="2" maxLength="2" mandatory="true" constFlag="false">
+                                                <defaultValue>00</defaultValue>
+                                        </hexString>                                        
+                </protocolObjectSequence>
+            </header>
+            <messageInformationElements>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="BSSAP value" mandatory="true">
+                        <className>pegasus.common.ptp.protocolDescription.model.asn1Implementation.HexStringContainingEmbeddedDataAsn1</className>
+                        <contains>
+                            <encapsulatedMessage name="BSSAP value">
+                                <protocolType>Bssmap</protocolType>
+                            </encapsulatedMessage>
+                        </contains>
+                    </hexString>
+                </protocolObjectSequence>
+            </messageInformationElements>
+        </protocolMessage>
+        <protocolMessage type="ff" name="UnknownMessage">
+            <header>
+                <protocolObjectSequence hideFlag="false">
+                    <hexString name="MessageID" minLength="2" maxLength="2" mandatory="true" constFlag="true">
+                        <defaultValue>ff</defaultValue>
+                    </hexString>
+                                        <hexString name="linkID" minLength="2" maxLength="2" mandatory="true" constFlag="false">
+                        <defaultValue>00</defaultValue>
+                    </hexString>
+                </protocolObjectSequence>
+            </header>
+            <messageInformationElements>
+                <protocolObjectSequence hideFlag="true">
+                    <!--<hexString name="Value" minLength="0" maxLength="unbounded" mandatory="false" constFlag="false">
+                        <className>pegasus.ptp.protocolDescription.sccp.util.SCCPHexString</className>
+                    </hexString>-->
+                     <hexString name="BSSMAP value" mandatory="true">
+                        <className>pegasus.common.ptp.protocolDescription.model.asn1Implementation.HexStringContainingEmbeddedDataAsn1</className>
+                        <contains>
+                            <encapsulatedMessage name="BSSMAP value">
+                                <protocolType>Bssmap</protocolType>
+                            </encapsulatedMessage>
+                        </contains>
+                    </hexString>
+                    <hexString name="DTAP value" mandatory="false">
+                        <className>pegasus.common.ptp.protocolDescription.model.asn1Implementation.HexStringContainingEmbeddedDataAsn1</className>
+                        <contains>
+                            <encapsulatedMessage name="DTAP value">
+                                <protocolType>GSMDTAP</protocolType>
+                            </encapsulatedMessage>
+                        </contains>
+                    </hexString>
+                </protocolObjectSequence>
+            </messageInformationElements>
+        </protocolMessage>
+    </protocolMessages>
+    <informationElements>
+        <informationElement format="TALV" hideFlag="true" iei="01" name="CAU">
+            <protocolObjectSequence hideFlag="true">
+                <hexString name="Type" minLength="2" maxLength="2" constFlag="true">
+                    <defaultValue>01</defaultValue>
+                </hexString>
+                <commonElementRef name="Compatibility">
+                    <ref>CIF</ref>
+                </commonElementRef>
+                <hexString name="Length" minLength="2" maxLength="2"  ieLength="true"/>
+                <protocolObjectSequence name="Value">
+                    <commonElementRef name="CauseValue">
+                        <ref>CV</ref>
+                    </commonElementRef>
+                    <commonElementRef name="Diag">
+                        <ref>Diag</ref>
+                    </commonElementRef>
+                </protocolObjectSequence>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TALV" hideFlag="true" iei="02" name="CEID">
+            <protocolObjectSequence name="CEID" hideFlag="true">
+                <hexString name="Type" minLength="2" maxLength="2" constFlag="true">
+                    <defaultValue>02</defaultValue>
+                </hexString>
+                <commonElementRef name="Compatibility">
+                    <ref>CIF</ref>
+                </commonElementRef>
+                <hexString name="Length" minLength="2" maxLength="2" constFlag="true">
+                    <defaultValue>05</defaultValue>
+                </hexString>
+                <protocolObjectSequence name="Value">
+                    <commonElementRef name="PID" hideFlag="true">
+                        <ref>PID</ref>
+                    </commonElementRef>
+                    <commonElementRef name="CID" hideFlag="true">
+                        <ref>CID</ref>
+                    </commonElementRef>
+                </protocolObjectSequence>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TALV" hideFlag="true" iei="03" name="ESEA">
+                   <!--<className>pegasus.ptp.protocolDescription.sccp.util.SCCPInformationElement</className>-->
+            <protocolObjectSequence hideFlag="true">
+                <hexString name="Type" minLength="2" maxLength="2" constFlag="true">
+                    <defaultValue>03</defaultValue>
+                </hexString>
+                <commonElementRef name="Compatibility">
+                    <ref>CIF</ref>
+                </commonElementRef>
+                <hexString name="Length" minLength="2" maxLength="2" ieLength="true"/>
+                <protocolObjectSequence name="Value" hideFlag="true">
+                    <commonElementRef name="NOA">
+                        <ref>NOA</ref>
+                    </commonElementRef>
+                    <commonElementRef name="EA">
+                        <ref>EA</ref>
+                    </commonElementRef>
+                </protocolObjectSequence>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TALV" hideFlag="true" iei="04" name="NSEA">
+            <protocolObjectSequence hideFlag="true">
+                <hexString name="Type" minLength="2" maxLength="2" constFlag="true">
+                    <defaultValue>04</defaultValue>
+                </hexString>
+                <commonElementRef name="Compatibility">
+                    <ref>CIF</ref>
+                </commonElementRef>
+                <hexString name="Length" minLength="2" maxLength="2" ieLength="true"/>
+                <protocolObjectSequence name="Value">
+                    <commonElementRef name="NA" hideFlag="true">
+                        <ref>NA</ref>
+                    </commonElementRef>
+                </protocolObjectSequence>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TALV" hideFlag="true" iei="05" name="ALC">
+            <protocolObjectSequence hideFlag="true">
+                <hexString name="Type" minLength="2" maxLength="2" constFlag="true">
+                    <defaultValue>05</defaultValue>
+                </hexString>
+                <commonElementRef name="Compatibility">
+                    <ref>CIF</ref>
+                </commonElementRef>
+                <hexString name="Length" minLength="2" maxLength="2" ieLength="true"/>
+                <protocolObjectSequence name="Value">
+                    <commonElementRef name="MaximumBitRate">
+                        <ref>CSBR</ref>
+                    </commonElementRef>
+                    <commonElementRef name="AverageBitRate">
+                        <ref>CSBR</ref>
+                    </commonElementRef>
+                    <commonElementRef name="MaximumSize">
+                        <ref>CSS</ref>
+                    </commonElementRef>
+                    <commonElementRef name="AverageSize">
+                        <ref>CSS</ref>
+                    </commonElementRef>
+                </protocolObjectSequence>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TALV" hideFlag="true" iei="06" name="OSAID">
+            <protocolObjectSequence hideFlag="true">
+                <hexString name="Type" minLength="2" maxLength="2" constFlag="true">
+                    <defaultValue>06</defaultValue>
+                </hexString>
+                <commonElementRef name="Compatibility">
+                    <ref>CIF</ref>
+                </commonElementRef>
+                <hexString name="Length" minLength="2" maxLength="2" constFlag="true">
+                    <defaultValue>04</defaultValue>
+                </hexString>
+                <protocolObjectSequence name="Value">
+                    <commonElementRef name="OSAID" hideFlag="true">
+                        <ref>SAID</ref>
+                    </commonElementRef>
+                </protocolObjectSequence>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TALV" hideFlag="true" iei="07" name="SUGR">
+            <protocolObjectSequence hideFlag="true">
+                <hexString name="Type" minLength="2" maxLength="2" constFlag="true">
+                    <defaultValue>07</defaultValue>
+                </hexString>
+                <commonElementRef name="Compatibility">
+                    <ref>CIF</ref>
+                </commonElementRef>
+                <hexString name="Length" minLength="2" maxLength="2" ieLength="true"/>
+                <protocolObjectSequence name="Value">
+                    <commonElementRef name="SUGR" hideFlag="true">
+                        <ref>SUGR</ref>
+                    </commonElementRef>
+                </protocolObjectSequence>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TALV" hideFlag="true" iei="08" name="SUT">
+            <protocolObjectSequence hideFlag="true">
+                <hexString name="Type" minLength="2" maxLength="2" constFlag="true">
+                    <defaultValue>08</defaultValue>
+                </hexString>
+                <commonElementRef name="Compatibility">
+                    <ref>CIF</ref>
+                </commonElementRef>
+                <hexString name="Length" minLength="2" maxLength="2" ieLength="true"/>
+                <protocolObjectSequence name="Value">
+                    <commonElementRef name="SUT" hideFlag="true">
+                        <ref>SUT</ref>
+                    </commonElementRef>
+                </protocolObjectSequence>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TALV" hideFlag="true" iei="09" name="SSIA">
+            <protocolObjectSequence hideFlag="true">
+                <hexString name="Type" minLength="2" maxLength="2" constFlag="true">
+                    <defaultValue>09</defaultValue>
+                </hexString>
+                <commonElementRef name="Compatibility">
+                    <ref>CIF</ref>
+                </commonElementRef>
+                <hexString name="Length" minLength="2" maxLength="2" ieLength="true"/>
+                <protocolObjectSequence name="Value">
+                    <commonElementRef name="AS">
+                        <ref>AS</ref>
+                    </commonElementRef>
+                    <commonElementRef name="OUI" hideFlag="true">
+                        <ref>OUI</ref>
+                    </commonElementRef>
+                </protocolObjectSequence>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TALV" hideFlag="true" iei="0a" name="SSIM">
+            <protocolObjectSequence hideFlag="true">
+                <hexString name="Type" minLength="2" maxLength="2" constFlag="true">
+                    <defaultValue>0a</defaultValue>
+                </hexString>
+                <commonElementRef name="Compatibility">
+                    <ref>CIF</ref>
+                </commonElementRef>
+                <hexString name="Length" minLength="2" maxLength="2" ieLength="true"/>
+                <protocolObjectSequence name="Value">
+                    <commonElementRef name="MRS" hideFlag="true">
+                        <ref>MRS</ref>
+                    </commonElementRef>
+                </protocolObjectSequence>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TALV" hideFlag="true" iei="0b" name="SSISA">
+            <protocolObjectSequence hideFlag="true">
+                <hexString name="Type" minLength="2" maxLength="2" constFlag="true">
+                    <defaultValue>0b</defaultValue>
+                </hexString>
+                <commonElementRef name="Compatibility">
+                    <ref>CIF</ref>
+                </commonElementRef>
+                <hexString name="Length" minLength="2" maxLength="2" ieLength="true"/>
+                <protocolObjectSequence name="Value">
+                    <commonElementRef name="SADT" hideFlag="true">
+                        <ref>SADT</ref>
+                    </commonElementRef>
+                </protocolObjectSequence>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TALV" hideFlag="true" iei="0c" name="SSISU">
+            <protocolObjectSequence hideFlag="true">
+                <hexString name="Type" minLength="2" maxLength="2" constFlag="true">
+                    <defaultValue>0c</defaultValue>
+                </hexString>
+                <commonElementRef name="Compatibility">
+                    <ref>CIF</ref>
+                </commonElementRef>
+                <hexString name="Length" minLength="2" maxLength="2" ieLength="true"/>
+                <protocolObjectSequence name="Value">
+                    <commonElementRef name="SUDT" hideFlag="true">
+                        <ref>SUDT</ref>
+                    </commonElementRef>
+                </protocolObjectSequence>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TALV" hideFlag="true" iei="0d" name="TCI">
+            <protocolObjectSequence hideFlag="true">
+                <hexString name="Type" minLength="2" maxLength="2" constFlag="true">
+                    <defaultValue>0d</defaultValue>
+                </hexString>
+                <commonElementRef name="Compatibility">
+                    <ref>CIF</ref>
+                </commonElementRef>
+                <hexString name="Length" minLength="2" maxLength="2" constFlag="true">
+                    <defaultValue>00</defaultValue>
+                </hexString>
+                <protocolObjectSequence name="Value" hideFlag="true"/>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TALV" hideFlag="true" iei="10" name="PT">
+            <protocolObjectSequence hideFlag="true">
+                <hexString name="Type" minLength="2" maxLength="2" constFlag="true">
+                    <defaultValue>10</defaultValue>
+                </hexString>
+                <commonElementRef name="Compatibility">
+                    <ref>CIF</ref>
+                </commonElementRef>
+                <hexString name="Length" minLength="2" maxLength="2" constFlag="true">
+                    <defaultValue>01</defaultValue>
+                </hexString>
+                <protocolObjectSequence name="Value">
+                    <commonElementRef name="PQC" hideFlag="true">
+                        <ref>PQC</ref>
+                    </commonElementRef>
+                </protocolObjectSequence>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TALV" hideFlag="true" iei="16" name="SSIAE">
+            <protocolObjectSequence hideFlag="true">
+                <hexString name="Type" minLength="2" maxLength="2" constFlag="true">
+                    <defaultValue>16</defaultValue>
+                </hexString>
+                <commonElementRef name="Compatibility">
+                    <ref>CIF</ref>
+                </commonElementRef>
+                <hexString name="Length" minLength="2" maxLength="2" ieLength="true"/>
+                <protocolObjectSequence name="Value">
+                    <commonElementRef name="AES">
+                        <ref>AES</ref>
+                    </commonElementRef>
+                    <commonElementRef name="OUI" hideFlag="true">
+                        <ref>OUI</ref>
+                    </commonElementRef>
+                </protocolObjectSequence>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TALV" hideFlag="true" iei="17" name="SSIME">
+            <protocolObjectSequence hideFlag="true">
+                <hexString name="Type" minLength="2" maxLength="2" constFlag="true">
+                    <defaultValue>17</defaultValue>
+                </hexString>
+                <commonElementRef name="Compatibility">
+                    <ref>CIF</ref>
+                </commonElementRef>
+                <hexString name="Length" minLength="2" maxLength="2" ieLength="true"/>
+                <protocolObjectSequence name="Value">
+                    <commonElementRef name="MRES" hideFlag="true">
+                        <ref>MRES</ref>
+                    </commonElementRef>
+                </protocolObjectSequence>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TALV" hideFlag="true" iei="12" name="PSSIAE">
+            <protocolObjectSequence hideFlag="true">
+                <hexString name="Type" minLength="2" maxLength="2" constFlag="true">
+                    <defaultValue>12</defaultValue>
+                </hexString>
+                <commonElementRef name="Compatibility">
+                    <ref>CIF</ref>
+                </commonElementRef>
+                <hexString name="Length" minLength="2" maxLength="2" ieLength="true"/>
+                <protocolObjectSequence name="Value">
+                    <commonElementRef name="AES">
+                        <ref>AES</ref>
+                    </commonElementRef>
+                    <commonElementRef name="OUI" hideFlag="true">
+                        <ref>OUI</ref>
+                    </commonElementRef>
+                </protocolObjectSequence>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TALV" hideFlag="true" iei="13" name="PSSIME">
+            <protocolObjectSequence hideFlag="true">
+                <hexString name="Type" minLength="2" maxLength="2" constFlag="true">
+                    <defaultValue>13</defaultValue>
+                </hexString>
+                <commonElementRef name="Compatibility">
+                    <ref>CIF</ref>
+                </commonElementRef>
+                <hexString name="Length" minLength="2" maxLength="2" ieLength="true"/>
+                <protocolObjectSequence name="Value">
+                    <commonElementRef name="MRES" hideFlag="true">
+                        <ref>MRES</ref>
+                    </commonElementRef>
+                </protocolObjectSequence>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TALV" hideFlag="true" iei="11" name="PLC">
+            <protocolObjectSequence hideFlag="true">
+                <hexString name="Type" minLength="2" maxLength="2" constFlag="true">
+                    <defaultValue>11</defaultValue>
+                </hexString>
+                <commonElementRef name="Compatibility">
+                    <ref>CIF</ref>
+                </commonElementRef>
+                <hexString name="Length" minLength="2" maxLength="2" ieLength="true"/>
+                <protocolObjectSequence name="Value">
+                    <commonElementRef name="MaximumBitRate">
+                        <ref>CSBR</ref>
+                    </commonElementRef>
+                    <commonElementRef name="AverageBitRate">
+                        <ref>CSBR</ref>
+                    </commonElementRef>
+                    <commonElementRef name="MaximumSize">
+                        <ref>CSS</ref>
+                    </commonElementRef>
+                    <commonElementRef name="AverageSize">
+                        <ref>CSS</ref>
+                    </commonElementRef>
+                </protocolObjectSequence>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TALV" hideFlag="true" iei="0e" name="MSLC">
+            <protocolObjectSequence hideFlag="true">
+                <hexString name="Type" minLength="2" maxLength="2" constFlag="true">
+                    <defaultValue>0e</defaultValue>
+                </hexString>
+                <commonElementRef name="Compatibility">
+                    <ref>CIF</ref>
+                </commonElementRef>
+                <hexString name="Length" minLength="2" maxLength="2" constFlag="true">
+                    <defaultValue>00</defaultValue>
+                </hexString>
+                <protocolObjectSequence name="Value" hideFlag="true"/>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TALV" hideFlag="true" iei="0f" name="MSSSI">
+            <protocolObjectSequence hideFlag="true">
+                <hexString name="Type" minLength="2" maxLength="2" constFlag="true">
+                    <defaultValue>0f</defaultValue>
+                </hexString>
+                <commonElementRef name="Compatibility">
+                    <ref>CIF</ref>
+                </commonElementRef>
+                <hexString name="Length" minLength="2" maxLength="2" constFlag="true">
+                    <defaultValue>00</defaultValue>
+                </hexString>
+                <protocolObjectSequence name="Value" hideFlag="true"/>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TALV" hideFlag="true" iei="14" name="SUCI">
+            <protocolObjectSequence hideFlag="true">
+                <hexString name="Type" minLength="2" maxLength="2" constFlag="true">
+                    <defaultValue>14</defaultValue>
+                </hexString>
+                <commonElementRef name="Compatibility">
+                    <ref>CIF</ref>
+                </commonElementRef>
+                <hexString name="Length" minLength="2" maxLength="2" ieLength="true"/>
+                <protocolObjectSequence name="Value">
+                    <commonElementRef name="SUCID" hideFlag="true">
+                        <ref>SUCID</ref>
+                    </commonElementRef>
+                </protocolObjectSequence>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TALV" hideFlag="true" iei="ff" name="UNKNOWNPARAMETER">
+            <protocolObjectSequence hideFlag="true">
+                <hexString name="Type" minLength="2" maxLength="2" constFlag="true">
+                    <defaultValue>ff</defaultValue>
+                </hexString>
+                <commonElementRef name="Compatibility">
+                    <ref>CIF</ref>
+                </commonElementRef>
+                <hexString name="Length" minLength="2" maxLength="2" constFlag="true">
+                    <defaultValue>01</defaultValue>
+                </hexString>
+                <hexString name="Payload" minLength="2" maxLength="2" constFlag="true">
+                    <defaultValue>01</defaultValue>
+                </hexString>
+            </protocolObjectSequence>
+        </informationElement>
+    </informationElements>
+    <commonElements>
+        <commonElement hideFlag="true" name="CIF" mandatory="true">
+            <protocolObjectSequence name="CIF" hideFlag="true">
+                <commonElementRef name="PassOnNotPossible">
+                    <ref>CIF_Subfield</ref>
+                </commonElementRef>
+                <commonElementRef name="GeneralAction">
+                    <ref>CIF_Subfield</ref>
+                </commonElementRef>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement hideFlag="true" name="CIF_Subfield">
+            <protocolObjectSequence name="CIF_Subfield" hideFlag="true">
+                <protocolObjectEnumeration numberOfBits="1" name="Reserved10">
+                    <defaultValue>"Reserved"</defaultValue>
+                    <enumerationEntry>
+                        <numericValue>0</numericValue>
+                        <stringRepresentation>Reserved</stringRepresentation>
+                    </enumerationEntry>
+                </protocolObjectEnumeration>
+                <protocolObjectEnumeration numberOfBits="1" name="SendNotificationIndicator">
+                    <defaultValue>"Do not send notification"</defaultValue>
+                    <enumerationEntry>
+                        <numericValue>0</numericValue>
+                        <stringRepresentation>Do not send notification</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>1</numericValue>
+                        <stringRepresentation>Send notification</stringRepresentation>
+                    </enumerationEntry>
+                </protocolObjectEnumeration>
+                <protocolObjectEnumeration numberOfBits="2" name="InstructionIndicator">
+                    <defaultValue>"Pass on message or parameter"</defaultValue>
+                    <enumerationEntry>
+                        <numericValue>0</numericValue>
+                        <stringRepresentation>Pass on message or parameter</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>1</numericValue>
+                        <stringRepresentation>Discard parameter</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>2</numericValue>
+                        <stringRepresentation>Discard message</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>3</numericValue>
+                        <stringRepresentation>Release connection</stringRepresentation>
+                    </enumerationEntry>
+                </protocolObjectEnumeration>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement hideFlag="true" name="SAID">
+            <hexString name="SAID" minLength="8" maxLength="8" mandatory="true" hideFlag="true">
+                <defaultValue>00000000</defaultValue>
+            </hexString>
+        </commonElement>
+        <commonElement hideFlag="true" name="PID">
+            <hexString name="PID" minLength="8" maxLength="8" mandatory="true">
+                <defaultValue>00000000</defaultValue>
+            </hexString>
+        </commonElement>
+        <commonElement hideFlag="true" name="CID">
+            <hexString name="CID" minLength="2" maxLength="2" mandatory="true">
+                <defaultValue>00</defaultValue>
+            </hexString>
+        </commonElement>
+        <commonElement hideFlag="true" name="OUI">
+            <hexString name="OUI" minLength="6" maxLength="6" mandatory="true">
+                <defaultValue>000000</defaultValue>
+            </hexString>
+        </commonElement>
+        <commonElement hideFlag="true" name="AS">
+            <protocolObjectSequence name="AS" hideFlag="true">
+                <protocolObjectEnumeration numberOfBits="2" name="ProfileType">
+                    <enumerationEntry>
+                        <numericValue>0</numericValue>
+                        <stringRepresentation>ITU-T Recommendation</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>1</numericValue>
+                        <stringRepresentation>Designated by OUI field</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>2</numericValue>
+                        <stringRepresentation>Custom</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>3</numericValue>
+                        <stringRepresentation>Reserved</stringRepresentation>
+                    </enumerationEntry>
+                </protocolObjectEnumeration>
+                <protocolObjectEnumeration numberOfBits="6" name="Reserved11">
+                    <enumerationEntry>
+                        <numericValue>0</numericValue>
+                        <stringRepresentation>Reserved</stringRepresentation>
+                    </enumerationEntry>
+                </protocolObjectEnumeration>
+                <hexString name="ProfileID" minLength="2" maxLength="2" mandatory="true">
+                    <defaultValue>00</defaultValue>
+                </hexString>
+                <commonElementRef name="FRM" hideFlag="true">
+                    <ref>Enabled_Disabled</ref>
+                </commonElementRef>
+                <commonElementRef name="CMD" hideFlag="true">
+                    <ref>Enabled_Disabled</ref>
+                </commonElementRef>
+                <commonElementRef name="MFR2" hideFlag="true">
+                    <ref>Enabled_Disabled</ref>
+                </commonElementRef>
+                <commonElementRef name="MFR1" hideFlag="true">
+                    <ref>Enabled_Disabled</ref>
+                </commonElementRef>
+                <commonElementRef name="DTMF" hideFlag="true">
+                    <ref>Enabled_Disabled</ref>
+                </commonElementRef>
+                <commonElementRef name="CAS" hideFlag="true">
+                    <ref>Enabled_Disabled</ref>
+                </commonElementRef>
+                <commonElementRef name="FAX" hideFlag="true">
+                    <ref>Enabled_Disabled</ref>
+                </commonElementRef>
+                <protocolObjectEnumeration numberOfBits="1" name="AuLaw">
+                    <enumerationEntry>
+                        <numericValue>0</numericValue>
+                        <stringRepresentation>A-Law</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>1</numericValue>
+                        <stringRepresentation>u-Law</stringRepresentation>
+                    </enumerationEntry>
+                </protocolObjectEnumeration>
+                <hexString name="FrameModeData_MaxLength" minLength="4" maxLength="4" mandatory="true">
+                    <defaultValue>0000</defaultValue>
+                </hexString>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement hideFlag="true" name="MRS">
+            <protocolObjectSequence name="MRS" hideFlag="true">
+                <commonElementRef name="FRM">
+                    <ref>Enabled_Disabled</ref>
+                </commonElementRef>
+                <protocolObjectEnumeration numberOfBits="2" name="Reserved12">
+                    <enumerationEntry>
+                        <numericValue>0</numericValue>
+                        <stringRepresentation>Reserved</stringRepresentation>
+                    </enumerationEntry>
+                </protocolObjectEnumeration>
+                <bitString name="Multiplier" minLength="5" maxLength="5"/>
+                <hexString name="FrameModeData_MaxLength" minLength="4" maxLength="4" mandatory="true">
+                    <defaultValue>0000</defaultValue>
+                </hexString>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement hideFlag="true" name="SADT">
+            <protocolObjectSequence name="SADT" hideFlag="true">
+                <hexString name="SSSAR_SDU_LengthForward" minLength="6" maxLength="6" mandatory="true">
+                    <defaultValue>000000</defaultValue>
+                </hexString>
+                <hexString name="SSSAR_SDU_LengthBackward" minLength="6" maxLength="6" mandatory="true">
+                    <defaultValue>000000</defaultValue>
+                </hexString>
+                <hexString name="SSCOP_SDU_LengthForward" minLength="4" maxLength="4" mandatory="true">
+                    <defaultValue>0000</defaultValue>
+                </hexString>
+                <hexString name="SSCOP_SDU_LengthBackward" minLength="4" maxLength="4" mandatory="true">
+                    <defaultValue>0000</defaultValue>
+                </hexString>
+                <hexString name="SSCOP_UU_LengthForward" minLength="4" maxLength="4" mandatory="true">
+                    <defaultValue>0000</defaultValue>
+                </hexString>
+                <hexString name="SSCOP_UU_LengthBackward" minLength="4" maxLength="4" mandatory="true">
+                    <defaultValue>0000</defaultValue>
+                </hexString>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement hideFlag="true" name="SUDT">
+            <protocolObjectSequence name="SUDT" hideFlag="true">
+                <hexString name="SSSAR_SDU_LengthForward" minLength="6" maxLength="6" mandatory="true">
+                    <defaultValue>000000</defaultValue>
+                </hexString>
+                <hexString name="SSSAR_SDU_LengthBackward" minLength="6" maxLength="6" mandatory="true">
+                    <defaultValue>000000</defaultValue>
+                </hexString>
+                <commonElementRef name="TED" hideFlag="true">
+                    <ref>Enabled_Disabled</ref>
+                </commonElementRef>
+                <protocolObjectEnumeration numberOfBits="7" name="Reserved13">
+                    <enumerationEntry>
+                        <numericValue>0</numericValue>
+                        <stringRepresentation>Reserved</stringRepresentation>
+                    </enumerationEntry>
+                </protocolObjectEnumeration>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement hideFlag="true" name="SUGR">
+            <hexString name="SUGR" minLength="8" maxLength="8" mandatory="true">
+                <defaultValue>00000000</defaultValue>
+            </hexString>
+        </commonElement>
+        <commonElement hideFlag="true" name="CSBR">
+            <protocolObjectSequence name="CSBR" hideFlag="true">
+                <hexString name="CPS_SDU_BitRateForward" minLength="4" maxLength="4" mandatory="true">
+                    <defaultValue>0000</defaultValue>
+                </hexString>
+                <hexString name="CPS_SDU_BitRateBackward" minLength="4" maxLength="4" mandatory="true">
+                    <defaultValue>0000</defaultValue>
+                </hexString>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement hideFlag="true" name="CSS">
+            <protocolObjectSequence name="CSS" hideFlag="true">
+                <hexString name="CPS_SDU_SizeForward" minLength="2" maxLength="2" mandatory="true">
+                    <defaultValue>00</defaultValue>
+                </hexString>
+                <hexString name="CPS_SDU_SizeBackward" minLength="2" maxLength="2" mandatory="true">
+                    <defaultValue>00</defaultValue>
+                </hexString>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement hideFlag="true" name="NOA">
+            <protocolObjectSequence name="NOA" hideFlag="true">
+                <protocolObjectEnumeration numberOfBits="1" name="Reserved14">
+                    <defaultValue>"Reserved"</defaultValue>
+                    <enumerationEntry>
+                        <numericValue>0</numericValue>
+                        <stringRepresentation>Reserved</stringRepresentation>
+                    </enumerationEntry>
+                </protocolObjectEnumeration>
+                <bitString name="Code" minLength="7" maxLength="7">
+                    <defaultValue>0000000</defaultValue>
+                    <internalFormatter name="IntegerBitString" />
+                </bitString>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement hideFlag="true" name="EA">
+			<!--<className>pegasus.ptp.protocolDescription.sccp.util.SCCPCommonElement</className> -->
+            <protocolObjectSequence name="EA" hideFlag="true">
+                <hexString name="FieldLength" minLength="2" maxLength="2" mandatory="true">
+                    <className>pegasus.ptp.protocolDescription.sccp.util.SCCPHexString</className>
+                </hexString>
+                <hexString name="Address" minLength="0" maxLength="unbounded" lengthBase="ce__EA.EA.FieldLength">
+                    <className>pegasus.ptp.protocolDescription.sccp.util.SCCPHexString</className>
+                </hexString>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement hideFlag="true" name="NA">
+            <hexString name="NSAP" minLength="40" maxLength="40"/>
+        </commonElement>
+        <commonElement hideFlag="true" name="CV">
+            <protocolObjectSequence name="CV" hideFlag="true">
+                <protocolObjectEnumeration numberOfBits="6" name="Reserved15">
+                    <defaultValue>"Reserved"</defaultValue>
+                    <enumerationEntry>
+                        <numericValue>0</numericValue>
+                        <stringRepresentation>Reserved</stringRepresentation>
+                    </enumerationEntry>
+                </protocolObjectEnumeration>
+                <protocolObjectEnumeration numberOfBits="2" name="CodingStandard">
+                    <defaultValue>"ITU-T standard"</defaultValue>
+                    <enumerationEntry>
+                        <numericValue>0</numericValue>
+                        <stringRepresentation>ITU-T standard</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>1</numericValue>
+                        <stringRepresentation>ISO/IEC standard</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>2</numericValue>
+                        <stringRepresentation>National standard</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>3</numericValue>
+                        <stringRepresentation>Standard defined for the network</stringRepresentation>
+                    </enumerationEntry>
+                </protocolObjectEnumeration>
+                <protocolObjectEnumeration numberOfBits="1" name="Reserved16">
+                    <defaultValue>"Reserved"</defaultValue>
+                    <enumerationEntry>
+                        <numericValue>0</numericValue>
+                        <stringRepresentation>Reserved</stringRepresentation>
+                    </enumerationEntry>
+                </protocolObjectEnumeration>
+                <protocolObjectEnumeration numberOfBits="7" name="Cause">
+                    <defaultValue>"Unallocated (unassigned) number"</defaultValue>
+                    <enumerationEntry>
+                        <numericValue>1</numericValue>
+                        <stringRepresentation>Unallocated (unassigned) number</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>2</numericValue>
+                        <stringRepresentation>No route to specified transit network</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>3</numericValue>
+                        <stringRepresentation>No route to destination</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>4</numericValue>
+                        <stringRepresentation>Send special information tone</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>5</numericValue>
+                        <stringRepresentation>Misdialled trunk prefix</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>6</numericValue>
+                        <stringRepresentation>Channel unacceptable</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>7</numericValue>
+                        <stringRepresentation>Call awarded and being delivered in an established channel</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>8</numericValue>
+                        <stringRepresentation>Preemption</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>9</numericValue>
+                        <stringRepresentation>Preemption - circuit reserved for reuse</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>16</numericValue>
+                        <stringRepresentation>Normal call clearing</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>17</numericValue>
+                        <stringRepresentation>User busy</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>18</numericValue>
+                        <stringRepresentation>No user responding</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>19</numericValue>
+                        <stringRepresentation>No answer from user (user alerted)</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>20</numericValue>
+                        <stringRepresentation>Subscriber absent</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>21</numericValue>
+                        <stringRepresentation>Call rejected</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>22</numericValue>
+                        <stringRepresentation>Number changed</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>23</numericValue>
+                        <stringRepresentation>Redirection to new destination</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>25</numericValue>
+                        <stringRepresentation>Exchange routing error</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>26</numericValue>
+                        <stringRepresentation>Non-selected user clearing</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>27</numericValue>
+                        <stringRepresentation>Destination out of order</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>28</numericValue>
+                        <stringRepresentation>Invalid number format (address incomplete)</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>29</numericValue>
+                        <stringRepresentation>Facility rejected</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>30</numericValue>
+                        <stringRepresentation>Response to STATUS ENQUIRY</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>31</numericValue>
+                        <stringRepresentation>Normal, unspecified</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>34</numericValue>
+                        <stringRepresentation>No circuit/channel available</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>38</numericValue>
+                        <stringRepresentation>Network out of order</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>39</numericValue>
+                        <stringRepresentation>Permanent frame mode connection out of service</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>40</numericValue>
+                        <stringRepresentation>Permanent frame mode connection operational</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>41</numericValue>
+                        <stringRepresentation>Temporary failure</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>42</numericValue>
+                        <stringRepresentation>Switching equipment congestion</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>43</numericValue>
+                        <stringRepresentation>Access information discarded</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>44</numericValue>
+                        <stringRepresentation>Requested circuit/channel not available</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>46</numericValue>
+                        <stringRepresentation>Precedence call blocked</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>47</numericValue>
+                        <stringRepresentation>Resource unavailable, unspecified</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>49</numericValue>
+                        <stringRepresentation>Quality of service not available</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>50</numericValue>
+                        <stringRepresentation>Requested facility not subscribed</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>53</numericValue>
+                        <stringRepresentation>Outgoing calls barred within CUG</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>55</numericValue>
+                        <stringRepresentation>Incoming calls barred within CUG</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>57</numericValue>
+                        <stringRepresentation>Bearer capability not authorized</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>58</numericValue>
+                        <stringRepresentation>Bearer capability not presently available</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>62</numericValue>
+                        <stringRepresentation>Inconsistency in designated outgoing access information and subscriber class</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>63</numericValue>
+                        <stringRepresentation>Service or option not available, unspecified</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>65</numericValue>
+                        <stringRepresentation>Bearer capability not implemented</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>66</numericValue>
+                        <stringRepresentation>Channel type not implemented</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>69</numericValue>
+                        <stringRepresentation>Requested facility not implemented</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>70</numericValue>
+                        <stringRepresentation>Only restricted digital information bearer capability is available</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>79</numericValue>
+                        <stringRepresentation>Service or option not implemented, unspecified</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>81</numericValue>
+                        <stringRepresentation>Invalid call reference value</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>82</numericValue>
+                        <stringRepresentation>Identified channel does not exist</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>83</numericValue>
+                        <stringRepresentation>A suspended call exists, but this call identity does not</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>84</numericValue>
+                        <stringRepresentation>Call identity in use</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>85</numericValue>
+                        <stringRepresentation>No call suspended</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>86</numericValue>
+                        <stringRepresentation>Call having the requested call identity has been cleared</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>87</numericValue>
+                        <stringRepresentation>User not member of CUG</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>88</numericValue>
+                        <stringRepresentation>Incompatible destination</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>90</numericValue>
+                        <stringRepresentation>Non-existent CUG</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>91</numericValue>
+                        <stringRepresentation>Invalid transit network selection</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>93</numericValue>
+                        <stringRepresentation>AAL parameters cannot be supported</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>95</numericValue>
+                        <stringRepresentation>Invalid message, unspecified</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>96</numericValue>
+                        <stringRepresentation>Mandatory information element is missing</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>97</numericValue>
+                        <stringRepresentation>Message type non-existent or not implemented</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>98</numericValue>
+                        <stringRepresentation>Message not compatible with call state or message type non-existent or not implemented</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>99</numericValue>
+                        <stringRepresentation>Information element/parameter non-existent or not implemented</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>100</numericValue>
+                        <stringRepresentation>Invalid information element contents</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>101</numericValue>
+                        <stringRepresentation>Message not compatible with call state</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>102</numericValue>
+                        <stringRepresentation>Recovery on timer expiry</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>103</numericValue>
+                        <stringRepresentation>Parameter non-existent or not implemented, passed on</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>110</numericValue>
+                        <stringRepresentation>Message with unrecognized parameter, discarded</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>111</numericValue>
+                        <stringRepresentation>Protocol error, unspecified</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>127</numericValue>
+                        <stringRepresentation>Interworking, unspecified</stringRepresentation>
+                    </enumerationEntry>
+                </protocolObjectEnumeration>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement hideFlag="true" name="Diag">
+            <protocolObjectSequence name="Diag" hideFlag="true">
+                <hexString name="FieldLength" minLength="2" maxLength="2">
+                    <className>pegasus.ptp.protocolDescription.sccp.util.SCCPHexString</className>
+                </hexString>
+                <hexString name="Diagnostic" minLength="0" maxLength="254" lengthBase="ce__Diag.Diag.FieldLength">
+                    <className>pegasus.ptp.protocolDescription.sccp.util.SCCPHexString</className>
+                </hexString>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement hideFlag="true" name="SUT">
+            <protocolObjectSequence name="SUT" hideFlag="true">
+                <hexString name="FieldLength" minLength="2" maxLength="2">
+                    <className>pegasus.ptp.protocolDescription.sccp.util.SCCPHexString</className>
+                </hexString>
+                <hexString name="SUT" minLength="2" maxLength="508" lengthBase="ce__SUT.SUT.FieldLength">
+                    <className>pegasus.ptp.protocolDescription.sccp.util.SCCPHexString</className>
+                </hexString>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement hideFlag="true" name="Enabled_Disabled">
+            <protocolObjectEnumeration numberOfBits="1" name="Option">
+                <enumerationEntry>
+                    <numericValue>0</numericValue>
+                    <stringRepresentation>Disabled</stringRepresentation>
+                </enumerationEntry>
+                <enumerationEntry>
+                    <numericValue>1</numericValue>
+                    <stringRepresentation>Enabled</stringRepresentation>
+                </enumerationEntry>
+            </protocolObjectEnumeration>
+        </commonElement>
+        <commonElement hideFlag="true" name="AES">
+            <protocolObjectSequence name="AES" hideFlag="true">
+                <protocolObjectEnumeration numberOfBits="2" name="ProfileType">
+                    <enumerationEntry>
+                        <numericValue>0</numericValue>
+                        <stringRepresentation>ITU-T Recommendation</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>1</numericValue>
+                        <stringRepresentation>Designated by OUI field</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>2</numericValue>
+                        <stringRepresentation>Custom</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>3</numericValue>
+                        <stringRepresentation>Reserved</stringRepresentation>
+                    </enumerationEntry>
+                </protocolObjectEnumeration>
+                <protocolObjectEnumeration numberOfBits="3" name="Reserved17">
+                    <enumerationEntry>
+                        <numericValue>0</numericValue>
+                        <stringRepresentation>Reserved</stringRepresentation>
+                    </enumerationEntry>
+                </protocolObjectEnumeration>
+                <commonElementRef name="LB" hideFlag="true">
+                    <ref>Enabled_Disabled</ref>
+                </commonElementRef>
+                <commonElementRef name="RC" hideFlag="true">
+                    <ref>Enabled_Disabled</ref>
+                </commonElementRef>
+                <commonElementRef name="SYN" hideFlag="true">
+                    <ref>Enabled_Disabled</ref>
+                </commonElementRef>
+                <hexString name="ProfileID" minLength="2" maxLength="2" mandatory="true">
+                    <defaultValue>00</defaultValue>
+                </hexString>
+                <commonElementRef name="FRM" hideFlag="true">
+                    <ref>Enabled_Disabled</ref>
+                </commonElementRef>
+                <commonElementRef name="CMD" hideFlag="true">
+                    <ref>Enabled_Disabled</ref>
+                </commonElementRef>
+                <commonElementRef name="MFR2" hideFlag="true">
+                    <ref>Enabled_Disabled</ref>
+                </commonElementRef>
+                <commonElementRef name="MFR1" hideFlag="true">
+                    <ref>Enabled_Disabled</ref>
+                </commonElementRef>
+                <commonElementRef name="DTMF" hideFlag="true">
+                    <ref>Enabled_Disabled</ref>
+                </commonElementRef>
+                <commonElementRef name="CAS" hideFlag="true">
+                    <ref>Enabled_Disabled</ref>
+                </commonElementRef>
+                <commonElementRef name="FAX" hideFlag="true">
+                    <ref>Enabled_Disabled</ref>
+                </commonElementRef>
+                <protocolObjectEnumeration numberOfBits="1" name="AuLaw">
+                    <enumerationEntry>
+                        <numericValue>0</numericValue>
+                        <stringRepresentation>A-Law</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>1</numericValue>
+                        <stringRepresentation>u-Law</stringRepresentation>
+                    </enumerationEntry>
+                </protocolObjectEnumeration>
+                <hexString name="FrameModeData_MaxLength" minLength="4" maxLength="4" mandatory="true">
+                    <defaultValue>0000</defaultValue>
+                </hexString>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement hideFlag="true" name="MRES">
+            <protocolObjectSequence name="MRS" hideFlag="true">
+                <commonElementRef name="FRM">
+                    <ref>Enabled_Disabled</ref>
+                </commonElementRef>
+                <commonElementRef name="LB">
+                    <ref>Enabled_Disabled</ref>
+                </commonElementRef>
+                <protocolObjectEnumeration numberOfBits="1" name="Reserved18">
+                    <enumerationEntry>
+                        <numericValue>0</numericValue>
+                        <stringRepresentation>Reserved</stringRepresentation>
+                    </enumerationEntry>
+                </protocolObjectEnumeration>
+                <bitString name="Multiplier" minLength="5" maxLength="5"/>
+                <hexString name="FrameModeData_MaxLength" minLength="4" maxLength="4" mandatory="true">
+                    <defaultValue>0000</defaultValue>
+                </hexString>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement hideFlag="true" name="PQC">
+            <protocolObjectEnumeration numberOfBits="8" name="Path_QoS_Codepoint">
+                <enumerationEntry>
+                    <numericValue>0</numericValue>
+                    <stringRepresentation>Reserved by ITU-T</stringRepresentation>
+                </enumerationEntry>
+                <enumerationEntry>
+                    <numericValue>1</numericValue>
+                    <stringRepresentation>Stringent class</stringRepresentation>
+                </enumerationEntry>
+                <enumerationEntry>
+                    <numericValue>2</numericValue>
+                    <stringRepresentation>Tolerant class</stringRepresentation>
+                </enumerationEntry>
+                <enumerationEntry>
+                    <numericValue>5</numericValue>
+                    <stringRepresentation>Stringent bi-level class</stringRepresentation>
+                </enumerationEntry>
+            </protocolObjectEnumeration>
+        </commonElement>
+        <commonElement hideFlag="true" name="SUCID">
+            <hexString name="SUCID" minLength="2" maxLength="2" mandatory="true">
+                <defaultValue>00</defaultValue>
+            </hexString>
+        </commonElement>
+    </commonElements>
+    <decoderInfo>
+        <msgDecoderInfo>
+            <className>pegasus.ptp.protocolDescription.m2ua.decoderInfo.MsgDecoderInfoM2UA</className>
+        </msgDecoderInfo>
+        <ieDecoderInfo>
+            <className>pegasus.ptp.protocolDescription.m2ua.decoderInfo.IeDecoderInfoM2UA</className>
+  <!--                          <lengthOfLengthField>2</lengthOfLengthField>
+                            <protocolObjectType>HexString</protocolObjectType> -->
+        </ieDecoderInfo>
+    </decoderInfo>
+    <encoderInfo>
+        <msgEncoderInfo>
+            <className>pegasus.ptp.protocolDescription.m2ua.encoderInfo.MsgEncoderInfoM2UA</className>
+            <lengthOfLengthField>4</lengthOfLengthField>
+            <protocolObjectType>HexString</protocolObjectType>
+        </msgEncoderInfo>
+        <ieEncoderInfo>
+            <className>pegasus.ptp.protocolDescription.m2ua.encoderInfo.IeEncoderInfoM2UA</className>
+            <lengthOfLengthField>2</lengthOfLengthField>
+            <protocolObjectType>HexString</protocolObjectType>
+        </ieEncoderInfo>
+    </encoderInfo>
+    <decoderInfo>
+        <msgDecoderInfo>
+            <msgTypePosition>0</msgTypePosition>
+        </msgDecoderInfo>
+        <ieDecoderInfo />
+    </decoderInfo>
+    <encoderInfo>
+        <ieEncoderInfo>
+            <lengthOfLengthField>1</lengthOfLengthField>
+            <protocolObjectType>HexString</protocolObjectType>
+        </ieEncoderInfo>
+        <className>pegasus.ptp.protocolDescription.sccp.encoderInfo.CeEncoderInfoSCCP</className>
+    </encoderInfo>
+</protocolDescription>

@@ -1,0 +1,1020 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<messagePool>
+    <messageList>
+        <message messageAlias="SCReq_graceful_MGW1" messageName="megacoMessage" protocol="H_248_1_V3_TEXT">
+            <valueList>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.actionRequest.ce__actionRequest.actionRequest.commandRequestList.1.commandRequestList.ce__commandRequestList.commandRequestList.commandRequest.ce__commandRequest.commandRequest.4.serviceChangeRequest.ce__serviceChangeRequest.serviceChangeRequest.serviceChangeDescriptor.ce__serviceChangeDescriptor.serviceChangeDescriptor.serviceChangeParm.ce__serviceChangeParm.serviceChangeParm.0.serviceChangeMethod.ce__serviceChangeMethod.serviceChangeMethod.serviceChangeMethodchoice</selector>
+                    <value type="ProtocolCharacterStringValue">GR</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.actionRequest.ce__actionRequest.actionRequest.commandRequestList.1.commandRequestList.ce__commandRequestList.commandRequestList.commandRequest.ce__commandRequest.commandRequest.4.serviceChangeRequest.ce__serviceChangeRequest.serviceChangeRequest.serviceChangeDescriptor.ce__serviceChangeDescriptor.serviceChangeDescriptor.seqof_serviceChangeParm.0.serviceChangeParm.serviceChangeParm.ce__serviceChangeParm.serviceChangeParm.1.serviceChangeReason.ce__serviceChangeReason.serviceChangeReason.VALUE</selector>
+                    <value type="ProtocolCharacterStringValue">&quot;905 Termination taken out of service&quot;</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.actionRequest.ce__actionRequest.actionRequest.commandRequestList.1.commandRequestList.ce__commandRequestList.commandRequestList.commandRequest.ce__commandRequest.commandRequest.4.serviceChangeRequest.ce__serviceChangeRequest.serviceChangeRequest.serviceChangeDescriptor.ce__serviceChangeDescriptor.serviceChangeDescriptor.serviceChangeParm.ce__serviceChangeParm.serviceChangeParm.0.serviceChangeMethod.ce__serviceChangeMethod.serviceChangeMethod.MethodToken</selector>
+                    <value type="ProtocolCharacterStringValue">MT</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0</selector>
+                    <value type="String">transactionRequest</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.actionRequest.ce__actionRequest.actionRequest.CtxToken</selector>
+                    <value type="ProtocolCharacterStringValue">C</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.actionRequest.ce__actionRequest.actionRequest.ContextID.ce__ContextID.ContextID</selector>
+                    <value type="ProtocolCharacterStringValue">{ContextID_RX}</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.TransToken</selector>
+                    <value type="ProtocolCharacterStringValue">T</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.actionRequest.ce__actionRequest.actionRequest.commandRequestList.1.commandRequestList.ce__commandRequestList.commandRequestList.commandRequest.ce__commandRequest.commandRequest.4.serviceChangeRequest.ce__serviceChangeRequest.serviceChangeRequest.ServiceChangeToken</selector>
+                    <value type="ProtocolCharacterStringValue">SC</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.TransactionID</selector>
+                    <value type="ProtocolCharacterStringValue">{TransactionID_RX}</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.actionRequest.ce__actionRequest.actionRequest.commandRequestList.1.commandRequestList.ce__commandRequestList.commandRequestList.commandRequest.ce__commandRequest.commandRequest.4.serviceChangeRequest.ce__serviceChangeRequest.serviceChangeRequest.serviceChangeDescriptor.ce__serviceChangeDescriptor.serviceChangeDescriptor.serviceChangeParm.ce__serviceChangeParm.serviceChangeParm.0</selector>
+                    <value type="String">serviceChangeMethod</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.actionRequest.ce__actionRequest.actionRequest.commandRequestList.1.commandRequestList.ce__commandRequestList.commandRequestList.commandRequest.ce__commandRequest.commandRequest.4.serviceChangeRequest.ce__serviceChangeRequest.serviceChangeRequest.serviceChangeDescriptor.ce__serviceChangeDescriptor.serviceChangeDescriptor.seqof_serviceChangeParm.0.serviceChangeParm.serviceChangeParm.ce__serviceChangeParm.serviceChangeParm.1.serviceChangeReason.ce__serviceChangeReason.serviceChangeReason.ReasonToken</selector>
+                    <value type="ProtocolCharacterStringValue">RE</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1</selector>
+                    <value type="String">transactionList</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.actionRequest.ce__actionRequest.actionRequest.commandRequestList.1.commandRequestList.ce__commandRequestList.commandRequestList.commandRequest.ce__commandRequest.commandRequest.4</selector>
+                    <value type="String">serviceChangeRequest</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.Version</selector>
+                    <value type="ProtocolCharacterStringValue">{H.248_Version}</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.actionRequest.ce__actionRequest.actionRequest.commandRequestList.1</selector>
+                    <value type="String">commandRequestList</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0</selector>
+                    <value type="String">transactionListchoice</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.mId.ce__mId.mId.3</selector>
+                    <value type="String">getFromSystemConfig</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.actionRequest.ce__actionRequest.actionRequest.commandRequestList.1.commandRequestList.ce__commandRequestList.commandRequestList.commandRequest.ce__commandRequest.commandRequest.4.serviceChangeRequest.ce__serviceChangeRequest.serviceChangeRequest.serviceChangeDescriptor.ce__serviceChangeDescriptor.serviceChangeDescriptor.seqof_serviceChangeParm.0.serviceChangeParm.serviceChangeParm.ce__serviceChangeParm.serviceChangeParm.1</selector>
+                    <value type="String">serviceChangeReason</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.actionRequest.ce__actionRequest.actionRequest.commandRequestList.1.commandRequestList.ce__commandRequestList.commandRequestList.commandRequest.ce__commandRequest.commandRequest.4.serviceChangeRequest.ce__serviceChangeRequest.serviceChangeRequest.serviceChangeDescriptor.ce__serviceChangeDescriptor.serviceChangeDescriptor.seqof_serviceChangeParm.0</selector>
+                    <value type="String">serviceChangeParm</value>
+                </item>
+            </valueList>
+            <excludeList>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.actionRequest.ce__actionRequest.actionRequest.commandRequestList.1.commandRequestList.ce__commandRequestList.commandRequestList.commandRequest.ce__commandRequest.commandRequest.4.serviceChangeRequest</selector>
+                    <value>false</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest</selector>
+                    <value>false</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.actionRequest.ce__actionRequest.actionRequest.commandRequestList.1.commandRequestList.ce__commandRequestList.commandRequestList.commandRequest.ce__commandRequest.commandRequest.4.serviceChangeRequest.ce__serviceChangeRequest.serviceChangeRequest.serviceChangeDescriptor.ce__serviceChangeDescriptor.serviceChangeDescriptor.seqof_serviceChangeParm</selector>
+                    <value>false</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.actionRequest.ce__actionRequest.actionRequest.commandRequestList.1.commandRequestList.ce__commandRequestList.commandRequestList.commandRequest.ce__commandRequest.commandRequest.4.serviceChangeRequest.ce__serviceChangeRequest.serviceChangeRequest.serviceChangeDescriptor.ce__serviceChangeDescriptor.serviceChangeDescriptor.serviceChangeParm.ce__serviceChangeParm.serviceChangeParm.0.serviceChangeMethod</selector>
+                    <value>false</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.mId.ce__mId.mId.3.getFromSystemConfig</selector>
+                    <value>false</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList</selector>
+                    <value>false</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.actionRequest.ce__actionRequest.actionRequest.commandRequestList.1.commandRequestList.ce__commandRequestList.commandRequestList.commandRequest.ce__commandRequest.commandRequest.4.serviceChangeRequest.ce__serviceChangeRequest.serviceChangeRequest.serviceChangeDescriptor.ce__serviceChangeDescriptor.serviceChangeDescriptor.seqof_serviceChangeParm.0.serviceChangeParm.serviceChangeParm.ce__serviceChangeParm.serviceChangeParm.1.serviceChangeReason</selector>
+                    <value>false</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.actionRequest.ce__actionRequest.actionRequest.commandRequestList.1.commandRequestList</selector>
+                    <value>false</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.seqof_actionRequest</selector>
+                    <value>false</value>
+                </item>
+            </excludeList>
+            <checkList>
+                <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.actionRequest.ce__actionRequest.actionRequest.commandRequestList.1.commandRequestList.ce__commandRequestList.commandRequestList.commandRequest.ce__commandRequest.commandRequest.4.serviceChangeRequest.ce__serviceChangeRequest.serviceChangeRequest.serviceChangeDescriptor.ce__serviceChangeDescriptor.serviceChangeDescriptor.serviceChangeParm.ce__serviceChangeParm.serviceChangeParm.0.serviceChangeMethod.ce__serviceChangeMethod.serviceChangeMethod.serviceChangeMethodchoice</selector>
+                <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.Version</selector>
+            </checkList>
+        </message>
+        <message messageAlias="SCReq_restart_MGW1" messageName="megacoMessage" protocol="H_248_1_V3_TEXT">
+            <valueList>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.actionRequest.ce__actionRequest.actionRequest.commandRequestList.1</selector>
+                    <value type="String">commandRequestList</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.actionRequest.ce__actionRequest.actionRequest.commandRequestList.1.commandRequestList.ce__commandRequestList.commandRequestList.commandRequest.ce__commandRequest.commandRequest.4.serviceChangeRequest.ce__serviceChangeRequest.serviceChangeRequest.serviceChangeDescriptor.ce__serviceChangeDescriptor.serviceChangeDescriptor.serviceChangeParm.ce__serviceChangeParm.serviceChangeParm.0.serviceChangeMethod.ce__serviceChangeMethod.serviceChangeMethod.serviceChangeMethodchoice</selector>
+                    <value type="ProtocolCharacterStringValue">RS</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.mId.ce__mId.mId.3</selector>
+                    <value type="String">getFromSystemConfig</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.actionRequest.ce__actionRequest.actionRequest.commandRequestList.1.commandRequestList.ce__commandRequestList.commandRequestList.commandRequest.ce__commandRequest.commandRequest.4.serviceChangeRequest.ce__serviceChangeRequest.serviceChangeRequest.serviceChangeDescriptor.ce__serviceChangeDescriptor.serviceChangeDescriptor.ServicesToken</selector>
+                    <value type="ProtocolCharacterStringValue">SV</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.TransToken</selector>
+                    <value type="ProtocolCharacterStringValue">T</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.actionRequest.ce__actionRequest.actionRequest.commandRequestList.1.commandRequestList.ce__commandRequestList.commandRequestList.commandRequest.ce__commandRequest.commandRequest.4.serviceChangeRequest.ce__serviceChangeRequest.serviceChangeRequest.serviceChangeDescriptor.ce__serviceChangeDescriptor.serviceChangeDescriptor.seqof_serviceChangeParm.0.serviceChangeParm.serviceChangeParm.ce__serviceChangeParm.serviceChangeParm.1.serviceChangeReason.ce__serviceChangeReason.serviceChangeReason.ReasonToken</selector>
+                    <value type="ProtocolCharacterStringValue">RE</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.actionRequest.ce__actionRequest.actionRequest.ContextID.ce__ContextID.ContextID</selector>
+                    <value type="ProtocolCharacterStringValue">{ContextID_RX}</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.actionRequest.ce__actionRequest.actionRequest.CtxToken</selector>
+                    <value type="ProtocolCharacterStringValue">C</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.actionRequest.ce__actionRequest.actionRequest.commandRequestList.1.commandRequestList.ce__commandRequestList.commandRequestList.commandRequest.ce__commandRequest.commandRequest.4.serviceChangeRequest.ce__serviceChangeRequest.serviceChangeRequest.serviceChangeDescriptor.ce__serviceChangeDescriptor.serviceChangeDescriptor.seqof_serviceChangeParm.0</selector>
+                    <value type="String">serviceChangeParm</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.actionRequest.ce__actionRequest.actionRequest.commandRequestList.1.commandRequestList.ce__commandRequestList.commandRequestList.commandRequest.ce__commandRequest.commandRequest.4.serviceChangeRequest.ce__serviceChangeRequest.serviceChangeRequest.serviceChangeDescriptor.ce__serviceChangeDescriptor.serviceChangeDescriptor.seqof_serviceChangeParm.0.serviceChangeParm.serviceChangeParm.ce__serviceChangeParm.serviceChangeParm.1</selector>
+                    <value type="String">serviceChangeReason</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.Version</selector>
+                    <value type="ProtocolCharacterStringValue">1</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.actionRequest.ce__actionRequest.actionRequest.commandRequestList.1.commandRequestList.ce__commandRequestList.commandRequestList.commandRequest.ce__commandRequest.commandRequest.4</selector>
+                    <value type="String">serviceChangeRequest</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.actionRequest.ce__actionRequest.actionRequest.commandRequestList.1.commandRequestList.ce__commandRequestList.commandRequestList.commandRequest.ce__commandRequest.commandRequest.4.serviceChangeRequest.ce__serviceChangeRequest.serviceChangeRequest.serviceChangeDescriptor.ce__serviceChangeDescriptor.serviceChangeDescriptor.seqof_serviceChangeParm.0.serviceChangeParm.serviceChangeParm.ce__serviceChangeParm.serviceChangeParm.1.serviceChangeReason.ce__serviceChangeReason.serviceChangeReason.VALUE</selector>
+                    <value type="ProtocolCharacterStringValue">&quot;905 Termination taken out of service&quot;</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0</selector>
+                    <value type="String">transactionRequest</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1</selector>
+                    <value type="String">transactionList</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.actionRequest.ce__actionRequest.actionRequest.commandRequestList.1.commandRequestList.ce__commandRequestList.commandRequestList.commandRequest.ce__commandRequest.commandRequest.4.serviceChangeRequest.ce__serviceChangeRequest.serviceChangeRequest.serviceChangeDescriptor.ce__serviceChangeDescriptor.serviceChangeDescriptor.serviceChangeParm.ce__serviceChangeParm.serviceChangeParm.0</selector>
+                    <value type="String">serviceChangeMethod</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0</selector>
+                    <value type="String">transactionListchoice</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.actionRequest.ce__actionRequest.actionRequest.commandRequestList.1.commandRequestList.ce__commandRequestList.commandRequestList.commandRequest.ce__commandRequest.commandRequest.4.serviceChangeRequest.ce__serviceChangeRequest.serviceChangeRequest.ServiceChangeToken</selector>
+                    <value type="ProtocolCharacterStringValue">SC</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.TransactionID</selector>
+                    <value type="ProtocolCharacterStringValue">{TransactionID_RX}</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.actionRequest.ce__actionRequest.actionRequest.commandRequestList.1.commandRequestList.ce__commandRequestList.commandRequestList.commandRequest.ce__commandRequest.commandRequest.4.serviceChangeRequest.ce__serviceChangeRequest.serviceChangeRequest.serviceChangeDescriptor.ce__serviceChangeDescriptor.serviceChangeDescriptor.serviceChangeParm.ce__serviceChangeParm.serviceChangeParm.0.serviceChangeMethod.ce__serviceChangeMethod.serviceChangeMethod.MethodToken</selector>
+                    <value type="ProtocolCharacterStringValue">MT</value>
+                </item>
+            </valueList>
+            <excludeList>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.mId.ce__mId.mId.3.getFromSystemConfig</selector>
+                    <value>false</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.actionRequest.ce__actionRequest.actionRequest.commandRequestList.1.commandRequestList.ce__commandRequestList.commandRequestList.commandRequest.ce__commandRequest.commandRequest.4.serviceChangeRequest</selector>
+                    <value>false</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList</selector>
+                    <value>false</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.actionRequest.ce__actionRequest.actionRequest.commandRequestList.1.commandRequestList</selector>
+                    <value>false</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.actionRequest.ce__actionRequest.actionRequest.commandRequestList.1.commandRequestList.ce__commandRequestList.commandRequestList.commandRequest.ce__commandRequest.commandRequest.4.serviceChangeRequest.ce__serviceChangeRequest.serviceChangeRequest.serviceChangeDescriptor.ce__serviceChangeDescriptor.serviceChangeDescriptor.seqof_serviceChangeParm</selector>
+                    <value>false</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest</selector>
+                    <value>false</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.actionRequest.ce__actionRequest.actionRequest.commandRequestList.1.commandRequestList.ce__commandRequestList.commandRequestList.commandRequest.ce__commandRequest.commandRequest.4.serviceChangeRequest.ce__serviceChangeRequest.serviceChangeRequest.serviceChangeDescriptor.ce__serviceChangeDescriptor.serviceChangeDescriptor.serviceChangeParm.ce__serviceChangeParm.serviceChangeParm.0.serviceChangeMethod</selector>
+                    <value>false</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.seqof_actionRequest</selector>
+                    <value>false</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.actionRequest.ce__actionRequest.actionRequest.commandRequestList.1.commandRequestList.ce__commandRequestList.commandRequestList.commandRequest.ce__commandRequest.commandRequest.4.serviceChangeRequest.ce__serviceChangeRequest.serviceChangeRequest.serviceChangeDescriptor.ce__serviceChangeDescriptor.serviceChangeDescriptor.seqof_serviceChangeParm.0.serviceChangeParm.serviceChangeParm.ce__serviceChangeParm.serviceChangeParm.1.serviceChangeReason</selector>
+                    <value>false</value>
+                </item>
+            </excludeList>
+            <checkList>
+                <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.actionRequest.ce__actionRequest.actionRequest.commandRequestList.1.commandRequestList.ce__commandRequestList.commandRequestList.commandRequest.ce__commandRequest.commandRequest.4.serviceChangeRequest.ce__serviceChangeRequest.serviceChangeRequest.serviceChangeDescriptor.ce__serviceChangeDescriptor.serviceChangeDescriptor.serviceChangeParm.ce__serviceChangeParm.serviceChangeParm.0.serviceChangeMethod.ce__serviceChangeMethod.serviceChangeMethod.serviceChangeMethodchoice</selector>
+            </checkList>
+        </message>
+        <message messageAlias="SCReq_restart_MGW1Reply" messageName="megacoMessage" protocol="H_248_1_V3_TEXT">
+            <valueList>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.transactionReplychoice.1.actionReplyList.ce__actionReplyList.actionReplyList.actionReply.ce__actionReply.actionReply.CtxToken</selector>
+                    <value type="ProtocolCharacterStringValue">C</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1</selector>
+                    <value type="String">transactionReply</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.TransactionID</selector>
+                    <value type="ProtocolCharacterStringValue">{TransactionID_RX}</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.transactionReplychoice.1.actionReplyList.ce__actionReplyList.actionReplyList.actionReply.ce__actionReply.actionReply.actionReplychoice.0.actionReplychoice.1.commandReply.ce__commandReply.commandReply.1.commandReplyList.ce__commandReplyList.commandReplyList.commandReplys.ce__commandReplys.commandReplys.0.serviceChangeReply.ce__serviceChangeReply.serviceChangeReply.serviceChangeReplysequence.serviceChangeReplychoice.1.serviceChangeReplyDescriptor.ce__serviceChangeReplyDescriptor.serviceChangeReplyDescriptor.ServicesToken</selector>
+                    <value type="ProtocolCharacterStringValue">SV</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.transactionReplychoice.1.actionReplyList.ce__actionReplyList.actionReplyList.actionReply.ce__actionReply.actionReply.actionReplychoice.0.actionReplychoice.1.commandReply.ce__commandReply.commandReply.1.commandReplyList.ce__commandReplyList.commandReplyList.commandReplys.ce__commandReplys.commandReplys.0.serviceChangeReply.ce__serviceChangeReply.serviceChangeReply.serviceChangeReplysequence.serviceChangeReplychoice.1.serviceChangeReplyDescriptor.ce__serviceChangeReplyDescriptor.serviceChangeReplyDescriptor.servChgReplyParm.ce__servChgReplyParm.servChgReplyParm.3.serviceChangeVersion.ce__serviceChangeVersion.serviceChangeVersion.VersionToken</selector>
+                    <value type="ProtocolCharacterStringValue">V</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.MegacopToken</selector>
+                    <value type="ProtocolCharacterStringValue">!</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.transactionReplychoice.1</selector>
+                    <value type="String">actionReplyList</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.transactionReplychoice.1.actionReplyList.ce__actionReplyList.actionReplyList.actionReply.ce__actionReply.actionReply.actionReplychoice.0.actionReplychoice.1.commandReply.ce__commandReply.commandReply.1.commandReplyList.ce__commandReplyList.commandReplyList.commandReplys.ce__commandReplys.commandReplys.0.serviceChangeReply.ce__serviceChangeReply.serviceChangeReply.serviceChangeReplysequence.serviceChangeReplychoice.1</selector>
+                    <value type="String">serviceChangeReplyDescriptor</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.transactionReplychoice.1.actionReplyList.ce__actionReplyList.actionReplyList.actionReply.ce__actionReply.actionReply.actionReplychoice.0.actionReplychoice.1.commandReply.ce__commandReply.commandReply.1.commandReplyList.ce__commandReplyList.commandReplyList.commandReplys.ce__commandReplys.commandReplys.0.serviceChangeReply.ce__serviceChangeReply.serviceChangeReply.serviceChangeReplysequence.serviceChangeReplychoice.1.serviceChangeReplyDescriptor.ce__serviceChangeReplyDescriptor.serviceChangeReplyDescriptor.servChgReplyParm.ce__servChgReplyParm.servChgReplyParm.3</selector>
+                    <value type="String">serviceChangeVersion</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.transactionReplychoice.1.actionReplyList.ce__actionReplyList.actionReplyList.actionReply.ce__actionReply.actionReply.actionReplychoice.0.actionReplychoice.1.commandReply.ce__commandReply.commandReply.1</selector>
+                    <value type="String">commandReplyList</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.ReplyToken</selector>
+                    <value type="ProtocolCharacterStringValue">P</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1</selector>
+                    <value type="String">transactionList</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.transactionReplychoice.1.actionReplyList.ce__actionReplyList.actionReplyList.actionReply.ce__actionReply.actionReply.actionReplychoice.0.actionReplychoice.1.commandReply.ce__commandReply.commandReply.1.commandReplyList.ce__commandReplyList.commandReplyList.commandReplys.ce__commandReplys.commandReplys.0.serviceChangeReply.ce__serviceChangeReply.serviceChangeReply.serviceChangeReplysequence.serviceChangeReplychoice.1.serviceChangeReplyDescriptor.ce__serviceChangeReplyDescriptor.serviceChangeReplyDescriptor.servChgReplyParm.ce__servChgReplyParm.servChgReplyParm.3.serviceChangeVersion.ce__serviceChangeVersion.serviceChangeVersion.Version</selector>
+                    <value type="ProtocolCharacterStringValue">{H.248_Version}</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.transactionReplychoice.1.actionReplyList.ce__actionReplyList.actionReplyList.actionReply.ce__actionReply.actionReply.actionReplychoice.0.actionReplychoice.1.commandReply.ce__commandReply.commandReply.1.commandReplyList.ce__commandReplyList.commandReplyList.commandReplys.ce__commandReplys.commandReplys.0</selector>
+                    <value type="String">serviceChangeReply</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.Version</selector>
+                    <value type="ProtocolCharacterStringValue">1</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0</selector>
+                    <value type="String">transactionListchoice</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.transactionReplychoice.1.actionReplyList.ce__actionReplyList.actionReplyList.actionReply.ce__actionReply.actionReply.actionReplychoice.0.actionReplychoice.1</selector>
+                    <value type="String">commandReply</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.transactionReplychoice.1.actionReplyList.ce__actionReplyList.actionReplyList.actionReply.ce__actionReply.actionReply.actionReplychoice.0.actionReplychoice.1.commandReply.ce__commandReply.commandReply.1.commandReplyList.ce__commandReplyList.commandReplyList.commandReplys.ce__commandReplys.commandReplys.0.serviceChangeReply.ce__serviceChangeReply.serviceChangeReply.ServiceChangeToken</selector>
+                    <value type="ProtocolCharacterStringValue">SC</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.transactionReplychoice.1.actionReplyList.ce__actionReplyList.actionReplyList.actionReply.ce__actionReply.actionReply.ContextID.ce__ContextID.ContextID</selector>
+                    <value type="ProtocolCharacterStringValue">{ContextID_RX}</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.mId.ce__mId.mId.3</selector>
+                    <value type="String">getFromSystemConfig</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.transactionReplychoice.1.actionReplyList.ce__actionReplyList.actionReplyList.actionReply.ce__actionReply.actionReply.actionReplychoice.0</selector>
+                    <value type="String">actionReplychoice</value>
+                </item>
+            </valueList>
+            <excludeList>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.transactionReplychoice.1.actionReplyList.ce__actionReplyList.actionReplyList.actionReply.ce__actionReply.actionReply.actionReplychoice.0.actionReplychoice.1.commandReply.ce__commandReply.commandReply.1.commandReplyList.ce__commandReplyList.commandReplyList.commandReplys.ce__commandReplys.commandReplys.0.serviceChangeReply.ce__serviceChangeReply.serviceChangeReply.serviceChangeReplysequence.serviceChangeReplychoice.1.serviceChangeReplyDescriptor.ce__serviceChangeReplyDescriptor.serviceChangeReplyDescriptor.servChgReplyParm.ce__servChgReplyParm.servChgReplyParm.3.serviceChangeVersion</selector>
+                    <value>false</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.transactionReplychoice.1.actionReplyList</selector>
+                    <value>false</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.transactionReplychoice.1.actionReplyList.ce__actionReplyList.actionReplyList.seqof_actionReply</selector>
+                    <value>false</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.transactionReplychoice.1.actionReplyList.ce__actionReplyList.actionReplyList.actionReply.ce__actionReply.actionReply.actionReplychoice.0.actionReplychoice.1.commandReply.ce__commandReply.commandReply.1.commandReplyList.ce__commandReplyList.commandReplyList.seqof_commandReplys</selector>
+                    <value>false</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply</selector>
+                    <value>false</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.transactionReplychoice.1.actionReplyList.ce__actionReplyList.actionReplyList.actionReply.ce__actionReply.actionReply.actionReplychoice.0.actionReplychoice.1.commandReply</selector>
+                    <value>false</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.transactionReplychoice.1.actionReplyList.ce__actionReplyList.actionReplyList.actionReply.ce__actionReply.actionReply.actionReplychoice.0.actionReplychoice.1.commandReply.ce__commandReply.commandReply.1.commandReplyList.ce__commandReplyList.commandReplyList.commandReplys.ce__commandReplys.commandReplys.0.serviceChangeReply.ce__serviceChangeReply.serviceChangeReply.serviceChangeReplysequence.serviceChangeReplychoice.1.serviceChangeReplyDescriptor</selector>
+                    <value>false</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.transactionReplychoice.1.actionReplyList.ce__actionReplyList.actionReplyList.actionReply.ce__actionReply.actionReply.actionReplychoice.0.actionReplychoice</selector>
+                    <value>false</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.transactionReplychoice.1.actionReplyList.ce__actionReplyList.actionReplyList.actionReply.ce__actionReply.actionReply.actionReplychoice.0.actionReplychoice.1.commandReply.ce__commandReply.commandReply.1.commandReplyList.ce__commandReplyList.commandReplyList.commandReplys.ce__commandReplys.commandReplys.0.serviceChangeReply</selector>
+                    <value>false</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.transactionReplychoice.1.actionReplyList.ce__actionReplyList.actionReplyList.actionReply.ce__actionReply.actionReply.actionReplychoice.0.actionReplychoice.1.commandReply.ce__commandReply.commandReply.1.commandReplyList.ce__commandReplyList.commandReplyList.commandReplys.ce__commandReplys.commandReplys.0.serviceChangeReply.ce__serviceChangeReply.serviceChangeReply.serviceChangeReplysequence.serviceChangeReplychoice.1.serviceChangeReplyDescriptor.ce__serviceChangeReplyDescriptor.serviceChangeReplyDescriptor.seqof_servChgReplyParm</selector>
+                    <value>false</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.mId.ce__mId.mId.3.getFromSystemConfig</selector>
+                    <value>false</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList</selector>
+                    <value>false</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.transactionReplychoice.1.actionReplyList.ce__actionReplyList.actionReplyList.actionReply.ce__actionReply.actionReply.actionReplychoice.0.actionReplychoice.1.commandReply.ce__commandReply.commandReply.1.commandReplyList</selector>
+                    <value>false</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.transactionReplychoice.1.actionReplyList.ce__actionReplyList.actionReplyList.actionReply.ce__actionReply.actionReply.actionReplychoice.0.actionReplychoice.1.commandReply.ce__commandReply.commandReply.1.commandReplyList.ce__commandReplyList.commandReplyList.commandReplys.ce__commandReplys.commandReplys.0.serviceChangeReply.ce__serviceChangeReply.serviceChangeReply.serviceChangeReplysequence</selector>
+                    <value>false</value>
+                </item>
+            </excludeList>
+            <checkList/>
+        </message>
+        <message messageAlias="SCReq_graceful_MGW1Reply" messageName="megacoMessage" protocol="H_248_1_V3_TEXT">
+            <valueList>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.transactionReplychoice.1.actionReplyList.ce__actionReplyList.actionReplyList.actionReply.ce__actionReply.actionReply.CtxToken</selector>
+                    <value type="ProtocolCharacterStringValue">C</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1</selector>
+                    <value type="String">transactionReply</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.TransactionID</selector>
+                    <value type="ProtocolCharacterStringValue">{TransactionID_RX}</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.transactionReplychoice.1.actionReplyList.ce__actionReplyList.actionReplyList.actionReply.ce__actionReply.actionReply.actionReplychoice.0.actionReplychoice.1.commandReply.ce__commandReply.commandReply.1.commandReplyList.ce__commandReplyList.commandReplyList.commandReplys.ce__commandReplys.commandReplys.0.serviceChangeReply.ce__serviceChangeReply.serviceChangeReply.serviceChangeReplysequence.serviceChangeReplychoice.1.serviceChangeReplyDescriptor.ce__serviceChangeReplyDescriptor.serviceChangeReplyDescriptor.ServicesToken</selector>
+                    <value type="ProtocolCharacterStringValue">SV</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.transactionReplychoice.1.actionReplyList.ce__actionReplyList.actionReplyList.actionReply.ce__actionReply.actionReply.actionReplychoice.0.actionReplychoice.1.commandReply.ce__commandReply.commandReply.1.commandReplyList.ce__commandReplyList.commandReplyList.commandReplys.ce__commandReplys.commandReplys.0.serviceChangeReply.ce__serviceChangeReply.serviceChangeReply.serviceChangeReplysequence.serviceChangeReplychoice.1.serviceChangeReplyDescriptor.ce__serviceChangeReplyDescriptor.serviceChangeReplyDescriptor.servChgReplyParm.ce__servChgReplyParm.servChgReplyParm.3.serviceChangeVersion.ce__serviceChangeVersion.serviceChangeVersion.VersionToken</selector>
+                    <value type="ProtocolCharacterStringValue">V</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.MegacopToken</selector>
+                    <value type="ProtocolCharacterStringValue">!</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.transactionReplychoice.1</selector>
+                    <value type="String">actionReplyList</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.transactionReplychoice.1.actionReplyList.ce__actionReplyList.actionReplyList.actionReply.ce__actionReply.actionReply.actionReplychoice.0.actionReplychoice.1.commandReply.ce__commandReply.commandReply.1</selector>
+                    <value type="String">commandReplyList</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.ReplyToken</selector>
+                    <value type="ProtocolCharacterStringValue">P</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1</selector>
+                    <value type="String">transactionList</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.transactionReplychoice.1.actionReplyList.ce__actionReplyList.actionReplyList.actionReply.ce__actionReply.actionReply.actionReplychoice.0.actionReplychoice.1.commandReply.ce__commandReply.commandReply.1.commandReplyList.ce__commandReplyList.commandReplyList.commandReplys.ce__commandReplys.commandReplys.0.serviceChangeReply.ce__serviceChangeReply.serviceChangeReply.serviceChangeReplysequence.serviceChangeReplychoice.1.serviceChangeReplyDescriptor.ce__serviceChangeReplyDescriptor.serviceChangeReplyDescriptor.servChgReplyParm.ce__servChgReplyParm.servChgReplyParm.3.serviceChangeVersion.ce__serviceChangeVersion.serviceChangeVersion.Version</selector>
+                    <value type="ProtocolCharacterStringValue">{H.248_Version}</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.transactionReplychoice.1.actionReplyList.ce__actionReplyList.actionReplyList.actionReply.ce__actionReply.actionReply.actionReplychoice.0.actionReplychoice.1.commandReply.ce__commandReply.commandReply.1.commandReplyList.ce__commandReplyList.commandReplyList.commandReplys.ce__commandReplys.commandReplys.0</selector>
+                    <value type="String">serviceChangeReply</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.Version</selector>
+                    <value type="ProtocolCharacterStringValue">{H.248_Version}</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.transactionReplychoice.1.actionReplyList.ce__actionReplyList.actionReplyList.actionReply.ce__actionReply.actionReply.actionReplychoice.0.actionReplychoice.1</selector>
+                    <value type="String">commandReply</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0</selector>
+                    <value type="String">transactionListchoice</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.transactionReplychoice.1.actionReplyList.ce__actionReplyList.actionReplyList.actionReply.ce__actionReply.actionReply.actionReplychoice.0.actionReplychoice.1.commandReply.ce__commandReply.commandReply.1.commandReplyList.ce__commandReplyList.commandReplyList.commandReplys.ce__commandReplys.commandReplys.0.serviceChangeReply.ce__serviceChangeReply.serviceChangeReply.ServiceChangeToken</selector>
+                    <value type="ProtocolCharacterStringValue">SC</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.transactionReplychoice.1.actionReplyList.ce__actionReplyList.actionReplyList.actionReply.ce__actionReply.actionReply.ContextID.ce__ContextID.ContextID</selector>
+                    <value type="ProtocolCharacterStringValue">{ContextID_RX}</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.mId.ce__mId.mId.3</selector>
+                    <value type="String">getFromSystemConfig</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.transactionReplychoice.1.actionReplyList.ce__actionReplyList.actionReplyList.actionReply.ce__actionReply.actionReply.actionReplychoice.0</selector>
+                    <value type="String">actionReplychoice</value>
+                </item>
+            </valueList>
+            <excludeList>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.transactionReplychoice.1.actionReplyList</selector>
+                    <value>false</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.transactionReplychoice.1.actionReplyList.ce__actionReplyList.actionReplyList.seqof_actionReply</selector>
+                    <value>false</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.transactionReplychoice.1.actionReplyList.ce__actionReplyList.actionReplyList.actionReply.ce__actionReply.actionReply.actionReplychoice.0.actionReplychoice.1.commandReply.ce__commandReply.commandReply.1.commandReplyList.ce__commandReplyList.commandReplyList.seqof_commandReplys</selector>
+                    <value>false</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply</selector>
+                    <value>false</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.transactionReplychoice.1.actionReplyList.ce__actionReplyList.actionReplyList.actionReply.ce__actionReply.actionReply.actionReplychoice.0.actionReplychoice.1.commandReply</selector>
+                    <value>false</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.transactionReplychoice.1.actionReplyList.ce__actionReplyList.actionReplyList.actionReply.ce__actionReply.actionReply.actionReplychoice.0.actionReplychoice</selector>
+                    <value>false</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.transactionReplychoice.1.actionReplyList.ce__actionReplyList.actionReplyList.actionReply.ce__actionReply.actionReply.actionReplychoice.0.actionReplychoice.1.commandReply.ce__commandReply.commandReply.1.commandReplyList.ce__commandReplyList.commandReplyList.commandReplys.ce__commandReplys.commandReplys.0.serviceChangeReply</selector>
+                    <value>false</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.mId.ce__mId.mId.3.getFromSystemConfig</selector>
+                    <value>false</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList</selector>
+                    <value>false</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.transactionReplychoice.1.actionReplyList.ce__actionReplyList.actionReplyList.actionReply.ce__actionReply.actionReply.actionReplychoice.0.actionReplychoice.1.commandReply.ce__commandReply.commandReply.1.commandReplyList</selector>
+                    <value>false</value>
+                </item>
+            </excludeList>
+            <checkList/>
+        </message>
+        <message messageAlias="SCReq_forced_MGW1" messageName="megacoMessage" protocol="H_248_1_V3_TEXT">
+            <valueList>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.actionRequest.ce__actionRequest.actionRequest.commandRequestList.1.commandRequestList.ce__commandRequestList.commandRequestList.commandRequest.ce__commandRequest.commandRequest.4.serviceChangeRequest.ce__serviceChangeRequest.serviceChangeRequest.serviceChangeDescriptor.ce__serviceChangeDescriptor.serviceChangeDescriptor.serviceChangeParm.ce__serviceChangeParm.serviceChangeParm.0.serviceChangeMethod.ce__serviceChangeMethod.serviceChangeMethod.serviceChangeMethodchoice</selector>
+                    <value type="ProtocolCharacterStringValue">FO</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.actionRequest.ce__actionRequest.actionRequest.commandRequestList.1.commandRequestList.ce__commandRequestList.commandRequestList.commandRequest.ce__commandRequest.commandRequest.4.serviceChangeRequest.ce__serviceChangeRequest.serviceChangeRequest.serviceChangeDescriptor.ce__serviceChangeDescriptor.serviceChangeDescriptor.seqof_serviceChangeParm.0.serviceChangeParm.serviceChangeParm.ce__serviceChangeParm.serviceChangeParm.1.serviceChangeReason.ce__serviceChangeReason.serviceChangeReason.VALUE</selector>
+                    <value type="ProtocolCharacterStringValue">&quot;905 Termination taken out of service&quot;</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.actionRequest.ce__actionRequest.actionRequest.commandRequestList.1.commandRequestList.ce__commandRequestList.commandRequestList.commandRequest.ce__commandRequest.commandRequest.4.serviceChangeRequest.ce__serviceChangeRequest.serviceChangeRequest.serviceChangeDescriptor.ce__serviceChangeDescriptor.serviceChangeDescriptor.serviceChangeParm.ce__serviceChangeParm.serviceChangeParm.0.serviceChangeMethod.ce__serviceChangeMethod.serviceChangeMethod.MethodToken</selector>
+                    <value type="ProtocolCharacterStringValue">MT</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0</selector>
+                    <value type="String">transactionRequest</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.actionRequest.ce__actionRequest.actionRequest.CtxToken</selector>
+                    <value type="ProtocolCharacterStringValue">C</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.actionRequest.ce__actionRequest.actionRequest.ContextID.ce__ContextID.ContextID</selector>
+                    <value type="ProtocolCharacterStringValue">{ContextID_RX}</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.TransToken</selector>
+                    <value type="ProtocolCharacterStringValue">T</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.actionRequest.ce__actionRequest.actionRequest.commandRequestList.1.commandRequestList.ce__commandRequestList.commandRequestList.commandRequest.ce__commandRequest.commandRequest.4.serviceChangeRequest.ce__serviceChangeRequest.serviceChangeRequest.ServiceChangeToken</selector>
+                    <value type="ProtocolCharacterStringValue">SC</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.TransactionID</selector>
+                    <value type="ProtocolCharacterStringValue">{TransactionID_RX}</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.actionRequest.ce__actionRequest.actionRequest.commandRequestList.1.commandRequestList.ce__commandRequestList.commandRequestList.commandRequest.ce__commandRequest.commandRequest.4.serviceChangeRequest.ce__serviceChangeRequest.serviceChangeRequest.serviceChangeDescriptor.ce__serviceChangeDescriptor.serviceChangeDescriptor.ServicesToken</selector>
+                    <value type="ProtocolCharacterStringValue">SV</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.actionRequest.ce__actionRequest.actionRequest.commandRequestList.1.commandRequestList.ce__commandRequestList.commandRequestList.commandRequest.ce__commandRequest.commandRequest.4.serviceChangeRequest.ce__serviceChangeRequest.serviceChangeRequest.serviceChangeDescriptor.ce__serviceChangeDescriptor.serviceChangeDescriptor.serviceChangeParm.ce__serviceChangeParm.serviceChangeParm.0</selector>
+                    <value type="String">serviceChangeMethod</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.actionRequest.ce__actionRequest.actionRequest.commandRequestList.1.commandRequestList.ce__commandRequestList.commandRequestList.commandRequest.ce__commandRequest.commandRequest.4.serviceChangeRequest.ce__serviceChangeRequest.serviceChangeRequest.serviceChangeDescriptor.ce__serviceChangeDescriptor.serviceChangeDescriptor.seqof_serviceChangeParm.0.serviceChangeParm.serviceChangeParm.ce__serviceChangeParm.serviceChangeParm.1.serviceChangeReason.ce__serviceChangeReason.serviceChangeReason.ReasonToken</selector>
+                    <value type="ProtocolCharacterStringValue">RE</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1</selector>
+                    <value type="String">transactionList</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.actionRequest.ce__actionRequest.actionRequest.commandRequestList.1.commandRequestList.ce__commandRequestList.commandRequestList.commandRequest.ce__commandRequest.commandRequest.4</selector>
+                    <value type="String">serviceChangeRequest</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.Version</selector>
+                    <value type="ProtocolCharacterStringValue">{H.248_Version}</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.actionRequest.ce__actionRequest.actionRequest.commandRequestList.1</selector>
+                    <value type="String">commandRequestList</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0</selector>
+                    <value type="String">transactionListchoice</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.actionRequest.ce__actionRequest.actionRequest.commandRequestList.1.commandRequestList.ce__commandRequestList.commandRequestList.commandRequest.ce__commandRequest.commandRequest.4.serviceChangeRequest.ce__serviceChangeRequest.serviceChangeRequest.serviceChangeDescriptor.ce__serviceChangeDescriptor.serviceChangeDescriptor.seqof_serviceChangeParm.0.serviceChangeParm.serviceChangeParm.ce__serviceChangeParm.serviceChangeParm.1</selector>
+                    <value type="String">serviceChangeReason</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.mId.ce__mId.mId.3</selector>
+                    <value type="String">getFromSystemConfig</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.actionRequest.ce__actionRequest.actionRequest.commandRequestList.1.commandRequestList.ce__commandRequestList.commandRequestList.commandRequest.ce__commandRequest.commandRequest.4.serviceChangeRequest.ce__serviceChangeRequest.serviceChangeRequest.serviceChangeDescriptor.ce__serviceChangeDescriptor.serviceChangeDescriptor.seqof_serviceChangeParm.0</selector>
+                    <value type="String">serviceChangeParm</value>
+                </item>
+            </valueList>
+            <excludeList>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.actionRequest.ce__actionRequest.actionRequest.commandRequestList.1.commandRequestList.ce__commandRequestList.commandRequestList.commandRequest.ce__commandRequest.commandRequest.4.serviceChangeRequest</selector>
+                    <value>false</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest</selector>
+                    <value>false</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.actionRequest.ce__actionRequest.actionRequest.commandRequestList.1.commandRequestList.ce__commandRequestList.commandRequestList.commandRequest.ce__commandRequest.commandRequest.4.serviceChangeRequest.ce__serviceChangeRequest.serviceChangeRequest.serviceChangeDescriptor.ce__serviceChangeDescriptor.serviceChangeDescriptor.seqof_serviceChangeParm</selector>
+                    <value>false</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.actionRequest.ce__actionRequest.actionRequest.commandRequestList.1.commandRequestList.ce__commandRequestList.commandRequestList.commandRequest.ce__commandRequest.commandRequest.4.serviceChangeRequest.ce__serviceChangeRequest.serviceChangeRequest.serviceChangeDescriptor.ce__serviceChangeDescriptor.serviceChangeDescriptor.serviceChangeParm.ce__serviceChangeParm.serviceChangeParm.0.serviceChangeMethod</selector>
+                    <value>false</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.mId.ce__mId.mId.3.getFromSystemConfig</selector>
+                    <value>false</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList</selector>
+                    <value>false</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.actionRequest.ce__actionRequest.actionRequest.commandRequestList.1.commandRequestList.ce__commandRequestList.commandRequestList.commandRequest.ce__commandRequest.commandRequest.4.serviceChangeRequest.ce__serviceChangeRequest.serviceChangeRequest.serviceChangeDescriptor.ce__serviceChangeDescriptor.serviceChangeDescriptor.seqof_serviceChangeParm.0.serviceChangeParm.serviceChangeParm.ce__serviceChangeParm.serviceChangeParm.1.serviceChangeReason</selector>
+                    <value>false</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.actionRequest.ce__actionRequest.actionRequest.commandRequestList.1.commandRequestList</selector>
+                    <value>false</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.seqof_actionRequest</selector>
+                    <value>false</value>
+                </item>
+            </excludeList>
+            <checkList>
+                <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.actionRequest.ce__actionRequest.actionRequest.commandRequestList.1.commandRequestList.ce__commandRequestList.commandRequestList.commandRequest.ce__commandRequest.commandRequest.4.serviceChangeRequest.ce__serviceChangeRequest.serviceChangeRequest.serviceChangeDescriptor.ce__serviceChangeDescriptor.serviceChangeDescriptor.serviceChangeParm.ce__serviceChangeParm.serviceChangeParm.0.serviceChangeMethod.ce__serviceChangeMethod.serviceChangeMethod.serviceChangeMethodchoice</selector>
+                <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.Version</selector>
+            </checkList>
+        </message>
+        <message messageAlias="SCReq_forced_MGW1Reply" messageName="megacoMessage" protocol="H_248_1_V3_TEXT">
+            <valueList>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.transactionReplychoice.1.actionReplyList.ce__actionReplyList.actionReplyList.actionReply.ce__actionReply.actionReply.CtxToken</selector>
+                    <value type="ProtocolCharacterStringValue">C</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1</selector>
+                    <value type="String">transactionReply</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.TransactionID</selector>
+                    <value type="ProtocolCharacterStringValue">{TransactionID_RX}</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.transactionReplychoice.1.actionReplyList.ce__actionReplyList.actionReplyList.actionReply.ce__actionReply.actionReply.actionReplychoice.0.actionReplychoice.1.commandReply.ce__commandReply.commandReply.1.commandReplyList.ce__commandReplyList.commandReplyList.commandReplys.ce__commandReplys.commandReplys.0.serviceChangeReply.ce__serviceChangeReply.serviceChangeReply.serviceChangeReplysequence.serviceChangeReplychoice.1.serviceChangeReplyDescriptor.ce__serviceChangeReplyDescriptor.serviceChangeReplyDescriptor.ServicesToken</selector>
+                    <value type="ProtocolCharacterStringValue">SV</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.transactionReplychoice.1.actionReplyList.ce__actionReplyList.actionReplyList.actionReply.ce__actionReply.actionReply.actionReplychoice.0.actionReplychoice.1.commandReply.ce__commandReply.commandReply.1.commandReplyList.ce__commandReplyList.commandReplyList.commandReplys.ce__commandReplys.commandReplys.0.serviceChangeReply.ce__serviceChangeReply.serviceChangeReply.serviceChangeReplysequence.serviceChangeReplychoice.1.serviceChangeReplyDescriptor.ce__serviceChangeReplyDescriptor.serviceChangeReplyDescriptor.servChgReplyParm.ce__servChgReplyParm.servChgReplyParm.3.serviceChangeVersion.ce__serviceChangeVersion.serviceChangeVersion.VersionToken</selector>
+                    <value type="ProtocolCharacterStringValue">V</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.MegacopToken</selector>
+                    <value type="ProtocolCharacterStringValue">!</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.transactionReplychoice.1</selector>
+                    <value type="String">actionReplyList</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.transactionReplychoice.1.actionReplyList.ce__actionReplyList.actionReplyList.actionReply.ce__actionReply.actionReply.actionReplychoice.0.actionReplychoice.1.commandReply.ce__commandReply.commandReply.1</selector>
+                    <value type="String">commandReplyList</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.ReplyToken</selector>
+                    <value type="ProtocolCharacterStringValue">P</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1</selector>
+                    <value type="String">transactionList</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.transactionReplychoice.1.actionReplyList.ce__actionReplyList.actionReplyList.actionReply.ce__actionReply.actionReply.actionReplychoice.0.actionReplychoice.1.commandReply.ce__commandReply.commandReply.1.commandReplyList.ce__commandReplyList.commandReplyList.commandReplys.ce__commandReplys.commandReplys.0.serviceChangeReply.ce__serviceChangeReply.serviceChangeReply.serviceChangeReplysequence.serviceChangeReplychoice.1.serviceChangeReplyDescriptor.ce__serviceChangeReplyDescriptor.serviceChangeReplyDescriptor.servChgReplyParm.ce__servChgReplyParm.servChgReplyParm.3.serviceChangeVersion.ce__serviceChangeVersion.serviceChangeVersion.Version</selector>
+                    <value type="ProtocolCharacterStringValue">{H.248_Version}</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.transactionReplychoice.1.actionReplyList.ce__actionReplyList.actionReplyList.actionReply.ce__actionReply.actionReply.actionReplychoice.0.actionReplychoice.1.commandReply.ce__commandReply.commandReply.1.commandReplyList.ce__commandReplyList.commandReplyList.commandReplys.ce__commandReplys.commandReplys.0</selector>
+                    <value type="String">serviceChangeReply</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.Version</selector>
+                    <value type="ProtocolCharacterStringValue">{H.248_Version}</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.transactionReplychoice.1.actionReplyList.ce__actionReplyList.actionReplyList.actionReply.ce__actionReply.actionReply.actionReplychoice.0.actionReplychoice.1</selector>
+                    <value type="String">commandReply</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0</selector>
+                    <value type="String">transactionListchoice</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.transactionReplychoice.1.actionReplyList.ce__actionReplyList.actionReplyList.actionReply.ce__actionReply.actionReply.actionReplychoice.0.actionReplychoice.1.commandReply.ce__commandReply.commandReply.1.commandReplyList.ce__commandReplyList.commandReplyList.commandReplys.ce__commandReplys.commandReplys.0.serviceChangeReply.ce__serviceChangeReply.serviceChangeReply.ServiceChangeToken</selector>
+                    <value type="ProtocolCharacterStringValue">SC</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.transactionReplychoice.1.actionReplyList.ce__actionReplyList.actionReplyList.actionReply.ce__actionReply.actionReply.ContextID.ce__ContextID.ContextID</selector>
+                    <value type="ProtocolCharacterStringValue">{ContextID_RX}</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.mId.ce__mId.mId.3</selector>
+                    <value type="String">getFromSystemConfig</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.transactionReplychoice.1.actionReplyList.ce__actionReplyList.actionReplyList.actionReply.ce__actionReply.actionReply.actionReplychoice.0</selector>
+                    <value type="String">actionReplychoice</value>
+                </item>
+            </valueList>
+            <excludeList>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.transactionReplychoice.1.actionReplyList</selector>
+                    <value>false</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.transactionReplychoice.1.actionReplyList.ce__actionReplyList.actionReplyList.seqof_actionReply</selector>
+                    <value>false</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.transactionReplychoice.1.actionReplyList.ce__actionReplyList.actionReplyList.actionReply.ce__actionReply.actionReply.actionReplychoice.0.actionReplychoice.1.commandReply.ce__commandReply.commandReply.1.commandReplyList.ce__commandReplyList.commandReplyList.seqof_commandReplys</selector>
+                    <value>false</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply</selector>
+                    <value>false</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.transactionReplychoice.1.actionReplyList.ce__actionReplyList.actionReplyList.actionReply.ce__actionReply.actionReply.actionReplychoice.0.actionReplychoice.1.commandReply</selector>
+                    <value>false</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.transactionReplychoice.1.actionReplyList.ce__actionReplyList.actionReplyList.actionReply.ce__actionReply.actionReply.actionReplychoice.0.actionReplychoice</selector>
+                    <value>false</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.transactionReplychoice.1.actionReplyList.ce__actionReplyList.actionReplyList.actionReply.ce__actionReply.actionReply.actionReplychoice.0.actionReplychoice.1.commandReply.ce__commandReply.commandReply.1.commandReplyList.ce__commandReplyList.commandReplyList.commandReplys.ce__commandReplys.commandReplys.0.serviceChangeReply</selector>
+                    <value>false</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.mId.ce__mId.mId.3.getFromSystemConfig</selector>
+                    <value>false</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList</selector>
+                    <value>false</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.transactionReplychoice.1.actionReplyList.ce__actionReplyList.actionReplyList.actionReply.ce__actionReply.actionReply.actionReplychoice.0.actionReplychoice.1.commandReply.ce__commandReply.commandReply.1.commandReplyList</selector>
+                    <value>false</value>
+                </item>
+            </excludeList>
+            <checkList/>
+        </message>
+        <message messageAlias="SCReq_disconnected_MGW1" messageName="megacoMessage" protocol="H_248_1_V3_TEXT">
+            <valueList>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.actionRequest.ce__actionRequest.actionRequest.commandRequestList.1.commandRequestList.ce__commandRequestList.commandRequestList.commandRequest.ce__commandRequest.commandRequest.4.serviceChangeRequest.ce__serviceChangeRequest.serviceChangeRequest.serviceChangeDescriptor.ce__serviceChangeDescriptor.serviceChangeDescriptor.serviceChangeParm.ce__serviceChangeParm.serviceChangeParm.0.serviceChangeMethod.ce__serviceChangeMethod.serviceChangeMethod.serviceChangeMethodchoice</selector>
+                    <value type="ProtocolCharacterStringValue">DC</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.actionRequest.ce__actionRequest.actionRequest.commandRequestList.1.commandRequestList.ce__commandRequestList.commandRequestList.commandRequest.ce__commandRequest.commandRequest.4.serviceChangeRequest.ce__serviceChangeRequest.serviceChangeRequest.serviceChangeDescriptor.ce__serviceChangeDescriptor.serviceChangeDescriptor.seqof_serviceChangeParm.0.serviceChangeParm.serviceChangeParm.ce__serviceChangeParm.serviceChangeParm.1.serviceChangeReason.ce__serviceChangeReason.serviceChangeReason.VALUE</selector>
+                    <value type="ProtocolCharacterStringValue">&quot;900 Service Restored&quot;</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.actionRequest.ce__actionRequest.actionRequest.commandRequestList.1.commandRequestList.ce__commandRequestList.commandRequestList.commandRequest.ce__commandRequest.commandRequest.4.serviceChangeRequest.ce__serviceChangeRequest.serviceChangeRequest.serviceChangeDescriptor.ce__serviceChangeDescriptor.serviceChangeDescriptor.serviceChangeParm.ce__serviceChangeParm.serviceChangeParm.0.serviceChangeMethod.ce__serviceChangeMethod.serviceChangeMethod.MethodToken</selector>
+                    <value type="ProtocolCharacterStringValue">MT</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0</selector>
+                    <value type="String">transactionRequest</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.actionRequest.ce__actionRequest.actionRequest.CtxToken</selector>
+                    <value type="ProtocolCharacterStringValue">C</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.actionRequest.ce__actionRequest.actionRequest.ContextID.ce__ContextID.ContextID</selector>
+                    <value type="ProtocolCharacterStringValue">{ContextID_RX}</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.TransToken</selector>
+                    <value type="ProtocolCharacterStringValue">T</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.actionRequest.ce__actionRequest.actionRequest.commandRequestList.1.commandRequestList.ce__commandRequestList.commandRequestList.commandRequest.ce__commandRequest.commandRequest.4.serviceChangeRequest.ce__serviceChangeRequest.serviceChangeRequest.ServiceChangeToken</selector>
+                    <value type="ProtocolCharacterStringValue">SC</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.TransactionID</selector>
+                    <value type="ProtocolCharacterStringValue">{TransactionID_RX}</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.actionRequest.ce__actionRequest.actionRequest.commandRequestList.1.commandRequestList.ce__commandRequestList.commandRequestList.commandRequest.ce__commandRequest.commandRequest.4.serviceChangeRequest.ce__serviceChangeRequest.serviceChangeRequest.serviceChangeDescriptor.ce__serviceChangeDescriptor.serviceChangeDescriptor.ServicesToken</selector>
+                    <value type="ProtocolCharacterStringValue">SV</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.actionRequest.ce__actionRequest.actionRequest.commandRequestList.1.commandRequestList.ce__commandRequestList.commandRequestList.commandRequest.ce__commandRequest.commandRequest.4.serviceChangeRequest.ce__serviceChangeRequest.serviceChangeRequest.serviceChangeDescriptor.ce__serviceChangeDescriptor.serviceChangeDescriptor.serviceChangeParm.ce__serviceChangeParm.serviceChangeParm.0</selector>
+                    <value type="String">serviceChangeMethod</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.actionRequest.ce__actionRequest.actionRequest.commandRequestList.1.commandRequestList.ce__commandRequestList.commandRequestList.commandRequest.ce__commandRequest.commandRequest.4.serviceChangeRequest.ce__serviceChangeRequest.serviceChangeRequest.serviceChangeDescriptor.ce__serviceChangeDescriptor.serviceChangeDescriptor.seqof_serviceChangeParm.0.serviceChangeParm.serviceChangeParm.ce__serviceChangeParm.serviceChangeParm.1.serviceChangeReason.ce__serviceChangeReason.serviceChangeReason.ReasonToken</selector>
+                    <value type="ProtocolCharacterStringValue">RE</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1</selector>
+                    <value type="String">transactionList</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.actionRequest.ce__actionRequest.actionRequest.commandRequestList.1.commandRequestList.ce__commandRequestList.commandRequestList.commandRequest.ce__commandRequest.commandRequest.4</selector>
+                    <value type="String">serviceChangeRequest</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.Version</selector>
+                    <value type="ProtocolCharacterStringValue">{H.248_Version}</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.actionRequest.ce__actionRequest.actionRequest.commandRequestList.1</selector>
+                    <value type="String">commandRequestList</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0</selector>
+                    <value type="String">transactionListchoice</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.actionRequest.ce__actionRequest.actionRequest.commandRequestList.1.commandRequestList.ce__commandRequestList.commandRequestList.commandRequest.ce__commandRequest.commandRequest.4.serviceChangeRequest.ce__serviceChangeRequest.serviceChangeRequest.serviceChangeDescriptor.ce__serviceChangeDescriptor.serviceChangeDescriptor.seqof_serviceChangeParm.0.serviceChangeParm.serviceChangeParm.ce__serviceChangeParm.serviceChangeParm.1</selector>
+                    <value type="String">serviceChangeReason</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.mId.ce__mId.mId.3</selector>
+                    <value type="String">getFromSystemConfig</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.actionRequest.ce__actionRequest.actionRequest.commandRequestList.1.commandRequestList.ce__commandRequestList.commandRequestList.commandRequest.ce__commandRequest.commandRequest.4.serviceChangeRequest.ce__serviceChangeRequest.serviceChangeRequest.serviceChangeDescriptor.ce__serviceChangeDescriptor.serviceChangeDescriptor.seqof_serviceChangeParm.0</selector>
+                    <value type="String">serviceChangeParm</value>
+                </item>
+            </valueList>
+            <excludeList>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.actionRequest.ce__actionRequest.actionRequest.commandRequestList.1.commandRequestList.ce__commandRequestList.commandRequestList.commandRequest.ce__commandRequest.commandRequest.4.serviceChangeRequest</selector>
+                    <value>false</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest</selector>
+                    <value>false</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.actionRequest.ce__actionRequest.actionRequest.commandRequestList.1.commandRequestList.ce__commandRequestList.commandRequestList.commandRequest.ce__commandRequest.commandRequest.4.serviceChangeRequest.ce__serviceChangeRequest.serviceChangeRequest.serviceChangeDescriptor.ce__serviceChangeDescriptor.serviceChangeDescriptor.seqof_serviceChangeParm</selector>
+                    <value>false</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.actionRequest.ce__actionRequest.actionRequest.commandRequestList.1.commandRequestList.ce__commandRequestList.commandRequestList.commandRequest.ce__commandRequest.commandRequest.4.serviceChangeRequest.ce__serviceChangeRequest.serviceChangeRequest.serviceChangeDescriptor.ce__serviceChangeDescriptor.serviceChangeDescriptor.serviceChangeParm.ce__serviceChangeParm.serviceChangeParm.0.serviceChangeMethod</selector>
+                    <value>false</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.mId.ce__mId.mId.3.getFromSystemConfig</selector>
+                    <value>false</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList</selector>
+                    <value>false</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.actionRequest.ce__actionRequest.actionRequest.commandRequestList.1.commandRequestList.ce__commandRequestList.commandRequestList.commandRequest.ce__commandRequest.commandRequest.4.serviceChangeRequest.ce__serviceChangeRequest.serviceChangeRequest.serviceChangeDescriptor.ce__serviceChangeDescriptor.serviceChangeDescriptor.seqof_serviceChangeParm.0.serviceChangeParm.serviceChangeParm.ce__serviceChangeParm.serviceChangeParm.1.serviceChangeReason</selector>
+                    <value>false</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.actionRequest.ce__actionRequest.actionRequest.commandRequestList.1.commandRequestList</selector>
+                    <value>false</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.seqof_actionRequest</selector>
+                    <value>false</value>
+                </item>
+            </excludeList>
+            <checkList>
+                <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.0.transactionRequest.ce__transactionRequest.transactionRequest.actionRequest.ce__actionRequest.actionRequest.commandRequestList.1.commandRequestList.ce__commandRequestList.commandRequestList.commandRequest.ce__commandRequest.commandRequest.4.serviceChangeRequest.ce__serviceChangeRequest.serviceChangeRequest.serviceChangeDescriptor.ce__serviceChangeDescriptor.serviceChangeDescriptor.serviceChangeParm.ce__serviceChangeParm.serviceChangeParm.0.serviceChangeMethod.ce__serviceChangeMethod.serviceChangeMethod.serviceChangeMethodchoice</selector>
+                <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.Version</selector>
+            </checkList>
+        </message>
+        <message messageAlias="SCReq_disconnected_MGW1Reply" messageName="megacoMessage" protocol="H_248_1_V3_TEXT">
+            <valueList>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.transactionReplychoice.1.actionReplyList.ce__actionReplyList.actionReplyList.actionReply.ce__actionReply.actionReply.CtxToken</selector>
+                    <value type="ProtocolCharacterStringValue">C</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1</selector>
+                    <value type="String">transactionReply</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.TransactionID</selector>
+                    <value type="ProtocolCharacterStringValue">{TransactionID_RX}</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.transactionReplychoice.1.actionReplyList.ce__actionReplyList.actionReplyList.actionReply.ce__actionReply.actionReply.actionReplychoice.0.actionReplychoice.1.commandReply.ce__commandReply.commandReply.1.commandReplyList.ce__commandReplyList.commandReplyList.commandReplys.ce__commandReplys.commandReplys.0.serviceChangeReply.ce__serviceChangeReply.serviceChangeReply.serviceChangeReplysequence.serviceChangeReplychoice.1.serviceChangeReplyDescriptor.ce__serviceChangeReplyDescriptor.serviceChangeReplyDescriptor.ServicesToken</selector>
+                    <value type="ProtocolCharacterStringValue">SV</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.transactionReplychoice.1.actionReplyList.ce__actionReplyList.actionReplyList.actionReply.ce__actionReply.actionReply.actionReplychoice.0.actionReplychoice.1.commandReply.ce__commandReply.commandReply.1.commandReplyList.ce__commandReplyList.commandReplyList.commandReplys.ce__commandReplys.commandReplys.0.serviceChangeReply.ce__serviceChangeReply.serviceChangeReply.serviceChangeReplysequence.serviceChangeReplychoice.1.serviceChangeReplyDescriptor.ce__serviceChangeReplyDescriptor.serviceChangeReplyDescriptor.servChgReplyParm.ce__servChgReplyParm.servChgReplyParm.3.serviceChangeVersion.ce__serviceChangeVersion.serviceChangeVersion.VersionToken</selector>
+                    <value type="ProtocolCharacterStringValue">V</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.MegacopToken</selector>
+                    <value type="ProtocolCharacterStringValue">!</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.transactionReplychoice.1</selector>
+                    <value type="String">actionReplyList</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.transactionReplychoice.1.actionReplyList.ce__actionReplyList.actionReplyList.actionReply.ce__actionReply.actionReply.actionReplychoice.0.actionReplychoice.1.commandReply.ce__commandReply.commandReply.1</selector>
+                    <value type="String">commandReplyList</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.ReplyToken</selector>
+                    <value type="ProtocolCharacterStringValue">P</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1</selector>
+                    <value type="String">transactionList</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.transactionReplychoice.1.actionReplyList.ce__actionReplyList.actionReplyList.actionReply.ce__actionReply.actionReply.actionReplychoice.0.actionReplychoice.1.commandReply.ce__commandReply.commandReply.1.commandReplyList.ce__commandReplyList.commandReplyList.commandReplys.ce__commandReplys.commandReplys.0.serviceChangeReply.ce__serviceChangeReply.serviceChangeReply.serviceChangeReplysequence.serviceChangeReplychoice.1.serviceChangeReplyDescriptor.ce__serviceChangeReplyDescriptor.serviceChangeReplyDescriptor.servChgReplyParm.ce__servChgReplyParm.servChgReplyParm.3.serviceChangeVersion.ce__serviceChangeVersion.serviceChangeVersion.Version</selector>
+                    <value type="ProtocolCharacterStringValue">{H.248_Version}</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.transactionReplychoice.1.actionReplyList.ce__actionReplyList.actionReplyList.actionReply.ce__actionReply.actionReply.actionReplychoice.0.actionReplychoice.1.commandReply.ce__commandReply.commandReply.1.commandReplyList.ce__commandReplyList.commandReplyList.commandReplys.ce__commandReplys.commandReplys.0</selector>
+                    <value type="String">serviceChangeReply</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.Version</selector>
+                    <value type="ProtocolCharacterStringValue">{H.248_Version}</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.transactionReplychoice.1.actionReplyList.ce__actionReplyList.actionReplyList.actionReply.ce__actionReply.actionReply.actionReplychoice.0.actionReplychoice.1</selector>
+                    <value type="String">commandReply</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0</selector>
+                    <value type="String">transactionListchoice</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.transactionReplychoice.1.actionReplyList.ce__actionReplyList.actionReplyList.actionReply.ce__actionReply.actionReply.actionReplychoice.0.actionReplychoice.1.commandReply.ce__commandReply.commandReply.1.commandReplyList.ce__commandReplyList.commandReplyList.commandReplys.ce__commandReplys.commandReplys.0.serviceChangeReply.ce__serviceChangeReply.serviceChangeReply.ServiceChangeToken</selector>
+                    <value type="ProtocolCharacterStringValue">SC</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.transactionReplychoice.1.actionReplyList.ce__actionReplyList.actionReplyList.actionReply.ce__actionReply.actionReply.ContextID.ce__ContextID.ContextID</selector>
+                    <value type="ProtocolCharacterStringValue">{ContextID_RX}</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.mId.ce__mId.mId.3</selector>
+                    <value type="String">getFromSystemConfig</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.transactionReplychoice.1.actionReplyList.ce__actionReplyList.actionReplyList.actionReply.ce__actionReply.actionReply.actionReplychoice.0</selector>
+                    <value type="String">actionReplychoice</value>
+                </item>
+            </valueList>
+            <excludeList>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.transactionReplychoice.1.actionReplyList</selector>
+                    <value>false</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.transactionReplychoice.1.actionReplyList.ce__actionReplyList.actionReplyList.seqof_actionReply</selector>
+                    <value>false</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.transactionReplychoice.1.actionReplyList.ce__actionReplyList.actionReplyList.actionReply.ce__actionReply.actionReply.actionReplychoice.0.actionReplychoice.1.commandReply.ce__commandReply.commandReply.1.commandReplyList.ce__commandReplyList.commandReplyList.seqof_commandReplys</selector>
+                    <value>false</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply</selector>
+                    <value>false</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.transactionReplychoice.1.actionReplyList.ce__actionReplyList.actionReplyList.actionReply.ce__actionReply.actionReply.actionReplychoice.0.actionReplychoice.1.commandReply</selector>
+                    <value>false</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.transactionReplychoice.1.actionReplyList.ce__actionReplyList.actionReplyList.actionReply.ce__actionReply.actionReply.actionReplychoice.0.actionReplychoice</selector>
+                    <value>false</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.transactionReplychoice.1.actionReplyList.ce__actionReplyList.actionReplyList.actionReply.ce__actionReply.actionReply.actionReplychoice.0.actionReplychoice.1.commandReply.ce__commandReply.commandReply.1.commandReplyList.ce__commandReplyList.commandReplyList.commandReplys.ce__commandReplys.commandReplys.0.serviceChangeReply</selector>
+                    <value>false</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.mId.ce__mId.mId.3.getFromSystemConfig</selector>
+                    <value>false</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList</selector>
+                    <value>false</value>
+                </item>
+                <item>
+                    <selector>megacoMessage.messageInformationElements.megacoMessage.message.ce__message.message.messageBody.ce__messageBody.messageBody.1.transactionList.0.transactionListchoice.1.transactionReply.ce__transactionReply.transactionReply.transactionReplychoice.1.actionReplyList.ce__actionReplyList.actionReplyList.actionReply.ce__actionReply.actionReply.actionReplychoice.0.actionReplychoice.1.commandReply.ce__commandReply.commandReply.1.commandReplyList</selector>
+                    <value>false</value>
+                </item>
+            </excludeList>
+            <checkList/>
+        </message>
+    </messageList>
+</messagePool>

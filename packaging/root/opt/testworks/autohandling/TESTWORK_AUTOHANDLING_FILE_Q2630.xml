@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<messagePool>
+    <messageList>
+        <message protocol="Q.2630.2" messageName="ResetRequest" messageAlias="AH_Q2630_ResetRequest">
+            <valueList>
+                <item>
+                    <selector>ResetRequest.messageInformationElements.set.0</selector>
+                    <value type="String">CEID</value>
+                </item>
+                <item>
+                    <selector>ResetRequest.messageInformationElements.set.1.OSAID.ie__OSAID.sequence.Value.OSAID.ce__SAID.SAID</selector>
+                    <value type="ProtocolHexStringValue">{SAID_RX}</value>
+                </item>
+                <item>
+                    <selector>ResetRequest.messageInformationElements.set.1</selector>
+                    <value type="String">OSAID</value>
+                </item>
+            </valueList>
+            <excludeList/>
+            <checkList/>
+        </message>
+        <message protocol="Q.2630.2" messageName="ReleaseConfirm" messageAlias="AH_Q2630_ReleaseRequestReply">
+            <valueList>
+                <item>
+                    <selector>ReleaseConfirm.header.sequence.DSAID.ce__SAID.SAID</selector>
+                    <value type="ProtocolHexStringValue">{SAID_RX}</value>
+                </item>
+            </valueList>
+            <excludeList/>
+            <checkList/>
+        </message>
+        <message protocol="Q.2630.2" messageName="BlockRequest" messageAlias="AH_Q2630_BlockRequest">
+            <valueList>
+                <item>
+                    <selector>BlockRequest.messageInformationElements.set.1.OSAID.ie__OSAID.sequence.Value.OSAID.ce__SAID.SAID</selector>
+                    <value type="ProtocolHexStringValue">{SAID_RX}</value>
+                </item>
+                <item>
+                    <selector>BlockRequest.messageInformationElements.set.0.CEID.ie__CEID.CEID.Value.PID.ce__PID.PID</selector>
+                    <value type="ProtocolHexStringValue">00000003</value>
+                </item>
+                <item>
+                    <selector>BlockRequest.messageInformationElements.set.1</selector>
+                    <value type="String">OSAID</value>
+                </item>
+                <item>
+                    <selector>BlockRequest.messageInformationElements.set.0</selector>
+                    <value type="String">CEID</value>
+                </item>
+            </valueList>
+            <excludeList/>
+            <checkList/>
+        </message>
+        <message protocol="Q.2630.2" messageName="ReleaseRequest" messageAlias="AH_Q2630_ReleaseRequest_Channel_T2">
+            <valueList>
+                <item>
+                    <selector>ReleaseRequest.messageInformationElements.set.0.Cause.ie__CAU.sequence.Value.Diag.ce__Diag.Diag.FieldLength</selector>
+                    <value type="ProtocolHexStringValue">00</value>
+                </item>
+                <item>
+                    <selector>ReleaseRequest.messageInformationElements.set.0.Cause.ie__CAU.sequence.Value.Diag.ce__Diag.Diag.Diagnostic</selector>
+                    <value type="ProtocolHexStringValue"></value>
+                </item>
+                <item>
+                    <selector>ReleaseRequest.header.sequence.DSAID.ce__SAID.SAID</selector>
+                    <value type="ProtocolHexStringValue">00000002</value>
+                </item>
+                <item>
+                    <selector>ReleaseRequest.messageInformationElements.set.0.Cause.ie__CAU.sequence.Length</selector>
+                    <value type="ProtocolHexStringValue">03</value>
+                </item>
+                <item>
+                    <selector>ReleaseRequest.messageInformationElements.set.0</selector>
+                    <value type="String">Cause</value>
+                </item>
+            </valueList>
+            <excludeList/>
+            <checkList>
+                <selector>ReleaseRequest.header.sequence.MessageID</selector>
+                <selector>ReleaseRequest.header.sequence.DSAID.ce__SAID.SAID</selector>
+            </checkList>
+        </message>
+        <message protocol="Q.2630.2" messageName="ReleaseRequest" messageAlias="AH_Q2630_ReleaseRequest_Channel_T1">
+            <valueList>
+                <item>
+                    <selector>ReleaseRequest.messageInformationElements.set.0.Cause.ie__CAU.sequence.Value.Diag.ce__Diag.Diag.FieldLength</selector>
+                    <value type="ProtocolHexStringValue">00</value>
+                </item>
+                <item>
+                    <selector>ReleaseRequest.messageInformationElements.set.0.Cause.ie__CAU.sequence.Value.Diag.ce__Diag.Diag.Diagnostic</selector>
+                    <value type="ProtocolHexStringValue"></value>
+                </item>
+                <item>
+                    <selector>ReleaseRequest.messageInformationElements.set.0</selector>
+                    <value type="String">Cause</value>
+                </item>
+                <item>
+                    <selector>ReleaseRequest.messageInformationElements.set.0.Cause.ie__CAU.sequence.Length</selector>
+                    <value type="ProtocolHexStringValue">03</value>
+                </item>
+                <item>
+                    <selector>ReleaseRequest.header.sequence.DSAID.ce__SAID.SAID</selector>
+                    <value type="ProtocolHexStringValue">00000001</value>
+                </item>
+            </valueList>
+            <excludeList/>
+            <checkList>
+                <selector>ReleaseRequest.header.sequence.MessageID</selector>
+                <selector>ReleaseRequest.header.sequence.DSAID.ce__SAID.SAID</selector>
+            </checkList>
+        </message>
+        <message protocol="Q.2630.2" messageName="ReleaseConfirm" messageAlias="AH_Q2630_ReleaseRequest_Channel_T1Reply">
+            <valueList>
+                <item>
+                    <selector>ReleaseConfirm.header.sequence.DSAID.ce__SAID.SAID</selector>
+                    <value type="ProtocolHexStringValue">{DSAID_Channel_T1}</value>
+                </item>
+            </valueList>
+            <excludeList/>
+            <checkList/>
+        </message>
+        <message protocol="Q.2630.2" messageName="UnblockRequest" messageAlias="AH_Q2630_UnblockRequest">
+            <valueList>
+                <item>
+                    <selector>UnblockRequest.messageInformationElements.set.1</selector>
+                    <value type="String">CEID</value>
+                </item>
+                <item>
+                    <selector>UnblockRequest.messageInformationElements.set.0</selector>
+                    <value type="String">OSAID</value>
+                </item>
+                <item>
+                    <selector>UnblockRequest.messageInformationElements.set.0.OSAID.ie__OSAID.sequence.Value.OSAID.ce__SAID.SAID</selector>
+                    <value type="ProtocolHexStringValue">{SAID_RX}</value>
+                </item>
+            </valueList>
+            <excludeList/>
+            <checkList/>
+        </message>
+        <message protocol="Q.2630.2" messageName="BlockConfirm" messageAlias="AH_Q2630_BlockRequestReply">
+            <valueList>
+                <item>
+                    <selector>BlockConfirm.header.sequence.DSAID.ce__SAID.SAID</selector>
+                    <value type="ProtocolHexStringValue">{SAID_RX}</value>
+                </item>
+            </valueList>
+            <excludeList/>
+            <checkList/>
+        </message>
+        <message protocol="Q.2630.2" messageName="ResetConfirm" messageAlias="AH_Q2630_ResetRequestReply">
+            <valueList>
+                <item>
+                    <selector>ResetConfirm.header.sequence.Compatibility.ce__CIF.CIF.PassOnNotPossible.ce__CIF_Subfield.CIF_Subfield.InstructionIndicator</selector>
+                    <value type="ProtocolEnumerationValue">&quot;Discard parameter&quot;</value>
+                </item>
+                <item>
+                    <selector>ResetConfirm.header.sequence.DSAID.ce__SAID.SAID</selector>
+                    <value type="ProtocolHexStringValue">{SAID_RX}</value>
+                </item>
+                <item>
+                    <selector>ResetConfirm.header.sequence.Compatibility.ce__CIF.CIF.GeneralAction.ce__CIF_Subfield.CIF_Subfield.InstructionIndicator</selector>
+                    <value type="ProtocolEnumerationValue">&quot;Discard message&quot;</value>
+                </item>
+            </valueList>
+            <excludeList/>
+            <checkList/>
+        </message>
+        <message protocol="Q.2630.2" messageName="UnblockConfirm" messageAlias="AH_Q2630_UnblockRequestReply">
+            <valueList>
+                <item>
+                    <selector>UnblockConfirm.header.sequence.DSAID.ce__SAID.SAID</selector>
+                    <value type="ProtocolHexStringValue">{SAID_RX}</value>
+                </item>
+            </valueList>
+            <excludeList/>
+            <checkList/>
+        </message>
+        <message protocol="Q.2630.2" messageName="ReleaseConfirm" messageAlias="AH_Q2630_ReleaseRequest_Channel_T2Reply">
+            <valueList>
+                <item>
+                    <selector>ReleaseConfirm.header.sequence.DSAID.ce__SAID.SAID</selector>
+                    <value type="ProtocolHexStringValue">{DSAID_Channel_T2}</value>
+                </item>
+            </valueList>
+            <excludeList/>
+            <checkList/>
+        </message>
+    </messageList>
+</messagePool>

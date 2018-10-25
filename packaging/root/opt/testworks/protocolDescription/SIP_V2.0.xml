@@ -1,0 +1,1343 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<protocolDescription xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../pegcore/pegasus/common/ptp/protocolDescription/xmlSchema/protocolDescription.xsd" type="SIPv2.0">
+	<protocolMessages>
+		<protocolMessage type="01" name="Request">
+			<header>
+				<protocolObjectSequence name="Header_Elements">
+					<protocolObjectSequence name="Request_Line" txEOF="&#13;&#10;" rxEOFPattern="&#13;&#10;">
+						<characterString name="Method" txEOF=" " rxEOFPattern=" +">
+							<constraints restrictive="false">
+								<enumeration value="ACK"/>
+								<enumeration value="BYE"/>
+								<enumeration value="CANCEL"/>
+								<enumeration value="INVITE"/>
+								<enumeration value="MESSAGE"/>
+								<enumeration value="NOTIFY"/>
+								<enumeration value="OPTIONS"/>
+								<enumeration value="REGISTER"/>
+								<enumeration value="SUBSCRIBE"/>
+								<enumeration value="PUBLISH"/>
+							</constraints>
+						</characterString>
+						<characterString name="Request_URI" txEOF=" " rxEOFPattern=" +">
+							<defaultValue>null</defaultValue>
+						</characterString>
+						<characterString name="SIP_Version" constFlag="true">
+							<defaultValue>SIP/2.0</defaultValue>
+						</characterString>
+					</protocolObjectSequence>
+					<protocolObjectSet name="Header_Fields" sortedMode="true">
+						<informationElementRef name="Accept" mandatory="false">
+							<ref>hf1</ref>
+                                                        <conditions>
+                                                            <condition>
+                                                                <restriction base="Header_Elements.Request_Line.Method">
+                                                                    <pattern value="ACK|CANCEL" negate="true" />
+                                                                </restriction>
+                                                            </condition>
+                                                        </conditions>
+						</informationElementRef>
+						<informationElementRef name="Accept_Encoding" mandatory="false">
+							<ref>hf2</ref>
+                                                        <conditions>
+                                                            <condition>
+                                                                <restriction base="Header_Elements.Request_Line.Method">
+                                                                    <pattern value="ACK|CANCEL" negate="true" />
+                                                                </restriction>
+                                                            </condition>
+                                                        </conditions>                             
+						</informationElementRef>
+						<informationElementRef name="Accept_Language" mandatory="false">
+							<ref>hf3</ref>
+                                                        <conditions>
+                                                            <condition>
+                                                                <restriction base="Header_Elements.Request_Line.Method">
+                                                                    <pattern value="ACK|CANCEL" negate="true" />
+                                                                </restriction>
+                                                            </condition>
+                                                        </conditions>                                            
+						</informationElementRef>
+						<informationElementRef name="Alert_Info" mandatory="false">
+							<ref>hf4</ref>
+                                                        <conditions>
+                                                            <condition>
+                                                                <restriction base="Header_Elements.Request_Line.Method">
+                                                                    <pattern value="ACK|BYE|CANCEL|OPTIONS|REGISTER" negate="true" />
+                                                                </restriction>
+                                                            </condition>
+                                                        </conditions> 
+						</informationElementRef>
+						<informationElementRef name="Allow" mandatory="false">
+							<ref>hf5</ref>
+                                                        <conditions>
+                                                            <condition>
+                                                                <restriction base="Header_Elements.Request_Line.Method">
+                                                                    <pattern value="ACK|CANCEL" negate="true" />
+                                                                </restriction>
+                                                            </condition>
+                                                        </conditions> 
+						</informationElementRef>
+						<informationElementRef name="Authorization" mandatory="false">
+							<ref>hf6</ref>
+						</informationElementRef>
+						<informationElementRef name="Call_ID" mandatory="true">
+							<ref>hf7</ref>
+						</informationElementRef>
+						<informationElementRef name="Call_Info" mandatory="false">
+							<ref>hf8</ref>
+                                                        <conditions>
+                                                            <condition>
+                                                                <restriction base="Header_Elements.Request_Line.Method">
+                                                                    <pattern value="ACK|BYE|CANCEL" negate="true" />
+                                                                </restriction>
+                                                            </condition>
+                                                        </conditions>       
+						</informationElementRef>
+						<informationElementRef name="Contact" mandatory="false">
+							<ref>hf9</ref>
+                                                        <conditions>
+                                                            <condition>
+                                                                <restriction base="Header_Elements.Request_Line.Method">
+                                                                    <pattern value="BYE|CANCEL" negate="true" />
+                                                                </restriction>
+                                                            </condition>
+                                                        </conditions>
+						</informationElementRef>
+						<informationElementRef name="Content_Disposition" mandatory="false">
+							<ref>hf10</ref>
+                                                        <conditions>
+                                                            <condition>
+                                                                <restriction base="Header_Elements.Request_Line.Method">
+                                                                    <pattern value="CANCEL" negate="true" />
+                                                                </restriction>
+                                                            </condition>
+                                                        </conditions>           
+						</informationElementRef>
+						<informationElementRef name="Content_Encoding" mandatory="false">
+							<ref>hf11</ref>
+                                                        <conditions>
+                                                            <condition>
+                                                                <restriction base="Header_Elements.Request_Line.Method">
+                                                                    <pattern value="CANCEL" negate="true" />
+                                                                </restriction>
+                                                            </condition>
+                                                        </conditions>
+						</informationElementRef>
+						<informationElementRef name="Content_Language" mandatory="false">
+							<ref>hf12</ref>
+                                                        <conditions>
+                                                            <condition>
+                                                                <restriction base="Header_Elements.Request_Line.Method">
+                                                                    <pattern value="CANCEL" negate="true" />
+                                                                </restriction>
+                                                            </condition>
+                                                        </conditions>
+						</informationElementRef>
+						<informationElementRef name="Content_Length" mandatory="false">
+							<ref>hf13</ref>
+						</informationElementRef>
+						<informationElementRef name="Content_Type" mandatory="false">
+							<ref>hf14</ref>
+                                                        <conditions>
+                                                            <condition>
+                                                                <restriction base="Header_Elements.Request_Line.Method">
+                                                                    <pattern value="CANCEL" negate="true" />
+                                                                </restriction>
+                                                            </condition>
+                                                        </conditions>
+						</informationElementRef>
+						<informationElementRef name="CSeq" mandatory="true">
+							<ref>hf15</ref>
+						</informationElementRef>
+						<informationElementRef name="Date" mandatory="false">
+							<ref>hf16</ref>
+						</informationElementRef>
+						<informationElementRef name="Expires" mandatory="false">
+							<ref>hf17</ref>
+                                                        <conditions>
+                                                            <condition>
+                                                                <restriction base="Header_Elements.Request_Line.Method">
+                                                                    <pattern value="ACK|BYE|CANCEL|OPTIONS" negate="true" />
+                                                                </restriction>
+                                                            </condition>
+                                                        </conditions>                             
+						</informationElementRef>
+						<informationElementRef name="From" mandatory="true">
+							<ref>hf18</ref>
+						</informationElementRef>
+						<informationElementRef name="In_Reply_To" mandatory="false">
+							<ref>hf19</ref>
+                                                        <conditions>
+                                                            <condition>
+                                                                <restriction base="Header_Elements.Request_Line.Method">
+                                                                    <pattern value="ACK|BYE|CANCEL|OPTIONS|REGISTER" negate="true" />
+                                                                </restriction>
+                                                            </condition>
+                                                        </conditions>                      
+						</informationElementRef>
+						<informationElementRef name="Max_Forwards" mandatory="true">
+							<ref>hf20</ref>
+						</informationElementRef>
+						<informationElementRef name="MIME_Version" mandatory="false">
+							<ref>hf21</ref>
+                                                        <conditions>
+                                                            <condition>
+                                                                <restriction base="Header_Elements.Request_Line.Method">
+                                                                    <pattern value="CANCEL" negate="true" />
+                                                                </restriction>
+                                                            </condition>
+                                                        </conditions> 
+						</informationElementRef>
+						<informationElementRef name="Organization" mandatory="false">
+							<ref>hf22</ref>
+                                                        <conditions>
+                                                            <condition>
+                                                                <restriction base="Header_Elements.Request_Line.Method">
+                                                                    <pattern value="ACK|BYE|CANCEL" negate="true" />
+                                                                </restriction>
+                                                            </condition>
+                                                        </conditions>
+						</informationElementRef>
+						<informationElementRef name="Priority" mandatory="false">
+							<ref>hf23</ref>
+                                                        <conditions>
+                                                            <condition>
+                                                                <restriction base="Header_Elements.Request_Line.Method">
+                                                                    <pattern value="ACK|BYE|CANCEL|OPTIONS|REGISTER" negate="true" />
+                                                                </restriction>
+                                                            </condition>
+                                                        </conditions>                      
+						</informationElementRef>
+						<informationElementRef name="Proxy_Authorization" mandatory="false">
+							<ref>hf24</ref>
+                                                        <conditions>
+                                                            <condition>
+                                                                <restriction base="Header_Elements.Request_Line.Method">
+                                                                    <pattern value="CANCEL" negate="true" />
+                                                                </restriction>
+                                                            </condition>
+                                                        </conditions>
+						</informationElementRef>
+						<informationElementRef name="Proxy_Require" mandatory="false">
+							<ref>hf25</ref>
+                                                        <conditions>
+                                                            <condition>
+                                                                <restriction base="Header_Elements.Request_Line.Method">
+                                                                    <pattern value="ACK|CANCEL" negate="true" />
+                                                                </restriction>
+                                                            </condition>
+                                                        </conditions>
+						</informationElementRef>
+						<informationElementRef name="Record_Route" mandatory="false">
+							<ref>hf26</ref>
+                                                        <conditions>
+                                                            <condition>
+                                                                <restriction base="Header_Elements.Request_Line.Method">
+                                                                    <pattern value="REGISTER" negate="true" />
+                                                                </restriction>
+                                                            </condition>
+                                                        </conditions>
+						</informationElementRef>
+						<informationElementRef name="Reply_To" mandatory="false">
+							<ref>hf27</ref>
+                                                        <conditions>
+                                                            <condition>
+                                                                <restriction base="Header_Elements.Request_Line.Method">
+                                                                    <pattern value="ACK|BYE|CANCEL|OPTIONS|REGISTER" negate="true" />
+                                                                </restriction>
+                                                            </condition>
+                                                        </conditions> 
+						</informationElementRef>
+						<informationElementRef name="Require" mandatory="false">
+							<ref>hf28</ref>
+                                                        <conditions>
+                                                            <condition>
+                                                                <restriction base="Header_Elements.Request_Line.Method">
+                                                                    <pattern value="ACK|CANCEL" negate="true" />
+                                                                </restriction>
+                                                            </condition>
+                                                        </conditions> 
+						</informationElementRef>
+						<informationElementRef name="Route" mandatory="false">
+							<ref>hf29</ref>
+						</informationElementRef>
+						<informationElementRef name="Subject" mandatory="false">
+							<ref>hf30</ref>
+                                                        <conditions>
+                                                            <condition>
+                                                                <restriction base="Header_Elements.Request_Line.Method">
+                                                                    <pattern value="ACK|BYE|CANCEL|OPTIONS|REGISTER" negate="true" />
+                                                                </restriction>
+                                                            </condition>
+                                                        </conditions>
+						</informationElementRef>
+						<informationElementRef name="Supported" mandatory="false">
+							<ref>hf31</ref>
+                                                        <conditions>
+                                                            <condition>
+                                                                <restriction base="Header_Elements.Request_Line.Method">
+                                                                    <pattern value="ACK" negate="true" />
+                                                                </restriction>
+                                                            </condition>
+                                                        </conditions>
+						</informationElementRef>
+						<informationElementRef name="Timestamp" mandatory="false">
+							<ref>hf32</ref>
+						</informationElementRef>
+						<informationElementRef name="To" mandatory="true">
+							<ref>hf33</ref>
+						</informationElementRef>
+						<informationElementRef name="User_Agent" mandatory="false">
+							<ref>hf34</ref>
+						</informationElementRef>
+						<informationElementRef name="Via" mandatory="true">
+							<ref>hf35</ref>
+						</informationElementRef>
+					</protocolObjectSet>
+				</protocolObjectSequence>
+			</header>
+			<messageInformationElements>
+				<protocolObjectSequence>
+                                        <characterString name="CRLF" constFlag="true">
+                                                <defaultValue>&#13;&#10;</defaultValue>
+                                        </characterString>
+					<characterString name="Body">
+						<className>pegasus.ptp.protocolDescription.sip.primitive.SipBody</className>
+						<defaultValue>MESSAGE BODY TEST STRING FOR Request</defaultValue>
+					</characterString>
+				</protocolObjectSequence>
+			</messageInformationElements>
+		</protocolMessage>
+		<protocolMessage type="03" name="Response">
+			<header>
+				<protocolObjectSequence name="Header_Elements">
+					<protocolObjectSequence name="Status_Line">
+						<characterString name="SIP_Version" constFlag="true" txSuffix=" " rxSuffixPattern=" +">
+							<defaultValue>SIP/2.0</defaultValue>
+						</characterString>
+						<characterString name="Status_Code" minLength="3" maxLength="3" txSuffix=" " rxSuffixPattern=" +">
+							<constraints restrictive="false">
+								<enumeration value="100"/>
+								<enumeration value="180"/>
+								<enumeration value="181"/>
+								<enumeration value="182"/>
+								<enumeration value="183"/>
+								<enumeration value="200"/>
+								<enumeration value="300"/>
+								<enumeration value="301"/>
+								<enumeration value="302"/>
+								<enumeration value="305"/>
+								<enumeration value="380"/>
+								<enumeration value="400"/>
+								<enumeration value="401"/>
+								<enumeration value="402"/>
+								<enumeration value="403"/>
+								<enumeration value="404"/>
+								<enumeration value="405"/>
+								<enumeration value="406"/>
+								<enumeration value="407"/>
+								<enumeration value="408"/>
+								<enumeration value="410"/>
+								<enumeration value="413"/>
+								<enumeration value="414"/>
+								<enumeration value="415"/>
+								<enumeration value="416"/>
+								<enumeration value="420"/>
+								<enumeration value="421"/>
+								<enumeration value="423"/>
+								<enumeration value="480"/>
+								<enumeration value="481"/>
+								<enumeration value="482"/>
+								<enumeration value="483"/>
+								<enumeration value="484"/>
+								<enumeration value="485"/>
+								<enumeration value="486"/>
+								<enumeration value="487"/>
+								<enumeration value="488"/>
+								<enumeration value="491"/>
+								<enumeration value="493"/>
+								<enumeration value="500"/>
+								<enumeration value="501"/>
+								<enumeration value="502"/>
+								<enumeration value="503"/>
+								<enumeration value="504"/>
+								<enumeration value="505"/>
+								<enumeration value="513"/>
+								<enumeration value="600"/>
+								<enumeration value="603"/>
+								<enumeration value="604"/>
+								<enumeration value="606"/>
+							</constraints>
+						</characterString>
+						<characterString name="Reason_Phrase" txEOF="&#13;&#10;" rxEOFPattern="&#13;&#10;">
+							<constraints restrictive="false">
+								<enumeration value="Trying"/>
+								<enumeration value="Ringing"/>
+								<enumeration value="Call Is Being Forwarded"/>
+								<enumeration value="Queued"/>
+								<enumeration value="Session Progress"/>
+								<enumeration value="OK"/>
+								<enumeration value="Multiple Choices"/>
+								<enumeration value="Moved Permanently"/>
+								<enumeration value="Moved Temporarily"/>
+								<enumeration value="Use Proxy"/>
+								<enumeration value="Alternative Service"/>
+								<enumeration value="Bad Request"/>
+								<enumeration value="Unauthorized"/>
+								<enumeration value="Payment Required"/>
+								<enumeration value="Forbidden"/>
+								<enumeration value="Not Found"/>
+								<enumeration value="Method Not Allowed"/>
+								<enumeration value="Not Acceptable"/>
+								<enumeration value="Proxy Authentication Required"/>
+								<enumeration value="Request Timeout"/>
+								<enumeration value="Gone"/>
+								<enumeration value="Request Entity Too Large"/>
+								<enumeration value="Request-URI Too Long"/>
+								<enumeration value="Unsupported Media Type"/>
+								<enumeration value="Unsupported URI Scheme"/>
+								<enumeration value="Bad Extension"/>
+								<enumeration value="Extension Required"/>
+								<enumeration value="Interval Too Brief"/>
+								<enumeration value="Temporarily Unavailable"/>
+								<enumeration value="Call/Transaction Does Not Exist"/>
+								<enumeration value="Loop Detected"/>
+								<enumeration value="Too Many Hops"/>
+								<enumeration value="Address Incomplete"/>
+								<enumeration value="Ambiguous"/>
+								<enumeration value="Busy Here"/>
+								<enumeration value="Request Terminated"/>
+								<enumeration value="Not Acceptable Here"/>
+								<enumeration value="Request Pending"/>
+								<enumeration value="Undecipherable"/>
+								<enumeration value="Server Internal Error"/>
+								<enumeration value="Not Implemented"/>
+								<enumeration value="Bad Gateway"/>
+								<enumeration value="Service Unavailable"/>
+								<enumeration value="Server Time-out"/>
+								<enumeration value="SIP Version Not Supported"/>
+								<enumeration value="Message Too Large"/>
+								<enumeration value="Busy Everywhere"/>
+								<enumeration value="Decline"/>
+								<enumeration value="Does not exist anywhere"/>
+								<enumeration value="Not Acceptable"/>
+                                                                <enumeration value="Announcement content not found"/>
+                                                                <enumeration value="Mandatory play parameter missing"/>
+                                                                <enumeration value="Announcement content could not be retrieved"/>
+                                                                <enumeration value="Missing VXML Value"/>
+							</constraints>
+						</characterString>
+					</protocolObjectSequence>
+					<protocolObjectSet name="Header_Fields" sortedMode="true">
+						<informationElementRef name="Accept" mandatory="false">
+							<ref>hf1</ref>
+                                                        <conditions>
+                                                            <condition>
+                                                                <restriction base="Header_Elements.Status_Line.Status_Code">
+                                                                    <pattern value="2\d\d|415"/>
+                                                                </restriction>
+                                                            </condition>
+                                                        </conditions>
+						</informationElementRef>
+						<informationElementRef name="Accept_Encoding" mandatory="false">
+							<ref>hf2</ref>
+                                                        <conditions>
+                                                            <condition>
+                                                                <restriction base="Header_Elements.Status_Line.Status_Code">
+                                                                    <pattern value="2\d\d|415"/>
+                                                                </restriction>
+                                                            </condition>
+                                                        </conditions>
+						</informationElementRef>
+						<informationElementRef name="Accept_Language" mandatory="false">
+							<ref>hf3</ref>
+                                                        <conditions>
+                                                            <condition>
+                                                                <restriction base="Header_Elements.Status_Line.Status_Code">
+                                                                    <pattern value="2\d\d|415"/>
+                                                                </restriction>
+                                                            </condition>
+                                                        </conditions>
+						</informationElementRef>
+						<informationElementRef name="Alert_Info" mandatory="false">
+							<ref>hf4</ref>
+                                                        <conditions>
+                                                            <condition>
+                                                                <restriction base="Header_Elements.Status_Line.Status_Code">
+                                                                    <pattern value="180"/>
+                                                                </restriction>
+                                                            </condition>
+                                                        </conditions>                    
+						</informationElementRef>
+						<informationElementRef name="Allow" mandatory="false">
+							<ref>hf5</ref>                              
+						</informationElementRef>
+						<informationElementRef name="Authentication_Info" mandatory="false">
+							<ref>hf36</ref>
+                                                        <conditions>
+                                                            <condition>
+                                                                <restriction base="Header_Elements.Status_Line.Status_Code">
+                                                                    <pattern value="2\d\d"/>
+                                                                </restriction>
+                                                            </condition>
+                                                        </conditions>                                       
+						</informationElementRef>
+						<informationElementRef name="Call_ID" mandatory="true">
+							<ref>hf7</ref>
+						</informationElementRef>
+						<informationElementRef name="Call_Info" mandatory="false">
+							<ref>hf8</ref>
+						</informationElementRef>
+						<informationElementRef name="Contact" mandatory="false">
+							<ref>hf9</ref>
+                                                        <conditions>
+                                                            <condition>
+                                                                <restriction base="Header_Elements.Status_Line.Status_Code">
+                                                                    <pattern value="[123]\d\d|485"/>
+                                                                </restriction>
+                                                            </condition>
+                                                        </conditions>
+						</informationElementRef>
+						<informationElementRef name="Content_Disposition" mandatory="false">
+							<ref>hf10</ref>
+						</informationElementRef>
+						<informationElementRef name="Content_Encoding" mandatory="false">
+							<ref>hf11</ref>
+						</informationElementRef>
+						<informationElementRef name="Content_Language" mandatory="false">
+							<ref>hf12</ref>
+						</informationElementRef>
+						<informationElementRef name="Content_Length" mandatory="false">
+							<ref>hf13</ref>
+						</informationElementRef>
+						<informationElementRef name="Content_Type" mandatory="false">
+							<ref>hf14</ref>
+						</informationElementRef>
+						<informationElementRef name="CSeq" mandatory="true">
+							<ref>hf15</ref>
+						</informationElementRef>
+						<informationElementRef name="Date" mandatory="false">
+							<ref>hf16</ref>
+						</informationElementRef>
+						<informationElementRef name="Error_Info" mandatory="false">
+							<ref>hf37</ref>
+                                                        <conditions>
+                                                            <condition>
+                                                                <restriction base="Header_Elements.Status_Line.Status_Code">
+                                                                    <pattern value="[3456]\d\d"/>
+                                                                </restriction>
+                                                            </condition>
+                                                        </conditions>                 
+						</informationElementRef>
+						<informationElementRef name="Expires" mandatory="false">
+							<ref>hf17</ref>
+						</informationElementRef>
+						<informationElementRef name="From" mandatory="true">
+							<ref>hf18</ref>
+						</informationElementRef>
+						<informationElementRef name="Min_Expires" mandatory="false">
+							<ref>hf38</ref>
+                                                        <conditions>
+                                                            <condition>
+                                                                <restriction base="Header_Elements.Status_Line.Status_Code">
+                                                                    <pattern value="423"/>
+                                                                </restriction>
+                                                            </condition>
+                                                        </conditions> 
+						</informationElementRef>
+						<informationElementRef name="MIME_Version" mandatory="false">
+							<ref>hf21</ref>                            
+						</informationElementRef>
+						<informationElementRef name="Organization" mandatory="false">
+							<ref>hf22</ref>
+						</informationElementRef>
+						<informationElementRef name="Proxy_Authenticate" mandatory="false">
+							<ref>hf39</ref>
+                                                        <conditions>
+                                                            <condition>
+                                                                <restriction base="Header_Elements.Status_Line.Status_Code">
+                                                                    <pattern value="40[17]"/>
+                                                                </restriction>
+                                                            </condition>
+                                                        </conditions>
+						</informationElementRef>
+						<informationElementRef name="Record_Route" mandatory="false">
+							<ref>hf26</ref>
+                                                        <conditions>
+                                                            <condition>
+                                                                <restriction base="Header_Elements.Status_Line.Status_Code">
+                                                                    <pattern value="2\d\d|18\d"/>
+                                                                </restriction>
+                                                            </condition>
+                                                        </conditions>
+						</informationElementRef>
+						<informationElementRef name="Reply_To" mandatory="false">
+							<ref>hf27</ref>
+						</informationElementRef>
+						<informationElementRef name="Require" mandatory="false">
+							<ref>hf28</ref>
+						</informationElementRef>
+						<informationElementRef name="Retry_After" mandatory="false">
+							<ref>hf40</ref>
+                                                        <conditions>
+                                                            <condition>
+                                                                <restriction base="Header_Elements.Status_Line.Status_Code">
+                                                                    <pattern value="404|413|48[06]|50[03]|60[03]"/>
+                                                                </restriction>
+                                                            </condition>
+                                                        </conditions>
+						</informationElementRef>
+						<informationElementRef name="Server" mandatory="false">
+							<ref>hf41</ref>
+						</informationElementRef>
+						<informationElementRef name="Supported" mandatory="false">
+							<ref>hf31</ref>
+                                                        <conditions>
+                                                            <condition>
+                                                                <restriction base="Header_Elements.Status_Line.Status_Code">
+                                                                    <pattern value="2\d\d"/>
+                                                                </restriction>
+                                                            </condition>
+                                                        </conditions>
+						</informationElementRef>
+						<informationElementRef name="Timestamp" mandatory="false">
+							<ref>hf32</ref>
+						</informationElementRef>
+						<informationElementRef name="To" mandatory="true">
+							<ref>hf33</ref>
+						</informationElementRef>
+						<informationElementRef name="Unsupported" mandatory="false">
+							<ref>hf44</ref>
+                                                        <conditions>
+                                                            <condition>
+                                                                <restriction base="Header_Elements.Status_Line.Status_Code">
+                                                                    <pattern value="420"/>
+                                                                </restriction>
+                                                            </condition>
+                                                        </conditions>
+						</informationElementRef>
+						<informationElementRef name="User_Agent" mandatory="false">
+							<ref>hf34</ref>
+						</informationElementRef>
+						<informationElementRef name="Via" mandatory="true">
+							<ref>hf35</ref>
+						</informationElementRef>
+						<informationElementRef name="Warning" mandatory="false">
+							<ref>hf42</ref>
+						</informationElementRef>
+						<informationElementRef name="WWW_Authenticate" mandatory="false">
+							<ref>hf43</ref>
+                                                        <conditions>
+                                                            <condition>
+                                                                <restriction base="Header_Elements.Status_Line.Status_Code">
+                                                                    <pattern value="40[17]"/>
+                                                                </restriction>
+                                                            </condition>
+                                                        </conditions>
+						</informationElementRef>
+					</protocolObjectSet>
+				</protocolObjectSequence>
+			</header>
+			<messageInformationElements>
+				<protocolObjectSequence>
+                                        <characterString name="CRLF" constFlag="true">
+                                                <defaultValue>&#13;&#10;</defaultValue>
+                                        </characterString>
+					<characterString name="Body">
+						<className>pegasus.ptp.protocolDescription.sip.primitive.SipBody</className>
+						<defaultValue>MESSAGE BODY TEST STRING FOR Response</defaultValue>
+					</characterString>
+				</protocolObjectSequence>
+			</messageInformationElements>
+		</protocolMessage>
+	</protocolMessages>
+	<informationElements>
+		<informationElement format="TV" name="hf1" iei="Accept" mandatory="true" hideFlag="true" txEOF="&#13;&#10;" rxEOFPattern="&#13;&#10;">
+			<protocolObjectSequence name="hf" hideFlag="true">
+				<characterString constFlag="true" name="Name" txSuffix=":" rxSuffixPattern=" *:">
+					<defaultValue>Accept</defaultValue>
+				</characterString>
+                                <characterString name="Value" txPrefix=" " rxPrefixPattern=" *">
+                                        <defaultValue>application/sdp</defaultValue>
+                                </characterString>
+			</protocolObjectSequence>
+		</informationElement>
+		<informationElement format="TV" name="hf2" iei="Accept-Encoding" mandatory="true" hideFlag="true"  txEOF="&#13;&#10;" rxEOFPattern="&#13;&#10;">
+			<protocolObjectSequence name="hf" hideFlag="true">
+				<characterString constFlag="true" name="Name" txSuffix=":" rxSuffixPattern=" *:">
+					<defaultValue>Accept-Encoding</defaultValue>
+				</characterString>
+                                <characterString name="Value" txPrefix=" " rxPrefixPattern=" *">
+                                        <defaultValue>identity</defaultValue>
+                                </characterString>
+			</protocolObjectSequence>
+		</informationElement>
+		<informationElement format="TV" name="hf3" iei="Accept-Language" mandatory="true" hideFlag="true" txEOF="&#13;&#10;" rxEOFPattern="&#13;&#10;">
+			<protocolObjectSequence name="hf" hideFlag="true">
+				<characterString constFlag="true" name="Name" txSuffix=":" rxSuffixPattern=" *:">
+					<defaultValue>Accept-Language</defaultValue>
+				</characterString>
+                                <characterString name="Value" txPrefix=" " rxPrefixPattern=" *">
+                                        <defaultValue>en</defaultValue>
+                                </characterString>
+			</protocolObjectSequence>
+		</informationElement>
+		<informationElement format="TV" name="hf4" iei="Alert-Info" mandatory="true" hideFlag="true" txEOF="&#13;&#10;" rxEOFPattern="&#13;&#10;">
+			<protocolObjectSequence name="hf" hideFlag="true">
+				<characterString constFlag="true" name="Name" txSuffix=":" rxSuffixPattern=" *:">
+					<defaultValue>Alert-Info</defaultValue>
+				</characterString>
+                                <characterString name="Value" txPrefix=" " rxPrefixPattern=" *">
+                                        <defaultValue>&lt;http://www.example.com/sounds/moo.wav&gt;</defaultValue>
+                                </characterString>
+			</protocolObjectSequence>
+		</informationElement>
+		<informationElement format="TV" name="hf5" iei="Allow" mandatory="true" hideFlag="true" txEOF="&#13;&#10;" rxEOFPattern="&#13;&#10;">
+			<protocolObjectSequence name="hf" hideFlag="true">
+				<characterString constFlag="true" name="Name" txSuffix=":" rxSuffixPattern=" *:">
+					<defaultValue>Allow</defaultValue>
+				</characterString>
+                                <characterString name="supported_methods" txPrefix=" " rxPrefixPattern=" *">
+                                        <defaultValue>INVITE, ACK, OPTIONS, CANCEL, BYE</defaultValue>
+                                </characterString>
+			</protocolObjectSequence>
+		</informationElement>
+		<informationElement format="TV" name="hf36" iei="Authentication-Info" mandatory="true" hideFlag="true" txEOF="&#13;&#10;" rxEOFPattern="&#13;&#10;">
+			<protocolObjectSequence name="hf" hideFlag="true">
+				<characterString constFlag="true" name="Name" txSuffix=":" rxSuffixPattern=" *:">
+					<defaultValue>Authentication-Info</defaultValue>
+				</characterString>
+                                <characterString name="Value" txPrefix=" " rxPrefixPattern=" *">
+                                        <defaultValue>nextnonce="47364c23432d2e131a5fb210812c"</defaultValue>
+                                </characterString>
+			</protocolObjectSequence>
+		</informationElement>
+		<informationElement format="TV" name="hf6" iei="Authorization" mandatory="true" hideFlag="true" txEOF="&#13;&#10;" rxEOFPattern="&#13;&#10;">
+			<protocolObjectSequence name="hf" hideFlag="true">
+				<characterString constFlag="true" name="Name" txSuffix=":" rxSuffixPattern=" *:">
+					<defaultValue>Authorization</defaultValue>
+				</characterString>
+                                <characterString name="Value" txPrefix=" " rxPrefixPattern=" *">
+                                        <defaultValue>Digest username="Alice", realm="atlanta.com", nonce="84a4cc6f3082121f32b42a2187831a9e", response="7587245234b3434cc3412213e5f113a5432"</defaultValue>
+                                </characterString>
+			</protocolObjectSequence>
+		</informationElement>
+		<informationElement format="TV" name="hf7" iei="Call-ID" mandatory="true" hideFlag="true" txEOF="&#13;&#10;" rxEOFPattern="&#13;&#10;">
+			<protocolObjectSequence name="hf" hideFlag="true">                                
+				<characterString name="Name" txEOF=": " rxEOFPattern=" *: *">                                    
+                                        <constraints restrictive="true">
+                                                <enumeration value="Call-ID"/>
+                                                <enumeration value="i"/>      
+                                        </constraints>
+				</characterString>
+				<protocolObjectSequence name="Fields">
+					<characterString name="local_id" txEOF="@" rxEOFPattern="@"/>
+					<characterString name="host"/>
+				</protocolObjectSequence>
+			</protocolObjectSequence>
+		</informationElement>
+		<informationElement format="TV" name="hf8" iei="Call-Info" mandatory="true" hideFlag="true" txEOF="&#13;&#10;" rxEOFPattern="&#13;&#10;">
+			<protocolObjectSequence name="hf" hideFlag="true">
+				<characterString constFlag="true" name="Name" txSuffix=":" rxSuffixPattern=" *:">
+					<defaultValue>Call-Info</defaultValue>
+				</characterString>
+                                <characterString name="Value" txPrefix=" " rxPrefixPattern=" *">
+                                        <defaultValue>&lt;http://wwww.example.com/alice/photo.jpg&gt; ;purpose=icon</defaultValue>
+                                </characterString>
+			</protocolObjectSequence>
+		</informationElement>
+		<informationElement format="TV" name="hf9" iei="Contact" mandatory="true" hideFlag="true" txEOF="&#13;&#10;" rxEOFPattern="&#13;&#10;">
+			<protocolObjectSequence name="hf" hideFlag="true">
+				<characterString name="Name" txEOF=":" rxEOFPattern=" *:">
+                                        <constraints restrictive="true">
+                                                <enumeration value="Contact"/>
+                                                <enumeration value="m"/>      
+                                        </constraints>
+				</characterString>
+                                <characterString name="Value" txPrefix=" " rxPrefixPattern=" *">
+                                        <defaultValue>"Mr. Watson" &lt;sip:watson@worcester.bell-telephone.com&gt;;q=0.7; expires=3600,&#9;"Mr. Watson" &lt;mailto:watson@bell-telephone.com&gt; ;q=0.1</defaultValue>
+                                </characterString>
+			</protocolObjectSequence>
+		</informationElement>
+		<informationElement format="TV" name="hf10" iei="Content-Disposition" mandatory="true" hideFlag="true" txEOF="&#13;&#10;" rxEOFPattern="&#13;&#10;">
+			<protocolObjectSequence name="hf" hideFlag="true">
+				<characterString constFlag="true" name="Name" txSuffix=":" rxSuffixPattern=" *:">
+					<defaultValue>Content-Disposition</defaultValue>
+				</characterString>
+                                <characterString name="Value" txPrefix=" " rxPrefixPattern=" *">
+                                        <defaultValue>session</defaultValue>
+                                </characterString>
+			</protocolObjectSequence>
+		</informationElement>
+		<informationElement format="TV" name="hf11" iei="Content-Encoding" mandatory="true" hideFlag="true" txEOF="&#13;&#10;" rxEOFPattern="&#13;&#10;">
+			<protocolObjectSequence name="hf" hideFlag="true">
+				<characterString name="Name"  txEOF=":" rxEOFPattern=" *:">
+                                        <constraints restrictive="true">
+                                                <enumeration value="Content-Encoding"/>
+                                                <enumeration value="e"/>      
+                                        </constraints>
+				</characterString>
+                                <characterString name="Value" txPrefix=" " rxPrefixPattern=" *">
+                                        <defaultValue>gzip</defaultValue>
+                                </characterString>
+			</protocolObjectSequence>
+		</informationElement>
+		<informationElement format="TV" name="hf12" iei="Content-Language" mandatory="true" hideFlag="true" txEOF="&#13;&#10;" rxEOFPattern="&#13;&#10;">
+			<protocolObjectSequence name="hf" hideFlag="true">
+				<characterString constFlag="true" name="Name" txSuffix=":" rxSuffixPattern=" *:">
+					<defaultValue>Content-Language</defaultValue>
+				</characterString>
+                                <characterString name="Value" txPrefix=" " rxPrefixPattern=" *">
+                                        <defaultValue>fr</defaultValue>
+                                </characterString>
+			</protocolObjectSequence>
+		</informationElement>
+		<informationElement format="TV" name="hf13" iei="Content-Length" mandatory="true" hideFlag="true" txEOF="&#13;&#10;" rxEOFPattern="&#13;&#10;">
+			<protocolObjectSequence name="hf" hideFlag="true">
+                                <characterString name="Name"  txEOF=":" rxEOFPattern=" *:">
+                                        <constraints restrictive="true">
+                                                <enumeration value="Content-Length"/>
+                                                <enumeration value="l"/>      
+                                        </constraints>
+				</characterString>
+                                <characterString name="length" txPrefix=" " rxPrefixPattern=" *">
+                                        <defaultValue>349</defaultValue>
+                                </characterString>
+			</protocolObjectSequence>
+		</informationElement>
+		<informationElement format="TV" name="hf14" iei="Content-Type" mandatory="true" hideFlag="true" txEOF="&#13;&#10;" rxEOFPattern="&#13;&#10;">
+			<protocolObjectSequence name="hf" hideFlag="true">
+                                <characterString name="Name"  txEOF=":" rxEOFPattern=" *:">
+                                        <constraints restrictive="true">
+                                                <enumeration value="Content-Type"/>
+                                                <enumeration value="c"/>      
+                                        </constraints>
+				</characterString>
+                                <characterString name="Value" txPrefix=" " rxPrefixPattern=" *">
+                                        <defaultValue>text/html; charset=ISO-8859-4</defaultValue>
+                                </characterString>
+			</protocolObjectSequence>
+		</informationElement>
+		<informationElement format="TV" name="hf15" iei="CSeq" mandatory="true" hideFlag="true" txEOF="&#13;&#10;" rxEOFPattern="&#13;&#10;">
+			<protocolObjectSequence name="hf" hideFlag="true">
+				<characterString constFlag="true" name="Name" txSuffix=":" rxSuffixPattern=" *:">
+					<defaultValue>CSeq</defaultValue>
+				</characterString>
+                                <characterString name="Value" txPrefix=" " rxPrefixPattern=" ">
+                                        <defaultValue>4711 INVITE</defaultValue>
+                                </characterString>
+			</protocolObjectSequence>
+		</informationElement>
+		<informationElement format="TV" name="hf16" iei="Date" mandatory="true" hideFlag="true" txEOF="&#13;&#10;" rxEOFPattern="&#13;&#10;">
+			<protocolObjectSequence name="hf" hideFlag="true">
+				<characterString constFlag="true" name="Name" txSuffix=":" rxSuffixPattern=" *:">
+					<defaultValue>Date</defaultValue>
+				</characterString>
+                                <characterString name="Value" txPrefix=" " rxPrefixPattern=" *">
+                                        <defaultValue>Sat, 13 Nov 2010 23:29:00 GMT</defaultValue>
+                                </characterString>
+			</protocolObjectSequence>
+		</informationElement>
+		<informationElement format="TV" name="hf37" iei="Error-Info" mandatory="true" hideFlag="true" txEOF="&#13;&#10;" rxEOFPattern="&#13;&#10;">
+			<protocolObjectSequence name="hf" hideFlag="true">
+				<characterString constFlag="true" name="Name" txSuffix=":" rxSuffixPattern=" *:">
+					<defaultValue>Error-Info</defaultValue>
+				</characterString>
+                                <characterString name="Value" txPrefix=" " rxPrefixPattern=" *">
+                                        <defaultValue>&lt;sip:not-in-service-recording@atlanta.com&gt;</defaultValue>
+                                </characterString>
+			</protocolObjectSequence>
+		</informationElement>
+		<informationElement format="TV" name="hf17" iei="Expires" mandatory="true" hideFlag="true" txEOF="&#13;&#10;" rxEOFPattern="&#13;&#10;">
+			<protocolObjectSequence name="hf" hideFlag="true">
+				<characterString constFlag="true" name="Name" txSuffix=":" rxSuffixPattern=" *:">
+					<defaultValue>Expires</defaultValue>
+				</characterString>
+                                <characterString name="Value" txPrefix=" " rxPrefixPattern=" *">
+                                        <defaultValue>0</defaultValue>
+                                </characterString>
+			</protocolObjectSequence>
+		</informationElement>
+		<informationElement format="TV" name="hf18" iei="From" mandatory="true" hideFlag="true" txEOF="&#13;&#10;" rxEOFPattern="&#13;&#10;">
+			<protocolObjectSequence name="hf" hideFlag="true">
+                                <characterString name="Name"  txEOF=":" rxEOFPattern=" *:">
+                                        <constraints restrictive="true">
+                                                <enumeration value="From"/>
+                                                <enumeration value="f"/>      
+                                        </constraints>
+				</characterString>
+                                <characterString name="Value" txPrefix=" " rxPrefixPattern=" *">
+                                        <defaultValue>Anonymous &lt;sip:c8oqz84zk7z@privacy.org&gt;;tag=hyh8</defaultValue>
+                                </characterString>
+			</protocolObjectSequence>
+		</informationElement>
+		<informationElement format="TV" name="hf19" iei="In-Reply-To" mandatory="true" hideFlag="true" txEOF="&#13;&#10;" rxEOFPattern="&#13;&#10;">
+			<protocolObjectSequence name="hf" hideFlag="true">
+				<characterString constFlag="true" name="Name" txSuffix=":" rxSuffixPattern=" *:">
+					<defaultValue>In-Reply-To</defaultValue>
+				</characterString>
+                                <characterString name="Value" txPrefix=" " rxPrefixPattern=" *">
+                                        <defaultValue>70710@saturn.bell-tel.com, 17320@saturn.bell-tel.com</defaultValue>
+                                </characterString>
+			</protocolObjectSequence>
+		</informationElement>
+		<informationElement format="TV" name="hf20" iei="Max-Forwards" mandatory="true" hideFlag="true" txEOF="&#13;&#10;" rxEOFPattern="&#13;&#10;">
+			<protocolObjectSequence name="hf" hideFlag="true">
+				<characterString constFlag="true" name="Name" txSuffix=":" rxSuffixPattern=" *:">
+					<defaultValue>Max-Forwards</defaultValue>
+				</characterString>
+                                <characterString name="Value" txPrefix=" " rxPrefixPattern=" *">
+                                        <defaultValue>6</defaultValue>
+                                </characterString>
+			</protocolObjectSequence>
+		</informationElement>
+		<informationElement format="TV" name="hf38" iei="Min-Expires" mandatory="true" hideFlag="true" txEOF="&#13;&#10;" rxEOFPattern="&#13;&#10;">
+			<protocolObjectSequence name="hf" hideFlag="true">
+				<characterString constFlag="true" name="Name" txSuffix=":" rxSuffixPattern=" *:">
+					<defaultValue>Min-Expires</defaultValue>
+				</characterString>
+				<characterString name="Value" txPrefix=" " rxPrefixPattern=" *">
+                                        <defaultValue>60</defaultValue>
+                                </characterString>
+			</protocolObjectSequence>
+		</informationElement>
+		<informationElement format="TV" name="hf21" iei="MIME-Version" mandatory="true" hideFlag="true" txEOF="&#13;&#10;" rxEOFPattern="&#13;&#10;">
+			<protocolObjectSequence name="hf" hideFlag="true">
+				<characterString constFlag="true" name="Name" txSuffix=":" rxSuffixPattern=" *:">
+					<defaultValue>MIME-Version</defaultValue>
+				</characterString>
+                                <characterString name="Value" txPrefix=" " rxPrefixPattern=" *">
+                                        <defaultValue>1.0</defaultValue>
+                                </characterString>
+                        </protocolObjectSequence>
+		</informationElement>
+		<informationElement format="TV" name="hf22" iei="Organization" mandatory="true" hideFlag="true" txEOF="&#13;&#10;" rxEOFPattern="&#13;&#10;">
+			<protocolObjectSequence name="hf" hideFlag="true">
+				<characterString constFlag="true" name="Name" txSuffix=":" rxSuffixPattern=" *:">
+					<defaultValue>Organization</defaultValue>
+				</characterString>
+                                <characterString name="Value" txPrefix=" " rxPrefixPattern=" *">
+                                        <defaultValue>Boxes by Bob</defaultValue>
+                                </characterString>
+			</protocolObjectSequence>
+		</informationElement>
+		<informationElement format="TV" name="hf23" iei="Priority" mandatory="true" hideFlag="true" txEOF="&#13;&#10;" rxEOFPattern="&#13;&#10;">
+			<protocolObjectSequence name="hf" hideFlag="true">
+				<characterString constFlag="true" name="Name" txSuffix=":" rxSuffixPattern=" *:">
+					<defaultValue>Priority</defaultValue>
+				</characterString>
+                                <characterString name="Value" txPrefix=" " rxPrefixPattern=" *">
+                                        <defaultValue>normal</defaultValue>
+                                </characterString>
+			</protocolObjectSequence>
+		</informationElement>
+		<informationElement format="TV" name="hf39" iei="Proxy-Authenticate" mandatory="true" hideFlag="true" txEOF="&#13;&#10;" rxEOFPattern="&#13;&#10;">
+			<protocolObjectSequence name="hf" hideFlag="true">
+				<characterString constFlag="true" name="Name" txSuffix=":" rxSuffixPattern=" *:">
+					<defaultValue>Proxy-Authenticate</defaultValue>
+				</characterString>
+                                <characterString name="Value" txPrefix=" " rxPrefixPattern=" *">
+                                        <defaultValue>Digest realm="atlanta.com",   domain="sip:ss1.carrier.com", qop="auth",   nonce="f84f1cec41e6cbe5aea9c8e88d359",  opaque="", stale=FALSE, algorithm=MD5</defaultValue>
+                                </characterString>
+			</protocolObjectSequence>
+		</informationElement>
+		<informationElement format="TV" name="hf24" iei="Proxy-Authorization" mandatory="true" hideFlag="true" txEOF="&#13;&#10;" rxEOFPattern="&#13;&#10;">
+			<protocolObjectSequence name="hf" hideFlag="true">
+				<characterString constFlag="true" name="Name" txSuffix=":" rxSuffixPattern=" *:">
+					<defaultValue>Proxy-Authorization</defaultValue>
+				</characterString>
+				<characterString name="Value" txPrefix=" " rxPrefixPattern=" *">
+                                        <defaultValue>Digest username="Alice", realm="atlanta.com", nonce="c60f3082ee1212b402a21831ae", response="245f23415f11432b3434341c022"</defaultValue>
+                                </characterString>
+			</protocolObjectSequence>
+		</informationElement>
+		<informationElement format="TV" name="hf25" iei="Proxy-Require" mandatory="true" hideFlag="true" txEOF="&#13;&#10;" rxEOFPattern="&#13;&#10;">
+			<protocolObjectSequence name="hf" hideFlag="true">
+				<characterString constFlag="true" name="Name" txSuffix=":" rxSuffixPattern=" *:">
+					<defaultValue>Proxy-Require</defaultValue>
+				</characterString>
+                                <characterString name="Value" txPrefix=" " rxPrefixPattern=" *">
+                                        <defaultValue>foo</defaultValue>
+                                </characterString>
+			</protocolObjectSequence>
+		</informationElement>
+		<informationElement format="TV" name="hf26" iei="Record-Route" mandatory="true" hideFlag="true" txEOF="&#13;&#10;" rxEOFPattern="&#13;&#10;">
+			<protocolObjectSequence name="hf" hideFlag="true">
+				<characterString constFlag="true" name="Name" txSuffix=":" rxSuffixPattern=" *:">
+					<defaultValue>Record-Route</defaultValue>
+				</characterString>
+                                <characterString name="Value" txPrefix=" " rxPrefixPattern=" *">
+                                        <defaultValue>&lt;sip:server10.biloxi.com;lr&gt;,&lt;sip:bigbox3.site3.atlanta.com;lr&gt;</defaultValue>
+                                </characterString>
+			</protocolObjectSequence>
+		</informationElement>
+		<informationElement format="TV" name="hf27" iei="Reply-To" mandatory="true" hideFlag="true" txEOF="&#13;&#10;" rxEOFPattern="&#13;&#10;">
+			<protocolObjectSequence name="hf" hideFlag="true">
+				<characterString constFlag="true" name="Name" txSuffix=":" rxSuffixPattern=" *:">
+					<defaultValue>Reply-To</defaultValue>
+				</characterString>
+                                <characterString name="Value" txPrefix=" " rxPrefixPattern=" *">
+                                        <defaultValue>Bob &lt;sip:bob@biloxi.com&gt;</defaultValue>
+                                </characterString>
+			</protocolObjectSequence>
+		</informationElement>
+		<informationElement format="TV" name="hf28" iei="Require" mandatory="true" hideFlag="true" txEOF="&#13;&#10;" rxEOFPattern="&#13;&#10;">
+			<protocolObjectSequence name="hf" hideFlag="true">
+				<characterString constFlag="true" name="Name" txSuffix=":" rxSuffixPattern=" *:">
+					<defaultValue>Require</defaultValue>
+				</characterString>
+                                <characterString name="Value" txPrefix=" " rxPrefixPattern=" *">
+                                        <defaultValue>100rel</defaultValue>
+                                </characterString>
+			</protocolObjectSequence>
+		</informationElement>
+		<informationElement format="TV" name="hf40" iei="Retry-After" mandatory="true" hideFlag="true" txEOF="&#13;&#10;" rxEOFPattern="&#13;&#10;">
+			<protocolObjectSequence name="hf" hideFlag="true">
+				<characterString constFlag="true" name="Name" txSuffix=":" rxSuffixPattern=" *:">
+					<defaultValue>Retry-After</defaultValue>
+				</characterString>
+                                <characterString name="Value" txPrefix=" " rxPrefixPattern=" *">
+                                        <defaultValue>18000;duration=3600</defaultValue>
+                                </characterString>
+			</protocolObjectSequence>
+		</informationElement>
+		<informationElement format="TV" name="hf29" iei="Route" mandatory="true" hideFlag="true" txEOF="&#13;&#10;" rxEOFPattern="&#13;&#10;">
+			<protocolObjectSequence name="hf" hideFlag="true">
+				<characterString constFlag="true" name="Name" txSuffix=":" rxSuffixPattern=" *:">
+					<defaultValue>Route</defaultValue>
+				</characterString>
+                                <characterString name="Value" txPrefix=" " rxPrefixPattern=" *">
+                                        <defaultValue>&lt;sip:bigbox3.site3.atlanta.com;lr&gt;, &lt;sip:server10.biloxi.com;lr&gt;</defaultValue>
+                                </characterString>
+			</protocolObjectSequence>
+		</informationElement>
+		<informationElement format="TV" name="hf41" iei="Server" mandatory="true" hideFlag="true" txEOF="&#13;&#10;" rxEOFPattern="&#13;&#10;">
+			<protocolObjectSequence name="hf" hideFlag="true">
+				<characterString constFlag="true" name="Name" txSuffix=":" rxSuffixPattern=" *:">
+					<defaultValue>Server</defaultValue>
+				</characterString>
+                                <characterString name="Value" txPrefix=" " rxPrefixPattern=" *">
+                                        <defaultValue>HomeServer v2</defaultValue>
+                                </characterString>
+			</protocolObjectSequence>
+		</informationElement>
+		<informationElement format="TV" name="hf30" iei="Subject" mandatory="true" hideFlag="true" txEOF="&#13;&#10;" rxEOFPattern="&#13;&#10;">
+			<protocolObjectSequence name="hf" hideFlag="true">
+                                <characterString name="Name"  txEOF=":" rxEOFPattern=" *:">
+                                        <constraints restrictive="true">
+                                                <enumeration value="Subject"/>
+                                                <enumeration value="s"/>      
+                                        </constraints>
+				</characterString>
+                                <characterString name="Value" txPrefix=" " rxPrefixPattern=" *">
+                                        <defaultValue>Tech Support</defaultValue>
+                                </characterString>
+			</protocolObjectSequence>
+		</informationElement>
+		<informationElement format="TV" name="hf31" iei="Supported" mandatory="true" hideFlag="true" txEOF="&#13;&#10;" rxEOFPattern="&#13;&#10;">
+			<protocolObjectSequence name="hf" hideFlag="true">
+                                <characterString name="Name"  txEOF=":" rxEOFPattern=" *:">
+                                        <constraints restrictive="true">
+                                                <enumeration value="Supported"/>
+                                                <enumeration value="k"/>      
+                                        </constraints>
+				</characterString>
+                                <characterString name="Value" txPrefix=" " rxPrefixPattern=" *">
+                                        <defaultValue>100rel</defaultValue>
+                                </characterString>
+			</protocolObjectSequence>
+		</informationElement>
+		<informationElement format="TV" name="hf32" iei="Timestamp" mandatory="true" hideFlag="true" txEOF="&#13;&#10;" rxEOFPattern="&#13;&#10;">
+			<protocolObjectSequence name="hf" hideFlag="true">
+				<characterString constFlag="true" name="Name" txSuffix=":" rxSuffixPattern=" *:">
+					<defaultValue>Timestamp</defaultValue>
+				</characterString>
+                                <characterString name="Value" txPrefix=" " rxPrefixPattern=" *">
+                                        <defaultValue>54</defaultValue>
+                                </characterString>
+			</protocolObjectSequence>
+		</informationElement>
+		<informationElement format="TV" name="hf33" iei="To" mandatory="true" hideFlag="true" txEOF="&#13;&#10;" rxEOFPattern="&#13;&#10;">
+			<protocolObjectSequence name="hf" hideFlag="true">
+                                <characterString name="Name"  txEOF=":" rxEOFPattern=" *:">
+                                        <constraints restrictive="true">
+                                                <enumeration value="To"/>
+                                                <enumeration value="t"/>      
+                                        </constraints>
+				</characterString>
+                                <characterString name="Value" txPrefix=" " rxPrefixPattern=" *">
+                                        <defaultValue>The Operator &lt;sip:operator@cs.columbia.edu&gt;;tag=287447</defaultValue>
+                                </characterString>
+			</protocolObjectSequence>
+		</informationElement>
+		<informationElement format="TV" name="hf44" iei="Unsupported" mandatory="true" hideFlag="true" txEOF="&#13;&#10;" rxEOFPattern="&#13;&#10;">
+			<protocolObjectSequence name="hf" hideFlag="true">
+				<characterString constFlag="true" name="Name" txSuffix=":" rxSuffixPattern=" *:">
+					<defaultValue>Unsupported</defaultValue>
+				</characterString>
+                                <characterString name="Value" txPrefix=" " rxPrefixPattern=" *">
+                                        <defaultValue>foo</defaultValue>
+                                </characterString>
+			</protocolObjectSequence>
+		</informationElement>
+		<informationElement format="TV" name="hf34" iei="User-Agent" mandatory="true" hideFlag="true" txEOF="&#13;&#10;" rxEOFPattern="&#13;&#10;">
+			<protocolObjectSequence name="hf" hideFlag="true">
+				<characterString constFlag="true" name="Name" txSuffix=":" rxSuffixPattern=" *:">
+					<defaultValue>User-Agent</defaultValue>
+				</characterString>
+                                <characterString name="Value" txPrefix=" " rxPrefixPattern=" *">
+                                        <defaultValue>Softphone Beta1.5</defaultValue>
+                                </characterString>
+			</protocolObjectSequence>
+		</informationElement>
+		<informationElement format="TV" name="hf35" iei="Via" mandatory="true" hideFlag="true" txEOF="&#13;&#10;" rxEOFPattern="&#13;&#10;">
+			<protocolObjectSequence name="hf" hideFlag="true">
+                                <characterString name="Name"  txEOF=":" rxEOFPattern=" *:">
+                                        <constraints restrictive="true">
+                                                <enumeration value="Via"/>
+                                                <enumeration value="v"/>      
+                                        </constraints>
+				</characterString>
+                                <characterString name="Value" txPrefix=" " rxPrefixPattern=" *">
+                                        <defaultValue>SIP/2.0/UDP erlang.bell-telephone.com:5060;branch=z9hG4bK87asdks7</defaultValue>
+                                </characterString>
+			</protocolObjectSequence>
+		</informationElement>
+		<informationElement format="TV" name="hf42" iei="Warning" mandatory="true" hideFlag="true" txEOF="&#13;&#10;" rxEOFPattern="&#13;&#10;">
+			<protocolObjectSequence name="hf" hideFlag="true">
+				<characterString constFlag="true" name="Name" txSuffix=":" rxSuffixPattern=" *:">
+					<defaultValue>Warning</defaultValue>
+				</characterString>
+                                <characterString name="Value" txPrefix=" " rxPrefixPattern=" *">
+                                        <defaultValue>307 isi.edu "Session parameter foo not understood"</defaultValue>
+                                </characterString>
+			</protocolObjectSequence>
+		</informationElement>
+		<informationElement format="TV" name="hf43" iei="WWW-Authenticate" mandatory="true" hideFlag="true" txEOF="&#13;&#10;" rxEOFPattern="&#13;&#10;">
+			<protocolObjectSequence name="hf" hideFlag="true">
+				<characterString constFlag="true" name="Name" txSuffix=":" rxSuffixPattern=" *:">
+					<defaultValue>WWW-Authenticate</defaultValue>
+				</characterString>
+                                <characterString name="Value" txPrefix=" " rxPrefixPattern=" *">
+                                        <defaultValue>Digest realm="atlanta.com",   domain="sip:boxesbybob.com", qop="auth",nonce="f84f1cec41e6cbe5aea9c8e88d359",  opaque="", stale=FALSE, algorithm=MD5</defaultValue>
+                                </characterString>
+			</protocolObjectSequence>
+		</informationElement>
+	</informationElements>
+	<commonElements>
+                <commonElement name="accept-param">
+                        <protocolObjectSequence name="fields"  txSeparatorPattern = ";q=" rxSeparatorPattern = "; *q=">
+                                <characterString name="media-range" txPrefix=" " rxPrefixPattern=" *">
+                                    <defaultValue>application/sdp</defaultValue>
+                                </characterString>
+                                <characterString name="q=" mandatory="false">
+                                    <defaultValue>0.7</defaultValue>
+                                </characterString>
+                        </protocolObjectSequence>
+                </commonElement>
+		<commonElement name="params">
+			<protocolObjectSequenceOf minLength="0" maxLength="4">
+				<protocolObjectSequence>
+					<characterString name="name">
+					</characterString>
+					<characterString name="value"/>
+				</protocolObjectSequence>
+			</protocolObjectSequenceOf>
+		</commonElement>
+		<commonElement name="branch_param">
+			<protocolObjectSequence name="param">
+				<characterString name="name" txPrefix=";" rxPrefixPattern=";" constFlag="true">
+					<defaultValue>branch=</defaultValue>
+				</characterString>
+				<!--branch value MUST always begin with characters "z9hG4bK" -->
+				<characterString name="value">
+					<defaultValue>z9hG4bK</defaultValue>
+				</characterString>
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement name="q_param">
+			<protocolObjectSequence name="param">
+				<characterString name="name" constFlag="true" txPrefix="; " rxPrefixPattern="; ">
+					<defaultValue>q=</defaultValue>
+				</characterString>
+				<characterString name="value">
+					<defaultValue>null</defaultValue>
+				</characterString>
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement name="purpose_param">
+			<protocolObjectSequence name="param">
+				<characterString name="name" constFlag="true" txPrefix="; " rxPrefixPattern="; ">
+					<defaultValue>purpose=</defaultValue>
+				</characterString>
+				<characterString name="value">
+					<defaultValue>null</defaultValue>
+				</characterString>
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement name="expires_param">
+			<protocolObjectSequence name="param">
+				<characterString name="name" constFlag="true" txPrefix="; " rxPrefixPattern="; ">
+					<defaultValue>expires=</defaultValue>
+				</characterString>
+				<characterString name="value">
+					<defaultValue>null</defaultValue>
+				</characterString>
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement name="charset_param">
+			<protocolObjectSequence name="param">
+				<characterString name="name" constFlag="true" txPrefix="; " rxPrefixPattern="; ">
+					<defaultValue>charset=</defaultValue>
+				</characterString>
+				<characterString name="value">
+					<defaultValue>null</defaultValue>
+				</characterString>
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement name="tag_param">
+			<protocolObjectSequence name="param">
+				<characterString name="name" constFlag="true" txPrefix=";" rxPrefixPattern="; ">
+					<defaultValue>tag=</defaultValue>
+				</characterString>
+				<characterString name="value">
+					<defaultValue>null</defaultValue>
+				</characterString>
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement name="duration_param">
+			<protocolObjectSequence name="param">
+				<characterString name="name" constFlag="true" txPrefix=";" rxPrefixPattern="; ">
+					<defaultValue>duration=</defaultValue>
+				</characterString>
+				<characterString name="value">
+					<defaultValue>0</defaultValue>
+				</characterString>
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement name="received_param">
+			<protocolObjectSequence name="param">
+				<characterString name="name" txPrefix=";" rxPrefixPattern=";" constFlag="true">
+					<defaultValue>received=</defaultValue>
+				</characterString>
+				<characterString name="value">
+					<defaultValue>null</defaultValue>
+				</characterString>
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement name="icon_param">
+			<protocolObjectSequence name="param">
+				<characterString name="name" constFlag="true" txPrefix="; " rxPrefixPattern="; ">
+					<defaultValue>icon=</defaultValue>
+				</characterString>
+				<characterString name="value">
+					<defaultValue>null</defaultValue>
+				</characterString>
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement name="card_param">
+			<protocolObjectSequence name="param">
+				<characterString name="name" constFlag="true" txPrefix="; " rxPrefixPattern="; ">
+					<defaultValue>card=</defaultValue>
+				</characterString>
+				<characterString name="value">
+					<defaultValue>null</defaultValue>
+				</characterString>
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement name="info_param">
+			<protocolObjectSequence name="param">
+				<characterString name="name" constFlag="true" txPrefix="; " rxPrefixPattern="; ">
+					<defaultValue>info=</defaultValue>
+				</characterString>
+				<characterString name="value">
+					<defaultValue>null</defaultValue>
+				</characterString>
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement name="maddr_param">
+			<protocolObjectSequence name="param">
+				<characterString name="name" txPrefix=";" rxPrefixPattern=";" constFlag="true">
+					<defaultValue>maddr=</defaultValue>
+				</characterString>
+				<characterString name="value">
+					<defaultValue>null</defaultValue>
+				</characterString>
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement name="next_nonce_param">
+			<protocolObjectSequence name="param">
+				<characterString name="name" txPrefix=" " rxPrefixPattern=" " constFlag="true">
+					<defaultValue>nextnonce=</defaultValue>
+				</characterString>
+				<characterString name="value">
+					<defaultValue>&quot;47364c23432d2e131a5fb210812c&quot;</defaultValue>
+				</characterString>
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement name="ttl_param">
+			<protocolObjectSequence name="param">
+				<characterString name="name" txPrefix=";" rxPrefixPattern=";" constFlag="true">
+					<defaultValue>ttl=</defaultValue>
+				</characterString>
+				<characterString name="value">
+					<defaultValue>null</defaultValue>
+				</characterString>
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement name="extension_param">
+			<protocolObjectSequence name="param">
+				<characterString name="name" txPrefix=";" rxPrefixPattern=";" constFlag="true">
+					<defaultValue>extension=</defaultValue>
+				</characterString>
+				<characterString name="value">
+					<defaultValue>null</defaultValue>
+				</characterString>
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement name="sent_by_param">
+			<protocolObjectSequence name="param">
+				<characterString name="name" txPrefix=";" rxPrefixPattern=";" constFlag="true">
+					<defaultValue>sent_by=</defaultValue>
+				</characterString>
+				<characterString name="value">
+					<defaultValue>null</defaultValue>
+				</characterString>
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement name="contact_extension_param">
+			<protocolObjectSequence name="param">
+				<characterString name="name" constFlag="true">
+					<defaultValue>contact_extension</defaultValue>
+				</characterString>
+				<characterString name="value">
+					<defaultValue/>
+				</characterString>
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement name="delta_seconds_param">
+			<protocolObjectSequence name="param">
+				<characterString name="name" constFlag="true">
+					<defaultValue>delta_seconds</defaultValue>
+				</characterString>
+				<characterString name="value">
+					<defaultValue/>
+				</characterString>
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement name="lr_param">
+			<protocolObjectSequence name="param">
+				<characterString name="name" constFlag="true" txPrefix=";" rxPrefixPattern=";">
+					<defaultValue>lr</defaultValue>
+				</characterString>
+			</protocolObjectSequence>
+		</commonElement>
+	</commonElements>
+	<decoderInfo>
+		<msgDecoderInfo>
+			<className>pegasus.ptp.protocolDescription.sip.decoderInfo.MsgDecoderInfoSIP</className>
+		</msgDecoderInfo>
+		<ieDecoderInfo/>
+	</decoderInfo>
+</protocolDescription>
+<!-- based on RFC 3261, RFC 2616, RFC 4240, RFC 4117 -->

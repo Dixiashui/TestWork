@@ -1,0 +1,196 @@
+<SdpInterfaceDefinition>
+    <CommonCodecAttributes>
+    </CommonCodecAttributes>    
+    <CodecDefinitionList>
+        <CodecDefinition name = "PCMU">
+            <DefaulPayloadType>0</DefaulPayloadType>
+            <DefaultVbd></DefaultVbd>
+            <AttributeList>
+                <Attribute name="vad" defaultValue="no" />
+            </AttributeList>    
+        </CodecDefinition>
+        <CodecDefinition name = "G723Low">
+            <DefaulPayloadType>4</DefaulPayloadType>
+            <DefaultVbd></DefaultVbd>
+            <AttributeList>
+                <Attribute name="bitrate" defaultValue="5.3" />
+                <Attribute name="annexa" defaultValue="no" />
+            </AttributeList>    
+        </CodecDefinition>
+        <CodecDefinition name = "G723High">
+            <DefaulPayloadType>4</DefaulPayloadType>
+            <DefaultVbd></DefaultVbd>
+            <AttributeList>
+                <Attribute name="bitrate" defaultValue="6.3" />
+                <Attribute name="annexa" defaultValue="no" />
+            </AttributeList>    
+        </CodecDefinition>
+        <CodecDefinition name = "PCMA">
+            <DefaulPayloadType>8</DefaulPayloadType>
+            <DefaultVbd></DefaultVbd>
+            <AttributeList>
+                <Attribute name="vad" defaultValue="no" />
+            </AttributeList>    
+        </CodecDefinition>
+        <CodecDefinition name = "G728">
+            <DefaulPayloadType>15</DefaulPayloadType>
+            <DefaultVbd></DefaultVbd>
+            <AttributeList>
+                <Attribute name="annexb" defaultValue="no" />
+            </AttributeList>    
+        </CodecDefinition>
+        <CodecDefinition name = "G729">
+            <DefaulPayloadType>18</DefaulPayloadType>
+            <DefaultVbd></DefaultVbd>
+            <AttributeList>
+                <Attribute name="annexb" defaultValue="no" />
+            </AttributeList>    
+        </CodecDefinition>
+        <CodecDefinition name = "cn">
+            <DefaulPayloadType>13</DefaulPayloadType>
+            <DefaultVbd></DefaultVbd>
+            <AttributeList>
+                <Attribute name="vad" defaultValue="no" />
+            </AttributeList>    
+        </CodecDefinition>
+        <CodecDefinition name = "G726-16">
+            <DefaulPayloadType>35</DefaulPayloadType>
+            <DefaultVbd></DefaultVbd>
+            <AttributeList>
+                <Attribute name="vad" defaultValue="no" />
+            </AttributeList>    
+        </CodecDefinition>
+        <CodecDefinition name = "G726-24">
+            <DefaulPayloadType>36</DefaulPayloadType>
+            <DefaultVbd></DefaultVbd>
+            <AttributeList>
+                <Attribute name="vad" defaultValue="no" />
+            </AttributeList>    
+        </CodecDefinition>
+        <CodecDefinition name = "G726-32">
+            <DefaulPayloadType>2</DefaulPayloadType>
+            <DefaultVbd></DefaultVbd>
+            <AttributeList>
+                <Attribute name="vad" defaultValue="no" />
+            </AttributeList>    
+        </CodecDefinition>
+        <CodecDefinition name = "G726-40">
+            <DefaulPayloadType>38</DefaulPayloadType>
+            <DefaultVbd></DefaultVbd>
+            <AttributeList>
+                <Attribute name="vad" defaultValue="no" />
+            </AttributeList>    
+        </CodecDefinition>
+        <CodecDefinition name = "AAL2-G726-16">
+            <DefaulPayloadType>35</DefaulPayloadType>
+            <DefaultVbd></DefaultVbd>
+            <AttributeList>
+                <Attribute name="vad" defaultValue="no" />
+            </AttributeList>    
+        </CodecDefinition>
+        <CodecDefinition name = "ALL2-G726-24">
+            <DefaulPayloadType>36</DefaulPayloadType>
+            <DefaultVbd></DefaultVbd>
+            <AttributeList>
+                <Attribute name="vad" defaultValue="no" />
+            </AttributeList>    
+        </CodecDefinition>
+        <CodecDefinition name = "ALL2-G726-32">
+            <DefaulPayloadType>2</DefaulPayloadType>
+            <DefaultVbd></DefaultVbd>
+            <AttributeList>
+                <Attribute name="vad" defaultValue="no" />
+            </AttributeList>    
+        </CodecDefinition>
+        <CodecDefinition name = "ALL2-G726-40">
+            <DefaulPayloadType>38</DefaulPayloadType>
+            <DefaultVbd></DefaultVbd>
+            <AttributeList>
+                <Attribute name="vad" defaultValue="no" />
+            </AttributeList>    
+        </CodecDefinition>
+        <CodecDefinition name = "AMR">
+            <DefaulPayloadType></DefaulPayloadType>
+            <DefaultVbd></DefaultVbd>
+            <AttributeList>
+                <Attribute name="vad" defaultValue="no" />
+            </AttributeList>    
+        </CodecDefinition>
+        <CodecDefinition name = "CLEARMODE">
+            <DefaulPayloadType></DefaulPayloadType>
+            <DefaultVbd></DefaultVbd>
+            <AttributeList>
+                <Attribute name="vad" defaultValue="no" />
+            </AttributeList>    
+        </CodecDefinition>
+        <CodecDefinition name = "telephone-event">
+            <DefaulPayloadType></DefaulPayloadType>
+            <DefaultVbd></DefaultVbd>
+            <AttributeList>
+                <Attribute name="" defaultValue="0-15" />
+            </AttributeList>    
+        </CodecDefinition>
+        <CodecDefinition name = "NOCODEC">
+            <DefaulPayloadType></DefaulPayloadType>
+            <DefaultVbd></DefaultVbd>
+            <AttributeList>
+                <Attribute name="vad" defaultValue="no" />
+            </AttributeList>    
+        </CodecDefinition>
+    </CodecDefinitionList>
+
+    <!--Parameters Definitions -->
+    <ParameterDefinitionList>
+        <!--        <ParameterDefinition name="Echo Cancellation">
+            <type name="OnOff"/>
+            <sdpIdPrefix>TDMC/EC=:</sdpIdPrefix>
+            <description>Nothing here yet.</description>
+        </ParameterDefinition>-->
+        <ParameterDefinition name="Silence Suppression">
+            <type name="OnOff"/>
+            <sdpIdPrefix>a=silenceSupp:  - - - -</sdpIdPrefix>
+            <description>Nothing here yet.</description>
+        </ParameterDefinition>
+        <ParameterDefinition name="Packetization Period-Range">
+            <type name="string"/>
+            <sdpIdPrefix>a=ptime: </sdpIdPrefix>
+            <description>Enter (period)-(range)</description>
+        </ParameterDefinition>
+        <!--        <ParameterDefinition name="Packetization Range">
+            <type name="string"/>
+            <sdpIdPrefix>a=ptime:</sdpIdPrefix>
+            <description>Nothing here yet.</description>
+        </ParameterDefinition>-->
+        <!--        <ParameterDefinition name="Gain Control">
+            <type name="string"/>
+            <sdpIdPrefix>TDMC/GAIN=:</sdpIdPrefix>
+            <description>Nothing here yet.</description>
+        </ParameterDefinition>-->
+        <!--<ParameterDefinition name="Type of Service">
+            <type name="string"/>
+            <sdpIdPrefix>a=echo:</sdpIdPrefix>
+            <description>Nothing here yet.</description>
+        </ParameterDefinition>
+        <ParameterDefinition name="Resource Reservation">
+            <type name="enum">
+                <enumValueList> 
+                    <item>g</item>
+                    <item>cl</item>
+                    <item>be</item>
+                </enumValueList>
+            </type>
+            <sdpIdPrefix>a=echo:</sdpIdPrefix>
+            <description>Nothing here yet.</description>
+        </ParameterDefinition>
+        <ParameterDefinition name="Encryption Key">
+            <type name="string"/>
+            <sdpIdPrefix>a=echo:</sdpIdPrefix>
+            <description>Nothing here yet.</description>
+        </ParameterDefinition>-->
+        <ParameterDefinition name="Bandwidth kb/s">
+            <type name="string"/>
+            <sdpIdPrefix>b=AS: </sdpIdPrefix>
+            <description>Nothing here yet.</description>
+        </ParameterDefinition>
+    </ParameterDefinitionList>
+</SdpInterfaceDefinition>

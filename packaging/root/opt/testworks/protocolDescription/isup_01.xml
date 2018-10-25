@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v5 rel. 4 U (http://www.xmlspy.com) by Giselher Karl Eckel (Siemens AG) -->
+<protocolDescription xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../pegcore/pegasus/common/ptp/protocolDescription/xmlSchema/protocolDescription.xsd" type="ISUPv12_1999">
+	<protocolMessages>
+		<protocolMessage name="InitialAddress" type="01">
+			<messageInformationElements mandatory="false">
+				<protocolObjectSequence>
+					<hexString name="MessageType" minLength="2" maxLength="2" constFlag="true">
+						<defaultValue>01</defaultValue>
+					</hexString>
+					<hexString name="NatureOfConnectionIndicators" minLength="2" maxLength="2">
+						<annotation>Nature of connection indicators</annotation>
+					</hexString>
+					<hexString name="ForwardCallIndicators" minLength="4" maxLength="4">
+						<annotation>Forward call indicators</annotation>
+					</hexString>
+					<hexString name="CallingPartysCategory" minLength="2" maxLength="2">
+						<annotation>Calling party's category</annotation>
+					</hexString>
+					<hexString name="TransmissionMediumReq" minLength="2" maxLength="2">
+						<annotation>Transmission medium requirement</annotation>
+					</hexString>
+					<commonElementRef name="PointerToParameter">
+						<ref>PointerToParameter</ref>
+					</commonElementRef>
+					<commonElementRef name="PointerToOptionalPart">
+						<ref>PointerToOptionalPart</ref>
+					</commonElementRef>
+					<commonElementRef name="CalledPartyNumber">
+						<ref>CalledPartyNumber</ref>
+					</commonElementRef>
+					<informationElementRef name="CallingPartyNumber">
+						<ref>CallingPartyNumber</ref>
+					</informationElementRef>
+					<protocolObjectSet name="set">
+						<informationElementRef name="PropagationDelayCounter" mandatory="false">
+							<ref>PropagationDelayCounter</ref>
+						</informationElementRef>
+						<informationElementRef name="HopCounter" mandatory="false">
+							<ref>HopCounter</ref>
+						</informationElementRef>
+						<informationElementRef name="UserServiceInformation" mandatory="false">
+							<ref>UserServiceInformation</ref>
+						</informationElementRef>
+						<informationElementRef name="ParameterCompatibility" mandatory="false">
+							<ref>ParameterCompatibility</ref>
+						</informationElementRef>
+						<informationElementRef name="AccessTransport" mandatory="false">
+							<ref>AccessTransport</ref>
+						</informationElementRef>
+						<informationElementRef name="EndOfOptParams" mandatory="false">
+							<ref>EndOfOptParams</ref>
+						</informationElementRef>
+					</protocolObjectSet>
+					
+				</protocolObjectSequence>
+			</messageInformationElements>
+		</protocolMessage>
+		<protocolMessage name="AddressComplete" type="06">
+			<messageInformationElements mandatory="false">
+				<protocolObjectSequence>
+					<hexString name="MessageType" minLength="2" maxLength="2" constFlag="true">
+						<defaultValue>06</defaultValue>
+					</hexString>
+					<hexString name="BackwardCallIndicators" minLength="4" maxLength="4">
+						<annotation>Backward call indicators</annotation>
+					</hexString>
+					<commonElementRef name="PointerToOptionalPart">
+						<ref>PointerToOptionalPart</ref>
+					</commonElementRef>
+					<protocolObjectSet>
+						<informationElementRef name="AccessDeliveryInfo" mandatory="false">
+							<ref>AccessDeliveryInfo</ref>
+						</informationElementRef>
+						<informationElementRef name="ParameterCompatibility" mandatory="false">
+							<ref>ParameterCompatibility</ref>
+						</informationElementRef>
+						<informationElementRef name="EndOfOptParams" mandatory="false">
+							<ref>EndOfOptParams</ref>
+						</informationElementRef>
+					</protocolObjectSet>
+				</protocolObjectSequence>
+			</messageInformationElements>
+		</protocolMessage>
+		<protocolMessage name="Answer" type="09">
+			<messageInformationElements mandatory="false">
+				<protocolObjectSequence>
+					<hexString name="MessageType" minLength="2" maxLength="2" constFlag="true">
+						<defaultValue>09</defaultValue>
+					</hexString>
+					<commonElementRef name="PointerToOptionalPart">
+						<ref>PointerToOptionalPart</ref>
+					</commonElementRef>
+					<!--protocolObjectSet>
+					</protocolObjectSet-->
+					<commonElementRef name="EndOfOptParams">
+						<ref>EndOfOptParams</ref>
+					</commonElementRef>
+				</protocolObjectSequence>
+			</messageInformationElements>
+		</protocolMessage>
+		<protocolMessage name="Release" type="0c">
+			<messageInformationElements mandatory="false">
+				<protocolObjectSequence>
+					<hexString name="MessageType" minLength="2" maxLength="2" constFlag="true">
+						<defaultValue>0C</defaultValue>
+					</hexString>
+					<commonElementRef name="PointerToParameter">
+						<ref>PointerToParameter</ref>
+					</commonElementRef>
+					<commonElementRef name="PointerToOptionalPart">
+						<ref>PointerToOptionalPart</ref>
+					</commonElementRef>
+					<commonElementRef name="CauseIndicators">
+						<ref>CauseIndicators</ref>
+					</commonElementRef>
+					<!--protocolObjectSet>
+					</protocolObjectSet-->
+					<commonElementRef name="EndOfOptParams">
+						<ref>EndOfOptParams</ref>
+					</commonElementRef>
+				</protocolObjectSequence>
+			</messageInformationElements>
+		</protocolMessage>
+		<protocolMessage name="ReleaseComplete" type="10">
+			<messageInformationElements mandatory="false">
+				<protocolObjectSequence>
+					<hexString name="MessageType" minLength="2" maxLength="2" constFlag="true">
+						<defaultValue>10</defaultValue>
+					</hexString>
+					<commonElementRef name="PointerToOptionalPart">
+						<ref>PointerToOptionalPart</ref>
+					</commonElementRef>
+					<!--protocolObjectSet>
+					</protocolObjectSet-->
+					<commonElementRef name="EndOfOptParams">
+						<ref>EndOfOptParams</ref>
+					</commonElementRef>
+				</protocolObjectSequence>
+			</messageInformationElements>
+		</protocolMessage>
+	</protocolMessages>
+	<informationElements>
+		<informationElement name="PropagationDelayCounter" iei="31" format="TLV">
+			<protocolObjectSequence>
+				<hexString name="Type" minLength="2" maxLength="2" constFlag="true">
+					<defaultValue>31</defaultValue>
+				</hexString>
+				<hexString name="length" minLength="2" maxLength="2"/>
+				<hexString name="PropagationDelayCounter" minLength="4" maxLength="4"/>
+			</protocolObjectSequence>
+		</informationElement>
+		<informationElement name="HopCounter" iei="3D" format="TLV">
+			<protocolObjectSequence>
+				<hexString name="Type" minLength="2" maxLength="2" constFlag="true">
+					<defaultValue>3D</defaultValue>
+				</hexString>
+				<hexString name="length" minLength="2" maxLength="2"/>
+				<hexString name="HopCounter" minLength="2" maxLength="2"/>
+			</protocolObjectSequence>
+		</informationElement>
+		<informationElement name="UserServiceInformation" iei="1D" format="TLV">
+			<protocolObjectSequence>
+				<hexString name="Type" minLength="2" maxLength="2" constFlag="true">
+					<defaultValue>1D</defaultValue>
+				</hexString>
+				<hexString name="length" minLength="2" maxLength="2"/>
+				<hexString name="UserServiceInformation" minLength="4" maxLength="22"/>
+			</protocolObjectSequence>
+		</informationElement>
+		<informationElement name="ParameterCompatibility" iei="39" format="TLV">
+			<annotation>Parameter compatibility information</annotation>
+			<protocolObjectSequence>
+				<hexString name="Type" minLength="2" maxLength="2" constFlag="true">
+					<defaultValue>39</defaultValue>
+				</hexString>
+				<hexString name="length" minLength="2" maxLength="2"/>
+				<hexString name="ParameterCompatibility" minLength="4" maxLength="unbounded"/>
+			</protocolObjectSequence>
+		</informationElement>
+		<informationElement name="AccessTransport" iei="03" format="TLV">
+			<protocolObjectSequence>
+				<hexString name="Type" minLength="2" maxLength="2" constFlag="true">
+					<defaultValue>03</defaultValue>
+				</hexString>
+				<hexString name="length" minLength="2" maxLength="2"/>
+				<hexString name="AccessTransport" minLength="2" maxLength="unbounded"/>
+			</protocolObjectSequence>
+		</informationElement>
+		<informationElement name="AccessDeliveryInfo" iei="2E" format="TLV">
+			<protocolObjectSequence>
+				<hexString name="Type" minLength="2" maxLength="2" constFlag="true">
+					<defaultValue>2E</defaultValue>
+				</hexString>
+				<hexString name="length" minLength="2" maxLength="2"/>
+				<hexString name="AccessDeliveryInfo" minLength="2" maxLength="2"/>
+			</protocolObjectSequence>
+		</informationElement>
+		<informationElement name="CallingPartyNumber" iei="0A" format="TLV">
+			<protocolObjectSequence>
+				<hexString name="Type" minLength="2" maxLength="2" constFlag="true">
+					<defaultValue>0A</defaultValue>
+				</hexString>
+				<hexString name="length" minLength="2" maxLength="2"/>
+				<protocolObjectSequence>
+					<bitString right2leftDecoding="true" name="NatureOfAddress" minLength="7" maxLength="7"/>
+					<bitString right2leftDecoding="true" name="OddEvenInd" minLength="1" maxLength="1">
+						<annotation>Odd/Even Indicator</annotation>
+					</bitString>
+					<bitString right2leftDecoding="true" name="ScreeningIndicator" minLength="2" maxLength="2"/>
+					<bitString right2leftDecoding="true" name="PresentationRestrInd" minLength="2" maxLength="2">
+						<annotation>Presentation Restriction Indicator</annotation>
+					</bitString>
+					<bitString right2leftDecoding="true" name="NumberingPlanInd" minLength="3" maxLength="3">
+						<annotation>Numbering Plan Indicator</annotation>
+					</bitString>
+					<bitString right2leftDecoding="true" name="CallgNoIncompleteInd" minLength="1" maxLength="1">
+						<annotation/>
+					</bitString>
+					<hexString name="CallingPartyNumber" minLength="10" maxLength="unbounded"/>
+				</protocolObjectSequence>
+			</protocolObjectSequence>
+		</informationElement>
+		<informationElement format="T" name="EndOfOptParams" iei="00">
+			<protocolObjectSequence>
+			<hexString name="type" constFlag="true">
+					<defaultValue>00</defaultValue>
+
+			</hexString>
+			</protocolObjectSequence>
+		</informationElement>
+	</informationElements>
+	<commonElements>
+		<commonElement name="CalledPartyNumber">
+			<protocolObjectSequence>
+				<hexString name="length" minLength="2" maxLength="2"/>
+				<protocolObjectSequence lengthBase="ce__CalledPartyNumber.sequence.length">
+					<bitString right2leftDecoding="true" name="NatureOfAddress" minLength="7" maxLength="7"/>
+					<bitString right2leftDecoding="true" name="OddEvenInd" minLength="1" maxLength="1">
+						<annotation>Odd/Even Indicator</annotation>
+					</bitString>
+					<bitString right2leftDecoding="true" name="spare" minLength="4" maxLength="4">
+						<defaultValue>0000</defaultValue>
+					</bitString>
+					<bitString right2leftDecoding="true" name="NumberingPlanInd" minLength="3" maxLength="3">
+						<annotation>Numbering plan indicator</annotation>
+					</bitString>
+					<bitString right2leftDecoding="true" name="InternalNetworkInd" minLength="1" maxLength="1">
+						<annotation>Internal Network No. Ind</annotation>
+					</bitString>
+					<hexString name="CalledAddress" minLength="6" maxLength="6">
+						<annotation>Called Address Signals</annotation>
+					</hexString>
+					<hexString name="CalledAddressTail" minLength="2" maxLength="unbounded">
+						<annotation>Called Address Signals</annotation>
+					</hexString>
+				</protocolObjectSequence>
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement name="CauseIndicators">
+			<protocolObjectSequence>
+				<hexString name="length" minLength="2" maxLength="2"/>
+				<bitString right2leftDecoding="true" name="Location" minLength="4" maxLength="4"/>
+				<bitString right2leftDecoding="true" name="spare" minLength="1" maxLength="1">
+					<defaultValue>0</defaultValue>
+				</bitString>
+				<bitString right2leftDecoding="true" name="CodingStandard" minLength="2" maxLength="2"/>
+				<bitString right2leftDecoding="true" name="ExtensionIndicator1" minLength="1" maxLength="1"/>
+				<bitString right2leftDecoding="true" name="CauseValue" minLength="7" maxLength="7"/>
+				<bitString right2leftDecoding="true" name="ExtensionIndicator2" minLength="1" maxLength="1"/>
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement name="PointerToParameter">
+			<annotation>Pointer to variable length parameter</annotation>
+			<protocolObjectSequence>
+				<hexString name="PointerToParameter" minLength="2" maxLength="2"/>
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement name="PointerToOptionalPart">
+			<annotation>Pointer to optional parameter part</annotation>
+			<protocolObjectSequence>
+				<hexString name="PointerToOptionalPart" minLength="2" maxLength="2"/>
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement name="EndOfOptParams">
+			<annotation>End of optional parameters</annotation>
+			<protocolObjectSequence>
+				<hexString name="EndOfOptParams" minLength="2" maxLength="2" mandatory="false">
+					<conditions>
+						<condition>
+							<restriction base="messageInformationElements.sequence.PointerToOptionalPart.ce__PointerToOptionalPart.sequence.PointerToOptionalPart">
+								<pattern value="[1-9a-fA-F][1-9a-fA-F]|[1-9a-fA-F]0|0[1-9a-fA-F]"/>
+							</restriction>
+						</condition>
+					</conditions>
+				</hexString>
+			</protocolObjectSequence>
+		</commonElement>
+	</commonElements>
+	<decoderInfo>
+		<msgDecoderInfo/>
+		<ieDecoderInfo>
+			<valueLength>
+				<value byte_nr="1" logAND="255"/>
+			</valueLength>
+		</ieDecoderInfo>
+	</decoderInfo>
+</protocolDescription>

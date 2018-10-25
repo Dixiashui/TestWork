@@ -1,0 +1,1718 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<protocolDescription xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="/opt/TestWorks/gui/src/pegasus/common/ptp/protocolDescription/xmlSchema/protocolDescription.xsd" type="M2UA">
+<!-- <protocolDescription xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="/opt/TestWorks/pegcore_old/pegcore_08.02.04/plugins/ptp/src/pegasus/common/ptp/protocolDescription/xmlSchema/protocolDescription.xsd" type="M2UA"> -->
+
+<!-- <protocolDescription xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../protocolDescription.xsd" type="M2UA"> -->
+
+
+
+<!-- last change: 25/06/2007 by op8080
+   included correction for MAUP messages, adding MAUP header 
+   -->
+   
+    <className>pegasus.ptp.protocolDescription.m2ua.util.M2UAProtocolDescription</className>
+	<protocolMessages>
+ 		<protocolMessage type="0601" name="Data">
+                    <header>
+ 				<protocolObjectSequence hideFlag="true">
+                                        <hexString name="Version" minLength="2" maxLength="2" constFlag="true" hideFlag="false" >
+                                                <defaultValue>01</defaultValue>
+                                        </hexString>        
+                                        <hexString name="Reserved" minLength="2" maxLength="2"  constFlag="true" hideFlag="false">
+                                                <defaultValue>00</defaultValue>
+                                        </hexString>
+                                        <hexString name="MessageClass" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                                                <defaultValue>06</defaultValue>
+                                        </hexString>
+                                        <hexString name="MessageType" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                                                <defaultValue>01</defaultValue>
+                                        </hexString>
+                                        <hexString name="MessageLength" minLength="8" maxLength="8" messageLength="true"/>
+                                </protocolObjectSequence>
+                    </header>                   
+                    <messageInformationElements mandatory="true" > 
+                        <protocolObjectSequence>
+                            <protocolObjectSet name="M2UAMessageHeader" mandatory="true">
+                               <informationElementRef name="InterfaceIdentifiersInteger" mandatory="false" iei="0001">
+                                    <ref>InterfaceIdentifiersInteger</ref>
+                                </informationElementRef>
+                                <informationElementRef name="InterfaceIdentifiersText" mandatory="false" iei="0003">
+                                    <ref>InterfaceIdentifiersText</ref>
+                                </informationElementRef>
+                            </protocolObjectSet>
+                            <informationElementRef name="ParameterData" mandatory="true" iei="0300">
+                                <ref>ParameterData</ref>
+                            </informationElementRef>
+                            <protocolObjectSet name="CorrelationId" mandatory="false">       
+                                <informationElementRef name="CorrelationId" mandatory="false" iei="0013">
+                                    <ref>Correlation</ref>
+                                </informationElementRef>
+                            </protocolObjectSet>
+                        </protocolObjectSequence>
+                    </messageInformationElements>
+		</protocolMessage>
+		<protocolMessage type="0602" name="EstablishRequest">
+                    <header>
+                        <protocolObjectSequence hideFlag="true">
+                            <hexString name="Version" minLength="2" maxLength="2" constFlag="true" hideFlag="false" >
+                                <defaultValue>01</defaultValue>
+                            </hexString>
+                            <hexString name="Reserved" minLength="2" maxLength="2"  constFlag="true" hideFlag="false">
+                                <defaultValue>00</defaultValue>
+                            </hexString>
+                            <hexString name="MessageClass" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                                <defaultValue>06</defaultValue>
+                            </hexString>
+                            <hexString name="MessageType" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                                <defaultValue>02</defaultValue>
+                            </hexString>
+                            <hexString name="MessageLength" minLength="8" maxLength="8" messageLength="true"/>
+                        </protocolObjectSequence>
+                    </header>
+                    <messageInformationElements name="ie_M2UAMessageHeader" mandatory="true" >
+                        <protocolObjectSet name="M2UAMessageHeader" mandatory="true">
+                               <informationElementRef name="InterfaceIdentifiersInteger" mandatory="false" iei="0001">
+                                    <ref>InterfaceIdentifiersInteger</ref>
+                                </informationElementRef>
+                                <informationElementRef name="InterfaceIdentifiersText" mandatory="false" iei="0003">
+                                    <ref>InterfaceIdentifiersText</ref>
+                                </informationElementRef>
+                        </protocolObjectSet>
+                    </messageInformationElements>
+		</protocolMessage>
+                <protocolMessage type="0603" name="EstablishConfirm">
+                    <header>
+                        <protocolObjectSequence hideFlag="true">
+                            <hexString name="Version" minLength="2" maxLength="2" constFlag="true" hideFlag="false" >
+                                <defaultValue>01</defaultValue>
+                            </hexString>
+                            <hexString name="Reserved" minLength="2" maxLength="2"  constFlag="true" hideFlag="false">
+                                <defaultValue>00</defaultValue>
+                            </hexString>
+                            <hexString name="MessageClass" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                                <defaultValue>06</defaultValue>
+                            </hexString>
+                            <hexString name="MessageType" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                                <defaultValue>03</defaultValue>
+                            </hexString>
+                            <hexString name="MessageLength" minLength="8" maxLength="8" constFlag="false" messageLength="true"/>
+                        </protocolObjectSequence>
+                    </header>
+                    <messageInformationElements name="ie_M2UAMessageHeader" mandatory="true" >
+                        <protocolObjectSet name="M2UAMessageHeader" mandatory="true">
+                               <informationElementRef name="InterfaceIdentifiersInteger" mandatory="false" iei="0001">
+                                    <ref>InterfaceIdentifiersInteger</ref>
+                                </informationElementRef>
+                                <informationElementRef name="InterfaceIdentifiersText" mandatory="false" iei="0003">
+                                    <ref>InterfaceIdentifiersText</ref>
+                                </informationElementRef>
+                        </protocolObjectSet>
+                    </messageInformationElements>
+                </protocolMessage>
+		<protocolMessage type="0604" name="ReleaseRequest">
+                    <header>
+                        <protocolObjectSequence hideFlag="true">
+                            <hexString name="Version" minLength="2" maxLength="2" constFlag="true" hideFlag="false" >
+                                <defaultValue>01</defaultValue>
+                            </hexString>
+                            <hexString name="Reserved" minLength="2" maxLength="2"  constFlag="true" hideFlag="false">
+                                <defaultValue>00</defaultValue>
+                            </hexString>
+                            <hexString name="MessageClass" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                                <defaultValue>06</defaultValue>
+                            </hexString>
+                            <hexString name="MessageType" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                                <defaultValue>04</defaultValue>
+                            </hexString>
+                            <hexString name="MessageLength" minLength="8" maxLength="8" constFlag="false" messageLength="true"/>
+                        </protocolObjectSequence>
+                    </header>
+                    <messageInformationElements name="ie_M2UAMessageHeader" mandatory="true" >
+                        <protocolObjectSet name="M2UAMessageHeader" mandatory="true">
+                               <informationElementRef name="InterfaceIdentifiersInteger" mandatory="false" iei="0001">
+                                    <ref>InterfaceIdentifiersInteger</ref>
+                                </informationElementRef>
+                                <informationElementRef name="InterfaceIdentifiersText" mandatory="false" iei="0003">
+                                    <ref>InterfaceIdentifiersText</ref>
+                                </informationElementRef>
+                        </protocolObjectSet>
+                    </messageInformationElements>
+		</protocolMessage>
+                <protocolMessage type="0605" name="ReleaseConfirm">
+                    <header>
+                        <protocolObjectSequence hideFlag="true">
+                            <hexString name="Version" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                                <defaultValue>01</defaultValue>
+                            </hexString>
+                            <hexString name="Reserved" minLength="2" maxLength="2"  constFlag="true" hideFlag="false">
+                                <defaultValue>00</defaultValue>
+                            </hexString>
+                            <hexString name="MessageClass" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                                <defaultValue>06</defaultValue>
+                            </hexString>
+                            <hexString name="MessageType" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                                <defaultValue>05</defaultValue>
+                            </hexString>
+                            <hexString name="MessageLength" minLength="8" maxLength="8" constFlag="false" messageLength="true"/>
+                        </protocolObjectSequence>
+                    </header> 
+                    <messageInformationElements name="ie_M2UAMessageHeader" mandatory="true" >
+                        <protocolObjectSet name="M2UAMessageHeader" mandatory="true">
+                               <informationElementRef name="InterfaceIdentifiersInteger" mandatory="false" iei="0001">
+                                    <ref>InterfaceIdentifiersInteger</ref>
+                                </informationElementRef>
+                                <informationElementRef name="InterfaceIdentifiersText" mandatory="false" iei="0003">
+                                    <ref>InterfaceIdentifiersText</ref>
+                                </informationElementRef>
+                        </protocolObjectSet>
+                    </messageInformationElements>
+		</protocolMessage>
+                <protocolMessage type="0606" name="ReleaseIndication">
+                    <header>
+                        <protocolObjectSequence hideFlag="true">
+                            <hexString name="Version" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                                <defaultValue>01</defaultValue>
+                            </hexString>
+                            <hexString name="Reserved" minLength="2" maxLength="2"  constFlag="true" hideFlag="false">
+                                <defaultValue>00</defaultValue>
+                            </hexString>
+                            <hexString name="MessageClass" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                                <defaultValue>06</defaultValue>
+                            </hexString>
+                            <hexString name="MessageType" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                                <defaultValue>06</defaultValue>
+                            </hexString>
+                            <hexString name="MessageLength" minLength="8" maxLength="8" constFlag="false" messageLength="true"/>
+                        </protocolObjectSequence>
+                    </header>
+                    <messageInformationElements name="ie_M2UAMessageHeader" mandatory="true" >
+                        <protocolObjectSet name="M2UAMessageHeader" mandatory="true">
+                               <informationElementRef name="InterfaceIdentifiersInteger" mandatory="false" iei="0001">
+                                    <ref>InterfaceIdentifiersInteger</ref>
+                                </informationElementRef>
+                                <informationElementRef name="InterfaceIdentifiersText" mandatory="false" iei="0003">
+                                    <ref>InterfaceIdentifiersText</ref>
+                                </informationElementRef>
+                        </protocolObjectSet>
+                    </messageInformationElements>
+		</protocolMessage>
+                <protocolMessage type="0607" name="StateRequest">
+                    <header>
+                        <protocolObjectSequence hideFlag="true">
+                            <hexString name="Version" minLength="2" maxLength="2" constFlag="true" hideFlag="false" >
+                                <defaultValue>01</defaultValue>
+                            </hexString>
+                            <hexString name="Reserved" minLength="2" maxLength="2"  constFlag="true" hideFlag="false">
+                                <defaultValue>00</defaultValue>
+                            </hexString>
+                            <hexString name="MessageClass" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                                <defaultValue>06</defaultValue>
+                            </hexString>
+                            <hexString name="MessageType" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                                <defaultValue>07</defaultValue>
+                            </hexString>
+                            <hexString name="MessageLength" minLength="8" maxLength="8" constFlag="false" messageLength="true"/>
+                        </protocolObjectSequence>
+                    </header>  
+                    <messageInformationElements mandatory="true" >
+                        <protocolObjectSequence hideFlag="true">
+                            <protocolObjectSet name="M2UAMessageHeader" mandatory="true">
+                               <informationElementRef name="InterfaceIdentifiersInteger" mandatory="false" iei="0001">
+                                    <ref>InterfaceIdentifiersInteger</ref>
+                                </informationElementRef>
+                                <informationElementRef name="InterfaceIdentifiersText" mandatory="false" iei="0003">
+                                    <ref>InterfaceIdentifiersText</ref>
+                                </informationElementRef>
+                            </protocolObjectSet>
+                            <informationElementRef name="ie_State" mandatory="true" iei="0302">
+                                    <ref>ie_State</ref>
+                            </informationElementRef>
+                        </protocolObjectSequence>
+                    </messageInformationElements>
+		</protocolMessage>
+                <protocolMessage type="0608" name="StateConfirm">
+                    <header>
+                        <protocolObjectSequence hideFlag="true">
+                            <hexString name="Version" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                                <defaultValue>01</defaultValue>
+                            </hexString>
+                            <hexString name="Reserved" minLength="2" maxLength="2"  constFlag="true" hideFlag="false">
+                                <defaultValue>00</defaultValue>
+                            </hexString>
+                            <hexString name="MessageClass" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                                <defaultValue>06</defaultValue>
+                            </hexString>
+                            <hexString name="MessageType" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                                <defaultValue>08</defaultValue>
+                            </hexString>
+                            <hexString name="MessageLength" minLength="8" maxLength="8" constFlag="false" messageLength="true"/>
+                        </protocolObjectSequence>
+                    </header>  
+                    <messageInformationElements mandatory="true" > 
+                        <protocolObjectSequence hideFlag="true">
+                            <protocolObjectSet name="M2UAMessageHeader" mandatory="true">
+                               <informationElementRef name="InterfaceIdentifiersInteger" mandatory="false" iei="0001">
+                                    <ref>InterfaceIdentifiersInteger</ref>
+                                </informationElementRef>
+                                <informationElementRef name="InterfaceIdentifiersText" mandatory="false" iei="0003">
+                                    <ref>InterfaceIdentifiersText</ref>
+                                </informationElementRef>
+                            </protocolObjectSet>
+                            <informationElementRef name="ie_State" mandatory="true" iei="0302">
+                                    <ref>ie_State</ref>
+                            </informationElementRef>
+                        </protocolObjectSequence>
+                    </messageInformationElements>
+		</protocolMessage>
+                <protocolMessage type="0609" name="StateIndication">
+                    <header>
+                        <protocolObjectSequence hideFlag="true">
+                            <hexString name="Version" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                                <defaultValue>01</defaultValue>
+                            </hexString>
+                            <hexString name="Reserved" minLength="2" maxLength="2"  constFlag="true" hideFlag="false">
+                                <defaultValue>00</defaultValue>
+                            </hexString>
+                            <hexString name="MessageClass" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                                <defaultValue>06</defaultValue>
+                            </hexString>
+                            <hexString name="MessageType" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                                <defaultValue>09</defaultValue>
+                            </hexString>
+                            <hexString name="MessageLength" minLength="8" maxLength="8" constFlag="false" messageLength="true"/>
+                        </protocolObjectSequence>
+                    </header>  
+                    <messageInformationElements mandatory="true" >
+                        <protocolObjectSequence hideFlag="true">
+                            <protocolObjectSet name="M2UAMessageHeader" mandatory="true">
+                               <informationElementRef name="InterfaceIdentifiersInteger" mandatory="false" iei="0001">
+                                    <ref>InterfaceIdentifiersInteger</ref>
+                                </informationElementRef>
+                                <informationElementRef name="InterfaceIdentifiersText" mandatory="false" iei="0003">
+                                    <ref>InterfaceIdentifiersText</ref>
+                                </informationElementRef>
+                            </protocolObjectSet>
+                            <informationElementRef name="ie_StateIndication" mandatory="true" iei="0303">
+                                    <ref>ie_StateIndication</ref>
+                            </informationElementRef>
+                        </protocolObjectSequence>
+                    </messageInformationElements>
+		</protocolMessage>
+                <protocolMessage type="060e" name="CongestionIndication">
+                    <header>
+                        <protocolObjectSequence hideFlag="true">
+                            <hexString name="Version" minLength="2" maxLength="2" constFlag="true" hideFlag="false" >
+                                <defaultValue>01</defaultValue>
+                            </hexString>
+                            <hexString name="Reserved" minLength="2" maxLength="2"  constFlag="true" hideFlag="false">
+                                <defaultValue>00</defaultValue>
+                            </hexString>
+                            <hexString name="MessageClass" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                                <defaultValue>06</defaultValue>
+                            </hexString>
+                            <hexString name="MessageType" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                                <defaultValue>0e</defaultValue>
+                            </hexString>
+                            <hexString name="MessageLength" minLength="8" maxLength="8" constFlag="false" messageLength="true"/>
+                        </protocolObjectSequence>
+                    </header>  
+                    <messageInformationElements mandatory="true" >
+                        <protocolObjectSequence>
+                            <protocolObjectSet name="M2UAMessageHeader" mandatory="true">
+                               <informationElementRef name="InterfaceIdentifiersInteger" mandatory="false" iei="0001">
+                                    <ref>InterfaceIdentifiersInteger</ref>
+                                </informationElementRef>
+                                <informationElementRef name="InterfaceIdentifiersText" mandatory="false" iei="0003">
+                                    <ref>InterfaceIdentifiersText</ref>
+                                </informationElementRef>
+                            </protocolObjectSet>
+                            <informationElementRef name="Congestion" mandatory="true" iei="0304">
+                                <ref>Congestion</ref>
+                            </informationElementRef>    
+                            <protocolObjectSet name="Discard" mandatory="false">
+                                <informationElementRef name="Discard" mandatory="false" iei="0305">
+                                    <ref>Discard</ref>
+                                </informationElementRef>
+                            </protocolObjectSet>
+                        </protocolObjectSequence>
+                    </messageInformationElements>
+		</protocolMessage>
+                <protocolMessage type="060a" name="DataRetrievalRequest">
+                    <header>
+                        <protocolObjectSequence hideFlag="true">
+                            <hexString name="Version" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                                <defaultValue>01</defaultValue>
+                            </hexString>
+                            <hexString name="Reserved" minLength="2" maxLength="2"  constFlag="true" hideFlag="false">
+                                <defaultValue>00</defaultValue>
+                            </hexString>
+                            <hexString name="MessageClass" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                                <defaultValue>06</defaultValue>
+                            </hexString>
+                            <hexString name="MessageType" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                                <defaultValue>0a</defaultValue>
+                            </hexString>
+                            <hexString name="MessageLength" minLength="8" maxLength="8" constFlag="false" messageLength="true"/>
+                        </protocolObjectSequence>
+                    </header>  
+                    <messageInformationElements mandatory="true" > 
+                        <protocolObjectSequence>
+                            <protocolObjectSet name="M2UAMessageHeader" mandatory="true">
+                               <informationElementRef name="InterfaceIdentifiersInteger" mandatory="false" iei="0001">
+                                    <ref>InterfaceIdentifiersInteger</ref>
+                                </informationElementRef>
+                                <informationElementRef name="InterfaceIdentifiersText" mandatory="false" iei="0003">
+                                    <ref>InterfaceIdentifiersText</ref>
+                                </informationElementRef>
+                            </protocolObjectSet>
+                            <informationElementRef name="Action" mandatory="true" iei="0306">
+                                <ref>Action</ref>
+                            </informationElementRef>
+                            <protocolObjectSet name="SequenceNumber" mandatory="false">
+                                <informationElementRef name="SequenceNumber" mandatory="false" iei="0307">
+                                        <ref>SequenceNumber</ref>
+                                    </informationElementRef>
+                                </protocolObjectSet>
+                            </protocolObjectSequence>
+                    </messageInformationElements>
+		</protocolMessage>
+                <protocolMessage type="060b" name="DataRetrievalConfirm">
+                    <header>
+                        <protocolObjectSequence hideFlag="true">
+                            <hexString name="Version" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                                <defaultValue>01</defaultValue>
+                            </hexString>
+                            <hexString name="Reserved" minLength="2" maxLength="2"  constFlag="true" hideFlag="false">
+                                <defaultValue>00</defaultValue>
+                            </hexString>
+                            <hexString name="MessageClass" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                                <defaultValue>06</defaultValue>
+                            </hexString>
+                            <hexString name="MessageType" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                                <defaultValue>0b</defaultValue>
+                            </hexString>
+                            <hexString name="MessageLength" minLength="8" maxLength="8" constFlag="false" messageLength="true"/>
+                        </protocolObjectSequence>
+                    </header>  
+                    <messageInformationElements mandatory="true" >
+                        <protocolObjectSequence>
+                            <protocolObjectSet name="M2UAMessageHeader" mandatory="true">
+                               <informationElementRef name="InterfaceIdentifiersInteger" mandatory="false" iei="0001">
+                                    <ref>InterfaceIdentifiersInteger</ref>
+                                </informationElementRef>
+                                <informationElementRef name="InterfaceIdentifiersText" mandatory="false" iei="0003">
+                                    <ref>InterfaceIdentifiersText</ref>
+                                </informationElementRef>
+                            </protocolObjectSet>
+                            <informationElementRef name="Action" mandatory="true" iei="0306">
+                                <ref>Action</ref>
+                            </informationElementRef>
+                            <informationElementRef name="Result" mandatory="true" iei="0308">
+                                <ref>Result</ref>
+                            </informationElementRef>
+                            <protocolObjectSet name="SequenceNumber" mandatory="false">
+                                <informationElementRef name="SequenceNumber" mandatory="false" iei="0307">
+                                    <ref>SequenceNumber</ref>
+                                </informationElementRef>
+                            </protocolObjectSet>
+                        </protocolObjectSequence>
+                    </messageInformationElements>
+		</protocolMessage>
+ 		<protocolMessage type="060c" name="DataRetrievalIndication">
+                    <header>
+                        <protocolObjectSequence hideFlag="true">
+                            <hexString name="Version" minLength="2" maxLength="2" constFlag="true" hideFlag="false" >
+                                <defaultValue>01</defaultValue>
+                            </hexString>
+                            <hexString name="Reserved" minLength="2" maxLength="2"  constFlag="true" hideFlag="false">
+                                <defaultValue>00</defaultValue>
+                            </hexString>
+                            <hexString name="MessageClass" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                                <defaultValue>06</defaultValue>
+                            </hexString>
+                            <hexString name="MessageType" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                                <defaultValue>0c</defaultValue>
+                            </hexString>
+                            <hexString name="MessageLength" minLength="8" maxLength="8" constFlag="false" messageLength="true"/>
+                        </protocolObjectSequence>
+                    </header>                   
+                    <messageInformationElements mandatory="true">
+                        <protocolObjectSequence hideFlag="true">
+                           <protocolObjectSet name="M2UAMessageHeader" mandatory="true">
+                               <informationElementRef name="InterfaceIdentifiersInteger" mandatory="false" iei="0001">
+                                    <ref>InterfaceIdentifiersInteger</ref>
+                                </informationElementRef>
+                                <informationElementRef name="InterfaceIdentifiersText" mandatory="false" iei="0003">
+                                    <ref>InterfaceIdentifiersText</ref>
+                                </informationElementRef>
+                            </protocolObjectSet>
+                            <informationElementRef name="ie_DataRetrieval" mandatory="false" iei="0300">
+                                <ref>ie_DataRetrieval</ref>
+                            </informationElementRef>
+                      </protocolObjectSequence>
+                    </messageInformationElements>
+		</protocolMessage>
+ 		<protocolMessage type="060d" name="DataRetrievalCompleteIndication">
+                    <header>
+                        <protocolObjectSequence hideFlag="true">
+                            <hexString name="Version" minLength="2" maxLength="2" constFlag="true" hideFlag="false" >
+                                <defaultValue>01</defaultValue>
+                            </hexString>
+                            <hexString name="Reserved" minLength="2" maxLength="2"  constFlag="true" hideFlag="false">
+                                <defaultValue>00</defaultValue>
+                            </hexString>
+                            <hexString name="MessageClass" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                                <defaultValue>06</defaultValue>
+                            </hexString>
+                            <hexString name="MessageType" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                                <defaultValue>0d</defaultValue>
+                            </hexString>
+                            <hexString name="MessageLength" minLength="8" maxLength="8" constFlag="false"  messageLength="true"/>
+                        </protocolObjectSequence>
+                    </header>                   
+                    <messageInformationElements mandatory="true" >
+                        <protocolObjectSequence hideFlag="true">
+                            <protocolObjectSet name="M2UAMessageHeader" mandatory="true">
+                               <informationElementRef name="InterfaceIdentifiersInteger" mandatory="false" iei="0001">
+                                    <ref>InterfaceIdentifiersInteger</ref>
+                                </informationElementRef>
+                                <informationElementRef name="InterfaceIdentifiersText" mandatory="false" iei="0003">
+                                    <ref>InterfaceIdentifiersText</ref>
+                                </informationElementRef>
+                            </protocolObjectSet>
+                             <informationElementRef name="ie_DataRetrieval" mandatory="false" iei="0300">
+                                <ref>ie_DataRetrieval</ref>
+                            </informationElementRef>
+                        </protocolObjectSequence>
+                    </messageInformationElements>
+		</protocolMessage>
+               	<protocolMessage type="0301" name="ASP_UP">
+                    <header>
+                        <protocolObjectSequence hideFlag="true">
+                            <hexString name="Version" minLength="2" maxLength="2" constFlag="true" hideFlag="false" >
+                                <defaultValue>01</defaultValue>
+                            </hexString>
+                            <hexString name="Reserved" minLength="2" maxLength="2"  constFlag="true" hideFlag="false">
+                                <defaultValue>00</defaultValue>
+                            </hexString>
+                            <hexString name="MessageClass" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                                <defaultValue>03</defaultValue>
+                            </hexString>
+                            <hexString name="MessageType" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                                <defaultValue>01</defaultValue>
+                            </hexString>
+                            <hexString name="MessageLength" minLength="8" maxLength="8" constFlag="false"  messageLength="true"/>
+                        </protocolObjectSequence>
+                    </header>                   
+                    <messageInformationElements mandatory="false" >
+                        <protocolObjectSequence hideFlag="true">
+                            <protocolObjectSet name="ASPIdentifier" mandatory="false">
+                                <informationElementRef name="ASPIdentifier" mandatory="true" iei="0011">
+                                    <ref>ASPIdentifier</ref>
+                                </informationElementRef>
+                            </protocolObjectSet>
+                            <protocolObjectSet name="InfoString" mandatory="false">
+                                <informationElementRef name="INFOString" mandatory="true" iei="0004">
+                                    <ref>INFOString</ref>
+                                </informationElementRef>
+                            </protocolObjectSet>
+                        </protocolObjectSequence>
+                    </messageInformationElements>
+                </protocolMessage>
+                <protocolMessage type="0304" name="ASP_UP_ACK">
+                    <header>
+                        <protocolObjectSequence hideFlag="true">
+                            <hexString name="Version" minLength="2" maxLength="2" constFlag="true" hideFlag="false" >
+                                <defaultValue>01</defaultValue>
+                            </hexString>
+                            <hexString name="Reserved" minLength="2" maxLength="2"  constFlag="true" hideFlag="false">
+                                <defaultValue>00</defaultValue>
+                            </hexString>
+                            <hexString name="MessageClass" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                                <defaultValue>03</defaultValue>
+                            </hexString>
+                            <hexString name="MessageType" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                                <defaultValue>04</defaultValue>
+                            </hexString>
+                            <hexString name="MessageLength" minLength="8" maxLength="8" constFlag="false"  messageLength="true"/>
+                        </protocolObjectSequence>
+                    </header>                   
+                    <messageInformationElements mandatory="false" >
+                        <protocolObjectSet name="InfoString" mandatory="true">
+                            <informationElementRef name="INFOString" mandatory="true" iei="0004">
+                                <ref>INFOString</ref>
+                            </informationElementRef>
+                        </protocolObjectSet>
+                    </messageInformationElements>
+                </protocolMessage>
+                <protocolMessage type="0302" name="ASP_DOWN">
+                    <header>
+                        <protocolObjectSequence hideFlag="true">
+                            <hexString name="Version" minLength="2" maxLength="2" constFlag="true" hideFlag="false" >
+                                <defaultValue>01</defaultValue>
+                            </hexString>
+                            <hexString name="Reserved" minLength="2" maxLength="2"  constFlag="true" hideFlag="false">
+                                <defaultValue>00</defaultValue>
+                            </hexString>
+                            <hexString name="MessageClass" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                                <defaultValue>03</defaultValue>
+                            </hexString>
+                            <hexString name="MessageType" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                                <defaultValue>02</defaultValue>
+                            </hexString>
+                            <hexString name="MessageLength" minLength="8" maxLength="8" constFlag="false"  messageLength="true"/>
+                        </protocolObjectSequence>
+                    </header>                   
+                    <messageInformationElements mandatory="false" >
+                        <protocolObjectSet name="InfoString" mandatory="true">
+                            <informationElementRef name="INFOString" mandatory="true" iei="0004">
+                                <ref>INFOString</ref>
+                            </informationElementRef>
+                        </protocolObjectSet>
+                    </messageInformationElements>
+                </protocolMessage>
+                <protocolMessage type="0305" name="ASP_DOWN_ACK">
+                    <header>
+                        <protocolObjectSequence hideFlag="true">
+                            <hexString name="Version" minLength="2" maxLength="2" constFlag="true" hideFlag="false" >
+                                <defaultValue>01</defaultValue>
+                            </hexString>
+                            <hexString name="Reserved" minLength="2" maxLength="2"  constFlag="true" hideFlag="false">
+                                <defaultValue>00</defaultValue>
+                            </hexString>
+                            <hexString name="MessageClass" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                                <defaultValue>03</defaultValue>
+                            </hexString>
+                            <hexString name="MessageType" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                                <defaultValue>05</defaultValue>
+                            </hexString>
+                            <hexString name="MessageLength" minLength="8" maxLength="8" constFlag="false"  messageLength="true"/>
+                        </protocolObjectSequence>
+                    </header>                   
+                    <messageInformationElements mandatory="false" >
+                        <protocolObjectSet name="InfoString" mandatory="true">
+                            <informationElementRef name="INFOString" mandatory="true" iei="0004">
+                                <ref>INFOString</ref>
+                            </informationElementRef>
+                        </protocolObjectSet>
+                    </messageInformationElements>
+                </protocolMessage>
+                <protocolMessage type="0303" name="Heartbeat">
+                    <header>
+                        <protocolObjectSequence hideFlag="true">
+                            <hexString name="Version" minLength="2" maxLength="2" constFlag="true" hideFlag="false" >
+                                <defaultValue>01</defaultValue>
+                            </hexString>
+                            <hexString name="Reserved" minLength="2" maxLength="2"  constFlag="true" hideFlag="false">
+                                <defaultValue>00</defaultValue>
+                            </hexString>
+                            <hexString name="MessageClass" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                                <defaultValue>03</defaultValue>
+                            </hexString>
+                            <hexString name="MessageType" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                                <defaultValue>03</defaultValue>
+                            </hexString>
+                            <hexString name="MessageLength" minLength="8" maxLength="8" constFlag="false"  messageLength="true"/>
+                        </protocolObjectSequence>
+                    </header>                   
+                    <messageInformationElements mandatory="false" >
+                        <protocolObjectSet name="HeartbeatData" mandatory="true">
+                            <informationElementRef name="HeartbeatData" mandatory="true" iei="0009">
+                                <ref>HeartbeatData</ref>
+                            </informationElementRef>
+                        </protocolObjectSet>
+                    </messageInformationElements>
+                </protocolMessage>
+                <protocolMessage type="0306" name="Heartbeat_ACK">
+                    <header>
+                        <protocolObjectSequence hideFlag="true">
+                            <hexString name="Version" minLength="2" maxLength="2" constFlag="true" hideFlag="false" >
+                                <defaultValue>01</defaultValue>
+                            </hexString>
+                            <hexString name="Reserved" minLength="2" maxLength="2"  constFlag="true" hideFlag="false">
+                                <defaultValue>00</defaultValue>
+                            </hexString>
+                            <hexString name="MessageClass" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                                <defaultValue>03</defaultValue>
+                            </hexString>
+                            <hexString name="MessageType" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                                <defaultValue>06</defaultValue>
+                            </hexString>
+                            <hexString name="MessageLength" minLength="8" maxLength="8" constFlag="false"  messageLength="true"/>
+                        </protocolObjectSequence>
+                    </header>                   
+                    <messageInformationElements mandatory="false" >
+                        <protocolObjectSet name="HeartbeatData" mandatory="false">
+                            <informationElementRef name="HeartbeatData" mandatory="false" iei="0009">
+                                <ref>HeartbeatData</ref>
+                            </informationElementRef>
+                        </protocolObjectSet>
+                    </messageInformationElements>
+                </protocolMessage>
+                <protocolMessage type="0401" name="ASP_Active">
+                    <header>
+                        <protocolObjectSequence hideFlag="true">
+                            <hexString name="Version" minLength="2" maxLength="2" constFlag="true" hideFlag="false" >
+                                <defaultValue>01</defaultValue>
+                            </hexString>
+                            <hexString name="Reserved" minLength="2" maxLength="2"  constFlag="true" hideFlag="false">
+                                <defaultValue>00</defaultValue>
+                            </hexString>
+                            <hexString name="MessageClass" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                                <defaultValue>04</defaultValue>
+                            </hexString>
+                            <hexString name="MessageType" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                                <defaultValue>01</defaultValue>
+                            </hexString>
+                            <hexString name="MessageLength" minLength="8" maxLength="8" constFlag="false"  messageLength="true"/>
+                        </protocolObjectSequence>
+                    </header>                   
+                    <messageInformationElements name="ie_OptionalParam" mandatory="false" >
+                        <protocolObjectSet name="TrafficModeParameters" mandatory="true">
+                               <informationElementRef name="TrafficModeType" mandatory="false" iei="000b">
+                                    <ref>TrafficModeType</ref>
+                                </informationElementRef>
+                                <informationElementRef name="InterfaceIdentifiersInteger" mandatory="false" iei="0001">
+                                    <ref>InterfaceIdentifiersInteger</ref>
+                                </informationElementRef>
+                                <informationElementRef name="InterfaceIdentifiersRange" mandatory="false" iei="0008">
+                                    <ref>InterfaceIdentifiersRange</ref>
+                                </informationElementRef>
+                                <informationElementRef name="InterfaceIdentifiersText" mandatory="false" iei="0003">
+                                    <ref>InterfaceIdentifiersText</ref>
+                                </informationElementRef>
+                                <informationElementRef name="INFOString" mandatory="false" iei="0004">
+                                    <ref>INFOString</ref>
+                                </informationElementRef>
+                            </protocolObjectSet>
+                        </messageInformationElements>
+                </protocolMessage>
+                 <protocolMessage type="0403" name="ASP_ActiveAck">
+                    <header>
+                        <protocolObjectSequence hideFlag="true">
+                            <hexString name="Version" minLength="2" maxLength="2" constFlag="true" hideFlag="false" >
+                                <defaultValue>01</defaultValue>
+                            </hexString>
+                            <hexString name="Reserved" minLength="2" maxLength="2"  constFlag="true" hideFlag="false">
+                                <defaultValue>00</defaultValue>
+                            </hexString>
+                            <hexString name="MessageClass" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                                <defaultValue>04</defaultValue>
+                            </hexString>
+                            <hexString name="MessageType" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                                <defaultValue>03</defaultValue>
+                            </hexString>
+                            <hexString name="MessageLength" minLength="8" maxLength="8" constFlag="false"  messageLength="true"/>
+                        </protocolObjectSequence>
+                    </header>                   
+                    <messageInformationElements name="ie_OptionalParam" mandatory="false" >
+                        <protocolObjectSet name="TrafficModeParameters" mandatory="true">
+                               <informationElementRef name="TrafficModeType" mandatory="false" iei="000b">
+                                    <ref>TrafficModeType</ref>
+                                </informationElementRef>
+                                <informationElementRef name="InterfaceIdentifiersInteger" mandatory="false" iei="0001">
+                                    <ref>InterfaceIdentifiersInteger</ref>
+                                </informationElementRef>
+                                <informationElementRef name="InterfaceIdentifiersRange" mandatory="false" iei="0008">
+                                    <ref>InterfaceIdentifiersRange</ref>
+                                </informationElementRef>
+                                <informationElementRef name="InterfaceIdentifiersText" mandatory="false" iei="0003">
+                                    <ref>InterfaceIdentifiersText</ref>
+                                </informationElementRef>
+                                <informationElementRef name="INFOString" mandatory="false" iei="0004">
+                                    <ref>INFOString</ref>
+                                </informationElementRef>
+                            </protocolObjectSet>
+                        </messageInformationElements>
+                </protocolMessage>
+                <protocolMessage type="0402" name="ASP_Inactive">
+                    <header>
+                        <protocolObjectSequence hideFlag="true">
+                            <hexString name="Version" minLength="2" maxLength="2" constFlag="true" hideFlag="false" >
+                                <defaultValue>01</defaultValue>
+                            </hexString>
+                            <hexString name="Reserved" minLength="2" maxLength="2"  constFlag="true" hideFlag="false">
+                                <defaultValue>00</defaultValue>
+                            </hexString>
+                            <hexString name="MessageClass" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                                <defaultValue>04</defaultValue>
+                            </hexString>
+                            <hexString name="MessageType" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                                <defaultValue>02</defaultValue>
+                            </hexString>
+                            <hexString name="MessageLength" minLength="8" maxLength="8" constFlag="false"  messageLength="true"/>
+                        </protocolObjectSequence>
+                    </header>                   
+                    <messageInformationElements name="ie_OptionalParam" mandatory="false" >
+                        <protocolObjectSet name="TrafficModeParameters" mandatory="true">
+                               <informationElementRef name="InterfaceIdentifiersInteger" mandatory="false" iei="0001">
+                                    <ref>InterfaceIdentifiersInteger</ref>
+                                </informationElementRef>
+                                <informationElementRef name="InterfaceIdentifiersRange" mandatory="false" iei="0008">
+                                    <ref>InterfaceIdentifiersRange</ref>
+                                </informationElementRef>
+                                <informationElementRef name="InterfaceIdentifiersText" mandatory="false" iei="0003">
+                                    <ref>InterfaceIdentifiersText</ref>
+                                </informationElementRef>
+                                <informationElementRef name="INFOString" mandatory="false" iei="0004">
+                                    <ref>INFOString</ref>
+                                </informationElementRef>
+                        </protocolObjectSet>
+                    </messageInformationElements>
+                </protocolMessage>
+                 <protocolMessage type="0404" name="ASP_InactiveAck">
+                    <header>
+                        <protocolObjectSequence hideFlag="true">
+                            <hexString name="Version" minLength="2" maxLength="2" constFlag="true" hideFlag="false" >
+                                <defaultValue>01</defaultValue>
+                            </hexString>
+                            <hexString name="Reserved" minLength="2" maxLength="2"  constFlag="true" hideFlag="false">
+                                <defaultValue>00</defaultValue>
+                            </hexString>
+                            <hexString name="MessageClass" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                                <defaultValue>04</defaultValue>
+                            </hexString>
+                            <hexString name="MessageType" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                                <defaultValue>04</defaultValue>
+                            </hexString>
+                            <hexString name="MessageLength" minLength="8" maxLength="8" constFlag="false"  messageLength="true"/>
+                        </protocolObjectSequence>
+                    </header>                   
+                    <messageInformationElements name="ie_OptionalParam" mandatory="false" >
+                        <protocolObjectSet name="TrafficModeParameters" mandatory="true">
+                                <informationElementRef name="InterfaceIdentifiersInteger" mandatory="false" iei="0001">
+                                    <ref>InterfaceIdentifiersInteger</ref>
+                                </informationElementRef>
+                                <informationElementRef name="InterfaceIdentifiersRange" mandatory="false" iei="0008">
+                                    <ref>InterfaceIdentifiersRange</ref>
+                                </informationElementRef>
+                                <informationElementRef name="InterfaceIdentifiersText" mandatory="false" iei="0003">
+                                    <ref>InterfaceIdentifiersText</ref>
+                                </informationElementRef>
+                                <informationElementRef name="INFOString" mandatory="false" iei="0004">
+                                    <ref>INFOString</ref>
+                                </informationElementRef>
+                            </protocolObjectSet>
+                        </messageInformationElements>
+                </protocolMessage>
+                 <protocolMessage type="0000" name="MGMT_Error">
+                    <header>
+                        <protocolObjectSequence hideFlag="true">
+                            <hexString name="Version" minLength="2" maxLength="2" constFlag="true" hideFlag="false" >
+                                <defaultValue>01</defaultValue>
+                            </hexString>
+                            <hexString name="Reserved" minLength="2" maxLength="2"  constFlag="true" hideFlag="false">
+                                <defaultValue>00</defaultValue>
+                            </hexString>
+                            <hexString name="MessageClass" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                                <defaultValue>00</defaultValue>
+                            </hexString>
+                            <hexString name="MessageType" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                                <defaultValue>00</defaultValue>
+                            </hexString>
+                            <hexString name="MessageLength" minLength="8" maxLength="8" constFlag="false"  messageLength="true"/>
+                        </protocolObjectSequence>
+                    </header>                   
+                    <messageInformationElements name="Parameter" mandatory="true" >
+                        <protocolObjectSequence name="ErrorCodeParameters" hideFlag="false">
+                            <informationElementRef name="ErrorCode" mandatory="true" iei="000c">
+                                <ref>ErrorCode</ref>
+                            </informationElementRef>
+                            <protocolObjectSet name="ErrorOptionalParameters" mandatory="false">
+                                <informationElementRef name="InterfaceIdentifiersInteger" mandatory="false" iei="0001">
+                                    <ref>InterfaceIdentifiersInteger</ref>
+                                </informationElementRef>
+                                <informationElementRef name="InterfaceIdentifiersRange" mandatory="false" iei="0008">
+                                    <ref>InterfaceIdentifiersRange</ref>
+                                </informationElementRef>
+                                <informationElementRef name="InterfaceIdentifiersText" mandatory="false" iei="0003">
+                                    <ref>InterfaceIdentifiersText</ref>
+                                </informationElementRef>
+                                <informationElementRef name="ErrorDiagnosticInformation" mandatory="false" iei="0007">
+                                    <ref>ErrorDiagnosticInformation</ref>
+                                </informationElementRef>
+                            </protocolObjectSet>
+                         </protocolObjectSequence>
+                     </messageInformationElements>
+                </protocolMessage>
+                 <protocolMessage type="0001" name="MGMT_Notify">
+                    <header>
+                        <protocolObjectSequence hideFlag="true">
+                            <hexString name="Version" minLength="2" maxLength="2" constFlag="true" hideFlag="false" >
+                                <defaultValue>01</defaultValue>
+                            </hexString>
+                            <hexString name="Reserved" minLength="2" maxLength="2"  constFlag="true" hideFlag="false">
+                                <defaultValue>00</defaultValue>
+                            </hexString>
+                            <hexString name="MessageClass" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                                <defaultValue>00</defaultValue>
+                            </hexString>
+                            <hexString name="MessageType" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                                <defaultValue>01</defaultValue>
+                            </hexString>
+                            <hexString name="MessageLength" minLength="8" maxLength="8" constFlag="false"  messageLength="true"/>
+                        </protocolObjectSequence>
+                    </header>                   
+                    <messageInformationElements name="Parameters" mandatory="true" >
+                            <protocolObjectSequence name="NotifyParameters" hideFlag="true">
+                                <informationElementRef name="Status" mandatory="true" iei="000d">
+                                    <ref>Status</ref>
+                                </informationElementRef>
+                                <protocolObjectSet name="OptionalParameters" mandatory="false">
+                                    <informationElementRef name="ASPIdentifier" mandatory="false" iei="0011">
+                                        <ref>ASPIdentifier</ref>
+                                    </informationElementRef>
+                                    <informationElementRef name="InterfaceIdentifiersInteger" mandatory="false" iei="0001">
+                                        <ref>InterfaceIdentifiersInteger</ref>
+                                    </informationElementRef>
+                                    <informationElementRef name="InterfaceIdentifiersRange" mandatory="false" iei="0008">
+                                        <ref>InterfaceIdentifiersRange</ref>
+                                    </informationElementRef>
+                                    <informationElementRef name="InterfaceIdentifiersText" mandatory="false" iei="0003">
+                                        <ref>InterfaceIdentifiersText</ref>
+                                    </informationElementRef>
+                                    <informationElementRef name="INFOString" mandatory="false" iei="0004">
+                                        <ref>INFOString</ref>
+                                    </informationElementRef>
+                                </protocolObjectSet>
+                            </protocolObjectSequence> 
+                        </messageInformationElements>
+                </protocolMessage>
+                 <protocolMessage type="0a01" name="IIM_RegistrationRequest">
+                    <header>
+                        <protocolObjectSequence hideFlag="true">
+                            <hexString name="Version" minLength="2" maxLength="2" constFlag="true" hideFlag="false" >
+                                <defaultValue>01</defaultValue>
+                            </hexString>
+                            <hexString name="Reserved" minLength="2" maxLength="2"  constFlag="true" hideFlag="false">
+                                <defaultValue>00</defaultValue>
+                            </hexString>
+                            <hexString name="MessageClass" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                                <defaultValue>0a</defaultValue>
+                            </hexString>
+                            <hexString name="MessageType" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                                <defaultValue>01</defaultValue>
+                            </hexString>
+                            <hexString name="MessageLength" minLength="8" maxLength="8" constFlag="false"  messageLength="true"/>
+                        </protocolObjectSequence>
+                    </header>                   
+                    <messageInformationElements name="Parameters" mandatory="true" >
+                        <protocolObjectSet name="LinkKeys" mandatory="true" >
+                            <informationElementRef name="LinkKey_n" mandatory="true" iei="0309">
+                                <ref>LinkKey_n</ref>
+                            </informationElementRef>
+                        </protocolObjectSet>
+                    </messageInformationElements>
+                </protocolMessage>                 
+                 <protocolMessage type="0a02" name="IIM_RegistrationResponse">
+                    <header>
+                        <protocolObjectSequence hideFlag="true">
+                            <hexString name="Version" minLength="2" maxLength="2" constFlag="true" hideFlag="false" >
+                                <defaultValue>01</defaultValue>
+                            </hexString>
+                            <hexString name="Reserved" minLength="2" maxLength="2"  constFlag="true" hideFlag="false">
+                                <defaultValue>00</defaultValue>
+                            </hexString>
+                            <hexString name="MessageClass" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                                <defaultValue>0a</defaultValue>
+                            </hexString>
+                            <hexString name="MessageType" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                                <defaultValue>02</defaultValue>
+                            </hexString>
+                            <hexString name="MessageLength" minLength="8" maxLength="8" constFlag="false" messageLength="true" />
+                        </protocolObjectSequence>
+                    </header>                   
+                    <messageInformationElements name="Parameters" mandatory="true" >
+                        <protocolObjectSet name="RegistrationResults" mandatory="true">
+                            <informationElementRef name="RegistrationResult_n" mandatory="true" iei="030d">
+                                <ref>RegistraionResult_n</ref>
+                            </informationElementRef>
+                        </protocolObjectSet>
+                    </messageInformationElements>
+                </protocolMessage>
+                <protocolMessage type="0a03" name="IIM_DeRegistrationRequest">
+                    <header>
+                        <protocolObjectSequence hideFlag="true">
+                            <hexString name="Version" minLength="2" maxLength="2" constFlag="true" hideFlag="false" >
+                                <defaultValue>01</defaultValue>
+                            </hexString>
+                            <hexString name="Reserved" minLength="2" maxLength="2"  constFlag="true" hideFlag="false">
+                                <defaultValue>00</defaultValue>
+                            </hexString>
+                            <hexString name="MessageClass" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                                <defaultValue>0a</defaultValue>
+                            </hexString>
+                            <hexString name="MessageType" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                                <defaultValue>03</defaultValue>
+                            </hexString>
+                            <hexString name="MessageLength" minLength="8" maxLength="8" constFlag="false"  messageLength="true"/>
+                        </protocolObjectSequence>
+                    </header>                   
+                    <messageInformationElements name="Parameters" mandatory="true" >
+                        <protocolObjectSet name="OptionalParameters" mandatory="true">
+                            <informationElementRef name="InterfaceIdentifiersInteger" mandatory="false" iei="0001">
+                                <ref>InterfaceIdentifiersInteger</ref>
+                            </informationElementRef>
+                            <informationElementRef name="InterfaceIdentifiersText" mandatory="false" iei="0003">
+                                <ref>InterfaceIdentifiersText</ref>
+                            </informationElementRef>
+                        </protocolObjectSet>
+                    </messageInformationElements> 
+                </protocolMessage>                 
+                 <protocolMessage type="0a04" name="IIM_DeRegistrationResponse">
+                    <header>
+                        <protocolObjectSequence hideFlag="true">
+                            <hexString name="Version" minLength="2" maxLength="2" constFlag="true" hideFlag="false" >
+                                <defaultValue>01</defaultValue>
+                            </hexString>
+                            <hexString name="Reserved" minLength="2" maxLength="2"  constFlag="true" hideFlag="false">
+                                <defaultValue>00</defaultValue>
+                            </hexString>
+                            <hexString name="MessageClass" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                                <defaultValue>0a</defaultValue>
+                            </hexString>
+                            <hexString name="MessageType" minLength="2" maxLength="2" constFlag="true" hideFlag="false">
+                                <defaultValue>04</defaultValue>
+                            </hexString>
+                            <hexString name="MessageLength" minLength="8" maxLength="8" constFlag="false"  messageLength="true"/>
+                        </protocolObjectSequence>
+                    </header>                   
+                    <messageInformationElements name="Parameters" mandatory="true" >
+                        <protocolObjectSet name="DeRegistrationResults" mandatory="true">
+                            <informationElementRef name="DeRegistrationResult_n" mandatory="true" iei="030f">
+                                <ref>DeRegistraionResult_n</ref>
+                            </informationElementRef>
+                        </protocolObjectSet>
+                    </messageInformationElements>
+                </protocolMessage>                
+                <protocolMessage type="ffff" name="Unknown">
+                    <header>
+                        <protocolObjectSequence hideFlag="true">
+                            <hexString name="Version" minLength="2" maxLength="2" constFlag="true" hideFlag="false" >
+                                <defaultValue>01</defaultValue>
+                            </hexString>
+                            <hexString name="Reserved" minLength="2" maxLength="2"  constFlag="true" hideFlag="false">
+                                <defaultValue>00</defaultValue>
+                            </hexString>
+                            <hexString name="MessageClass" minLength="2" maxLength="2" constFlag="false" hideFlag="false">
+                                <defaultValue>FF</defaultValue>
+                            </hexString>
+                            <hexString name="MessageType" minLength="2" maxLength="2" constFlag="false" hideFlag="false">
+                                <defaultValue>FF</defaultValue>
+                            </hexString>
+                            <hexString name="MessageLength" minLength="8" maxLength="8" constFlag="false" messageLength="true"/>
+                        </protocolObjectSequence>
+                    </header>
+                </protocolMessage>
+            </protocolMessages>
+          <informationElements> 
+            <informationElement format="TLV" hideFlag="true" iei="2400" name="OPA">
+                <className>pegasus.ptp.protocolDescription.m2ua.util.M2UAInformationElement</className> 
+                <protocolObjectSequence hideFlag="true">                    
+                    <hexString name="ParameterTag" minLength="4" maxLength="4" constFlag="true" mandatory="true" >
+                        <defaultValue>2400</defaultValue>
+                    </hexString>
+                    <hexString name="ParameterLength" minLength="4" maxLength="4" constFlag="false" mandatory="true" ieLength="true" />
+                    <hexString name="Data" minLength="0" maxLength="unbounded" mandatory="true">
+                        <defaultValue>00000000</defaultValue>
+                    </hexString>
+                </protocolObjectSequence>
+            </informationElement>
+            <informationElement format="TLV" hideFlag="true" iei="0300" name="ParameterData">
+                <className>pegasus.ptp.protocolDescription.m2ua.util.M2UAInformationElement</className> 
+                <protocolObjectSequence hideFlag="true">                    
+                    <hexString name="ParameterTag" minLength="4" maxLength="4" constFlag="true" mandatory="true" >
+                        <defaultValue>0300</defaultValue>
+                    </hexString>
+                    <hexString name="ParameterLength" minLength="4" maxLength="4" constFlag="false" mandatory="true" ieLength="true" />
+                    <hexString name="Data" minLength="0" maxLength="unbounded" mandatory="true">
+                        <defaultValue>00000000</defaultValue>
+                    </hexString>
+                </protocolObjectSequence>
+            </informationElement>
+            <informationElement format="TLV" hideFlag="true" iei="0013" name="Correlation">
+               <className>pegasus.ptp.protocolDescription.m2ua.util.M2UAInformationElement</className> 
+                <protocolObjectSequence hideFlag="true"> 
+                    <hexString name="CorrelationTag" minLength="4" maxLength="4" mandatory="true" constFlag="true" >
+                        <defaultValue>0013</defaultValue>
+                    </hexString>
+                    <hexString name="CorrelationLength" minLength="4" maxLength="4" mandatory="true" ieLength="true" />
+                    <hexString name="CorrelationId" minLength="8" maxLength="8" mandatory="true"  constFlag="true">
+                        <defaultValue>00000000</defaultValue>
+                    </hexString>
+                </protocolObjectSequence>
+            </informationElement>
+            
+            <informationElement format="TLV" hideFlag="true" iei="0302" name="ie_State">
+                <className>pegasus.ptp.protocolDescription.m2ua.util.M2UAInformationElement</className>
+                <protocolObjectSequence hideFlag="true">                    
+                    <hexString name="ParameterTag" minLength="4" maxLength="4" constFlag="true">
+                                <defaultValue>0302</defaultValue>
+                            </hexString>
+                    <hexString name="TagLength" minLength="4" maxLength="4" constFlag="false" ieLength="true" />
+                    <commonElementRef name="State" mandatory="true">
+                                <ref>State</ref>
+                    </commonElementRef>
+                </protocolObjectSequence>
+            </informationElement>
+            <informationElement format="TLV" hideFlag="true" iei="0303" name="ie_StateIndication">
+                <className>pegasus.ptp.protocolDescription.m2ua.util.M2UAInformationElement</className> 
+                <protocolObjectSequence hideFlag="true">                    
+                            <hexString name="ParameterTag" minLength="4" maxLength="4" constFlag="true">
+                                <defaultValue>0303</defaultValue>
+                            </hexString>
+                            <hexString name="TagLength" minLength="4" maxLength="4" constFlag="false" ieLength="true" />
+                            <protocolObjectEnumeration numberOfBits="32" name="State">
+                                <enumerationEntry>
+                                    <numericValue>1</numericValue>
+                                    <stringRepresentation>EVENT_RPO_ENTER</stringRepresentation>
+                                </enumerationEntry>
+                                <enumerationEntry>
+                                    <numericValue>2</numericValue>
+                                    <stringRepresentation>EVENT_RPO_EXIT</stringRepresentation>
+                                </enumerationEntry>
+                                <enumerationEntry>
+                                    <numericValue>3</numericValue>
+                                    <stringRepresentation>EVENT_LPO_ENTER</stringRepresentation>
+                                </enumerationEntry>
+                                <enumerationEntry>
+                                    <numericValue>4</numericValue>
+                                    <stringRepresentation>EVENT_LPO_EXIT</stringRepresentation>
+                                </enumerationEntry>
+                            </protocolObjectEnumeration>
+                </protocolObjectSequence>
+            </informationElement>
+            <informationElement format="TLV" hideFlag="true" iei="0300" name="ie_DataRetrieval">
+                <className>pegasus.ptp.protocolDescription.m2ua.util.M2UAInformationElement</className> 
+                <protocolObjectSequence hideFlag="true">  
+                    <hexString name="ParameterTag" minLength="4" maxLength="4" constFlag="true">
+                           <defaultValue>0300</defaultValue>
+                    </hexString>
+                    <hexString name="ParameterLength" minLength="4" maxLength="4" constFlag="false" ieLength="true" />
+                    <hexString name="Data_MTP3_PDU" minLength="0" maxLength="unbounded" mandatory="true">
+                           <defaultValue>00000000</defaultValue>
+                    </hexString>
+                </protocolObjectSequence>
+            </informationElement>
+            <informationElement format="TLV" hideFlag="true" iei="0304" name="Congestion">
+                <className>pegasus.ptp.protocolDescription.m2ua.util.M2UAInformationElement</className> 
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="CongestionTag" minLength="4" maxLength="4" constFlag="true">
+                        <defaultValue>0304</defaultValue>
+                    </hexString>
+                    <hexString name="CongestionLength" minLength="4" maxLength="4" ieLength="true" />
+                    <protocolObjectEnumeration numberOfBits="32" name="CongesionStatus">
+                        <enumerationEntry>
+                            <numericValue>0</numericValue>
+                            <stringRepresentation>LEVEL_NONE</stringRepresentation>
+                        </enumerationEntry>
+                        <enumerationEntry>
+                            <numericValue>1</numericValue>
+                            <stringRepresentation>LEVEL_1</stringRepresentation>
+                        </enumerationEntry>
+                        <enumerationEntry>
+                            <numericValue>2</numericValue>
+                            <stringRepresentation>LEVEL_2</stringRepresentation>
+                        </enumerationEntry>
+                        <enumerationEntry>
+                            <numericValue>4</numericValue>
+                            <stringRepresentation>LEVEL_3</stringRepresentation>
+                        </enumerationEntry>
+                    </protocolObjectEnumeration>                           
+                </protocolObjectSequence>
+            </informationElement>
+            <informationElement format="TLV" hideFlag="true" iei="0305" name="Discard">
+                <className>pegasus.ptp.protocolDescription.m2ua.util.M2UAInformationElement</className> 
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="DiscardTag" minLength="4" maxLength="4" constFlag="true" >
+                        <defaultValue>0305</defaultValue>
+                    </hexString>
+                    <hexString name="DiscardLength" minLength="4" maxLength="4" ieLength="true" />
+                    
+                    <protocolObjectEnumeration numberOfBits="32" name="DiscardStatus">
+                        <enumerationEntry>
+                            <numericValue>0</numericValue>
+                            <stringRepresentation>LEVEL_NONE</stringRepresentation>
+                        </enumerationEntry>
+                        <enumerationEntry>
+                            <numericValue>1</numericValue>
+                            <stringRepresentation>LEVEL_1</stringRepresentation>
+                        </enumerationEntry>
+                        <enumerationEntry>
+                            <numericValue>2</numericValue>
+                            <stringRepresentation>LEVEL_2</stringRepresentation>
+                        </enumerationEntry>
+                        <enumerationEntry>
+                            <numericValue>4</numericValue>
+                            <stringRepresentation>LEVEL_3</stringRepresentation>
+                        </enumerationEntry>
+                    </protocolObjectEnumeration>
+                </protocolObjectSequence>
+            </informationElement> 
+            <informationElement format="TLV" hideFlag="true" iei="0306" name="Action">
+                <className>pegasus.ptp.protocolDescription.m2ua.util.M2UAInformationElement</className> 
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="ActionTag" minLength="4" maxLength="4" constFlag="true">
+                        <defaultValue>0306</defaultValue>
+                    </hexString>
+                    <hexString name="ActionLength" minLength="4" maxLength="4" ieLength="true" />
+                    <protocolObjectEnumeration numberOfBits="32" name="Action">
+                        <enumerationEntry>
+                            <numericValue>1</numericValue>
+                            <stringRepresentation>ACTION_RTVR_BSN</stringRepresentation>
+                        </enumerationEntry>
+                        <enumerationEntry>
+                            <numericValue>2</numericValue>
+                            <stringRepresentation>ACTION_RTVR_MSGS</stringRepresentation>
+                        </enumerationEntry>
+                    </protocolObjectEnumeration>
+                </protocolObjectSequence>
+            </informationElement>
+            <informationElement format="TLV" hideFlag="true" iei="0307" name="SequenceNumber">
+                <className>pegasus.ptp.protocolDescription.m2ua.util.M2UAInformationElement</className> 
+                <protocolObjectSequence hideFlag="true" >
+                    <hexString name="SequenceNumberTag" minLength="4" maxLength="4" constFlag="true">
+                        <defaultValue>0307</defaultValue>
+                    </hexString>
+                    <hexString name="SequenceNumberLength" minLength="4" maxLength="4" ieLength="true" />
+                    <hexString name="SequenceNumber" minLength="8" maxLength="8" constFlag="true">
+                        <defaultValue>00000000</defaultValue>
+                    </hexString>
+                </protocolObjectSequence>
+            </informationElement>
+            <informationElement format="TLV" hideFlag="true" iei="0308" name="Result">
+                <className>pegasus.ptp.protocolDescription.m2ua.util.M2UAInformationElement</className> 
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="ResultTag" minLength="4" maxLength="4" constFlag="true">
+                        <defaultValue>0308</defaultValue>
+                    </hexString>
+                    <hexString name="ResultLength" minLength="4" maxLength="4" ieLength="true" />
+                    <protocolObjectEnumeration numberOfBits="32" name="Result">
+                        <enumerationEntry>
+                            <numericValue>0</numericValue>
+                            <stringRepresentation>RESULT_SUCCESS</stringRepresentation>
+                        </enumerationEntry>
+                        <enumerationEntry>
+                            <numericValue>1</numericValue>
+                            <stringRepresentation>RESULT_FAILURE</stringRepresentation>
+                        </enumerationEntry>
+                    </protocolObjectEnumeration>
+                </protocolObjectSequence>           
+            </informationElement>
+            <informationElement format="TLV" hideFlag="true" iei="0011" name="ASPIdentifier">
+                <className>pegasus.ptp.protocolDescription.m2ua.util.M2UAInformationElement</className>  
+                <protocolObjectSequence hideFlag="true" >
+                    <hexString name="ASPIdentifierTag" minLength="4" maxLength="4" constFlag="true" >
+                        <defaultValue>0011</defaultValue>
+                    </hexString>
+                    <hexString name="ASPIdentifierLength" minLength="4" maxLength="4" ieLength="true" />
+                    <hexString name="ASPIdentifier" minLength="8" maxLength="8" constFlag="false">
+                        <defaultValue>00000000</defaultValue>
+                    </hexString>
+                </protocolObjectSequence>           
+            </informationElement>
+            <informationElement format="TLV" hideFlag="true" iei="0004" name="INFOString">
+                <className>pegasus.ptp.protocolDescription.m2ua.util.M2UAInformationElement</className> 
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="INFOStringTag" minLength="4" maxLength="4" constFlag="true">
+                        <defaultValue>0004</defaultValue>
+                    </hexString>
+                    <hexString name="INFOStringLength" minLength="4" maxLength="4" ieLength="true" />
+                    <hexString name="INFOString" minLength="2" maxLength="unbounded" constFlag="false">
+                        <defaultValue>00000000</defaultValue>
+                        <internalFormatter name="String" /> 
+                    </hexString>
+                </protocolObjectSequence>           
+            </informationElement>
+            <informationElement format="TLV" hideFlag="true" iei="0009" name="HeartbeatData">
+                <className>pegasus.ptp.protocolDescription.m2ua.util.M2UAInformationElement</className> 
+                <protocolObjectSequence hideFlag="true" >
+                    <hexString name="HeartbeatDataTag" minLength="4" maxLength="4" constFlag="true">
+                        <defaultValue>0009</defaultValue>
+                    </hexString>
+                    <hexString name="HeartbeatDataLength" minLength="4" maxLength="4" ieLength="true" />
+                    <hexString name="HeartbeatData" minLength="0" maxLength="unbounded" constFlag="false">
+                        <defaultValue>00000000</defaultValue>
+                    </hexString>
+                </protocolObjectSequence>           
+            </informationElement>
+            <informationElement format="TLV" hideFlag="true" iei="000b" name="TrafficModeType">
+                <className>pegasus.ptp.protocolDescription.m2ua.util.M2UAInformationElement</className>  
+                <protocolObjectSequence hideFlag="true" >
+                    <hexString name="TrafficModeTypeType" minLength="4" maxLength="4" constFlag="false" mandatory="true">
+                        <defaultValue>000b</defaultValue>
+                    </hexString>
+                    <hexString name="TrafficModeTypeLength" minLength="4" maxLength="4" mandatory="true" ieLength="true" />
+                    <protocolObjectEnumeration numberOfBits="32" name="TrafficModeType">
+                        <enumerationEntry>
+                            <numericValue>1</numericValue>
+                            <stringRepresentation>Override</stringRepresentation>
+                        </enumerationEntry>
+                        <enumerationEntry>
+                            <numericValue>2</numericValue>
+                            <stringRepresentation>Load_share</stringRepresentation>
+                        </enumerationEntry>
+                        <enumerationEntry>
+                            <numericValue>3</numericValue>
+                            <stringRepresentation>Broadcast</stringRepresentation>
+                        </enumerationEntry>
+                    </protocolObjectEnumeration>
+                </protocolObjectSequence>           
+            </informationElement>
+            <informationElement format="TLV" hideFlag="true" iei="0001" name="InterfaceIdentifiersInteger">
+               <className>pegasus.ptp.protocolDescription.m2ua.util.M2UAInformationElement</className>               
+                <protocolObjectSequence hideFlag="true" >
+                    <hexString name="InterfaceIdentifiersIntegerType" minLength="4" maxLength="4" constFlag="false" mandatory="true">
+                        <defaultValue>0001</defaultValue>
+                    </hexString>
+                    <hexString name="InterfaceIdentifiersIntegerLength" minLength="4" maxLength="4" mandatory="true" ieLength="true"/>
+                    <hexString name="InterfaceIdentifiersIntegerData" minLength="0" maxLength="unbounded" constFlag="false" mandatory="true">
+                        <defaultValue>00000000</defaultValue>
+                    </hexString>
+                </protocolObjectSequence>           
+            </informationElement>
+            <informationElement format="TLV" hideFlag="true" iei="0008" name="InterfaceIdentifiersRange">
+                <className>pegasus.ptp.protocolDescription.m2ua.util.M2UAInformationElement</className> 
+                <protocolObjectSequence hideFlag="true" >
+                    <hexString name="InterfaceIdentifiersRangeType" minLength="4" maxLength="4" constFlag="true" mandatory="true">
+                        <defaultValue>0008</defaultValue>
+                    </hexString>
+                    <hexString name="InterfaceIdentifiersRangeLength" minLength="4" maxLength="4" mandatory="true" ieLength="true" />
+                    <protocolObjectSequenceOf name="Interface_Id_StartStop" minLength="2" maxLength="unbounded" mandatory="true">
+                        <hexString name="InterfaceId_Start_Stop" minLength="8" maxLength="8" constFlag="false">
+                            <defaultValue>00000000</defaultValue>
+                        </hexString>
+                    </protocolObjectSequenceOf> 
+                </protocolObjectSequence>           
+            </informationElement>
+            <informationElement format="TLV" hideFlag="true" iei="0003" name="InterfaceIdentifiersText">
+                <className>pegasus.ptp.protocolDescription.m2ua.util.M2UAInformationElement</className>  
+                <protocolObjectSequence hideFlag="true" >
+                    <hexString name="InterfaceIdentifiersTextType" minLength="4" maxLength="4" constFlag="false" mandatory="true">
+                        <defaultValue>0003</defaultValue>
+                    </hexString>
+                    <hexString name="InterfaceIdentifiersTextLength" minLength="4" maxLength="4" mandatory="true" ieLength="true" />
+                    <hexString name="InterfaceIdentifiersTextData" minLength="0" maxLength="unbounded" constFlag="false" mandatory="true">
+                        <defaultValue>00000000</defaultValue>
+                        <internalFormatter name="String" /> 
+                    </hexString>
+                </protocolObjectSequence>           
+            </informationElement>
+            <informationElement format="TLV" hideFlag="true" iei="000c" name="ErrorCode">
+                <className>pegasus.ptp.protocolDescription.m2ua.util.M2UAInformationElement</className>  
+                <protocolObjectSequence hideFlag="true" >
+                    <hexString name="ErrorTag" minLength="4" maxLength="4" constFlag="false" mandatory="true">
+                        <defaultValue>000c</defaultValue>
+                    </hexString>
+                    <hexString name="ErrorCodeLength" minLength="4" maxLength="4" mandatory="true" ieLength="true" />
+                    <protocolObjectEnumeration numberOfBits="32" name="TrafficModeType">
+                        <enumerationEntry>
+                            <numericValue>1</numericValue>
+                            <stringRepresentation>InvalidVersion</stringRepresentation>
+                        </enumerationEntry>
+                        <enumerationEntry>
+                            <numericValue>2</numericValue>
+                            <stringRepresentation>InvalidInterfaceIdentifier</stringRepresentation>
+                        </enumerationEntry>
+                        <enumerationEntry>
+                            <numericValue>3</numericValue>
+                            <stringRepresentation>UnsupportedMessageClass</stringRepresentation>
+                        </enumerationEntry>
+                        <enumerationEntry>
+                            <numericValue>4</numericValue>
+                            <stringRepresentation>UnsupportedMessageType</stringRepresentation>
+                        </enumerationEntry>
+                        <enumerationEntry>
+                            <numericValue>5</numericValue>
+                            <stringRepresentation>UnsupportedTrafficHnadlingMOde</stringRepresentation>
+                        </enumerationEntry>
+                        <enumerationEntry>
+                            <numericValue>6</numericValue>
+                            <stringRepresentation>UnexpectedMessage</stringRepresentation>
+                        </enumerationEntry>
+                        <enumerationEntry>
+                            <numericValue>7</numericValue>
+                            <stringRepresentation>ProtocolError</stringRepresentation>
+                        </enumerationEntry>
+                        <enumerationEntry>
+                            <numericValue>8</numericValue>
+                            <stringRepresentation>UnsupportedInterfaceIdentifierType</stringRepresentation>
+                        </enumerationEntry>
+                        <enumerationEntry>
+                            <numericValue>9</numericValue>
+                            <stringRepresentation>InvalidStreamIdentifier</stringRepresentation>
+                        </enumerationEntry>
+                        <enumerationEntry>
+                            <numericValue>13</numericValue>
+                            <stringRepresentation>Refused_ManagementBlocking</stringRepresentation>
+                        </enumerationEntry>
+                        <enumerationEntry>
+                            <numericValue>14</numericValue>
+                            <stringRepresentation>ASPIdentifierRequired</stringRepresentation>
+                        </enumerationEntry>
+                        <enumerationEntry>
+                            <numericValue>15</numericValue>
+                            <stringRepresentation>InvalidASPIdentifier</stringRepresentation>
+                        </enumerationEntry>
+                        <enumerationEntry>
+                            <numericValue>16</numericValue>
+                            <stringRepresentation>ASPActiveForInterfaceIdentifier</stringRepresentation>
+                        </enumerationEntry>
+                        <enumerationEntry>
+                            <numericValue>17</numericValue>
+                            <stringRepresentation>InvalideParameterValue</stringRepresentation>
+                        </enumerationEntry>
+                        <enumerationEntry>
+                            <numericValue>18</numericValue>
+                            <stringRepresentation>ParameterFieldError</stringRepresentation>
+                        </enumerationEntry>
+                        <enumerationEntry>
+                            <numericValue>19</numericValue>
+                            <stringRepresentation>UnexpectedParameter</stringRepresentation>
+                        </enumerationEntry>
+                        <enumerationEntry>
+                            <numericValue>22</numericValue>
+                            <stringRepresentation>MissingParameter</stringRepresentation>
+                        </enumerationEntry>
+                        
+                    </protocolObjectEnumeration>
+                </protocolObjectSequence>           
+            </informationElement>
+            <informationElement format="TLV" hideFlag="true" iei="0007" name="ErrorDiagnosticInformation">
+                <className>pegasus.ptp.protocolDescription.m2ua.util.M2UAInformationElement</className>  
+                <protocolObjectSequence hideFlag="true" mandatory="true">
+                    <hexString name="ErrorDiagTag" minLength="4" maxLength="4" constFlag="true">
+                        <defaultValue>0007</defaultValue>
+                    </hexString>
+                    <hexString name="ErrorDiagLength" minLength="4" maxLength="4" ieLength="true" />
+                    <hexString name="DiagnosticInformation" minLength="0" maxLength="unbounded" constFlag="false">
+                        <defaultValue>00000000</defaultValue>
+                    </hexString>
+                </protocolObjectSequence>           
+            </informationElement>            
+            <informationElement format="TLV" hideFlag="true" iei="000d" name="Status">
+                <className>pegasus.ptp.protocolDescription.m2ua.util.M2UAInformationElement</className>  
+                <protocolObjectSequence hideFlag="true" mandatory="true">
+                    <hexString name="StatusTag" minLength="4" maxLength="4" constFlag="true">
+                        <defaultValue>000d</defaultValue>
+                    </hexString>
+                    <hexString name="StatusLength" minLength="4" maxLength="4" ieLength="true" />
+                    <protocolObjectEnumeration numberOfBits="32" name="StatusType_Information">
+                        <enumerationEntry>
+                            <numericValue>65538</numericValue>
+                            <stringRepresentation>AS_StateChange_AS_Inactive</stringRepresentation>
+                        </enumerationEntry>
+                        <enumerationEntry>
+                            <numericValue>65539</numericValue>
+                            <stringRepresentation>AS_StateChange_AS_Active</stringRepresentation>
+                        </enumerationEntry>
+                        <enumerationEntry>
+                            <numericValue>65540</numericValue>
+                            <stringRepresentation>AS_StateChange_AS_Pending</stringRepresentation>
+                        </enumerationEntry>
+                        <enumerationEntry>
+                            <numericValue>131073</numericValue>
+                            <stringRepresentation>Other_InsufficientASPResourceActiveInAS</stringRepresentation>
+                        </enumerationEntry>
+                        <enumerationEntry>
+                            <numericValue>131074</numericValue>
+                            <stringRepresentation>Other_AlternativeASPActive</stringRepresentation>
+                        </enumerationEntry>
+                        <enumerationEntry>
+                            <numericValue>131075</numericValue>
+                            <stringRepresentation>Other_ASPFailure</stringRepresentation>
+                        </enumerationEntry>
+                    </protocolObjectEnumeration>
+                </protocolObjectSequence>           
+            </informationElement>            
+            <informationElement format="TLV" hideFlag="true" iei="0309" name="LinkKey_n">
+                <className>pegasus.ptp.protocolDescription.m2ua.util.M2UAInformationElement</className>  
+                <protocolObjectSequence hideFlag="true" mandatory="true">
+                    <hexString name="LinkKeyTag" minLength="4" maxLength="4" constFlag="true">
+                        <defaultValue>0309</defaultValue>
+                    </hexString>
+                    <hexString name="LinkKeyLength" minLength="4" maxLength="4" ieLength="true" />
+                    <protocolObjectSequenceOf name="LinkKeyParameters" minLength="1" maxLength="unbounded" mandatory="true" >
+                        <commonElementRef name="LinkKeyParameter" hideFlag="false">  <!--this MUST be false -->
+                            <ref>LinkKeyParam</ref>
+                        </commonElementRef>
+                    </protocolObjectSequenceOf >
+                </protocolObjectSequence>
+            </informationElement>        
+            <informationElement format="TLV" hideFlag="true" iei="030a" name="LocalLKId">
+                <className>pegasus.ptp.protocolDescription.m2ua.util.M2UAInformationElement</className> 
+                <protocolObjectSequence hideFlag="true" mandatory="true">
+                    <hexString name="LocalLKIdTag" minLength="4" maxLength="4" constFlag="true">
+                        <defaultValue>030a</defaultValue>
+                    </hexString>
+                    <hexString name="LocakLKLength" minLength="4" maxLength="4" ieLength="true" />
+                    <hexString name="LocalLKIdentifierValue" minLength="8" maxLength="8" constFlag="false">
+                        <defaultValue>00000000</defaultValue>
+                    </hexString>
+                </protocolObjectSequence> 
+            </informationElement>
+            <informationElement format="TLV" hideFlag="false" iei="030b" name="SigDataTerminalId">
+                <className>pegasus.ptp.protocolDescription.m2ua.util.M2UAInformationElement</className>  
+                <protocolObjectSequence hideFlag="false" mandatory="true">
+                    <hexString name="SigDataTerminalIdTag" minLength="4" maxLength="4" constFlag="true">
+                        <defaultValue>030b</defaultValue>
+                    </hexString>
+                    <hexString name="SigDataTerminalIdLength" minLength="4" maxLength="4" ieLength="true" />
+                    <hexString name="SDTIdentifier" minLength="8" maxLength="8" constFlag="false">
+                        <defaultValue>00000000</defaultValue>
+                    </hexString>
+                </protocolObjectSequence>           
+            </informationElement>
+            <informationElement format="TLV" hideFlag="false" iei="030c" name="SigDataLinkId">
+                <className>pegasus.ptp.protocolDescription.m2ua.util.M2UAInformationElement</className>  
+                <protocolObjectSequence hideFlag="false" mandatory="true">
+                    <hexString name="SigDataLinkIdTag" minLength="4" maxLength="4" constFlag="true">
+                        <defaultValue>030c</defaultValue>
+                    </hexString>
+                    <hexString name="SigDataLinkIdLength" minLength="4" maxLength="4" ieLength="true" />
+                    <hexString name="SDLIdentifier" minLength="8" maxLength="8" constFlag="false">
+                        <defaultValue>00000000</defaultValue>
+                    </hexString>
+                </protocolObjectSequence>           
+            </informationElement>  
+            <informationElement format="TLV" hideFlag="true" iei="0309" name="RegistraionResult_n">
+                <className>pegasus.ptp.protocolDescription.m2ua.util.M2UAInformationElement</className>  
+                <protocolObjectSequence hideFlag="true" mandatory="true">
+                    <hexString name="RegistrationResultTag" minLength="4" maxLength="4" constFlag="true">
+                        <defaultValue>030d</defaultValue>
+                    </hexString>
+                    <hexString name="RegistrationResultLength" minLength="4" maxLength="4" ieLength="true" />
+                    <protocolObjectSequenceOf name="RegistrationResultParameters" minLength="1" maxLength="unbounded" mandatory="true">
+                        <commonElementRef name="RegistrationParameter" hideFlag="false">  <!--this MUST be false -->
+                            <ref>RegistrationResultParam</ref>
+                        </commonElementRef>
+                    </protocolObjectSequenceOf >
+                </protocolObjectSequence>
+            </informationElement> 
+           <informationElement format="TLV" hideFlag="false" iei="030e" name="RegistrationStatus">
+               <className>pegasus.ptp.protocolDescription.m2ua.util.M2UAInformationElement</className>  
+                <protocolObjectSequence hideFlag="false" mandatory="true">
+                    <hexString name="RegistrationStatusTag" minLength="4" maxLength="4" constFlag="true">
+                        <defaultValue>030e</defaultValue>
+                    </hexString>
+                    <hexString name="RegistrationStatusLength" minLength="4" maxLength="4" ieLength="true" />
+                    <protocolObjectEnumeration numberOfBits="32" name="enum_RegistrationStatus">
+                        <enumerationEntry>
+                            <numericValue>0</numericValue>
+                            <stringRepresentation>SuccessfullRegistered</stringRepresentation>
+                        </enumerationEntry>
+                        <enumerationEntry>
+                            <numericValue>1</numericValue>
+                            <stringRepresentation>Error_Unknown</stringRepresentation>
+                        </enumerationEntry>
+                        <enumerationEntry>
+                            <numericValue>2</numericValue>
+                            <stringRepresentation>Error_InvalidSDLI</stringRepresentation>
+                        </enumerationEntry>
+                        <enumerationEntry>
+                            <numericValue>3</numericValue>
+                            <stringRepresentation>Error_InvalidSDTI</stringRepresentation>
+                        </enumerationEntry>
+                        <enumerationEntry>
+                            <numericValue>4</numericValue>
+                            <stringRepresentation>Error_InvalidLinkKey</stringRepresentation>
+                        </enumerationEntry>
+                        <enumerationEntry>
+                            <numericValue>5</numericValue>
+                            <stringRepresentation>Error_PermissionDenied</stringRepresentation>
+                        </enumerationEntry>
+                        <enumerationEntry>
+                            <numericValue>6</numericValue>
+                            <stringRepresentation>Error_OverlappingLinkKey</stringRepresentation>
+                        </enumerationEntry>
+                        <enumerationEntry>
+                            <numericValue>7</numericValue>
+                            <stringRepresentation>Error_LinkKeyNotProvisioned</stringRepresentation>
+                        </enumerationEntry>
+                        <enumerationEntry>
+                            <numericValue>8</numericValue>
+                            <stringRepresentation>Error_InsufficientResources</stringRepresentation>
+                        </enumerationEntry>
+                    </protocolObjectEnumeration>
+                </protocolObjectSequence>           
+            </informationElement>
+            <informationElement format="TLV" hideFlag="true" iei="030f" name="DeRegistraionResult_n">
+                <className>pegasus.ptp.protocolDescription.m2ua.util.M2UAInformationElement</className>  
+                <protocolObjectSequence hideFlag="true" mandatory="true">
+                    <hexString name="DeRegistrationResultTag" minLength="4" maxLength="4" constFlag="true">
+                        <defaultValue>030f</defaultValue>
+                    </hexString>
+                    <hexString name="DeRegistrationResultLength" minLength="4" maxLength="4" ieLength="true" />
+                    <protocolObjectSequenceOf name="DeRegistrationResultParameters" minLength="1" maxLength="unbounded" mandatory="true">
+                        <commonElementRef name="DeRegistrationParameter" hideFlag="false">  <!--this MUST be false -->
+                            <ref>DeRegistrationResultParam</ref>
+                        </commonElementRef>
+                    </protocolObjectSequenceOf >
+                </protocolObjectSequence>
+            </informationElement> 
+           <informationElement format="TLV" hideFlag="false" iei="0310" name="DeRegistrationStatus">
+               <className>pegasus.ptp.protocolDescription.m2ua.util.M2UAInformationElement</className>  
+                <protocolObjectSequence hideFlag="false" mandatory="true">
+                    <hexString name="DeRegistrationStatusTag" minLength="4" maxLength="4" constFlag="true">
+                        <defaultValue>0310</defaultValue>
+                    </hexString>
+                    <hexString name="DeRegistrationStatusLength" minLength="4" maxLength="4" ieLength="true" />
+                    <protocolObjectEnumeration numberOfBits="32" name="enum_DeRegistrationStatus">
+                        <enumerationEntry>
+                            <numericValue>0</numericValue>
+                            <stringRepresentation>SuccessfullyDeRegistered</stringRepresentation>
+                        </enumerationEntry>
+                        <enumerationEntry>
+                            <numericValue>1</numericValue>
+                            <stringRepresentation>Error_Unknown</stringRepresentation>
+                        </enumerationEntry>
+                        <enumerationEntry>
+                            <numericValue>2</numericValue>
+                            <stringRepresentation>Error_InvalidInterfaceId</stringRepresentation>
+                        </enumerationEntry>
+                        <enumerationEntry>
+                            <numericValue>3</numericValue>
+                            <stringRepresentation>Error_PermissionDenied</stringRepresentation>
+                        </enumerationEntry>
+                        <enumerationEntry>
+                            <numericValue>4</numericValue>
+                            <stringRepresentation>Error_NotRegistered</stringRepresentation>
+                        </enumerationEntry>
+                    </protocolObjectEnumeration>
+                </protocolObjectSequence>           
+            </informationElement>                       
+            
+        </informationElements>
+       
+        <commonElements>
+            <commonElement hideFlag="true" name="State">
+                <protocolObjectEnumeration numberOfBits="32" name="State">
+                    <enumerationEntry>
+                        <numericValue>0</numericValue>
+                        <stringRepresentation>STATUS_LPO_SET</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>1</numericValue>
+                        <stringRepresentation>STATUS_LPO_CLEAR</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>2</numericValue>
+                        <stringRepresentation>STATUS_EMER_SET</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>3</numericValue>
+                        <stringRepresentation>STATUS_EMER_CLEAR</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>4</numericValue>
+                        <stringRepresentation>STATUS_FLUSH_BUFFERS</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>5</numericValue>
+                        <stringRepresentation>STATUS_CONTINUE</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>6</numericValue>
+                        <stringRepresentation>STATUS_CLEAR_RTB</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>7</numericValue>
+                        <stringRepresentation>STATUS_AUDIT</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>8</numericValue>
+                        <stringRepresentation>STATUS_CONG_CLEAR</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>9</numericValue>
+                        <stringRepresentation>STATUS_CONG_ACCEPT</stringRepresentation>
+                    </enumerationEntry>
+                    <enumerationEntry>
+                        <numericValue>10</numericValue>
+                        <stringRepresentation>STATUS_CONG_DISCARD</stringRepresentation>
+                    </enumerationEntry>
+                </protocolObjectEnumeration> 
+            </commonElement>
+             <commonElement hideFlag="true" name="LinkKeyParam">
+                <protocolObjectSequence name="LinkKeyParameter_n">
+                    <informationElementRef name="LocalLKId" mandatory="true" iei="030a">
+                        <ref>LocalLKId</ref>
+                    </informationElementRef>
+                    <informationElementRef name="SignalingDataTerminalIdentifier" mandatory="true" iei="030b">
+                        <ref>SigDataTerminalId</ref>
+                    </informationElementRef>
+                    <informationElementRef name="SignalingDataLinkIdentifier" mandatory="true" iei="030c">
+                        <ref>SigDataLinkId</ref>
+                    </informationElementRef>
+                </protocolObjectSequence>
+            </commonElement>
+             <commonElement hideFlag="true" name="RegistrationResultParam">
+                <protocolObjectSequence name="RegistrationResultParameter_n">
+                    <informationElementRef name="LocalLKId" mandatory="true" iei="030a">
+                        <ref>LocalLKId</ref>
+                    </informationElementRef>
+                    <informationElementRef name="RegistrationStatus" mandatory="true" iei="030e">
+                        <ref>RegistrationStatus</ref>
+                    </informationElementRef>
+                    <protocolObjectSet name="setInterfaceIdentifiers" mandatory="true">
+                        <informationElementRef name="InterfaceIdentifiersInteger" mandatory="false" iei="0001">
+                            <ref>InterfaceIdentifiersInteger</ref>
+                        </informationElementRef>
+                        <informationElementRef name="InterfaceIdentifiersRange" mandatory="false" iei="0008">
+                            <ref>InterfaceIdentifiersRange</ref>
+                        </informationElementRef>
+                        <informationElementRef name="InterfaceIdentifiersText" mandatory="false" iei="0003">
+                            <ref>InterfaceIdentifiersText</ref>
+                        </informationElementRef>
+                    </protocolObjectSet>
+                    
+                </protocolObjectSequence>
+            </commonElement>
+             <commonElement hideFlag="true" name="DeRegistrationResultParam">
+                <protocolObjectSequence name="DeRegistrationResultParameter_n">
+                    <protocolObjectSet name="setInterfaceIdentifiers" mandatory="true">
+                        <informationElementRef name="InterfaceIdentifiersInteger" mandatory="false" iei="0001">
+                            <ref>InterfaceIdentifiersInteger</ref>
+                        </informationElementRef>
+                        <informationElementRef name="InterfaceIdentifiersRange" mandatory="false" iei="0008">
+                            <ref>InterfaceIdentifiersRange</ref>
+                        </informationElementRef>
+                        <informationElementRef name="InterfaceIdentifiersText" mandatory="false" iei="0003">
+                            <ref>InterfaceIdentifiersText</ref>
+                        </informationElementRef>
+                    </protocolObjectSet>
+                    <informationElementRef name="DeRegistrationStatus" mandatory="true" iei="0310">
+                        <ref>DeRegistrationStatus</ref>
+                    </informationElementRef>
+                </protocolObjectSequence>
+            </commonElement>            
+        </commonElements>
+
+	<decoderInfo>
+                               
+                <msgDecoderInfo>
+			<className>pegasus.ptp.protocolDescription.m2ua.decoderInfo.MsgDecoderInfoM2UA</className>
+		</msgDecoderInfo>
+                
+		<ieDecoderInfo>
+		
+                        <className>pegasus.ptp.protocolDescription.m2ua.decoderInfo.IeDecoderInfoM2UA</className>
+  <!--                          <lengthOfLengthField>2</lengthOfLengthField>
+                            <protocolObjectType>HexString</protocolObjectType> -->
+							
+                </ieDecoderInfo> 
+                
+        </decoderInfo> 
+        <encoderInfo>
+            <msgEncoderInfo>
+                <className>pegasus.ptp.protocolDescription.m2ua.encoderInfo.MsgEncoderInfoM2UA</className>
+                    <lengthOfLengthField>4</lengthOfLengthField>
+                    <protocolObjectType>HexString</protocolObjectType>
+            </msgEncoderInfo>
+           <ieEncoderInfo>
+                <className>pegasus.ptp.protocolDescription.m2ua.encoderInfo.IeEncoderInfoM2UA</className>
+                    <lengthOfLengthField>2</lengthOfLengthField>
+                    <protocolObjectType>HexString</protocolObjectType>
+            </ieEncoderInfo>
+        </encoderInfo>   
+</protocolDescription>

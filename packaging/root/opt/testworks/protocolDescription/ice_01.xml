@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<protocolDescription xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../protocolDescription.xsd" type="ICE_V1">
+	<className>pegasus.ptp.protocolDescription.ice.util.IceProtocolDescription</className> 
+	<protocolMessages>
+		<protocolMessage name="IceMessage_req" type="00">
+			<messageInformationElements>
+				<protocolObjectSequence hideFlag="true">
+					<commonElementRef name="stunHeader" mandatory="true">
+						<ref>StunHeader</ref>
+					</commonElementRef>
+					<commonElementRef name="mess">
+						<ref>Message_Req</ref>
+					</commonElementRef>
+				</protocolObjectSequence>
+			</messageInformationElements>
+		</protocolMessage>
+		<protocolMessage name="IceMessage_res" type="01">
+			<messageInformationElements>
+				<protocolObjectSequence hideFlag="true">
+					<commonElementRef name="stunHeader" mandatory="true">
+						<ref>StunHeader</ref>
+					</commonElementRef>
+					<commonElementRef name="mess">
+						<ref>Message_Res</ref>
+					</commonElementRef>
+				</protocolObjectSequence>
+			</messageInformationElements>
+		</protocolMessage>
+	</protocolMessages>
+	<informationElements>
+		<informationElement format="TLV" hideFlag="true" iei="0000" name="USERNAME">
+			<protocolObjectSequence hideFlag="true">
+				<hexString name="Type" minLength="4" maxLength="4">
+					<defaultValue>0006</defaultValue>
+				</hexString>
+				<hexString name="Length" minLength="4" maxLength="4">
+					<defaultValue>0019</defaultValue>
+				</hexString>
+				<characterString name="value" minLength="1" maxLength="512" rxValuePattern="*">
+					<defaultValue />
+				</characterString>
+			</protocolObjectSequence>
+		</informationElement>
+		<informationElement format="TLV" hideFlag="true" iei="0001" name="ICE-CONTROLLING">
+			<protocolObjectSequence hideFlag="true">
+				<hexString name="Type" minLength="4" maxLength="4">
+					<defaultValue>802a</defaultValue>
+				</hexString>
+				<hexString name="Length" minLength="4" maxLength="4">
+					<defaultValue>0008</defaultValue>
+				</hexString>
+				<hexString name="Value" minLength="16" maxLength="16">
+					<defaultValue>0102030405060708</defaultValue>
+				</hexString>
+			</protocolObjectSequence>
+		</informationElement>
+		<informationElement format="TLV" hideFlag="true" iei="0003" name="USE-CANDIDATE">
+                        <protocolObjectSequence hideFlag="true">
+                                <hexString name="Type" minLength="4" maxLength="4">
+                                        <defaultValue>0025</defaultValue>
+                                </hexString>
+                                <hexString name="Length" minLength="4" maxLength="4">
+                                        <defaultValue>0000</defaultValue>
+                                </hexString>
+                                <hexString name="Vaule" minLength="0" maxLength="0">
+                                </hexString>
+                        </protocolObjectSequence>
+                </informationElement>
+		<informationElement format="TLV" hideFlag="true" iei="0002" name="PRIORITY">
+			<protocolObjectSequence hideFlag="true">
+				<hexString name="Type" minLength="4" maxLength="4">
+					<defaultValue>0024</defaultValue>
+				</hexString>
+				<hexString name="Length" minLength="4" maxLength="4">
+					<defaultValue>0004</defaultValue>
+				</hexString>
+				<hexString name="Value" minLength="8" maxLength="8">
+					<defaultValue>01020304</defaultValue>
+				</hexString>
+			</protocolObjectSequence>
+		</informationElement>
+		<informationElement format="TLV" hideFlag="true" iei="0004" name="VERIFY-ATTRIBUTE">
+			<protocolObjectSequence hideFlag="true">
+				<hexString name="Type" minLength="4" maxLength="4">
+					<defaultValue>0000</defaultValue>
+				</hexString>
+				<hexString name="Length" minLength="4" maxLength="4">
+					<defaultValue>0008</defaultValue>
+				</hexString>
+				<characterString name="value" minLength="8" maxLength="8" rxValuePattern="*">
+					<defaultValue>00000000</defaultValue>
+				</characterString>
+			</protocolObjectSequence>
+		</informationElement>
+		<informationElement format="TLV" hideFlag="true" iei="0005" name="xor-mapped-address">
+			<protocolObjectSequence hideFlag="true">
+				<hexString name="Type" minLength="4" maxLength="4">
+					<defaultValue>0000</defaultValue>
+				</hexString>
+				<hexString name="Length" minLength="4" maxLength="4">
+					<defaultValue>0014</defaultValue>
+				</hexString>
+				<commonElementRef name="VALUE">
+					<ref>XOR-MAPPED-ADDRESS-VALUE</ref>
+				</commonElementRef>
+			</protocolObjectSequence>
+		</informationElement>
+		<informationElement format="TLV" hideFlag="true" iei="0006" name="error-code">
+			<protocolObjectSequence hideFlag="true">
+				<hexString name="Type" minLength="4" maxLength="4">
+					<defaultValue>0000</defaultValue>
+				</hexString>
+				<hexString name="Length" minLength="4" maxLength="4">
+					<defaultValue>0000</defaultValue>
+				</hexString>
+				<commonElementRef name="VALUE">
+					<ref>ERROR-CODE-VALUE</ref>
+				</commonElementRef>
+			</protocolObjectSequence>
+		</informationElement>
+		<informationElement format="TLV" hideFlag="true" iei="0007" name="unknown-attributes">
+			<protocolObjectSequence>
+				<hexString name="Type" minLength="4" maxLength="4">
+					<defaultValue>0000</defaultValue>
+				</hexString>
+				<hexString name="Length" minLength="4" maxLength="4">
+					<defaultValue>0000</defaultValue>
+				</hexString>
+				<commonElementRef name="VALUE">
+					<ref>UNKNOWN-ATTRIBUTES-VALUE</ref>
+				</commonElementRef>
+			</protocolObjectSequence>
+		</informationElement>
+	</informationElements>	
+	<commonElements>
+		<commonElement hideFlag="true" name="StunHeader">
+			<protocolObjectSequence hideFlag="true">
+				<commonElementRef name="stunType">
+					<ref>StunMessageType</ref>
+				</commonElementRef>
+				<commonElementRef name="MsgLength">
+					<ref>MessageLength</ref>
+				</commonElementRef>
+				<commonElementRef name="MagicCookie">
+					<ref>MagicCookie</ref>
+				</commonElementRef>
+				<commonElementRef name="TransactionId">
+					<ref>TransactionId</ref>
+				</commonElementRef>				
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement hideFlag="true" name="Message_Req">
+			<protocolObjectSequence hideFlag="true">
+				<informationElementRef name="USERNAME" mandatory="false" hideFlag="true">
+					<ref>USERNAME</ref>
+				</informationElementRef>
+				<informationElementRef name="ICE-CONTROLLING" mandatory="false" hideFlag="true" use="optional">
+					<ref>ICE-CONTROLLING</ref>
+				</informationElementRef>
+				<informationElementRef name="USE-CANDIDATE" mandatory="false" hideFlag="true" use="optional">
+                                        <ref>USE-CANDIDATE</ref>
+                                </informationElementRef>
+				<informationElementRef name="PRIORITY" mandatory="false" hideFlag="true" use="optional">
+					<ref>PRIORITY</ref>
+				</informationElementRef>
+				<protocolObjectSequenceOf name="VERIFY-ATTRIBUTES" minLength="0" mandatory="false" maxLength="0" use="optional">
+					<informationElementRef name="VERIFY-ATTRIBUTE">
+						<ref>VERIFY-ATTRIBUTE</ref>
+					</informationElementRef>
+				</protocolObjectSequenceOf>
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement hideFlag="true" name="Message_Res">
+			<protocolObjectChoice name="ResponseChoice" hideFlag="true">
+                                <protocolObjectAsn1>
+                                        <commonElementRef mandatory="false" name="NormalResponse">
+                                                <ref>normalResponse</ref>
+                                        </commonElementRef>
+                                </protocolObjectAsn1>
+                                <protocolObjectAsn1>
+                                        <commonElementRef mandatory="false" name="ErrorResponse">
+                                                <ref>errorResponse</ref>
+                                        </commonElementRef>
+                                </protocolObjectAsn1>
+			</protocolObjectChoice>
+		</commonElement>		
+		<commonElement hideFlag="true" name="StunMessageType">
+			<hexString name="StunMessageType(Req:0001,Ind:0011,Resp:0101,errResp:0111)" minLength="4" maxLength="4">
+				<defaultValue>0001</defaultValue>
+			</hexString>
+		</commonElement>
+		<commonElement hideFlag="true" name="MessageLength">
+			<hexString name="MessageLength" minLength="4" maxLength="4">
+				<defaultValue>0000</defaultValue>
+			</hexString>
+		</commonElement>
+		<commonElement hideFlag="true" name="MagicCookie">
+			<hexString name="MagicCookie" minLength="8" maxLength="8">
+				<defaultValue>2112a442</defaultValue>
+			</hexString>
+		</commonElement>
+		<commonElement hideFlag="true" name="TransactionId">
+			<hexString name="TransactionId" minLength="24" maxLength="24"/>
+		</commonElement>
+		<commonElement hideFlag="true" name="normalResponse">
+			<protocolObjectSequence hideFlag="true">
+				<informationElementRef name="XOR-MAPPED-ADDRESS">
+					<ref>xor-mapped-address</ref>
+				</informationElementRef>
+			</protocolObjectSequence>
+		</commonElement>	
+		<commonElement hideFlag="true" name="errorResponse">
+			<protocolObjectSet name="errorResponse" hideFlag="true" minOccurs="1" maxOccurs="2">
+				<informationElementRef name="ERROR-CODE">
+					<ref>error-code</ref>
+				</informationElementRef>
+				<informationElementRef name="UNKNOWN-ATTRIBUTES" madantory="false">
+					<ref>unknown-attributes</ref>
+     					<!--<conditions>
+     						<AND>
+     							<condition>
+								<restriction base="IceMessage_res.messageInformationElements.sequence.mess.ce__Message_Res.ResponseChoice.1.ErrorResponse.ce__errorResponse.errorResponse.0.ERROR-CODE.ie__error-code.sequence.VALUE.ce__ERROR-CODE-VALUE.sequence.RESERVED-CLASS">
+									<pattern value="000004" />		
+								</restriction>
+							</condition>
+     							<condition>
+								<restriction base="IceMessage_res.messageInformationElements.sequence.mess.ce__Message_Res.ResponseChoice.1.ErrorResponse.ce__errorResponse.errorResponse.0.ERROR-CODE.ie__error-code.sequence.VALUE.ce__ERROR-CODE-VALUE.sequence.Number">
+									<pattern value="14" />
+								</restriction>
+							</condition>
+						</AND>
+					</conditions>-->
+				</informationElementRef>
+			</protocolObjectSet>
+		</commonElement>	
+		<commonElement hideFlag="true" name="XOR-MAPPED-ADDRESS-VALUE">
+			<protocolObjectSequence hideFlag="true">
+				<hexString name="RESERVED" minLength="2" maxLength="2" constFlag="true">
+					<defaultValue>00</defaultValue>
+				</hexString>
+				<hexString name="Family" mimLength="2" maxLength="2">
+					<defaultValue>00</defaultValue>
+				</hexString>
+				<!--<characterString name="X-Port" minLength="1" maxLength="unbounded" rxValuePattern="\$\$\{xport\(([0-9]|[a-f]|[A-F]){1,2}\)\}">
+					<defaultValue>$${xport(1)}</defaultValue>
+				</characterString>-->
+				<!--<characterString name="X-Port" minLength="2" maxLength="unbounded" rxValuePattern="^\$\$EXPR\{xport\(([0-9a-fA-F]){1,2}\)\}$">
+					<defaultValue>$${xport(10)}</defaultValue>
+				</characterString>-->
+				<hexString minLength="2" maxLength="unbounded" name="X-Port" mandatory="false">
+					<defaultValue>$${xport(0F)}</defaultValue>
+				</hexString>
+				<protocolObjectChoice name="X-Address">
+					<protocolObjectAsn1>
+						<!--<characterString name="X-Address-IPV6" minLength="1" maxLength="unbounded" rxValuePattern="^\$\$EXPR\{xipv6\(&quot;([0-9]|[a-f]|[A-F]){1,}&quot;\,&quot;([0-9]|[a-f]|[A-F]){1,}&quot;\)\}$" mandatory="false">
+							<defaultValue>$${xipv6("000F000E000D000C000B000A00090008","000011")}</defaultValue>
+						</characterString>-->
+						<hexString minLength="2" maxLength="unbounded" name="X-Address-IPV6" mandatory="false">
+							<defaultValue>$$EXPR{xipv6("000F:000E:000D:000C:000B:000A:0009:0008",  "000000000000000000000111")}</defaultValue>
+						</hexString>
+					</protocolObjectAsn1>
+					<protocolObjectAsn1>
+						<!--<characterString name="X-Address-IPV4" minLength="1" maxLength="unbounded" mandatory="false" rxValuePattern="\$\$EXPR\{xipv4\(([0-9]|[a-f]|[A-F]|\.){1,}\)\}$">
+							<defaultValue>$${xipv4(0F.0E.0D.0C)}</defaultValue>
+						</characterString>-->
+						<hexString minLength="2" maxLength="unbounded" name="X-Address-IPV4" mandatory="false">
+							<defaultValue>$$EXPR{xipv4("2.2.3.4")}</defaultValue>	
+						</hexString>
+					</protocolObjectAsn1>
+				</protocolObjectChoice>
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement hideFlag="true" name="ERROR-CODE-VALUE">
+			<protocolObjectSequence hideFlag="true">
+				<hexString name="RESERVED-CLASS" minLength="6" maxLength="6" minInclusive="0" maxInclusive="7">
+					<defaultValue>00000F</defaultValue>
+				</hexString>
+				<hexString name="Number" mimLength="2" maxLength="2">
+					<defaultValue>1F</defaultValue>
+				</hexString>
+				<characterString name="Reason" minLength="0" maxLength="32">
+					<defaultValue>reasonAB</defaultValue>
+				</characterString>
+			</protocolObjectSequence>
+		</commonElement>
+		<commonElement hideFlag="true" name="UNKNOWN-ATTRIBUTES-VALUE">
+			<protocolObjectSequence hideFlag="true">
+				<hexString name="ATTRIBUTE1" minLength="4" maxLength="4">
+					<defaultValue>F001</defaultValue>
+				</hexString>
+				<hexString name="ATTRIBUTE2" minLength="4" maxLength="4">
+					<defaultValue>F002</defaultValue>
+				</hexString>
+				<hexString name="ATTRIBUTE3" minLength="4" maxLength="4">
+					<defaultValue>F003</defaultValue>
+				</hexString>
+				<hexString name="ATTRIBUTE4" minLength="4" maxLength="4">
+					<defaultValue>F004</defaultValue>
+				</hexString>
+			</protocolObjectSequence>
+		</commonElement>
+	</commonElements>
+        
+	<decoderInfo>
+		<msgDecoderInfo>
+			<msgTypePosition>0</msgTypePosition>
+		</msgDecoderInfo>
+           <ieDecoderInfo />
+	</decoderInfo>
+        <encoderInfo>
+           <ieEncoderInfo>
+                    <lengthOfLengthField>1</lengthOfLengthField>
+                    <protocolObjectType>HexString</protocolObjectType>
+            </ieEncoderInfo>
+	   <className>pegasus.ptp.protocolDescription.ice.encoderInfo.CeEncoderInfoIce</className> 
+        </encoderInfo>   
+</protocolDescription>

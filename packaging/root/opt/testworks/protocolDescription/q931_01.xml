@@ -1,0 +1,725 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v5 rel. 4 U (http://www.xmlspy.com) by Giselher Karl Eckel (Siemens AG) -->
+<protocolDescription xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../pegcore/pegasus/common/ptp/protocolDescription/xmlSchema/protocolDescription.xsd" type="Q.931">
+    <protocolMessages>
+        <protocolMessage type="01" name="DL_DATA_REQ">
+            <header>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="MessageID" minLength="2" maxLength="2" mandatory="true" constFlag="true">
+                        <defaultValue>01</defaultValue>
+                    </hexString>
+                </protocolObjectSequence>
+            </header>
+            <messageInformationElements>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="Value" minLength="0" maxLength="unbounded" mandatory="false" constFlag="false">
+                        <className>pegasus.ptp.protocolDescription.sccp.util.SCCPHexString</className>
+                    </hexString>
+                </protocolObjectSequence>
+            </messageInformationElements>
+        </protocolMessage>
+        <protocolMessage type="02" name="DL_DATA_IND">
+            <header>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="MessageID" minLength="2" maxLength="2" mandatory="true" constFlag="true">
+                        <defaultValue>02</defaultValue>
+                    </hexString>
+                </protocolObjectSequence>
+            </header>
+            <messageInformationElements>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="Value" minLength="0" maxLength="unbounded" mandatory="false" constFlag="false">
+                        <className>pegasus.ptp.protocolDescription.sccp.util.SCCPHexString</className>
+                    </hexString>
+                </protocolObjectSequence>
+            </messageInformationElements>
+        </protocolMessage>
+        <protocolMessage type="03" name="DL_UNITDATA_REQ">
+            <header>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="MessageID" minLength="2" maxLength="2" mandatory="true" constFlag="true">
+                        <defaultValue>03</defaultValue>
+                    </hexString>
+                </protocolObjectSequence>
+            </header>
+            <messageInformationElements>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="Value" minLength="0" maxLength="unbounded" mandatory="false" constFlag="false">
+                        <className>pegasus.ptp.protocolDescription.sccp.util.SCCPHexString</className>
+                    </hexString>
+                </protocolObjectSequence>
+            </messageInformationElements>
+        </protocolMessage>
+        <protocolMessage type="04" name="DL_UNITDATA_IND">
+            <header>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="MessageID" minLength="2" maxLength="2" mandatory="true" constFlag="true">
+                        <defaultValue>04</defaultValue>
+                    </hexString>
+                </protocolObjectSequence>
+            </header>
+            <messageInformationElements>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="Value" minLength="0" maxLength="unbounded" mandatory="false" constFlag="false">
+                        <className>pegasus.ptp.protocolDescription.sccp.util.SCCPHexString</className>
+                    </hexString>
+                </protocolObjectSequence>
+            </messageInformationElements>
+        </protocolMessage>
+        <protocolMessage type="05" name="DL_ESTABLISH_REQ">
+            <header>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="MessageID" minLength="2" maxLength="2" mandatory="true" constFlag="true">
+                        <defaultValue>05</defaultValue>
+                    </hexString>
+                </protocolObjectSequence>
+            </header>
+            <messageInformationElements>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="Value" minLength="0" maxLength="unbounded" mandatory="false" constFlag="false">
+                        <className>pegasus.ptp.protocolDescription.sccp.util.SCCPHexString</className>
+                    </hexString>
+                </protocolObjectSequence>
+            </messageInformationElements>
+        </protocolMessage>
+        <protocolMessage type="06" name="DL_ESTABLISH_CONF">
+            <header>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="MessageID" minLength="2" maxLength="2" mandatory="true" constFlag="true">
+                        <defaultValue>06</defaultValue>
+                    </hexString>
+                </protocolObjectSequence>
+            </header>
+            <messageInformationElements>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="Value" minLength="0" maxLength="unbounded" mandatory="false" constFlag="false">
+                        <className>pegasus.ptp.protocolDescription.sccp.util.SCCPHexString</className>
+                    </hexString>
+                </protocolObjectSequence>
+            </messageInformationElements>
+        </protocolMessage>
+        <protocolMessage type="07" name="DL_ESTABLISH_IND">
+            <header>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="MessageID" minLength="2" maxLength="2" mandatory="true" constFlag="true">
+                        <defaultValue>07</defaultValue>
+                    </hexString>
+                </protocolObjectSequence>
+            </header>
+            <messageInformationElements>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="Value" minLength="0" maxLength="unbounded" mandatory="false" constFlag="false">
+                        <className>pegasus.ptp.protocolDescription.sccp.util.SCCPHexString</className>
+                    </hexString>
+                </protocolObjectSequence>
+            </messageInformationElements>
+        </protocolMessage>
+        <protocolMessage type="08" name="DL_RELEASE_REQ">
+            <header>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="MessageID" minLength="2" maxLength="2" mandatory="true" constFlag="true">
+                        <defaultValue>08</defaultValue>
+                    </hexString>
+                </protocolObjectSequence>
+            </header>
+            <messageInformationElements>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="Value" minLength="0" maxLength="unbounded" mandatory="false" constFlag="false">
+                        <className>pegasus.ptp.protocolDescription.sccp.util.SCCPHexString</className>
+                    </hexString>
+                </protocolObjectSequence>
+            </messageInformationElements>
+        </protocolMessage>
+        <protocolMessage type="09" name="DL_RELEASE_CONF">
+            <header>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="MessageID" minLength="2" maxLength="2" mandatory="true" constFlag="true">
+                        <defaultValue>09</defaultValue>
+                    </hexString>
+                </protocolObjectSequence>
+            </header>
+            <messageInformationElements>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="Value" minLength="0" maxLength="unbounded" mandatory="false" constFlag="false">
+                        <className>pegasus.ptp.protocolDescription.sccp.util.SCCPHexString</className>
+                    </hexString>
+                </protocolObjectSequence>
+            </messageInformationElements>
+        </protocolMessage>
+        <protocolMessage type="0a" name="DL_RELEASE_IND">
+            <header>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="MessageID" minLength="2" maxLength="2" mandatory="true" constFlag="true">
+                        <defaultValue>0a</defaultValue>
+                    </hexString>
+                </protocolObjectSequence>
+            </header>
+            <messageInformationElements>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="Value" minLength="0" maxLength="unbounded" mandatory="false" constFlag="false">
+                        <className>pegasus.ptp.protocolDescription.sccp.util.SCCPHexString</className>
+                    </hexString>
+                </protocolObjectSequence>
+            </messageInformationElements>
+        </protocolMessage>
+        <protocolMessage type="f0" name="Application Server Process Maintenance Message">
+            <header>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="MessageID" minLength="2" maxLength="2" mandatory="true" constFlag="true">
+                        <defaultValue>F0</defaultValue>
+                    </hexString>
+                </protocolObjectSequence>
+            </header>
+            <messageInformationElements>
+                <protocolObjectSequence hideFlag="true">
+                    <protocolObjectEnumeration name="ControlMethod" numberOfBits="8" mandatory="true">
+                        <defaultValue>1</defaultValue>
+                        <enumerationEntry>
+                            <numericValue>1</numericValue>
+                            <stringRepresentation>ASPUP</stringRepresentation>
+                        </enumerationEntry>
+                        <enumerationEntry>
+                            <numericValue>2</numericValue>
+                            <stringRepresentation>ASPDOWN</stringRepresentation>
+                        </enumerationEntry>
+                    </protocolObjectEnumeration>
+                </protocolObjectSequence>
+            </messageInformationElements>
+        </protocolMessage>
+        <protocolMessage type="f1" name="Application Server Process Traffic Maintenance Message">
+            <header>
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="MessageID" minLength="2" maxLength="2" mandatory="true" constFlag="true">
+                        <defaultValue>F1</defaultValue>
+                    </hexString>
+                </protocolObjectSequence>
+            </header>
+            <messageInformationElements>
+                <protocolObjectSequence hideFlag="true">
+                    <protocolObjectEnumeration name="ControlMethod" numberOfBits="8" mandatory="true">
+                        <defaultValue>1</defaultValue>
+                        <enumerationEntry>
+                            <numericValue>1</numericValue>
+                            <stringRepresentation>ASPAC</stringRepresentation>
+                        </enumerationEntry>
+                        <enumerationEntry>
+                            <numericValue>2</numericValue>
+                            <stringRepresentation>ASPIA</stringRepresentation>
+                        </enumerationEntry>
+                    </protocolObjectEnumeration>
+                </protocolObjectSequence>
+            </messageInformationElements>
+        </protocolMessage>
+        <protocolMessage type="e0" name="LAPD-SABME">
+            <messageInformationElements hideFlag="true">
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="Logic Type" minLength="2" maxLength="2" mandatory="true" constFlag="true">
+                        <defaultValue>e0</defaultValue>
+                    </hexString>
+                    <commonElementRef name="Address Field" mandatory="true">
+                        <ref>AddressField</ref>
+                    </commonElementRef>
+                    <hexString name="Control Field" minLength="2" maxLength="2" mandatory="true" constFlag="false">
+                        <defaultValue>7f</defaultValue>
+                    </hexString>
+                </protocolObjectSequence>
+            </messageInformationElements>
+        </protocolMessage>
+        <protocolMessage type="e1" name="LAPD-UA">
+            <messageInformationElements hideFlag="true">
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="Logic Type" minLength="2" maxLength="2" mandatory="true" constFlag="true">
+                        <defaultValue>e1</defaultValue>
+                    </hexString>
+                    <commonElementRef name="Address Field" mandatory="true">
+                        <ref>AddressField</ref>
+                    </commonElementRef>
+                    <hexString name="Control Field" minLength="2" maxLength="2" mandatory="true" constFlag="false">
+                        <defaultValue>18</defaultValue>
+                    </hexString>
+                </protocolObjectSequence>
+            </messageInformationElements>
+        </protocolMessage>
+        <protocolMessage type="e2" name="LAPD-RR">
+            <messageInformationElements hideFlag="true">
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="Logic Type" minLength="2" maxLength="2" mandatory="true" constFlag="true">
+                        <defaultValue>e2</defaultValue>
+                    </hexString>
+                    <commonElementRef name="Address Field" mandatory="true">
+                        <ref>AddressField</ref>
+                    </commonElementRef>
+                    <hexString name="Control Field" minLength="4" maxLength="4" mandatory="true" constFlag="false">
+                        <defaultValue>0101</defaultValue>
+                    </hexString>
+                </protocolObjectSequence>
+            </messageInformationElements>
+        </protocolMessage>
+        <protocolMessage type="e5" name="LAPD-DISC(receive verification)">
+            <messageInformationElements hideFlag="true">
+                <protocolObjectSequence hideFlag="true">
+                    <hexString name="Logic Type" minLength="2" maxLength="2" mandatory="true" constFlag="true">
+                        <defaultValue>e5</defaultValue>
+                    </hexString>
+                    <commonElementRef name="Address Field" mandatory="true">
+                        <ref>AddressField</ref>
+                    </commonElementRef>
+                    <hexString name="Control Field" minLength="2" maxLength="4" mandatory="true" constFlag="false">
+                        <defaultValue>0101</defaultValue>
+                    </hexString>
+                </protocolObjectSequence>
+            </messageInformationElements>
+        </protocolMessage>
+    </protocolMessages>
+    <informationElements>
+        <informationElement format="TALV" hideFlag="true" iei="01" name="CAU">
+            <protocolObjectSequence hideFlag="true">
+                <hexString name="Type" minLength="2" maxLength="2" constFlag="true">
+                    <defaultValue>01</defaultValue>
+                </hexString>
+                <commonElementRef name="Compatibility">
+                    <ref>CIF</ref>
+                </commonElementRef>
+                <hexString name="Length" minLength="2" maxLength="2"  ieLength="true"/>
+                <protocolObjectSequence name="Value">
+                    <commonElementRef name="CauseValue">
+                        <ref>CV</ref>
+                    </commonElementRef>
+                    <commonElementRef name="Diag">
+                        <ref>Diag</ref>
+                    </commonElementRef>
+                </protocolObjectSequence>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TALV" hideFlag="true" iei="02" name="CEID">
+            <protocolObjectSequence name="CEID" hideFlag="true">
+                <hexString name="Type" minLength="2" maxLength="2" constFlag="true">
+                    <defaultValue>02</defaultValue>
+                </hexString>
+                <commonElementRef name="Compatibility">
+                    <ref>CIF</ref>
+                </commonElementRef>
+                <hexString name="Length" minLength="2" maxLength="2" constFlag="true">
+                    <defaultValue>05</defaultValue>
+                </hexString>
+                <protocolObjectSequence name="Value">
+                    <commonElementRef name="PID" hideFlag="true">
+                        <ref>PID</ref>
+                    </commonElementRef>
+                    <commonElementRef name="CID" hideFlag="true">
+                        <ref>CID</ref>
+                    </commonElementRef>
+                </protocolObjectSequence>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TALV" hideFlag="true" iei="03" name="ESEA">
+                   <!--<className>pegasus.ptp.protocolDescription.sccp.util.SCCPInformationElement</className>-->
+            <protocolObjectSequence hideFlag="true">
+                <hexString name="Type" minLength="2" maxLength="2" constFlag="true">
+                    <defaultValue>03</defaultValue>
+                </hexString>
+                <commonElementRef name="Compatibility">
+                    <ref>CIF</ref>
+                </commonElementRef>
+                <hexString name="Length" minLength="2" maxLength="2" ieLength="true"/>
+                <protocolObjectSequence name="Value" hideFlag="true">
+                    <commonElementRef name="NOA">
+                        <ref>NOA</ref>
+                    </commonElementRef>
+                    <commonElementRef name="EA">
+                        <ref>EA</ref>
+                    </commonElementRef>
+                </protocolObjectSequence>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TALV" hideFlag="true" iei="04" name="NSEA">
+            <protocolObjectSequence hideFlag="true">
+                <hexString name="Type" minLength="2" maxLength="2" constFlag="true">
+                    <defaultValue>04</defaultValue>
+                </hexString>
+                <commonElementRef name="Compatibility">
+                    <ref>CIF</ref>
+                </commonElementRef>
+                <hexString name="Length" minLength="2" maxLength="2" ieLength="true"/>
+                <protocolObjectSequence name="Value">
+                    <commonElementRef name="NA" hideFlag="true">
+                        <ref>NA</ref>
+                    </commonElementRef>
+                </protocolObjectSequence>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TALV" hideFlag="true" iei="05" name="ALC">
+            <protocolObjectSequence hideFlag="true">
+                <hexString name="Type" minLength="2" maxLength="2" constFlag="true">
+                    <defaultValue>05</defaultValue>
+                </hexString>
+                <commonElementRef name="Compatibility">
+                    <ref>CIF</ref>
+                </commonElementRef>
+                <hexString name="Length" minLength="2" maxLength="2" ieLength="true"/>
+                <protocolObjectSequence name="Value">
+                    <commonElementRef name="MaximumBitRate">
+                        <ref>CSBR</ref>
+                    </commonElementRef>
+                    <commonElementRef name="AverageBitRate">
+                        <ref>CSBR</ref>
+                    </commonElementRef>
+                    <commonElementRef name="MaximumSize">
+                        <ref>CSS</ref>
+                    </commonElementRef>
+                    <commonElementRef name="AverageSize">
+                        <ref>CSS</ref>
+                    </commonElementRef>
+                </protocolObjectSequence>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TALV" hideFlag="true" iei="06" name="OSAID">
+            <protocolObjectSequence hideFlag="true">
+                <hexString name="Type" minLength="2" maxLength="2" constFlag="true">
+                    <defaultValue>06</defaultValue>
+                </hexString>
+                <commonElementRef name="Compatibility">
+                    <ref>CIF</ref>
+                </commonElementRef>
+                <hexString name="Length" minLength="2" maxLength="2" constFlag="true">
+                    <defaultValue>04</defaultValue>
+                </hexString>
+                <protocolObjectSequence name="Value">
+                    <commonElementRef name="OSAID" hideFlag="true">
+                        <ref>SAID</ref>
+                    </commonElementRef>
+                </protocolObjectSequence>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TALV" hideFlag="true" iei="07" name="SUGR">
+            <protocolObjectSequence hideFlag="true">
+                <hexString name="Type" minLength="2" maxLength="2" constFlag="true">
+                    <defaultValue>07</defaultValue>
+                </hexString>
+                <commonElementRef name="Compatibility">
+                    <ref>CIF</ref>
+                </commonElementRef>
+                <hexString name="Length" minLength="2" maxLength="2" ieLength="true"/>
+                <protocolObjectSequence name="Value">
+                    <commonElementRef name="SUGR" hideFlag="true">
+                        <ref>SUGR</ref>
+                    </commonElementRef>
+                </protocolObjectSequence>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TALV" hideFlag="true" iei="08" name="SUT">
+            <protocolObjectSequence hideFlag="true">
+                <hexString name="Type" minLength="2" maxLength="2" constFlag="true">
+                    <defaultValue>08</defaultValue>
+                </hexString>
+                <commonElementRef name="Compatibility">
+                    <ref>CIF</ref>
+                </commonElementRef>
+                <hexString name="Length" minLength="2" maxLength="2" ieLength="true"/>
+                <protocolObjectSequence name="Value">
+                    <commonElementRef name="SUT" hideFlag="true">
+                        <ref>SUT</ref>
+                    </commonElementRef>
+                </protocolObjectSequence>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TALV" hideFlag="true" iei="09" name="SSIA">
+            <protocolObjectSequence hideFlag="true">
+                <hexString name="Type" minLength="2" maxLength="2" constFlag="true">
+                    <defaultValue>09</defaultValue>
+                </hexString>
+                <commonElementRef name="Compatibility">
+                    <ref>CIF</ref>
+                </commonElementRef>
+                <hexString name="Length" minLength="2" maxLength="2" ieLength="true"/>
+                <protocolObjectSequence name="Value">
+                    <commonElementRef name="AS">
+                        <ref>AS</ref>
+                    </commonElementRef>
+                    <commonElementRef name="OUI" hideFlag="true">
+                        <ref>OUI</ref>
+                    </commonElementRef>
+                </protocolObjectSequence>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TALV" hideFlag="true" iei="0a" name="SSIM">
+            <protocolObjectSequence hideFlag="true">
+                <hexString name="Type" minLength="2" maxLength="2" constFlag="true">
+                    <defaultValue>0a</defaultValue>
+                </hexString>
+                <commonElementRef name="Compatibility">
+                    <ref>CIF</ref>
+                </commonElementRef>
+                <hexString name="Length" minLength="2" maxLength="2" ieLength="true"/>
+                <protocolObjectSequence name="Value">
+                    <commonElementRef name="MRS" hideFlag="true">
+                        <ref>MRS</ref>
+                    </commonElementRef>
+                </protocolObjectSequence>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TALV" hideFlag="true" iei="0b" name="SSISA">
+            <protocolObjectSequence hideFlag="true">
+                <hexString name="Type" minLength="2" maxLength="2" constFlag="true">
+                    <defaultValue>0b</defaultValue>
+                </hexString>
+                <commonElementRef name="Compatibility">
+                    <ref>CIF</ref>
+                </commonElementRef>
+                <hexString name="Length" minLength="2" maxLength="2" ieLength="true"/>
+                <protocolObjectSequence name="Value">
+                    <commonElementRef name="SADT" hideFlag="true">
+                        <ref>SADT</ref>
+                    </commonElementRef>
+                </protocolObjectSequence>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TALV" hideFlag="true" iei="0c" name="SSISU">
+            <protocolObjectSequence hideFlag="true">
+                <hexString name="Type" minLength="2" maxLength="2" constFlag="true">
+                    <defaultValue>0c</defaultValue>
+                </hexString>
+                <commonElementRef name="Compatibility">
+                    <ref>CIF</ref>
+                </commonElementRef>
+                <hexString name="Length" minLength="2" maxLength="2" ieLength="true"/>
+                <protocolObjectSequence name="Value">
+                    <commonElementRef name="SUDT" hideFlag="true">
+                        <ref>SUDT</ref>
+                    </commonElementRef>
+                </protocolObjectSequence>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TALV" hideFlag="true" iei="0d" name="TCI">
+            <protocolObjectSequence hideFlag="true">
+                <hexString name="Type" minLength="2" maxLength="2" constFlag="true">
+                    <defaultValue>0d</defaultValue>
+                </hexString>
+                <commonElementRef name="Compatibility">
+                    <ref>CIF</ref>
+                </commonElementRef>
+                <hexString name="Length" minLength="2" maxLength="2" constFlag="true">
+                    <defaultValue>00</defaultValue>
+                </hexString>
+                <protocolObjectSequence name="Value" hideFlag="true"/>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TALV" hideFlag="true" iei="10" name="PT">
+            <protocolObjectSequence hideFlag="true">
+                <hexString name="Type" minLength="2" maxLength="2" constFlag="true">
+                    <defaultValue>10</defaultValue>
+                </hexString>
+                <commonElementRef name="Compatibility">
+                    <ref>CIF</ref>
+                </commonElementRef>
+                <hexString name="Length" minLength="2" maxLength="2" constFlag="true">
+                    <defaultValue>01</defaultValue>
+                </hexString>
+                <protocolObjectSequence name="Value">
+                    <commonElementRef name="PQC" hideFlag="true">
+                        <ref>PQC</ref>
+                    </commonElementRef>
+                </protocolObjectSequence>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TALV" hideFlag="true" iei="16" name="SSIAE">
+            <protocolObjectSequence hideFlag="true">
+                <hexString name="Type" minLength="2" maxLength="2" constFlag="true">
+                    <defaultValue>16</defaultValue>
+                </hexString>
+                <commonElementRef name="Compatibility">
+                    <ref>CIF</ref>
+                </commonElementRef>
+                <hexString name="Length" minLength="2" maxLength="2" ieLength="true"/>
+                <protocolObjectSequence name="Value">
+                    <commonElementRef name="AES">
+                        <ref>AES</ref>
+                    </commonElementRef>
+                    <commonElementRef name="OUI" hideFlag="true">
+                        <ref>OUI</ref>
+                    </commonElementRef>
+                </protocolObjectSequence>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TALV" hideFlag="true" iei="17" name="SSIME">
+            <protocolObjectSequence hideFlag="true">
+                <hexString name="Type" minLength="2" maxLength="2" constFlag="true">
+                    <defaultValue>17</defaultValue>
+                </hexString>
+                <commonElementRef name="Compatibility">
+                    <ref>CIF</ref>
+                </commonElementRef>
+                <hexString name="Length" minLength="2" maxLength="2" ieLength="true"/>
+                <protocolObjectSequence name="Value">
+                    <commonElementRef name="MRES" hideFlag="true">
+                        <ref>MRES</ref>
+                    </commonElementRef>
+                </protocolObjectSequence>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TALV" hideFlag="true" iei="12" name="PSSIAE">
+            <protocolObjectSequence hideFlag="true">
+                <hexString name="Type" minLength="2" maxLength="2" constFlag="true">
+                    <defaultValue>12</defaultValue>
+                </hexString>
+                <commonElementRef name="Compatibility">
+                    <ref>CIF</ref>
+                </commonElementRef>
+                <hexString name="Length" minLength="2" maxLength="2" ieLength="true"/>
+                <protocolObjectSequence name="Value">
+                    <commonElementRef name="AES">
+                        <ref>AES</ref>
+                    </commonElementRef>
+                    <commonElementRef name="OUI" hideFlag="true">
+                        <ref>OUI</ref>
+                    </commonElementRef>
+                </protocolObjectSequence>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TALV" hideFlag="true" iei="13" name="PSSIME">
+            <protocolObjectSequence hideFlag="true">
+                <hexString name="Type" minLength="2" maxLength="2" constFlag="true">
+                    <defaultValue>13</defaultValue>
+                </hexString>
+                <commonElementRef name="Compatibility">
+                    <ref>CIF</ref>
+                </commonElementRef>
+                <hexString name="Length" minLength="2" maxLength="2" ieLength="true"/>
+                <protocolObjectSequence name="Value">
+                    <commonElementRef name="MRES" hideFlag="true">
+                        <ref>MRES</ref>
+                    </commonElementRef>
+                </protocolObjectSequence>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TALV" hideFlag="true" iei="11" name="PLC">
+            <protocolObjectSequence hideFlag="true">
+                <hexString name="Type" minLength="2" maxLength="2" constFlag="true">
+                    <defaultValue>11</defaultValue>
+                </hexString>
+                <commonElementRef name="Compatibility">
+                    <ref>CIF</ref>
+                </commonElementRef>
+                <hexString name="Length" minLength="2" maxLength="2" ieLength="true"/>
+                <protocolObjectSequence name="Value">
+                    <commonElementRef name="MaximumBitRate">
+                        <ref>CSBR</ref>
+                    </commonElementRef>
+                    <commonElementRef name="AverageBitRate">
+                        <ref>CSBR</ref>
+                    </commonElementRef>
+                    <commonElementRef name="MaximumSize">
+                        <ref>CSS</ref>
+                    </commonElementRef>
+                    <commonElementRef name="AverageSize">
+                        <ref>CSS</ref>
+                    </commonElementRef>
+                </protocolObjectSequence>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TALV" hideFlag="true" iei="0e" name="MSLC">
+            <protocolObjectSequence hideFlag="true">
+                <hexString name="Type" minLength="2" maxLength="2" constFlag="true">
+                    <defaultValue>0e</defaultValue>
+                </hexString>
+                <commonElementRef name="Compatibility">
+                    <ref>CIF</ref>
+                </commonElementRef>
+                <hexString name="Length" minLength="2" maxLength="2" constFlag="true">
+                    <defaultValue>00</defaultValue>
+                </hexString>
+                <protocolObjectSequence name="Value" hideFlag="true"/>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TALV" hideFlag="true" iei="0f" name="MSSSI">
+            <protocolObjectSequence hideFlag="true">
+                <hexString name="Type" minLength="2" maxLength="2" constFlag="true">
+                    <defaultValue>0f</defaultValue>
+                </hexString>
+                <commonElementRef name="Compatibility">
+                    <ref>CIF</ref>
+                </commonElementRef>
+                <hexString name="Length" minLength="2" maxLength="2" constFlag="true">
+                    <defaultValue>00</defaultValue>
+                </hexString>
+                <protocolObjectSequence name="Value" hideFlag="true"/>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TALV" hideFlag="true" iei="14" name="SUCI">
+            <protocolObjectSequence hideFlag="true">
+                <hexString name="Type" minLength="2" maxLength="2" constFlag="true">
+                    <defaultValue>14</defaultValue>
+                </hexString>
+                <commonElementRef name="Compatibility">
+                    <ref>CIF</ref>
+                </commonElementRef>
+                <hexString name="Length" minLength="2" maxLength="2" ieLength="true"/>
+                <protocolObjectSequence name="Value">
+                    <commonElementRef name="SUCID" hideFlag="true">
+                        <ref>SUCID</ref>
+                    </commonElementRef>
+                </protocolObjectSequence>
+            </protocolObjectSequence>
+        </informationElement>
+        <informationElement format="TALV" hideFlag="true" iei="ff" name="UNKNOWNPARAMETER">
+            <protocolObjectSequence hideFlag="true">
+                <hexString name="Type" minLength="2" maxLength="2" constFlag="true">
+                    <defaultValue>ff</defaultValue>
+                </hexString>
+                <commonElementRef name="Compatibility">
+                    <ref>CIF</ref>
+                </commonElementRef>
+                <hexString name="Length" minLength="2" maxLength="2" constFlag="true">
+                    <defaultValue>01</defaultValue>
+                </hexString>
+                <hexString name="Payload" minLength="2" maxLength="2" constFlag="true">
+                    <defaultValue>01</defaultValue>
+                </hexString>
+            </protocolObjectSequence>
+        </informationElement>
+    </informationElements>
+    <commonElements>
+        <commonElement hideFlag="true" name="CIF" mandatory="true">
+            <protocolObjectSequence name="CIF" hideFlag="true">
+                <commonElementRef name="PassOnNotPossible">
+                    <ref>CIF_Subfield</ref>
+                </commonElementRef>
+                <commonElementRef name="GeneralAction">
+                    <ref>CIF_Subfield</ref>
+                </commonElementRef>
+            </protocolObjectSequence>
+        </commonElement>
+        <commonElement hideFlag="true" name="AddressField">
+            <protocolObjectSequence hideFlag="true">
+                <bitString hideFlag="true" name="SAPI" minLength="6" maxLength="6">
+                    <defaultValue>000000</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="C/R" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="EA1" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="TEI" minLength="7" maxLength="7">
+                    <defaultValue>0000000</defaultValue>
+                </bitString>
+                <bitString hideFlag="true" name="EAI" minLength="1" maxLength="1">
+                    <defaultValue>0</defaultValue>
+                </bitString>
+            </protocolObjectSequence>
+        </commonElement>
+    </commonElements>
+    <decoderInfo>
+        <msgDecoderInfo>
+            <msgTypePosition>0</msgTypePosition>
+        </msgDecoderInfo>
+        <ieDecoderInfo />
+    </decoderInfo>
+    <encoderInfo>
+        <ieEncoderInfo>
+            <lengthOfLengthField>1</lengthOfLengthField>
+            <protocolObjectType>HexString</protocolObjectType>
+        </ieEncoderInfo>
+        <className>pegasus.ptp.protocolDescription.sccp.encoderInfo.CeEncoderInfoSCCP</className>
+    </encoderInfo>
+</protocolDescription>

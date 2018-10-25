@@ -1,0 +1,58 @@
+#!/bin/bash
+export DISPLAY=:1.0
+
+LOGFILE=/var/log/testwork-auto.log
+sudo touch /var/log/testwork-auto.log
+sudo chmod 777 /var/log/testwork-auto.log
+/usr/bin/xhost + 2>&1 >> $LOGFILE
+stopflag=1
+
+case "$1" in
+  start)
+        echo "Start TestWorks automation mode in TCP port 12345..." >> $LOGFILE
+        date >> $LOGFILE
+	/opt/testworks/bin/testworks-auto 0>/dev/null 1>/dev/null 2>/dev/null&
+	;;
+  restart)
+	echo "Restart TestWorks automation mode in TCP port 12345..." >> $LOGFILE
+        date >> $LOGFILE
+	for pid in $( ps aux | grep testworks | grep java | grep "pegasus.PegasusMain -net 12345" |tr -s " "|cut -d " " -f 2) ;
+	do
+	state=`ps aux | grep testworks | grep java | grep "pegasus.PegasusMain -net 12345" | grep $pid | tr -s " "|cut -d " " -f 8`
+	if [ $state == "D+" ]
+	then
+	stopflag=0
+	echo "Get the thread state is D+" >> $LOGFILE
+	elif [ $state == "D" ]
+	then
+	stopflag=0
+	echo "Get the thread state is D" >> $LOGFILE
+	elif [ $state == "Dl" ]
+	then
+	stopflag=0
+	echo "Get the thread state is Dl" >> $LOGFILE
+	else
+	sudo kill -9 $pid  2>&1 >> $LOGFILE
+	fi
+	done 
+
+	if [ $stopflag == 1 ]
+	then
+	/opt/testworks/bin/testworks-auto 0>/dev/null 1>/dev/null 2>/dev/null&
+	echo "TestWorks restarted"
+	else
+	echo "TestWorks failed"
+	fi
+	;;
+  stop)
+        echo "Stop TestWorks automation mode in TCP port 12345..." >> $LOGFILE
+        date >> $LOGFILE
+	for pid in $( ps aux | grep testworks | grep java | grep "pegasus.PegasusMain -net 12345" |tr -s " "|cut -d " " -f 2) ;
+	do
+	sudo kill -9 $pid  2>&1 >> $LOGFILE
+	done
+	;;
+  *)
+        echo $"Usage: $0 {start|restart|stop}"
+        exit 1
+esac

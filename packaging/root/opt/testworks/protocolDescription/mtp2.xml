@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<protocolDescription xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../protocolDescription.xsd" type="MTP2">
+	<protocolMessages>
+		<protocolMessage type="01" name="DataPacket">
+			<messageInformationElements hideFlag="true">
+ 				<protocolObjectSequence hideFlag="true">
+					<hexString name="RawData" maxLength="unbounded" />
+				</protocolObjectSequence>
+			</messageInformationElements>	
+		</protocolMessage>
+	</protocolMessages>
+	<informationElements/>
+	<commonElements/>
+	<decoderInfo>
+	  <msgDecoderInfo>
+        <className>pegasus.ptp.protocolDescription.sip.decoderInfo.MsgDecoderInfoSIP</className>
+	  </msgDecoderInfo>	
+	  <ieDecoderInfo/>
+	</decoderInfo>
+</protocolDescription>	
